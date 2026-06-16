@@ -1,0 +1,693 @@
+{
+  "generatedAt": "2026-06-16T21:21:59.624Z",
+  "byAreaYear": [
+    {
+      "year": 2019,
+      "area": "Belltown",
+      "occ": 3.61,
+      "spaces": 7.5,
+      "rate": 0.479,
+      "n": 53025181
+    },
+    {
+      "year": 2019,
+      "area": "South Lake Union",
+      "occ": 2.77,
+      "spaces": 8.3,
+      "rate": 0.333,
+      "n": 35822537
+    },
+    {
+      "year": 2019,
+      "area": "First Hill",
+      "occ": 1.02,
+      "spaces": 6.8,
+      "rate": 0.149,
+      "n": 29775708
+    },
+    {
+      "year": 2019,
+      "area": "Commercial Core",
+      "occ": 2.61,
+      "spaces": 6.7,
+      "rate": 0.39,
+      "n": 25083282
+    },
+    {
+      "year": 2019,
+      "area": "Pike-Pine",
+      "occ": 3.67,
+      "spaces": 6.8,
+      "rate": 0.536,
+      "n": 24576812
+    },
+    {
+      "year": 2019,
+      "area": "University District",
+      "occ": 3.98,
+      "spaces": 9.4,
+      "rate": 0.422,
+      "n": 16749686
+    },
+    {
+      "year": 2019,
+      "area": "Uptown",
+      "occ": 4.37,
+      "spaces": 8.2,
+      "rate": 0.532,
+      "n": 14625897
+    },
+    {
+      "year": 2019,
+      "area": "Chinatown/ID",
+      "occ": 2.58,
+      "spaces": 5.9,
+      "rate": 0.441,
+      "n": 14522948
+    },
+    {
+      "year": 2019,
+      "area": "Denny Triangle",
+      "occ": 2.76,
+      "spaces": 6,
+      "rate": 0.461,
+      "n": 14305225
+    },
+    {
+      "year": 2019,
+      "area": "Pioneer Square",
+      "occ": 2.66,
+      "spaces": 7.2,
+      "rate": 0.369,
+      "n": 13572343
+    },
+    {
+      "year": 2019,
+      "area": "Ballard",
+      "occ": 6.09,
+      "spaces": 9.5,
+      "rate": 0.638,
+      "n": 11953661
+    },
+    {
+      "year": 2019,
+      "area": "Capitol Hill",
+      "occ": 4.28,
+      "spaces": 9.6,
+      "rate": 0.444,
+      "n": 9602552
+    },
+    {
+      "year": 2019,
+      "area": "Green Lake",
+      "occ": 3.58,
+      "spaces": 5.4,
+      "rate": 0.665,
+      "n": 4567196
+    },
+    {
+      "year": 2019,
+      "area": "Uptown Triangle",
+      "occ": 7.61,
+      "spaces": 10,
+      "rate": 0.761,
+      "n": 4228053
+    },
+    {
+      "year": 2019,
+      "area": "12th Avenue",
+      "occ": 2.64,
+      "spaces": 5.7,
+      "rate": 0.463,
+      "n": 2817174
+    },
+    {
+      "year": 2019,
+      "area": "Roosevelt",
+      "occ": 3.93,
+      "spaces": 7,
+      "rate": 0.561,
+      "n": 2501686
+    },
+    {
+      "year": 2019,
+      "area": "Fremont",
+      "occ": 3.78,
+      "spaces": 7.1,
+      "rate": 0.533,
+      "n": 2344377
+    },
+    {
+      "year": 2019,
+      "area": "Columbia City",
+      "occ": 3.66,
+      "spaces": 7,
+      "rate": 0.525,
+      "n": 2172218
+    },
+    {
+      "year": 2019,
+      "area": "Westlake Ave N",
+      "occ": 13.1,
+      "spaces": 29.3,
+      "rate": 0.447,
+      "n": 2044627
+    },
+    {
+      "year": 2019,
+      "area": "Cherry Hill",
+      "occ": 1.43,
+      "spaces": 9.5,
+      "rate": 0.151,
+      "n": 1297078
+    },
+    {
+      "year": 2019,
+      "area": "Ballard Locks",
+      "occ": 8.22,
+      "spaces": 28.6,
+      "rate": 0.287,
+      "n": 518203
+    },
+    {
+      "year": 2022,
+      "area": "Belltown",
+      "occ": 3.46,
+      "spaces": 7.4,
+      "rate": 0.47,
+      "n": 45113554
+    },
+    {
+      "year": 2022,
+      "area": "South Lake Union",
+      "occ": 2.73,
+      "spaces": 8.1,
+      "rate": 0.336,
+      "n": 31711825
+    },
+    {
+      "year": 2022,
+      "area": "Uptown",
+      "occ": 2.37,
+      "spaces": 6.7,
+      "rate": 0.356,
+      "n": 28016126
+    },
+    {
+      "year": 2022,
+      "area": "First Hill",
+      "occ": 1.05,
+      "spaces": 6.4,
+      "rate": 0.163,
+      "n": 24116363
+    },
+    {
+      "year": 2022,
+      "area": "Commercial Core",
+      "occ": 2.63,
+      "spaces": 5.8,
+      "rate": 0.456,
+      "n": 21131733
+    },
+    {
+      "year": 2022,
+      "area": "Pike-Pine",
+      "occ": 3.07,
+      "spaces": 6.5,
+      "rate": 0.473,
+      "n": 19182556
+    },
+    {
+      "year": 2022,
+      "area": "University District",
+      "occ": 3.84,
+      "spaces": 8.8,
+      "rate": 0.438,
+      "n": 16094444
+    },
+    {
+      "year": 2022,
+      "area": "Denny Triangle",
+      "occ": 2.27,
+      "spaces": 5.6,
+      "rate": 0.404,
+      "n": 13131079
+    },
+    {
+      "year": 2022,
+      "area": "Chinatown/ID",
+      "occ": 2.21,
+      "spaces": 5.7,
+      "rate": 0.386,
+      "n": 12581280
+    },
+    {
+      "year": 2022,
+      "area": "Pioneer Square",
+      "occ": 3.28,
+      "spaces": 6.9,
+      "rate": 0.478,
+      "n": 12133113
+    },
+    {
+      "year": 2022,
+      "area": "Ballard",
+      "occ": 4.82,
+      "spaces": 9.3,
+      "rate": 0.519,
+      "n": 10675973
+    },
+    {
+      "year": 2022,
+      "area": "Capitol Hill",
+      "occ": 4.2,
+      "spaces": 9.4,
+      "rate": 0.447,
+      "n": 8787272
+    },
+    {
+      "year": 2022,
+      "area": "Uptown Triangle",
+      "occ": 4.34,
+      "spaces": 9.2,
+      "rate": 0.473,
+      "n": 4449160
+    },
+    {
+      "year": 2022,
+      "area": "Green Lake",
+      "occ": 2.88,
+      "spaces": 4.9,
+      "rate": 0.587,
+      "n": 3858413
+    },
+    {
+      "year": 2022,
+      "area": "12th Avenue",
+      "occ": 2.32,
+      "spaces": 5.4,
+      "rate": 0.428,
+      "n": 2509200
+    },
+    {
+      "year": 2022,
+      "area": "Roosevelt",
+      "occ": 2.89,
+      "spaces": 6.8,
+      "rate": 0.423,
+      "n": 2339774
+    },
+    {
+      "year": 2022,
+      "area": "Westlake Ave N",
+      "occ": 10.17,
+      "spaces": 29.4,
+      "rate": 0.346,
+      "n": 2283120
+    },
+    {
+      "year": 2022,
+      "area": "Fremont",
+      "occ": 2.95,
+      "spaces": 6.6,
+      "rate": 0.445,
+      "n": 2083609
+    },
+    {
+      "year": 2022,
+      "area": "Columbia City",
+      "occ": 2.65,
+      "spaces": 6.8,
+      "rate": 0.39,
+      "n": 1936080
+    },
+    {
+      "year": 2022,
+      "area": "Cherry Hill",
+      "occ": 1.33,
+      "spaces": 9.4,
+      "rate": 0.14,
+      "n": 1128960
+    },
+    {
+      "year": 2022,
+      "area": "Ballard Locks",
+      "occ": 9.17,
+      "spaces": 33.3,
+      "rate": 0.275,
+      "n": 390480
+    },
+    {
+      "year": 2023,
+      "area": "Belltown",
+      "occ": 2.89,
+      "spaces": 7.3,
+      "rate": 0.398,
+      "n": 46574180
+    },
+    {
+      "year": 2023,
+      "area": "South Lake Union",
+      "occ": 2.05,
+      "spaces": 8.1,
+      "rate": 0.253,
+      "n": 32582001
+    },
+    {
+      "year": 2023,
+      "area": "Uptown",
+      "occ": 2.22,
+      "spaces": 6.6,
+      "rate": 0.335,
+      "n": 28493383
+    },
+    {
+      "year": 2023,
+      "area": "First Hill",
+      "occ": 0.95,
+      "spaces": 6.4,
+      "rate": 0.149,
+      "n": 24323857
+    },
+    {
+      "year": 2023,
+      "area": "Commercial Core",
+      "occ": 2.42,
+      "spaces": 5.8,
+      "rate": 0.421,
+      "n": 22377198
+    },
+    {
+      "year": 2023,
+      "area": "Pike-Pine",
+      "occ": 2.58,
+      "spaces": 6.3,
+      "rate": 0.408,
+      "n": 18888410
+    },
+    {
+      "year": 2023,
+      "area": "University District",
+      "occ": 3.01,
+      "spaces": 9,
+      "rate": 0.335,
+      "n": 16726270
+    },
+    {
+      "year": 2023,
+      "area": "Denny Triangle",
+      "occ": 1.9,
+      "spaces": 5.5,
+      "rate": 0.343,
+      "n": 14825046
+    },
+    {
+      "year": 2023,
+      "area": "Chinatown/ID",
+      "occ": 1.88,
+      "spaces": 5.7,
+      "rate": 0.33,
+      "n": 12943040
+    },
+    {
+      "year": 2023,
+      "area": "Pioneer Square",
+      "occ": 3.12,
+      "spaces": 6.9,
+      "rate": 0.454,
+      "n": 12537403
+    },
+    {
+      "year": 2023,
+      "area": "Ballard",
+      "occ": 4.17,
+      "spaces": 8.7,
+      "rate": 0.479,
+      "n": 11008097
+    },
+    {
+      "year": 2023,
+      "area": "Capitol Hill",
+      "occ": 3.45,
+      "spaces": 9.1,
+      "rate": 0.377,
+      "n": 8925297
+    },
+    {
+      "year": 2023,
+      "area": "Green Lake",
+      "occ": 2.56,
+      "spaces": 4.9,
+      "rate": 0.528,
+      "n": 4141906
+    },
+    {
+      "year": 2023,
+      "area": "Uptown Triangle",
+      "occ": 4.89,
+      "spaces": 9.4,
+      "rate": 0.517,
+      "n": 3293964
+    },
+    {
+      "year": 2023,
+      "area": "12th Avenue",
+      "occ": 1.99,
+      "spaces": 5.2,
+      "rate": 0.381,
+      "n": 2585595
+    },
+    {
+      "year": 2023,
+      "area": "Roosevelt",
+      "occ": 2.74,
+      "spaces": 6.9,
+      "rate": 0.4,
+      "n": 2382131
+    },
+    {
+      "year": 2023,
+      "area": "Westlake Ave N",
+      "occ": 10.1,
+      "spaces": 29.4,
+      "rate": 0.344,
+      "n": 2346960
+    },
+    {
+      "year": 2023,
+      "area": "Fremont",
+      "occ": 2.69,
+      "spaces": 6.5,
+      "rate": 0.416,
+      "n": 2163444
+    },
+    {
+      "year": 2023,
+      "area": "Columbia City",
+      "occ": 2.55,
+      "spaces": 6.5,
+      "rate": 0.39,
+      "n": 2005200
+    },
+    {
+      "year": 2023,
+      "area": "Cherry Hill",
+      "occ": 1.42,
+      "spaces": 9.4,
+      "rate": 0.152,
+      "n": 1180800
+    },
+    {
+      "year": 2023,
+      "area": "15th Avenue E",
+      "occ": 2.11,
+      "spaces": 4.9,
+      "rate": 0.431,
+      "n": 675574
+    },
+    {
+      "year": 2023,
+      "area": "Ballard Locks",
+      "occ": 9.84,
+      "spaces": 33.2,
+      "rate": 0.297,
+      "n": 420360
+    },
+    {
+      "year": 2024,
+      "area": "Belltown",
+      "occ": 2.67,
+      "spaces": 7.2,
+      "rate": 0.368,
+      "n": 49843453
+    },
+    {
+      "year": 2024,
+      "area": "South Lake Union",
+      "occ": 1.98,
+      "spaces": 8.2,
+      "rate": 0.242,
+      "n": 36085262
+    },
+    {
+      "year": 2024,
+      "area": "Uptown",
+      "occ": 1.86,
+      "spaces": 6.7,
+      "rate": 0.277,
+      "n": 30312253
+    },
+    {
+      "year": 2024,
+      "area": "First Hill",
+      "occ": 0.84,
+      "spaces": 6.2,
+      "rate": 0.135,
+      "n": 26675562
+    },
+    {
+      "year": 2024,
+      "area": "Commercial Core",
+      "occ": 2.37,
+      "spaces": 5.7,
+      "rate": 0.417,
+      "n": 23638794
+    },
+    {
+      "year": 2024,
+      "area": "Pike-Pine",
+      "occ": 2.23,
+      "spaces": 6.3,
+      "rate": 0.352,
+      "n": 20995300
+    },
+    {
+      "year": 2024,
+      "area": "University District",
+      "occ": 2.89,
+      "spaces": 9.2,
+      "rate": 0.314,
+      "n": 18120615
+    },
+    {
+      "year": 2024,
+      "area": "Denny Triangle",
+      "occ": 1.65,
+      "spaces": 5.7,
+      "rate": 0.287,
+      "n": 17708856
+    },
+    {
+      "year": 2024,
+      "area": "Chinatown/ID",
+      "occ": 1.62,
+      "spaces": 5.7,
+      "rate": 0.285,
+      "n": 14169128
+    },
+    {
+      "year": 2024,
+      "area": "Ballard",
+      "occ": 3.34,
+      "spaces": 8.5,
+      "rate": 0.394,
+      "n": 13461646
+    },
+    {
+      "year": 2024,
+      "area": "Pioneer Square",
+      "occ": 2.87,
+      "spaces": 7.3,
+      "rate": 0.395,
+      "n": 13230289
+    },
+    {
+      "year": 2024,
+      "area": "Capitol Hill",
+      "occ": 3,
+      "spaces": 9.1,
+      "rate": 0.33,
+      "n": 9367528
+    },
+    {
+      "year": 2024,
+      "area": "Green Lake",
+      "occ": 2.08,
+      "spaces": 4.7,
+      "rate": 0.445,
+      "n": 6465610
+    },
+    {
+      "year": 2024,
+      "area": "Uptown Triangle",
+      "occ": 4.67,
+      "spaces": 9.3,
+      "rate": 0.504,
+      "n": 3406433
+    },
+    {
+      "year": 2024,
+      "area": "15th Avenue E",
+      "occ": 2.1,
+      "spaces": 4.9,
+      "rate": 0.424,
+      "n": 3400087
+    },
+    {
+      "year": 2024,
+      "area": "12th Avenue",
+      "occ": 1.8,
+      "spaces": 5.3,
+      "rate": 0.343,
+      "n": 2705942
+    },
+    {
+      "year": 2024,
+      "area": "Westlake Ave N",
+      "occ": 6.19,
+      "spaces": 29.2,
+      "rate": 0.212,
+      "n": 2417520
+    },
+    {
+      "year": 2024,
+      "area": "Roosevelt",
+      "occ": 2.24,
+      "spaces": 6.8,
+      "rate": 0.327,
+      "n": 2404307
+    },
+    {
+      "year": 2024,
+      "area": "Fremont",
+      "occ": 2.52,
+      "spaces": 6.3,
+      "rate": 0.4,
+      "n": 2317127
+    },
+    {
+      "year": 2024,
+      "area": "Columbia City",
+      "occ": 2.34,
+      "spaces": 6.4,
+      "rate": 0.366,
+      "n": 2150880
+    },
+    {
+      "year": 2024,
+      "area": "Cherry Hill",
+      "occ": 1.29,
+      "spaces": 9.3,
+      "rate": 0.138,
+      "n": 1267200
+    },
+    {
+      "year": 2024,
+      "area": "Ballard Locks",
+      "occ": 8.71,
+      "spaces": 32.4,
+      "rate": 0.269,
+      "n": 456840
+    }
+  ]
+}

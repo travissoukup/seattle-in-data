@@ -14,6 +14,30 @@ const INVESTIGATIONS = [
     stat: 'a city of readers',
   },
   {
+    href: '/pets',
+    eyebrow: 'Delight',
+    title: 'Seattle by Pet',
+    blurb:
+      'Every licensed pet comes with a species, a breed, a name, and an owner ZIP. It is the rare civic dataset that is pure joy, and quietly a map of the city: Luna is the top name, Seattle is a Labrador town, and French Bulldogs versus pit bulls sort almost perfectly by neighborhood wealth.',
+    stat: 'a breed map of class',
+  },
+  {
+    href: '/wages',
+    eyebrow: 'Accountability',
+    title: 'What Seattle Pays',
+    blurb:
+      'The city publishes every employee’s hourly rate by name, title, and department. It is a clear look at how a public payroll is structured, the spread from bottom to top, and which departments pay near the ceiling. (The overtime-outlier story needs payroll records the open data does not have.)',
+    stat: 'rates, not paychecks',
+  },
+  {
+    href: '/parking',
+    eyebrow: 'Recovery',
+    title: 'The Parking Recovery',
+    blurb:
+      'Seattle logs every paid on-street parking transaction. Comparing 2019 with 2024 inverts the usual narrative: paid demand is down almost everywhere, and the only areas that recovered to pre-pandemic levels are the dense downtown core. The neighborhood business districts kept sliding.',
+    stat: 'downtown came back',
+  },
+  {
     href: '/permits',
     eyebrow: 'Accountability',
     title: 'The Permit Fast Lane (that isn’t)',

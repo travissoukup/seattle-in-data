@@ -5,6 +5,9 @@
  */
 import libraryRaw from '@/lib/generated/library.json';
 import permitsRaw from '@/lib/generated/permits.json';
+import petsRaw from '@/lib/generated/pets.json';
+import wagesRaw from '@/lib/generated/wages.json';
+import parkingRaw from '@/lib/generated/parking.json';
 import { num } from '@/lib/format';
 
 export interface YearUsageRow {
@@ -70,6 +73,99 @@ export interface PermitsData {
 }
 
 export const permits = permitsRaw as unknown as PermitsData;
+
+export interface KeyCount {
+  key: string;
+  n: number;
+}
+export interface ZipBreedRow {
+  zip: string;
+  dogs: number;
+  french: number;
+  pit: number;
+  frenchPer100: number;
+  pitPer100: number;
+}
+export interface PetsData {
+  generatedAt: string;
+  species: KeyCount[];
+  topDogBreeds: KeyCount[];
+  topCatBreeds: KeyCount[];
+  topNames: KeyCount[];
+  topDogNames: KeyCount[];
+  topCatNames: KeyCount[];
+  zipBreed: ZipBreedRow[];
+  totals: { dogTotal: number; frenchTotal: number; pitTotal: number };
+}
+export const pets = petsRaw as unknown as PetsData;
+
+export interface DeptWage {
+  department: string;
+  n: number;
+  median: number;
+  p90: number;
+}
+export interface TitleWage {
+  title: string;
+  n: number;
+  median: number;
+}
+export interface WagesData {
+  generatedAt: string;
+  summary: { n: number; median: number; p90: number; p99: number; max: number };
+  byDept: DeptWage[];
+  topTitles: TitleWage[];
+  dist: Array<{ label: string; n: number }>;
+}
+export const wages = wagesRaw as unknown as WagesData;
+
+export interface ParkingRow {
+  year: number;
+  area: string;
+  /** Mean paid vehicles present per transaction reading. */
+  occ: number;
+  /** Mean total spaces at the blockface. */
+  spaces: number;
+  /** occ / spaces: the share of paid spaces occupied (0 to 1). */
+  rate: number;
+  /** Transaction-reading count behind the averages. */
+  n: number;
+}
+export interface ParkingData {
+  generatedAt: string;
+  byAreaYear: ParkingRow[];
+}
+export const parking = parkingRaw as unknown as ParkingData;
+
+export interface ParkingChange {
+  area: string;
+  rate2019: number;
+  rate2024: number;
+  pctChange: number;
+}
+/** Occupancy-rate change from 2019 to 2024 by paid-parking area, worst first. */
+export function parkingChange(): ParkingChange[] {
+  const by = new Map<string, Map<number, ParkingRow>>();
+  for (const r of parking.byAreaYear) {
+    if (!by.has(r.area)) by.set(r.area, new Map());
+    by.get(r.area)!.set(r.year, r);
+  }
+  const out: ParkingChange[] = [];
+  for (const [area, years] of by) {
+    const a = years.get(2019);
+    const b = years.get(2024);
+    if (!a || !b || a.rate <= 0) continue;
+    out.push({ area, rate2019: a.rate, rate2024: b.rate, pctChange: ((b.rate - a.rate) / a.rate) * 100 });
+  }
+  return out.sort((x, y) => x.pctChange - y.pctChange);
+}
+/** Occupancy rate by year for a single area (for the recovery-path lines). */
+export function parkingPath(area: string): Array<{ year: string; rate: number }> {
+  return parking.byAreaYear
+    .filter((r) => r.area === area)
+    .sort((a, b) => a.year - b.year)
+    .map((r) => ({ year: String(r.year), rate: Math.round(r.rate * 1000) / 10 }));
+}
 
 /** Physical vs digital checkouts pivoted by year (the digital surge). */
 export function digitalSurge(): Array<{ year: string; physical: number; digital: number }> {

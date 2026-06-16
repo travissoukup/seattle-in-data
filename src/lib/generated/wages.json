@@ -1,0 +1,293 @@
+{
+  "generatedAt": "2026-06-16T21:08:35.188Z",
+  "summary": {
+    "n": 14194,
+    "median": 55.19,
+    "p90": 84.88,
+    "p99": 110.35,
+    "max": 254.79
+  },
+  "byDept": [
+    {
+      "department": "Mayor's Office",
+      "n": 39,
+      "median": 82,
+      "p90": 121.32
+    },
+    {
+      "department": "Information Technology",
+      "n": 573,
+      "median": 76.6,
+      "p90": 88.5
+    },
+    {
+      "department": "Seattle Police Department",
+      "n": 1649,
+      "median": 75.35,
+      "p90": 87.98
+    },
+    {
+      "department": "City Budget Office",
+      "n": 35,
+      "median": 74.12,
+      "p90": 90.45
+    },
+    {
+      "department": "Law Department",
+      "n": 207,
+      "median": 70.4,
+      "p90": 93.59
+    },
+    {
+      "department": "Seattle City Light",
+      "n": 1817,
+      "median": 69.56,
+      "p90": 92.84
+    },
+    {
+      "department": "Planning and Community Office",
+      "n": 53,
+      "median": 67.34,
+      "p90": 78.76
+    },
+    {
+      "department": "Human Resources",
+      "n": 89,
+      "median": 65.54,
+      "p90": 91.92
+    },
+    {
+      "department": "Sustainability and Environment",
+      "n": 60,
+      "median": 65.54,
+      "p90": 84.05
+    },
+    {
+      "department": "Employees Retirement System",
+      "n": 36,
+      "median": 64.9,
+      "p90": 108.47
+    },
+    {
+      "department": "Construction and Inspections",
+      "n": 406,
+      "median": 64.3,
+      "p90": 86.24
+    },
+    {
+      "department": "Office of Labor Standards",
+      "n": 33,
+      "median": 63.57,
+      "p90": 76.84
+    },
+    {
+      "department": "Office of Economic Development and Special Events Office",
+      "n": 51,
+      "median": 62.66,
+      "p90": 82.54
+    },
+    {
+      "department": "Legislative Department",
+      "n": 100,
+      "median": 60.95,
+      "p90": 86.9
+    },
+    {
+      "department": "Civil Rights Office",
+      "n": 36,
+      "median": 60.3,
+      "p90": 84.88
+    },
+    {
+      "department": "Seattle Department of Transportation",
+      "n": 1184,
+      "median": 60.07,
+      "p90": 87.31
+    },
+    {
+      "department": "Housing Office",
+      "n": 64,
+      "median": 58.51,
+      "p90": 82.17
+    },
+    {
+      "department": "Neighborhoods",
+      "n": 61,
+      "median": 57.31,
+      "p90": 70.93
+    },
+    {
+      "department": "Education and Early Learning",
+      "n": 125,
+      "median": 56.23,
+      "p90": 76.47
+    },
+    {
+      "department": "Finance and Administrative Service",
+      "n": 575,
+      "median": 55.56,
+      "p90": 81.7
+    },
+    {
+      "department": "Seattle Public Utilities",
+      "n": 1590,
+      "median": 55.19,
+      "p90": 84.88
+    },
+    {
+      "department": "Seattle Fire Department",
+      "n": 1130,
+      "median": 55.06,
+      "p90": 69.92
+    },
+    {
+      "department": "Office of Arts and Culture",
+      "n": 55,
+      "median": 53.14,
+      "p90": 71.76
+    },
+    {
+      "department": "Human Services",
+      "n": 469,
+      "median": 50.42,
+      "p90": 73.97
+    },
+    {
+      "department": "Seattle Municipal Courts",
+      "n": 223,
+      "median": 50.13,
+      "p90": 79.19
+    },
+    {
+      "department": "Community Safety and Communication Center",
+      "n": 192,
+      "median": 49.88,
+      "p90": 70.24
+    },
+    {
+      "department": "Seattle Center",
+      "n": 608,
+      "median": 41.69,
+      "p90": 57.17
+    },
+    {
+      "department": "Seattle Public Library",
+      "n": 648,
+      "median": 41.47,
+      "p90": 61.96
+    },
+    {
+      "department": "Parks and Recreation Department",
+      "n": 1970,
+      "median": 34.32,
+      "p90": 60.22
+    }
+  ],
+  "topTitles": [
+    {
+      "title": "Executive 4",
+      "n": 32,
+      "median": 150.43
+    },
+    {
+      "title": "Police Captain",
+      "n": 13,
+      "median": 123.97
+    },
+    {
+      "title": "Executive 3",
+      "n": 62,
+      "median": 116.2
+    },
+    {
+      "title": "Power Dispatcher,Senior",
+      "n": 13,
+      "median": 107.51
+    },
+    {
+      "title": "Police Lieutenant-WC",
+      "n": 16,
+      "median": 107.38
+    },
+    {
+      "title": "Executive 2",
+      "n": 135,
+      "median": 106.92
+    },
+    {
+      "title": "Police Lieutenant",
+      "n": 35,
+      "median": 104.25
+    },
+    {
+      "title": "Electrical Power Systems Engineer,Principal -Mrt",
+      "n": 15,
+      "median": 103.22
+    },
+    {
+      "title": "Power Dispatcher",
+      "n": 13,
+      "median": 100.13
+    },
+    {
+      "title": "Electrical Power Systems Engineer,Principal",
+      "n": 10,
+      "median": 99.55
+    },
+    {
+      "title": "Electrical Power Systems Engineer-Mrt",
+      "n": 17,
+      "median": 98.25
+    },
+    {
+      "title": "Civil Engineer Supervisor",
+      "n": 58,
+      "median": 94.12
+    },
+    {
+      "title": "Executive 1",
+      "n": 12,
+      "median": 93.4
+    },
+    {
+      "title": "Electrical Power Systems Engineer",
+      "n": 21,
+      "median": 92.88
+    },
+    {
+      "title": "Manager 3, Engineering and Plans Review L21 SPU",
+      "n": 11,
+      "median": 92.84
+    }
+  ],
+  "dist": [
+    {
+      "label": "<25",
+      "n": 230
+    },
+    {
+      "label": "25-40",
+      "n": 2820
+    },
+    {
+      "label": "40-55",
+      "n": 3629
+    },
+    {
+      "label": "55-70",
+      "n": 3277
+    },
+    {
+      "label": "70-90",
+      "n": 3435
+    },
+    {
+      "label": "90-120",
+      "n": 713
+    },
+    {
+      "label": "120+",
+      "n": 90
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { useEffect, useRef, useState } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import { num } from '@/lib/format';
 import type { TopBookMonthly } from '@/lib/data';
 
@@ -13,10 +13,19 @@ const PALETTE = [
 ];
 const AXIS_TICK = { fontSize: 12, fill: '#5b6573' } as const;
 
-function useMounted(): boolean {
-  const [m, setM] = useState(false);
-  useEffect(() => setM(true), []);
-  return m;
+function useWidth(): [React.RefObject<HTMLDivElement | null>, number] {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [w, setW] = useState(0);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const measure = () => setW(el.clientWidth);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return [ref, w];
 }
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -50,7 +59,7 @@ function Tip({ active, label, payload }: { active?: boolean; label?: string; pay
 }
 
 export function TopBooksTimeSeries({ books }: { books: TopBookMonthly[] }) {
-  const mounted = useMounted();
+  const [ref, w] = useWidth();
   const [isolated, setIsolated] = useState<string | null>(null);
 
   const colorOf = (i: number): string => PALETTE[i % PALETTE.length];
@@ -76,10 +85,9 @@ export function TopBooksTimeSeries({ books }: { books: TopBookMonthly[] }) {
           </button>
         ) : null}
       </div>
-      <div style={{ width: '100%', height: 380 }}>
-        {mounted ? (
-          <ResponsiveContainer>
-            <LineChart data={data} margin={{ top: 8, right: 18, bottom: 4, left: 4 }}>
+      <div ref={ref} style={{ width: '100%', height: 380 }}>
+        {w > 0 ? (
+          <LineChart width={w} height={380} data={data} margin={{ top: 8, right: 18, bottom: 4, left: 4 }}>
               <CartesianGrid stroke="#eef1f4" vertical={false} />
               <XAxis dataKey="ym" tickFormatter={fmtMonth} tick={AXIS_TICK} tickLine={false} axisLine={{ stroke: '#cbd2da' }} minTickGap={40} />
               <YAxis tickFormatter={(v) => Math.round(Number(v)).toLocaleString('en-US')} tick={AXIS_TICK} tickLine={false} axisLine={false} width={48} />
@@ -103,8 +111,7 @@ export function TopBooksTimeSeries({ books }: { books: TopBookMonthly[] }) {
                   />
                 );
               })}
-            </LineChart>
-          </ResponsiveContainer>
+          </LineChart>
         ) : null}
       </div>
       <div className="book-legend">

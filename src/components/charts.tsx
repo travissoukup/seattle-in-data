@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
-  ResponsiveContainer,
   LineChart,
   Line,
   BarChart,
@@ -57,49 +56,58 @@ const AXIS_TICK = { fontSize: 12, fill: '#5b6573' } as const;
 const GRID = '#eef1f4';
 
 /**
- * Recharts' ResponsiveContainer measures the DOM, which is unavailable during
- * server prerender. Render an empty sized box until mounted so SSG produces no
- * zero-size warning and there is no layout shift (the box reserves height).
+ * Measure the container width with a ResizeObserver and render the chart at an
+ * explicit pixel width. Recharts' own ResponsiveContainer intermittently reports
+ * width(-1) during Next dev refreshes and then fails to draw the series even once
+ * it recovers; reading clientWidth directly is deterministic in dev and prod.
  */
-function useMounted(): boolean {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  return mounted;
+function useWidth(): [React.RefObject<HTMLDivElement | null>, number] {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [w, setW] = useState(0);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const measure = () => setW(el.clientWidth);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return [ref, w];
 }
 
 export function TrendChart({ data, xKey, series, height = 300, valueFormat = 'int' }: ChartData) {
   const f = FORMATTERS[valueFormat];
-  const mounted = useMounted();
+  const [ref, w] = useWidth();
   return (
-    <div style={{ width: '100%', height }}>
-      {mounted ? (
-        <ResponsiveContainer>
-          <LineChart data={data} margin={{ top: 8, right: 18, bottom: 4, left: 4 }}>
-            <CartesianGrid stroke={GRID} vertical={false} />
-            <XAxis dataKey={xKey} tick={AXIS_TICK} tickLine={false} axisLine={{ stroke: '#cbd2da' }} />
-            <YAxis
-              tickFormatter={(v) => f(Number(v))}
-              tick={AXIS_TICK}
-              tickLine={false}
-              axisLine={false}
-              width={52}
+    <div ref={ref} style={{ width: '100%', height }}>
+      {w > 0 ? (
+        <LineChart width={w} height={height} data={data} margin={{ top: 8, right: 18, bottom: 4, left: 4 }}>
+          <CartesianGrid stroke={GRID} vertical={false} />
+          <XAxis dataKey={xKey} tick={AXIS_TICK} tickLine={false} axisLine={{ stroke: '#cbd2da' }} />
+          <YAxis
+            tickFormatter={(v) => f(Number(v))}
+            tick={AXIS_TICK}
+            tickLine={false}
+            axisLine={false}
+            width={52}
+          />
+          <Tooltip formatter={(value) => f(Number(value))} />
+          <Legend wrapperStyle={{ fontSize: 12 }} />
+          {series.map((s, i) => (
+            <Line
+              key={s.key}
+              type="monotone"
+              dataKey={s.key}
+              name={s.name}
+              stroke={PALETTE[i % PALETTE.length]}
+              strokeWidth={2}
+              dot={{ r: 2.5 }}
+              connectNulls={false}
+              isAnimationActive={false}
             />
-            <Tooltip formatter={(value) => f(Number(value))} />
-            <Legend wrapperStyle={{ fontSize: 12 }} />
-            {series.map((s, i) => (
-              <Line
-                key={s.key}
-                type="monotone"
-                dataKey={s.key}
-                name={s.name}
-                stroke={PALETTE[i % PALETTE.length]}
-                strokeWidth={2}
-                dot={{ r: 2.5 }}
-                connectNulls={false}
-              />
-            ))}
-          </LineChart>
-        </ResponsiveContainer>
+          ))}
+        </LineChart>
       ) : null}
     </div>
   );
@@ -123,19 +131,23 @@ export function RankedBars({
   height?: number;
 }) {
   const f = FORMATTERS[valueFormat];
-  const mounted = useMounted();
+  const [ref, w] = useWidth();
   return (
-    <div style={{ width: '100%', height }}>
-      {mounted ? (
-        <ResponsiveContainer>
-          <BarChart layout="vertical" data={rows} margin={{ top: 4, right: 28, bottom: 4, left: 8 }}>
-            <CartesianGrid horizontal={false} stroke={GRID} />
-            <XAxis type="number" tickFormatter={(v) => f(Number(v))} tick={AXIS_TICK} tickLine={false} axisLine={{ stroke: '#cbd2da' }} />
-            <YAxis type="category" dataKey="label" width={156} tick={{ fontSize: 11, fill: '#333333' }} tickLine={false} axisLine={false} />
-            <Tooltip formatter={(value) => f(Number(value))} />
-            <Bar dataKey="value" name={valueName} fill={PALETTE[0]} />
-          </BarChart>
-        </ResponsiveContainer>
+    <div ref={ref} style={{ width: '100%', height }}>
+      {w > 0 ? (
+        <BarChart
+          width={w}
+          height={height}
+          layout="vertical"
+          data={rows}
+          margin={{ top: 4, right: 28, bottom: 4, left: 8 }}
+        >
+          <CartesianGrid horizontal={false} stroke={GRID} />
+          <XAxis type="number" tickFormatter={(v) => f(Number(v))} tick={AXIS_TICK} tickLine={false} axisLine={{ stroke: '#cbd2da' }} />
+          <YAxis type="category" dataKey="label" width={156} tick={{ fontSize: 11, fill: '#333333' }} tickLine={false} axisLine={false} />
+          <Tooltip formatter={(value) => f(Number(value))} />
+          <Bar dataKey="value" name={valueName} fill={PALETTE[0]} isAnimationActive={false} />
+        </BarChart>
       ) : null}
     </div>
   );
@@ -150,40 +162,39 @@ export function BarsChart({
   stacked = false,
 }: ChartData & { stacked?: boolean }) {
   const f = FORMATTERS[valueFormat];
-  const mounted = useMounted();
+  const [ref, w] = useWidth();
   return (
-    <div style={{ width: '100%', height }}>
-      {mounted ? (
-        <ResponsiveContainer>
-          <BarChart data={data} margin={{ top: 8, right: 18, bottom: 4, left: 4 }}>
-            <CartesianGrid stroke={GRID} vertical={false} />
-            <XAxis
-              dataKey={xKey}
-              tick={AXIS_TICK}
-              tickLine={false}
-              axisLine={{ stroke: '#cbd2da' }}
-              interval={0}
+    <div ref={ref} style={{ width: '100%', height }}>
+      {w > 0 ? (
+        <BarChart width={w} height={height} data={data} margin={{ top: 8, right: 18, bottom: 4, left: 4 }}>
+          <CartesianGrid stroke={GRID} vertical={false} />
+          <XAxis
+            dataKey={xKey}
+            tick={AXIS_TICK}
+            tickLine={false}
+            axisLine={{ stroke: '#cbd2da' }}
+            interval={0}
+          />
+          <YAxis
+            tickFormatter={(v) => f(Number(v))}
+            tick={AXIS_TICK}
+            tickLine={false}
+            axisLine={false}
+            width={52}
+          />
+          <Tooltip formatter={(value) => f(Number(value))} />
+          <Legend wrapperStyle={{ fontSize: 12 }} />
+          {series.map((s, i) => (
+            <Bar
+              key={s.key}
+              dataKey={s.key}
+              name={s.name}
+              fill={PALETTE[i % PALETTE.length]}
+              stackId={stacked ? 'stack' : undefined}
+              isAnimationActive={false}
             />
-            <YAxis
-              tickFormatter={(v) => f(Number(v))}
-              tick={AXIS_TICK}
-              tickLine={false}
-              axisLine={false}
-              width={52}
-            />
-            <Tooltip formatter={(value) => f(Number(value))} />
-            <Legend wrapperStyle={{ fontSize: 12 }} />
-            {series.map((s, i) => (
-              <Bar
-                key={s.key}
-                dataKey={s.key}
-                name={s.name}
-                fill={PALETTE[i % PALETTE.length]}
-                stackId={stacked ? 'stack' : undefined}
-              />
-            ))}
-          </BarChart>
-        </ResponsiveContainer>
+          ))}
+        </BarChart>
       ) : null}
     </div>
   );
