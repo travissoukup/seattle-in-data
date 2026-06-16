@@ -1,0 +1,17 @@
+{
+  "note": "Plan-reviewed Seattle building permits applied 2020+, from SDCI Building Permits (76t5-zqzr). Filers bucketed by the lifetime permit volume of the contractor named on the permit; 'Owner / self' is permits with no contractor (or named Owner). Days are medians.",
+  "rawByFiler": [
+    { "bucket": "Owner / self", "n": 19091, "med_issue_days": 96, "med_city_days": 44, "med_cycles": 2 },
+    { "bucket": "One-off (1 permit)", "n": 592, "med_issue_days": 109, "med_city_days": 48, "med_cycles": 3 },
+    { "bucket": "Occasional (2-10)", "n": 482, "med_issue_days": 119, "med_city_days": 54, "med_cycles": 3 },
+    { "bucket": "Frequent (11-50)", "n": 181, "med_issue_days": 121, "med_city_days": 48, "med_cycles": 3 },
+    { "bucket": "High-volume (51-200)", "n": 25, "med_issue_days": 91, "med_city_days": 46, "med_cycles": 2 }
+  ],
+  "controlledByFiler": [
+    { "bucket": "Owner / self", "n": 19017, "med_city_days": 47, "med_cycles": 3 },
+    { "bucket": "One-off", "n": 566, "med_city_days": 49, "med_cycles": 3 },
+    { "bucket": "Occasional (2-10)", "n": 422, "med_city_days": 56, "med_cycles": 3 },
+    { "bucket": "Frequent (11-50)", "n": 144, "med_city_days": 57, "med_cycles": 3 },
+    { "bucket": "High-volume (50+)", "n": 23, "med_city_days": 38, "med_cycles": 2 }
+  ]
+}
