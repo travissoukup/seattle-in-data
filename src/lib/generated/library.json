@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T17:55:27.215Z",
+  "generatedAt": "2026-06-16T20:51:37.361Z",
   "byYearUsage": [
     {
       "year": 2005,
@@ -1394,6 +1394,9508 @@
         {
           "ym": "2026-05",
           "checkouts": 685
+        }
+      ]
+    }
+  ],
+  "topBooksMonthly": [
+    {
+      "title": "Braiding Sweetgrass: Indigenous Wisdom, Scientific Knowledge and the Teachings of Plants",
+      "total": 34544,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 615
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 515
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 552
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 470
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 533
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 544
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 623
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 643
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 554
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 615
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 790
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 652
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 814
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 665
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 671
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 644
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 742
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 674
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 719
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 771
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 738
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 702
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 693
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 685
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 781
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 695
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 731
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 643
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 526
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 328
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 563
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 590
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 595
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 580
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 742
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 639
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 849
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 688
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 727
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 654
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 701
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 646
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 679
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 682
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 706
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 674
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 649
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 672
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 725
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 555
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 635
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 609
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 656
+        }
+      ]
+    },
+    {
+      "title": "Fourth Wing",
+      "total": 26698,
+      "series": [
+        {
+          "ym": "2023-05",
+          "checkouts": 644
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 1258
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 1393
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 1296
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 1187
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 1275
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 1375
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 1413
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 1553
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 1283
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 1302
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 932
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 362
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 319
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 841
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 945
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 885
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 865
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 962
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 1138
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 986
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 1026
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 946
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 916
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 499
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 273
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 123
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 62
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 66
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 69
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 70
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 57
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 78
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 67
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 77
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 76
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 79
+        }
+      ]
+    },
+    {
+      "title": "Demon Copperhead",
+      "total": 23491,
+      "series": [
+        {
+          "ym": "2022-10",
+          "checkouts": 36
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 105
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 208
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 225
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 218
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 219
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 224
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 245
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 287
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 302
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 321
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 333
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 339
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 326
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 815
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 839
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 764
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 798
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 774
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 655
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 578
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 821
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 481
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 1094
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 873
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 480
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 1674
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 608
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 767
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 990
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 476
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 489
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 522
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 517
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 851
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 487
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 489
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 467
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 481
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 472
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 441
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 468
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 476
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 456
+        }
+      ]
+    },
+    {
+      "title": "Lessons in Chemistry",
+      "total": 22217,
+      "series": [
+        {
+          "ym": "2022-04",
+          "checkouts": 129
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 305
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 361
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 557
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 600
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 588
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 605
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 604
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 774
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 1121
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 1082
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 1244
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 1140
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 1058
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 982
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 1051
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 966
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 896
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 968
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 839
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 757
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 656
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 481
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 577
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 520
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 392
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 267
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 247
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 232
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 211
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 241
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 238
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 245
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 170
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 73
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 70
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 65
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 69
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 79
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 84
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 69
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 81
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 89
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 76
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 84
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 88
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 79
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 41
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 31
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 35
+        }
+      ]
+    },
+    {
+      "title": "Tom Lake",
+      "total": 20938,
+      "series": [
+        {
+          "ym": "2023-08",
+          "checkouts": 286
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 470
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 486
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 459
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 915
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 916
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 866
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 852
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 878
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 757
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 718
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 1177
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 990
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 1020
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 992
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 906
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 921
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 770
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 503
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 472
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 438
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 457
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 421
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 394
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 437
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 397
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 433
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 358
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 391
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 456
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 323
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 338
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 336
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 405
+        }
+      ]
+    },
+    {
+      "title": "The Covenant of Water",
+      "total": 20764,
+      "series": [
+        {
+          "ym": "2023-05",
+          "checkouts": 774
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 1579
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 928
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 821
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 788
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 616
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 418
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 605
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 801
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 601
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 521
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 771
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 266
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 218
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 527
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 660
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 572
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 640
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 626
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 713
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 641
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 447
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 610
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 549
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 391
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 421
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 397
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 382
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 406
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 394
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 396
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 427
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 389
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 361
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 401
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 369
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 338
+        }
+      ]
+    },
+    {
+      "title": "Tomorrow, and Tomorrow, and Tomorrow",
+      "total": 20626,
+      "series": [
+        {
+          "ym": "2022-07",
+          "checkouts": 134
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 274
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 345
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 356
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 396
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 671
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 1133
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 1057
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 1095
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 1053
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 1045
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 1053
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 998
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 844
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 713
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 753
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 669
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 472
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 515
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 471
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 474
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 476
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 383
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 331
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 460
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 485
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 447
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 485
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 479
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 513
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 185
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 107
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 112
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 116
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 124
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 114
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 121
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 118
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 141
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 138
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 147
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 144
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 143
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 71
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 77
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 84
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 104
+        }
+      ]
+    },
+    {
+      "title": "A Court of Thorns and Roses",
+      "total": 20561,
+      "series": [
+        {
+          "ym": "2023-03",
+          "checkouts": 597
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 623
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 581
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 644
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 721
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 752
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 723
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 633
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 751
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 748
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 966
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 856
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 903
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 821
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 216
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 165
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 562
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 658
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 651
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 541
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 515
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 431
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 537
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 599
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 390
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 488
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 575
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 274
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 305
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 299
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 318
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 333
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 339
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 330
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 352
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 322
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 338
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 324
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 380
+        }
+      ]
+    },
+    {
+      "title": "I'm Glad My Mom Died",
+      "total": 20477,
+      "series": [
+        {
+          "ym": "2022-08",
+          "checkouts": 528
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 834
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 875
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 810
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 812
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 871
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 777
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 811
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 775
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 895
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 927
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 995
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 993
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 926
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 975
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 923
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 887
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 995
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 897
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 901
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 833
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 258
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 137
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 581
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 372
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 163
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 25
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 36
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 51
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 51
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 63
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 66
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 69
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 18
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 22
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 21
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 20
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 25
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 26
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 27
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 31
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 34
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 34
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 36
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 30
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 41
+        }
+      ]
+    },
+    {
+      "title": "The Women",
+      "total": 20114,
+      "series": [
+        {
+          "ym": "2022-02",
+          "checkouts": 3
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 2
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 1
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 1
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 3
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 1
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 1
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 1
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 1
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 1
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 5
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 1
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 2
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 2
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 1
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 3
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 9
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 343
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 767
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 804
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 677
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 619
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 725
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 754
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 686
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 744
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 661
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 697
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 743
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 631
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 685
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 680
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 809
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 828
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 878
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 818
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 906
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 900
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 898
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 917
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 955
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 643
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 481
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 365
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 462
+        }
+      ]
+    },
+    {
+      "title": "Educated: A Memoir",
+      "total": 19357,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 333
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 350
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 321
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 265
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 340
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 287
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 324
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 388
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 310
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 313
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 311
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 320
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 408
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 347
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 368
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 338
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 357
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 364
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 398
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 450
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 359
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 362
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 354
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 381
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 473
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 388
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 411
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 401
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 291
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 160
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 392
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 401
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 390
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 355
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 318
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 330
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 347
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 397
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 376
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 371
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 375
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 349
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 408
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 428
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 403
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 383
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 359
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 406
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 500
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 380
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 420
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 399
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 398
+        }
+      ]
+    },
+    {
+      "title": "Remarkably Bright Creatures",
+      "total": 19353,
+      "series": [
+        {
+          "ym": "2022-05",
+          "checkouts": 78
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 168
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 194
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 226
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 208
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 92
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 226
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 270
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 431
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 202
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 234
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 252
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 271
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 256
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 234
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 257
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 237
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 267
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 244
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 247
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 267
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 249
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 246
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 250
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 388
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 345
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 454
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 1196
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 987
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 583
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 291
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 1354
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 759
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 305
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 756
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 337
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 529
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 589
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 366
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 770
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 368
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 367
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 358
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 362
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 798
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 338
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 364
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 377
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 406
+        }
+      ]
+    },
+    {
+      "title": "101 Essays That Will Change the Way You Think",
+      "total": 18094,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 381
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 313
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 307
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 259
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 290
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 334
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 385
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 509
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 484
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 534
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 441
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 525
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 791
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 581
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 609
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 577
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 664
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 609
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 599
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 613
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 598
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 564
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 563
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 558
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 658
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 540
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 550
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 470
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 385
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 373
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 374
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 352
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 343
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 332
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 430
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 316
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 323
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 270
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 290
+        }
+      ]
+    },
+    {
+      "title": "The Paris Apartment",
+      "total": 18090,
+      "series": [
+        {
+          "ym": "2022-02",
+          "checkouts": 63
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 400
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 439
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 506
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 507
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 493
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 540
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 469
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 482
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 480
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 489
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 559
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 507
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 593
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 596
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 598
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 573
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 384
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 324
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 311
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 315
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 297
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 326
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 354
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 294
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 315
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 307
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 257
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 209
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 313
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 409
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 337
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 328
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 326
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 331
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 387
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 286
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 322
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 312
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 283
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 282
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 247
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 218
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 267
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 212
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 175
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 198
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 199
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 177
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 168
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 156
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 170
+        }
+      ]
+    },
+    {
+      "title": "Pride and Prejudice",
+      "total": 15841,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 294
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 226
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 243
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 199
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 192
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 224
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 245
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 277
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 304
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 262
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 236
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 291
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 331
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 289
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 305
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 293
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 318
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 294
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 388
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 434
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 399
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 372
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 397
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 460
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 456
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 439
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 467
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 415
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 102
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 56
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 364
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 388
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 373
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 413
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 448
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 427
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 490
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 441
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 479
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 555
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 215
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 232
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 198
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 176
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 150
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 163
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 148
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 200
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 192
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 154
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 146
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 142
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 139
+        }
+      ]
+    },
+    {
+      "title": "Cloud Cuckoo Land",
+      "total": 15416,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 725
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 625
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 665
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 589
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 636
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 683
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 744
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 796
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 727
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 772
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 785
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 813
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 795
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 725
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 317
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 310
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 290
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 265
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 313
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 730
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 614
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 455
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 302
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 150
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 34
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 39
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 54
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 61
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 35
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 35
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 52
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 52
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 44
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 50
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 53
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 49
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 60
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 51
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 57
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 50
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 67
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 54
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 61
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 54
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 66
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 58
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 56
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 63
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 35
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 20
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 79
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 139
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 62
+        }
+      ]
+    },
+    {
+      "title": "Iron Flame",
+      "total": 14370,
+      "series": [
+        {
+          "ym": "2023-11",
+          "checkouts": 1208
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 1016
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 1289
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 872
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 880
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 669
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 210
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 188
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 516
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 610
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 559
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 494
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 532
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 550
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 757
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 596
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 679
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 601
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 299
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 330
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 360
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 298
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 252
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 276
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 135
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 39
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 32
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 29
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 29
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 28
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 37
+        }
+      ]
+    },
+    {
+      "title": "A Gentleman in Moscow",
+      "total": 13956,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 250
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 224
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 240
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 238
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 233
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 238
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 252
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 239
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 257
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 246
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 269
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 263
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 263
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 235
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 277
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 258
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 283
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 260
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 286
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 271
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 259
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 275
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 294
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 264
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 281
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 261
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 280
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 237
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 221
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 186
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 287
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 232
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 255
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 281
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 252
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 306
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 249
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 259
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 287
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 281
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 274
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 261
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 271
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 268
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 278
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 303
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 276
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 299
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 283
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 262
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 278
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 291
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 283
+        }
+      ]
+    },
+    {
+      "title": "The Last Thing He Told Me",
+      "total": 13444,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 567
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 480
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 524
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 544
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 642
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 602
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 692
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 667
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 660
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 661
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 697
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 677
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 701
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 661
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 683
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 632
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 352
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 164
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 89
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 91
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 78
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 79
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 81
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 88
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 82
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 88
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 111
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 106
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 82
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 84
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 112
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 115
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 106
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 109
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 110
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 127
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 111
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 115
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 123
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 99
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 120
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 115
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 97
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 22
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 7
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 12
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 10
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 13
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 37
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 46
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 64
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 57
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 52
+        }
+      ]
+    },
+    {
+      "title": "The Four Winds",
+      "total": 13414,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 581
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 500
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 583
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 487
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 497
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 519
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 550
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 560
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 469
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 234
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 294
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 241
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 151
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 16
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 26
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 32
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 28
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 28
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 29
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 254
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 242
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 242
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 270
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 263
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 202
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 183
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 271
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 244
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 246
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 258
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 236
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 248
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 265
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 240
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 240
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 278
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 251
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 272
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 273
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 238
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 268
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 247
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 256
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 266
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 283
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 255
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 272
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 264
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 262
+        }
+      ]
+    },
+    {
+      "title": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life",
+      "total": 13215,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 224
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 233
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 265
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 211
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 269
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 241
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 260
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 279
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 236
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 233
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 245
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 245
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 251
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 217
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 242
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 248
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 270
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 232
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 258
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 268
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 222
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 265
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 223
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 246
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 252
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 262
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 267
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 255
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 208
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 170
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 259
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 247
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 243
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 254
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 258
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 272
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 270
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 219
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 266
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 251
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 248
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 236
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 273
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 258
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 250
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 274
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 252
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 285
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 264
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 244
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 290
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 249
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 256
+        }
+      ]
+    },
+    {
+      "title": "The Invisible Life of Addie LaRue",
+      "total": 13148,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 503
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 489
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 513
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 491
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 536
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 515
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 538
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 552
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 520
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 471
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 340
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 308
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 242
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 225
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 254
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 224
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 250
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 238
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 258
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 261
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 258
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 264
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 269
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 239
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 288
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 244
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 273
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 250
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 44
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 44
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 287
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 271
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 268
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 247
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 250
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 242
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 276
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 200
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 242
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 237
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 37
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 40
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 46
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 50
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 57
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 62
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 57
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 62
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 62
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 53
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 64
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 65
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 72
+        }
+      ]
+    },
+    {
+      "title": "The Guest List",
+      "total": 12818,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 251
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 224
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 247
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 208
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 244
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 229
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 258
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 260
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 237
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 246
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 244
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 255
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 266
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 222
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 261
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 269
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 246
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 242
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 234
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 250
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 246
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 253
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 237
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 248
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 277
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 236
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 240
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 243
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 185
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 169
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 224
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 245
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 240
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 244
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 243
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 195
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 272
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 219
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 227
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 194
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 242
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 236
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 253
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 265
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 234
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 271
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 247
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 248
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 270
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 249
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 253
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 270
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 250
+        }
+      ]
+    },
+    {
+      "title": "Apples Never Fall",
+      "total": 12577,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 537
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 461
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 505
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 480
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 602
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 581
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 662
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 673
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 586
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 599
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 588
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 512
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 531
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 376
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 342
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 313
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 313
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 286
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 291
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 247
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 213
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 162
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 124
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 100
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 75
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 100
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 275
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 262
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 18
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 17
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 184
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 183
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 184
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 188
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 192
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 125
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 124
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 112
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 97
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 100
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 81
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 19
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 25
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 18
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 20
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 18
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 15
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 20
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 11
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 13
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 10
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 2
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 5
+        }
+      ]
+    },
+    {
+      "title": "Crying in H Mart: A Memoir",
+      "total": 12479,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 579
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 534
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 552
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 472
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 450
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 467
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 471
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 469
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 404
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 228
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 419
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 361
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 334
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 264
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 295
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 304
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 308
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 310
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 302
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 290
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 268
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 309
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 299
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 290
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 319
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 283
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 320
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 249
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 167
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 63
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 69
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 88
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 92
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 76
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 76
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 106
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 108
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 94
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 109
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 104
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 111
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 110
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 87
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 92
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 86
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 97
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 89
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 82
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 90
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 77
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 86
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 88
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 82
+        }
+      ]
+    },
+    {
+      "title": "The Wedding People",
+      "total": 12377,
+      "series": [
+        {
+          "ym": "2024-07",
+          "checkouts": 7
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 126
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 227
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 291
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 314
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 549
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 676
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 576
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 597
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 597
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 606
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 575
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 589
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 598
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 593
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 627
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 634
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 683
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 692
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 648
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 720
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 730
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 722
+        }
+      ]
+    },
+    {
+      "title": "The Seven Husbands of Evelyn Hugo",
+      "total": 12264,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 492
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 413
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 458
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 420
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 446
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 467
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 539
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 568
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 549
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 236
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 529
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 533
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 569
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 474
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 140
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 296
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 264
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 228
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 196
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 196
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 200
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 190
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 152
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 106
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 126
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 139
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 147
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 152
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 139
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 148
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 179
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 152
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 170
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 153
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 162
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 168
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 165
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 166
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 177
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 195
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 186
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 185
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 174
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 124
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 140
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 124
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 132
+        }
+      ]
+    },
+    {
+      "title": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI",
+      "total": 11622,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 115
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 93
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 111
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 100
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 107
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 84
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 90
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 132
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 92
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 63
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 114
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 136
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 150
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 131
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 150
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 165
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 176
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 163
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 191
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 229
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 261
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 476
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 514
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 539
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 568
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 477
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 577
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 609
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 514
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 302
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 500
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 463
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 365
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 247
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 142
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 160
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 152
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 140
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 138
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 121
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 115
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 134
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 141
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 142
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 129
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 128
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 142
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 156
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 154
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 127
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 123
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 144
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 130
+        }
+      ]
+    },
+    {
+      "title": "The Heaven & Earth Grocery Store",
+      "total": 11212,
+      "series": [
+        {
+          "ym": "2023-08",
+          "checkouts": 500
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 680
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 793
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 695
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 799
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 897
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 844
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 869
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 831
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 615
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 310
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 474
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 583
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 398
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 386
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 336
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 303
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 218
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 143
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 152
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 130
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 119
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 114
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 119
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 112
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 87
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 91
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 101
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 90
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 84
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 78
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 52
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 43
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 42
+        }
+      ]
+    },
+    {
+      "title": "Project Hail Mary",
+      "total": 11062,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 360
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 293
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 328
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 327
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 189
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 155
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 163
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 174
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 159
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 179
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 166
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 178
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 175
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 154
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 180
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 174
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 182
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 84
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 96
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 119
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 111
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 116
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 122
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 120
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 125
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 125
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 121
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 115
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 87
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 80
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 82
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 118
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 118
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 109
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 118
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 149
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 166
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 171
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 165
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 148
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 163
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 165
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 225
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 252
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 300
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 296
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 297
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 258
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 296
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 339
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 598
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 760
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 812
+        }
+      ]
+    },
+    {
+      "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+      "total": 10499,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 220
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 220
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 251
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 196
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 253
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 249
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 218
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 261
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 244
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 235
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 234
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 244
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 242
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 209
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 232
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 215
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 238
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 228
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 222
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 231
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 209
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 226
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 225
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 219
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 239
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 189
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 168
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 171
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 135
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 119
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 151
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 164
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 164
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 160
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 156
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 171
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 175
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 162
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 162
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 165
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 164
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 160
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 174
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 169
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 185
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 180
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 184
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 185
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 189
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 162
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 196
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 186
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 193
+        }
+      ]
+    },
+    {
+      "title": "Sapiens: A Brief History of Humankind",
+      "total": 10258,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 176
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 173
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 188
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 148
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 198
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 191
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 181
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 203
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 190
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 205
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 188
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 189
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 194
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 177
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 201
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 174
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 209
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 186
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 189
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 192
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 200
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 190
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 179
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 205
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 208
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 187
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 191
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 211
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 161
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 140
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 210
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 204
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 175
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 188
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 181
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 214
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 190
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 186
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 199
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 202
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 216
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 185
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 200
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 219
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 196
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 212
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 208
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 222
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 211
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 177
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 220
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 203
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 216
+        }
+      ]
+    },
+    {
+      "title": "The Song of Achilles",
+      "total": 10185,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 210
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 202
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 228
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 196
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 201
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 160
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 180
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 177
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 173
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 172
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 182
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 189
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 199
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 158
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 188
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 145
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 161
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 169
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 161
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 175
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 146
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 168
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 163
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 173
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 156
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 136
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 157
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 145
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 112
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 117
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 156
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 128
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 143
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 136
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 143
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 558
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 312
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 317
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 328
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 308
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 212
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 212
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 223
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 215
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 227
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 167
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 205
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 232
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 234
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 220
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 133
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 133
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 144
+        }
+      ]
+    },
+    {
+      "title": "Circe",
+      "total": 10028,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 179
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 147
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 186
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 184
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 178
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 192
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 180
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 197
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 186
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 198
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 187
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 203
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 204
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 164
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 198
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 209
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 204
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 184
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 201
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 198
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 175
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 210
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 180
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 195
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 206
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 189
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 182
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 203
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 147
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 144
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 204
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 185
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 176
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 180
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 177
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 210
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 203
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 180
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 194
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 187
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 195
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 185
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 182
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 197
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 188
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 193
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 201
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 197
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 198
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 180
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 211
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 199
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 196
+        }
+      ]
+    },
+    {
+      "title": "Yellowface",
+      "total": 9786,
+      "series": [
+        {
+          "ym": "2023-06",
+          "checkouts": 142
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 217
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 215
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 227
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 224
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 210
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 226
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 237
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 493
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 516
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 484
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 236
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 191
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 563
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 564
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 585
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 645
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 401
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 415
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 666
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 447
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 450
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 500
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 114
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 99
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 43
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 123
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 24
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 137
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 30
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 28
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 163
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 93
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 25
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 28
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 25
+        }
+      ]
+    },
+    {
+      "title": "The Dutch House",
+      "total": 9655,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 192
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 166
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 190
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 152
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 170
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 177
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 171
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 208
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 180
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 174
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 144
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 172
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 191
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 178
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 190
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 175
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 192
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 166
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 176
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 212
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 203
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 202
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 199
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 200
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 209
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 204
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 189
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 211
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 158
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 91
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 190
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 201
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 195
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 178
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 186
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 137
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 187
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 158
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 151
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 150
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 153
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 176
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 176
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 167
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 180
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 191
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 203
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 198
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 216
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 189
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 214
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 220
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 197
+        }
+      ]
+    },
+    {
+      "title": "Heated Rivalry:",
+      "total": 9437,
+      "series": [
+        {
+          "ym": "2024-05",
+          "checkouts": 2
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 1
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 45
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 33
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 26
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 20
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 93
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 293
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 1717
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 2544
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 1708
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 1288
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 900
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 767
+        }
+      ]
+    },
+    {
+      "title": "Verity",
+      "total": 9280,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 145
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 152
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 188
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 197
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 224
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 217
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 242
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 305
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 267
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 313
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 297
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 306
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 298
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 275
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 311
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 361
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 364
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 418
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 398
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 420
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 408
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 400
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 337
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 305
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 284
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 196
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 181
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 135
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 82
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 77
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 74
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 31
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 34
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 31
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 38
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 44
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 54
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 41
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 43
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 51
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 52
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 51
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 56
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 48
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 54
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 58
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 65
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 57
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 57
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 61
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 60
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 57
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 60
+        }
+      ]
+    },
+    {
+      "title": "Lessons in chemistry",
+      "total": 8986,
+      "series": [
+        {
+          "ym": "2022-04",
+          "checkouts": 10
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 51
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 98
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 111
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 142
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 120
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 149
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 453
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 432
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 464
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 520
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 535
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 546
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 521
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 499
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 487
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 513
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 442
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 349
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 337
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 263
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 297
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 197
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 160
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 123
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 92
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 35
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 28
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 118
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 85
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 85
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 60
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 73
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 84
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 57
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 54
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 69
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 43
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 41
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 53
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 36
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 37
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 34
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 34
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 20
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 28
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 27
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 22
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 19
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 20
+        }
+      ]
+    },
+    {
+      "title": "Happy Place",
+      "total": 8709,
+      "series": [
+        {
+          "ym": "2023-04",
+          "checkouts": 90
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 509
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 579
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 632
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 583
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 501
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 532
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 540
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 602
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 672
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 674
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 673
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 631
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 134
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 28
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 39
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 51
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 60
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 58
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 59
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 56
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 80
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 58
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 77
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 72
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 69
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 66
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 60
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 51
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 45
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 47
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 56
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 48
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 61
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 49
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 62
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 51
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 54
+        }
+      ]
+    },
+    {
+      "title": "Adult Children of Emotionally Immature Parents: How to Heal from Distant, Rejecting, or Self-Involved Parents",
+      "total": 8569,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 91
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 76
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 103
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 92
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 101
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 105
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 104
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 102
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 153
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 152
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 149
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 109
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 203
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 149
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 153
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 139
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 219
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 170
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 187
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 182
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 144
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 183
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 106
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 204
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 204
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 177
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 161
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 170
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 105
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 3
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 87
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 115
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 105
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 160
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 146
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 304
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 195
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 200
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 275
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 207
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 236
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 203
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 205
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 233
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 233
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 239
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 162
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 150
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 237
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 169
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 169
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 139
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 204
+        }
+      ]
+    },
+    {
+      "title": "A Court of Mist and Fury",
+      "total": 8499,
+      "series": [
+        {
+          "ym": "2023-03",
+          "checkouts": 372
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 408
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 274
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 377
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 255
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 405
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 334
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 316
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 411
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 407
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 898
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 445
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 519
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 413
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 207
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 321
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 319
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 213
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 264
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 368
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 214
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 213
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 216
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 208
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 122
+        }
+      ]
+    },
+    {
+      "title": "Parable of the Sower",
+      "total": 8341,
+      "series": [
+        {
+          "ym": "2023-03",
+          "checkouts": 109
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 96
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 93
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 84
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 87
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 100
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 88
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 93
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 100
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 100
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 86
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 81
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 92
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 2507
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 1482
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 232
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 113
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 83
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 84
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 100
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 163
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 142
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 253
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 111
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 109
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 105
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 112
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 104
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 95
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 108
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 123
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 132
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 126
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 147
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 145
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 133
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 137
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 142
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 144
+        }
+      ]
+    },
+    {
+      "title": "Dare to Lead: Brave Work. Tough Conversations. Whole Hearts.",
+      "total": 8036,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 210
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 189
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 204
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 169
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 194
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 189
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 202
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 201
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 195
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 192
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 191
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 189
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 222
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 186
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 209
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 184
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 201
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 167
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 182
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 202
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 184
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 181
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 169
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 168
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 197
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 180
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 181
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 212
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 143
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 81
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 147
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 134
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 115
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 137
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 144
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 85
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 116
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 87
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 102
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 103
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 100
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 85
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 108
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 111
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 104
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 111
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 136
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 94
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 109
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 91
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 74
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 78
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 91
+        }
+      ]
+    },
+    {
+      "title": "The Handmaid's Tale",
+      "total": 7680,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 68
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 54
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 54
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 55
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 98
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 108
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 109
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 96
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 99
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 88
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 99
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 97
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 99
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 62
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 98
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 79
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 168
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 175
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 119
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 147
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 112
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 122
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 134
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 150
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 142
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 151
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 133
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 115
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 110
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 80
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 123
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 155
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 135
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 128
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 216
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 205
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 205
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 195
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 232
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 182
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 222
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 189
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 214
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 229
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 197
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 216
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 204
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 218
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 206
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 187
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 203
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 206
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 192
+        }
+      ]
+    },
+    {
+      "title": "Remarkably bright creatures : a novel",
+      "total": 7614,
+      "series": [
+        {
+          "ym": "2022-05",
+          "checkouts": 265
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 337
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 314
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 317
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 265
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 275
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 248
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 263
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 300
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 278
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 284
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 268
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 274
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 270
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 290
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 249
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 137
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 143
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 135
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 163
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 187
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 159
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 162
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 173
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 117
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 12
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 30
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 98
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 104
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 125
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 94
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 83
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 112
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 85
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 83
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 75
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 84
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 67
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 94
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 79
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 68
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 73
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 66
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 68
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 61
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 66
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 67
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 54
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 64
+        }
+      ]
+    },
+    {
+      "title": "Tomorrow, and tomorrow, and tomorrow",
+      "total": 7449,
+      "series": [
+        {
+          "ym": "2022-07",
+          "checkouts": 298
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 296
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 287
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 294
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 278
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 316
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 341
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 351
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 433
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 414
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 401
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 410
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 389
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 397
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 258
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 250
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 161
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 159
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 223
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 165
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 152
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 134
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 91
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 18
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 37
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 98
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 93
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 104
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 90
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 76
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 79
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 72
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 57
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 56
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 46
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 66
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 64
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 61
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 38
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 42
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 37
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 39
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 39
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 36
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 37
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 31
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 41
+        }
+      ]
+    },
+    {
+      "title": "Pachinko",
+      "total": 7369,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 143
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 133
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 135
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 121
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 128
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 118
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 118
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 143
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 124
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 142
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 139
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 137
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 144
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 127
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 162
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 143
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 138
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 149
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 149
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 151
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 146
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 139
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 143
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 139
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 158
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 130
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 167
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 143
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 126
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 101
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 144
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 125
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 125
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 124
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 125
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 142
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 137
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 131
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 137
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 151
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 128
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 134
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 150
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 144
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 138
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 151
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 153
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 146
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 158
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 137
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 158
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 140
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 155
+        }
+      ]
+    },
+    {
+      "title": "The Martian",
+      "total": 7276,
+      "series": [
+        {
+          "ym": "2022-01",
+          "checkouts": 97
+        },
+        {
+          "ym": "2022-02",
+          "checkouts": 95
+        },
+        {
+          "ym": "2022-03",
+          "checkouts": 71
+        },
+        {
+          "ym": "2022-04",
+          "checkouts": 79
+        },
+        {
+          "ym": "2022-05",
+          "checkouts": 74
+        },
+        {
+          "ym": "2022-06",
+          "checkouts": 79
+        },
+        {
+          "ym": "2022-07",
+          "checkouts": 99
+        },
+        {
+          "ym": "2022-08",
+          "checkouts": 88
+        },
+        {
+          "ym": "2022-09",
+          "checkouts": 85
+        },
+        {
+          "ym": "2022-10",
+          "checkouts": 68
+        },
+        {
+          "ym": "2022-11",
+          "checkouts": 72
+        },
+        {
+          "ym": "2022-12",
+          "checkouts": 105
+        },
+        {
+          "ym": "2023-01",
+          "checkouts": 121
+        },
+        {
+          "ym": "2023-02",
+          "checkouts": 97
+        },
+        {
+          "ym": "2023-03",
+          "checkouts": 97
+        },
+        {
+          "ym": "2023-04",
+          "checkouts": 95
+        },
+        {
+          "ym": "2023-05",
+          "checkouts": 103
+        },
+        {
+          "ym": "2023-06",
+          "checkouts": 129
+        },
+        {
+          "ym": "2023-07",
+          "checkouts": 162
+        },
+        {
+          "ym": "2023-08",
+          "checkouts": 123
+        },
+        {
+          "ym": "2023-09",
+          "checkouts": 113
+        },
+        {
+          "ym": "2023-10",
+          "checkouts": 105
+        },
+        {
+          "ym": "2023-11",
+          "checkouts": 113
+        },
+        {
+          "ym": "2023-12",
+          "checkouts": 137
+        },
+        {
+          "ym": "2024-01",
+          "checkouts": 117
+        },
+        {
+          "ym": "2024-02",
+          "checkouts": 146
+        },
+        {
+          "ym": "2024-03",
+          "checkouts": 135
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 126
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 104
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 67
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 114
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 119
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 121
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 115
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 108
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 151
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 137
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 128
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 120
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 111
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 126
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 125
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 199
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 229
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 202
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 200
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 173
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 210
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 229
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 234
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 345
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 338
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 340
+        }
+      ]
+    },
+    {
+      "title": "Maybe You Should Talk to Someone: A Therapist, Her Therapist, and Our Lives Revealed",
+      "total": 7209,
+      "series": [
+        {
+          "ym": "2024-03",
+          "checkouts": 278
+        },
+        {
+          "ym": "2024-04",
+          "checkouts": 292
+        },
+        {
+          "ym": "2024-05",
+          "checkouts": 209
+        },
+        {
+          "ym": "2024-06",
+          "checkouts": 161
+        },
+        {
+          "ym": "2024-07",
+          "checkouts": 282
+        },
+        {
+          "ym": "2024-08",
+          "checkouts": 269
+        },
+        {
+          "ym": "2024-09",
+          "checkouts": 271
+        },
+        {
+          "ym": "2024-10",
+          "checkouts": 279
+        },
+        {
+          "ym": "2024-11",
+          "checkouts": 281
+        },
+        {
+          "ym": "2024-12",
+          "checkouts": 267
+        },
+        {
+          "ym": "2025-01",
+          "checkouts": 279
+        },
+        {
+          "ym": "2025-02",
+          "checkouts": 250
+        },
+        {
+          "ym": "2025-03",
+          "checkouts": 282
+        },
+        {
+          "ym": "2025-04",
+          "checkouts": 272
+        },
+        {
+          "ym": "2025-05",
+          "checkouts": 276
+        },
+        {
+          "ym": "2025-06",
+          "checkouts": 255
+        },
+        {
+          "ym": "2025-07",
+          "checkouts": 278
+        },
+        {
+          "ym": "2025-08",
+          "checkouts": 267
+        },
+        {
+          "ym": "2025-09",
+          "checkouts": 274
+        },
+        {
+          "ym": "2025-10",
+          "checkouts": 282
+        },
+        {
+          "ym": "2025-11",
+          "checkouts": 262
+        },
+        {
+          "ym": "2025-12",
+          "checkouts": 273
+        },
+        {
+          "ym": "2026-01",
+          "checkouts": 289
+        },
+        {
+          "ym": "2026-02",
+          "checkouts": 259
+        },
+        {
+          "ym": "2026-03",
+          "checkouts": 269
+        },
+        {
+          "ym": "2026-04",
+          "checkouts": 265
+        },
+        {
+          "ym": "2026-05",
+          "checkouts": 288
         }
       ]
     }

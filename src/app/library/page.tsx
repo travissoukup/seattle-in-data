@@ -1,6 +1,7 @@
 import { ChartCard } from '@/components/ChartCard';
 import { DataTable } from '@/components/DataTable';
 import { TrendChart, RankedBars } from '@/components/charts';
+import { TopBooksTimeSeries } from '@/components/TopBooksTimeSeries';
 import { library, digitalSurge, topBooksMerged } from '@/lib/data';
 import { fmtInt, num, toCsv } from '@/lib/format';
 
@@ -72,6 +73,14 @@ export default function LibraryPage() {
           wrapCols={[1]}
           rows={books.map((b, i) => [i + 1, b.title, fmtInt(b.checkouts)])}
         />
+      </ChartCard>
+
+      <ChartCard
+        title="The constant churn at the top, month by month"
+        desc="The fifty most-checked-out books of the last four years, each as a line of monthly checkouts. The tangle is the point: hits arrive, spike, and fade, and the leaderboard never sits still. Click any title below (or its line) to follow just that book; hover to see the month's top titles."
+        footnote="The 50 books with the most total checkouts since January 2022, print, e-book, and audiobook merged per title; monthly checkouts. Device and processing items excluded. Source: Seattle Public Library, Checkouts by Title (tmmm-ytt6)."
+      >
+        <TopBooksTimeSeries books={library.topBooksMonthly} />
       </ChartCard>
 
       <div className="page-head" style={{ marginTop: 8 }}>

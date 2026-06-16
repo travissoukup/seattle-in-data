@@ -30,12 +30,22 @@ export interface SeismoTitle {
   note: string;
   series: SeismoSeriesPoint[];
 }
+export interface BookMonthlyPoint {
+  ym: string;
+  checkouts: number;
+}
+export interface TopBookMonthly {
+  title: string;
+  total: number;
+  series: BookMonthlyPoint[];
+}
 export interface LibraryData {
   generatedAt: string;
   byYearUsage: YearUsageRow[];
   materialTypes: MaterialRow[];
   topBooks: BookRow[];
   seismograph: SeismoTitle[];
+  topBooksMonthly: TopBookMonthly[];
 }
 
 export const library = libraryRaw as unknown as LibraryData;
