@@ -153,6 +153,38 @@ export function RankedBars({
   );
 }
 
+/** Horizontal stacked bars: ranked categories with a 2+ part composition. */
+export function StackedRankedBars({
+  rows,
+  series,
+  valueFormat = 'days',
+  height = 420,
+}: {
+  rows: Array<{ label: string; [key: string]: number | string }>;
+  series: SeriesSpec[];
+  valueFormat?: ValueFormat;
+  height?: number;
+}) {
+  const f = FORMATTERS[valueFormat];
+  const [ref, w] = useWidth();
+  return (
+    <div ref={ref} style={{ width: '100%', height }}>
+      {w > 0 ? (
+        <BarChart width={w} height={height} layout="vertical" data={rows} margin={{ top: 4, right: 28, bottom: 4, left: 8 }}>
+          <CartesianGrid horizontal={false} stroke={GRID} />
+          <XAxis type="number" tickFormatter={(v) => f(Number(v))} tick={AXIS_TICK} tickLine={false} axisLine={{ stroke: '#cbd2da' }} />
+          <YAxis type="category" dataKey="label" width={196} tick={{ fontSize: 11, fill: '#333333' }} tickLine={false} axisLine={false} />
+          <Tooltip formatter={(value) => f(Number(value))} />
+          <Legend wrapperStyle={{ fontSize: 12 }} />
+          {series.map((s, i) => (
+            <Bar key={s.key} dataKey={s.key} name={s.name} stackId="s" fill={PALETTE[i % PALETTE.length]} isAnimationActive={false} />
+          ))}
+        </BarChart>
+      ) : null}
+    </div>
+  );
+}
+
 export function BarsChart({
   data,
   xKey,

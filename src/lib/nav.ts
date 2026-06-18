@@ -11,4 +11,5 @@ export const NAV: NavItem[] = [
   { href: '/wages', label: 'What Seattle Pays', desc: 'How the city payroll is structured.' },
   { href: '/parking', label: 'The Parking Recovery', desc: 'Where paid parking demand came back, and where it did not.' },
   { href: '/permits', label: 'The Permit Fast Lane', desc: 'Is there a pay-to-play fast lane in permit review? Testing the hypothesis.' },
+  { href: '/street-use', label: 'Whose Clock Is It?', desc: 'SDOT street-use permits: is the wait the city, or the applicant?' },
 ];

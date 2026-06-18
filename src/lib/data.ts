@@ -8,6 +8,7 @@ import permitsRaw from '@/lib/generated/permits.json';
 import petsRaw from '@/lib/generated/pets.json';
 import wagesRaw from '@/lib/generated/wages.json';
 import parkingRaw from '@/lib/generated/parking.json';
+import sdotRaw from '@/lib/generated/sdot.json';
 import { num } from '@/lib/format';
 
 export interface YearUsageRow {
@@ -166,6 +167,25 @@ export function parkingPath(area: string): Array<{ year: string; rate: number }>
     .sort((a, b) => a.year - b.year)
     .map((r) => ({ year: String(r.year), rate: Math.round(r.rate * 1000) / 10 }));
 }
+
+export interface SdotPermitType {
+  type: string;
+  permits: number;
+  meanCity: number;
+  meanApp: number;
+  meanTotal: number;
+  medCity: number;
+  medApp: number;
+  medTotal: number;
+  /** Percent of the average wait that sits in the applicant's control. */
+  applicantShare: number | null;
+}
+export interface SdotData {
+  generatedAt: string;
+  overall: { totalIssued: number; meanCity: number; meanApp: number; medTotal: number };
+  types: SdotPermitType[];
+}
+export const sdot = sdotRaw as unknown as SdotData;
 
 /** Physical vs digital checkouts pivoted by year (the digital surge). */
 export function digitalSurge(): Array<{ year: string; physical: number; digital: number }> {

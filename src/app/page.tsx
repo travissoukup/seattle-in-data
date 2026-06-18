@@ -45,6 +45,14 @@ const INVESTIGATIONS = [
       'Everyone "knows" that hiring a pro gets your permit through faster. We tested it against every plan-reviewed building permit: bucket filers by how many permits they pull, and compare review times. The uncomfortable answer is that the variance tracks what you build, not who you hire: a quantified debunking, not a gripe.',
     stat: 'no pay-to-play edge',
   },
+  {
+    href: '/street-use',
+    eyebrow: 'Accountability',
+    title: 'Whose Clock Is It?',
+    blurb:
+      'SDOT splits every street-use permit’s wait into two clocks: days in city review, and days "in the applicant’s control." Across 68,000 issued permits, the routine ones, extensions, maintenance, container and date-change requests, show almost no city review time. The published turnaround mostly measures the applicant, except where the engineering is genuinely hard.',
+    stat: 'the clock is the applicant',
+  },
 ];
 
 export default function HomePage() {
