@@ -6,7 +6,7 @@ import { fmtInt, toCsv } from '@/lib/format';
 import { DataFreshness } from '@/components/DataFreshness';
 import { RelatedLinks } from '@/components/RelatedLinks';
 
-export const metadata = { title: 'Bike counts on the Fremont Bridge | Seattle in Data' };
+export const metadata = { title: 'Bike counts on the Fremont Bridge' };
 
 const PALETTE = ['#0072b2', '#d55e00', '#009e73', '#cc79a7', '#56b4e9', '#e69f00'];
 

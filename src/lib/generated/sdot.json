@@ -1,15 +1,17 @@
 {
-  "generatedAt": "2026-06-18T20:36:57.142Z",
+  "generatedAt": "2026-07-19T21:05:27.376Z",
   "overall": {
-    "totalIssued": 68046,
-    "meanCity": 20.7,
-    "meanApp": 30.4,
-    "medTotal": 11
+    "totalIssued": 69102,
+    "meanCity": 20.8,
+    "meanApp": 30.5,
+    "medTotal": 11,
+    "neverIssued": 27473,
+    "neverIssuedPct": 28
   },
   "types": [
     {
       "type": "Minor Utility Permit",
-      "permits": 26545,
+      "permits": 26915,
       "meanCity": 24.3,
       "meanApp": 33.8,
       "meanTotal": 58.1,
@@ -20,10 +22,10 @@
     },
     {
       "type": "ROW Extension Request",
-      "permits": 12242,
+      "permits": 12407,
       "meanCity": 0,
-      "meanApp": 21.9,
-      "meanTotal": 21.9,
+      "meanApp": 21.8,
+      "meanTotal": 21.8,
       "medCity": 0,
       "medApp": 0,
       "medTotal": 0,
@@ -31,10 +33,10 @@
     },
     {
       "type": "ROW Construction Permit",
-      "permits": 6394,
+      "permits": 6504,
       "meanCity": 34,
-      "meanApp": 51.8,
-      "meanTotal": 85.8,
+      "meanApp": 51.9,
+      "meanTotal": 85.9,
       "medCity": 21,
       "medApp": 6,
       "medTotal": 36,
@@ -42,18 +44,18 @@
     },
     {
       "type": "ROW Maintenance Permit",
-      "permits": 6101,
+      "permits": 6265,
       "meanCity": 0.4,
       "meanApp": 6.5,
       "meanTotal": 7.1,
       "medCity": 0,
-      "medApp": 6,
+      "medApp": 5,
       "medTotal": 6,
-      "applicantShare": 95
+      "applicantShare": 94
     },
     {
       "type": "Minor Utility Permit Revision",
-      "permits": 3632,
+      "permits": 3691,
       "meanCity": 25.9,
       "meanApp": 10.6,
       "meanTotal": 36.5,
@@ -75,10 +77,10 @@
     },
     {
       "type": "ROW Construction Permit Revision",
-      "permits": 2121,
-      "meanCity": 29.7,
-      "meanApp": 42.8,
-      "meanTotal": 72.5,
+      "permits": 2142,
+      "meanCity": 30.2,
+      "meanApp": 43.4,
+      "meanTotal": 73.6,
       "medCity": 19,
       "medApp": 6,
       "medTotal": 31,
@@ -97,21 +99,21 @@
     },
     {
       "type": "Private Structures/Uses",
-      "permits": 1178,
-      "meanCity": 86.2,
-      "meanApp": 83.6,
-      "meanTotal": 169.8,
+      "permits": 1196,
+      "meanCity": 86.3,
+      "meanApp": 85,
+      "meanTotal": 171.3,
       "medCity": 46,
-      "medApp": 15,
+      "medApp": 16,
       "medTotal": 77.5,
-      "applicantShare": 49
+      "applicantShare": 50
     },
     {
       "type": "ROW Date Change Request",
-      "permits": 921,
+      "permits": 928,
       "meanCity": 0,
-      "meanApp": 14.6,
-      "meanTotal": 14.6,
+      "meanApp": 14.8,
+      "meanTotal": 14.8,
       "medCity": 0,
       "medApp": 0,
       "medTotal": 0,
@@ -119,7 +121,7 @@
     },
     {
       "type": "Block Party/Play Street",
-      "permits": 775,
+      "permits": 843,
       "meanCity": 0,
       "meanApp": 0,
       "meanTotal": 0,
@@ -130,53 +132,53 @@
     },
     {
       "type": "Street Improvement Permit Revision",
-      "permits": 762,
-      "meanCity": 21.8,
-      "meanApp": 36.3,
-      "meanTotal": 58.1,
+      "permits": 781,
+      "meanCity": 21.7,
+      "meanApp": 37.4,
+      "meanTotal": 59.1,
       "medCity": 15,
       "medApp": 0,
-      "medTotal": 22.5,
-      "applicantShare": 62
+      "medTotal": 23,
+      "applicantShare": 63
     },
     {
       "type": "Temporary Activation",
-      "permits": 667,
+      "permits": 680,
       "meanCity": 5,
-      "meanApp": 3.4,
-      "meanTotal": 8.4,
+      "meanApp": 2.1,
+      "meanTotal": 7.1,
       "medCity": 0,
       "medApp": 0,
       "medTotal": 0,
-      "applicantShare": 40
+      "applicantShare": 29
     },
     {
       "type": "Utility Major Permit Revision",
-      "permits": 627,
-      "meanCity": 37.9,
-      "meanApp": 54.2,
-      "meanTotal": 92.1,
-      "medCity": 1,
+      "permits": 635,
+      "meanCity": 38,
+      "meanApp": 55.1,
+      "meanTotal": 93,
+      "medCity": 2,
       "medApp": 0,
       "medTotal": 2,
       "applicantShare": 59
     },
     {
       "type": "Utility Major Permit",
-      "permits": 500,
-      "meanCity": 185.4,
-      "meanApp": 185.5,
-      "meanTotal": 370.8,
-      "medCity": 143,
-      "medApp": 102.5,
-      "medTotal": 271,
+      "permits": 511,
+      "meanCity": 185.1,
+      "meanApp": 187.7,
+      "meanTotal": 372.8,
+      "medCity": 144,
+      "medApp": 106,
+      "medTotal": 275,
       "applicantShare": 50
     },
     {
       "type": "Heavy Crane Permit",
-      "permits": 436,
+      "permits": 438,
       "meanCity": 43.8,
-      "meanApp": 29.1,
+      "meanApp": 29.2,
       "meanTotal": 72.9,
       "medCity": 36,
       "medApp": 5,
@@ -185,14 +187,46 @@
     },
     {
       "type": "Vending",
-      "permits": 314,
+      "permits": 316,
       "meanCity": 36.4,
-      "meanApp": 24.7,
-      "meanTotal": 61.1,
+      "meanApp": 24.6,
+      "meanTotal": 61,
       "medCity": 25,
       "medApp": 2,
       "medTotal": 36,
       "applicantShare": 40
+    }
+  ],
+  "muTrend": [
+    {
+      "year": 2021,
+      "permits": 5438,
+      "medCity": 16.5,
+      "meanCity": 27.9
+    },
+    {
+      "year": 2022,
+      "permits": 4708,
+      "medCity": 14,
+      "meanCity": 24.2
+    },
+    {
+      "year": 2023,
+      "permits": 4952,
+      "medCity": 12,
+      "meanCity": 22.8
+    },
+    {
+      "year": 2024,
+      "permits": 4685,
+      "medCity": 12,
+      "meanCity": 21.9
+    },
+    {
+      "year": 2025,
+      "permits": 4861,
+      "medCity": 19,
+      "meanCity": 27.4
     }
   ]
 }

@@ -47,9 +47,9 @@
   },
   {
    "key": "tree",
-   "label": "Tree canopy",
+   "label": "Mapped trees (OSM)",
    "kind": "comfort",
-   "desc": "Mapped street and park trees"
+   "desc": "OSM-mapped tree points; sparse coverage, undercounts real canopy"
   },
   {
    "key": "crossing",

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { CATEGORIES, resolveHref, isExternal, type Entry } from '@/lib/catalog';
 
-export const metadata = { title: 'All pages | Seattle in Data' };
+export const metadata = { title: 'All pages' };
 
 function Card({ e }: { e: Entry }) {
   const href = resolveHref(e);

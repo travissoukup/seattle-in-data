@@ -1,17 +1,280 @@
 {
-  "note": "Plan-reviewed Seattle building permits applied 2020+, from SDCI Building Permits (76t5-zqzr). Filers bucketed by the lifetime permit volume of the contractor named on the permit; 'Owner / self' is permits with no contractor (or named Owner). Days are medians.",
+  "generatedAt": "2026-07-19T21:06:47.051Z",
+  "note": "Plan-reviewed Seattle building permits applied 2020+, from SDCI Building Permits (76t5-zqzr). Filers bucketed by the lifetime permit volume of the contractor named on the permit; the contractor field is blank on most permits, so the biggest bucket is 'No contractor recorded'. Days are medians.",
+  "windowStartYear": 2020,
+  "fastLaneN": 20661,
+  "contractorFillPct": 4.5,
+  "windowAll": 41837,
   "rawByFiler": [
-    { "bucket": "Owner / self", "n": 19091, "med_issue_days": 96, "med_city_days": 44, "med_cycles": 2 },
-    { "bucket": "One-off (1 permit)", "n": 592, "med_issue_days": 109, "med_city_days": 48, "med_cycles": 3 },
-    { "bucket": "Occasional (2-10)", "n": 482, "med_issue_days": 119, "med_city_days": 54, "med_cycles": 3 },
-    { "bucket": "Frequent (11-50)", "n": 181, "med_issue_days": 121, "med_city_days": 48, "med_cycles": 3 },
-    { "bucket": "High-volume (51-200)", "n": 25, "med_issue_days": 91, "med_city_days": 46, "med_cycles": 2 }
+    {
+      "bucket": "No contractor recorded",
+      "n": 19364,
+      "med_issue_days": 95,
+      "med_city_days": 44,
+      "med_cycles": 3
+    },
+    {
+      "bucket": "One-off (1 permit)",
+      "n": 598,
+      "med_issue_days": 109,
+      "med_city_days": 48,
+      "med_cycles": 3
+    },
+    {
+      "bucket": "Occasional (2-10)",
+      "n": 492,
+      "med_issue_days": 121,
+      "med_city_days": 53,
+      "med_cycles": 3
+    },
+    {
+      "bucket": "Frequent (11-50)",
+      "n": 181,
+      "med_issue_days": 121,
+      "med_city_days": 48,
+      "med_cycles": 3
+    },
+    {
+      "bucket": "High-volume (51+)",
+      "n": 26,
+      "med_issue_days": 82,
+      "med_city_days": 43,
+      "med_cycles": 2
+    }
   ],
   "controlledByFiler": [
-    { "bucket": "Owner / self", "n": 19017, "med_city_days": 47, "med_cycles": 3 },
-    { "bucket": "One-off", "n": 566, "med_city_days": 49, "med_cycles": 3 },
-    { "bucket": "Occasional (2-10)", "n": 422, "med_city_days": 56, "med_cycles": 3 },
-    { "bucket": "Frequent (11-50)", "n": 144, "med_city_days": 57, "med_cycles": 3 },
-    { "bucket": "High-volume (50+)", "n": 23, "med_city_days": 38, "med_cycles": 2 }
-  ]
+    {
+      "bucket": "No contractor recorded",
+      "n": 17135,
+      "med_city_days": 46,
+      "med_cycles": 3
+    },
+    {
+      "bucket": "One-off (1 permit)",
+      "n": 554,
+      "med_city_days": 49,
+      "med_cycles": 3
+    },
+    {
+      "bucket": "Occasional (2-10)",
+      "n": 419,
+      "med_city_days": 55,
+      "med_cycles": 3
+    },
+    {
+      "bucket": "Frequent (11-50)",
+      "n": 143,
+      "med_city_days": 57,
+      "med_cycles": 3
+    },
+    {
+      "bucket": "High-volume (51+)",
+      "n": 22,
+      "med_city_days": 38,
+      "med_cycles": 2
+    }
+  ],
+  "unitYears": [
+    {
+      "year": 2005,
+      "added": 1739,
+      "removed": 78,
+      "net": 1661
+    },
+    {
+      "year": 2006,
+      "added": 4415,
+      "removed": 748,
+      "net": 3667
+    },
+    {
+      "year": 2007,
+      "added": 7939,
+      "removed": 1269,
+      "net": 6670
+    },
+    {
+      "year": 2008,
+      "added": 6606,
+      "removed": 776,
+      "net": 5830
+    },
+    {
+      "year": 2009,
+      "added": 1522,
+      "removed": 261,
+      "net": 1261
+    },
+    {
+      "year": 2010,
+      "added": 3949,
+      "removed": 321,
+      "net": 3628
+    },
+    {
+      "year": 2011,
+      "added": 4602,
+      "removed": 537,
+      "net": 4065
+    },
+    {
+      "year": 2012,
+      "added": 8296,
+      "removed": 475,
+      "net": 7821
+    },
+    {
+      "year": 2013,
+      "added": 7839,
+      "removed": 522,
+      "net": 7317
+    },
+    {
+      "year": 2014,
+      "added": 8869,
+      "removed": 651,
+      "net": 8218
+    },
+    {
+      "year": 2015,
+      "added": 11932,
+      "removed": 543,
+      "net": 11389
+    },
+    {
+      "year": 2016,
+      "added": 11021,
+      "removed": 766,
+      "net": 10255
+    },
+    {
+      "year": 2017,
+      "added": 11210,
+      "removed": 1029,
+      "net": 10181
+    },
+    {
+      "year": 2018,
+      "added": 9021,
+      "removed": 600,
+      "net": 8421
+    },
+    {
+      "year": 2019,
+      "added": 11997,
+      "removed": 627,
+      "net": 11370
+    },
+    {
+      "year": 2020,
+      "added": 10374,
+      "removed": 575,
+      "net": 9799
+    },
+    {
+      "year": 2021,
+      "added": 16123,
+      "removed": 409,
+      "net": 15714
+    },
+    {
+      "year": 2022,
+      "added": 12989,
+      "removed": 454,
+      "net": 12535
+    },
+    {
+      "year": 2023,
+      "added": 7940,
+      "removed": 541,
+      "net": 7399
+    },
+    {
+      "year": 2024,
+      "added": 8920,
+      "removed": 422,
+      "net": 8498
+    },
+    {
+      "year": 2025,
+      "added": 8974,
+      "removed": 564,
+      "net": 8410
+    }
+  ],
+  "unitsStats": {
+    "peakYear": 2021,
+    "peakAdded": 16123,
+    "lowYear": 2023,
+    "lowAdded": 7940,
+    "latestYear": 2025,
+    "latestAdded": 8974,
+    "latestVsPeakPct": 44
+  },
+  "aduByYear": [
+    {
+      "year": 2012,
+      "permits": 130
+    },
+    {
+      "year": 2013,
+      "permits": 153
+    },
+    {
+      "year": 2014,
+      "permits": 202
+    },
+    {
+      "year": 2015,
+      "permits": 250
+    },
+    {
+      "year": 2016,
+      "permits": 302
+    },
+    {
+      "year": 2017,
+      "permits": 301
+    },
+    {
+      "year": 2018,
+      "permits": 263
+    },
+    {
+      "year": 2019,
+      "permits": 315
+    },
+    {
+      "year": 2020,
+      "permits": 453
+    },
+    {
+      "year": 2021,
+      "permits": 664
+    },
+    {
+      "year": 2022,
+      "permits": 824
+    },
+    {
+      "year": 2023,
+      "permits": 866
+    },
+    {
+      "year": 2024,
+      "permits": 872
+    }
+  ],
+  "aduStats": {
+    "reformYear": 2019,
+    "reformPermits": 315,
+    "peakYear": 2024,
+    "peakPermits": 872,
+    "lastFullYear": 2024,
+    "fieldLastFilled": "2025-06-30T00:00:00.000",
+    "partialThroughMonth": 6,
+    "partialYear": 2025,
+    "partialPermits": 495,
+    "priorSameMonths": 426
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "seattle-data",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "3457"],
+      "cwd": "/Users/tsoukup/Desktop/seattle-data",
+      "port": 3457
+    }
+  ]
+}

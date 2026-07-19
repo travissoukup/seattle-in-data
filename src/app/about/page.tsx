@@ -1,6 +1,10 @@
 import Link from 'next/link';
+import { REPO_URL } from '@/lib/site';
 
-export const metadata = { title: 'About | Seattle in Data' };
+export const metadata = {
+  title: 'About',
+  description: 'Who makes Seattle in Data, where the numbers come from, and how to check the work.',
+};
 
 export default function AboutPage() {
   return (
@@ -50,18 +54,35 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <div className="card" style={{ borderLeft: '4px solid var(--accent-2)' }}>
-        <h2 className="section-title">Who made it, and a caveat</h2>
+      <div className="card">
+        <h2 className="section-title">Check the work</h2>
         <p className="muted">
-          This is an independent project, not affiliated with the City of Seattle or any of its departments. It is
-          free, with no ads, accounts, or tracking beyond what the host needs to serve the pages. It is built and run
-          by one person as a way to make public data easier to use. If a number looks wrong, it probably is worth a
-          second look, so please say so.
+          The whole pipeline is public: every fetch script, every query, and the generated data live in{' '}
+          <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
+            the GitHub repository
+          </a>
+          . Each chart links to its source dataset, and most link to the exact query behind the chart. The quirks that
+          change how you should read the numbers (reporting bias, denominators, dataset breaks) are collected on the{' '}
+          <Link href="/notes">data notes page</Link>.
+        </p>
+      </div>
+
+      <div className="card" style={{ borderLeft: '4px solid var(--accent-2)' }}>
+        <h2 className="section-title">Who made it, and corrections</h2>
+        <p className="muted">
+          Seattle in Data is built and run by Travis Soukup, a Seattle resident. It is an independent project, not
+          affiliated with the City of Seattle or any of its departments. It is free, with no ads, accounts, or
+          tracking beyond what the host needs to serve the pages. If a number looks wrong,{' '}
+          <a href={`${REPO_URL}/issues`} target="_blank" rel="noopener noreferrer">
+            open an issue
+          </a>{' '}
+          with the page and the figure. Confirmed errors get fixed and noted in the commit history, which is public.
         </p>
       </div>
 
       <p className="foot">
-        Browse <Link href="/">the topics</Link> or see <Link href="/all">every page</Link>.
+        Browse <Link href="/">the topics</Link>, see <Link href="/all">every page</Link>, or read the{' '}
+        <Link href="/notes">data notes</Link>.
       </p>
     </>
   );

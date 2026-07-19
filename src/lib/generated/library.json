@@ -1,5 +1,133 @@
 {
-  "generatedAt": "2026-06-16T20:51:37.361Z",
+  "generatedAt": "2026-07-19T21:11:41.309Z",
+  "stats": {
+    "totalCheckouts": 177859013,
+    "totalRows": 51304329,
+    "firstYear": 2005,
+    "firstFullYear": 2006,
+    "latestFullYear": 2025,
+    "recordYear": 2025,
+    "recordCheckouts": 9513049,
+    "priorPeakYear": 2017,
+    "priorPeakCheckouts": 9231648,
+    "partialYear": 2026,
+    "partialMonths": 6,
+    "partialThroughMonth": "June",
+    "partialCheckouts": 4940589,
+    "partialPaceAnnual": 9881178
+  },
+  "byYear": [
+    {
+      "year": 2005,
+      "checkouts": 3798685,
+      "months": 9
+    },
+    {
+      "year": 2006,
+      "checkouts": 6599318,
+      "months": 12
+    },
+    {
+      "year": 2007,
+      "checkouts": 7126627,
+      "months": 12
+    },
+    {
+      "year": 2008,
+      "checkouts": 8438486,
+      "months": 12
+    },
+    {
+      "year": 2009,
+      "checkouts": 9135167,
+      "months": 12
+    },
+    {
+      "year": 2010,
+      "checkouts": 8608966,
+      "months": 12
+    },
+    {
+      "year": 2011,
+      "checkouts": 8321732,
+      "months": 12
+    },
+    {
+      "year": 2012,
+      "checkouts": 8163046,
+      "months": 12
+    },
+    {
+      "year": 2013,
+      "checkouts": 9057096,
+      "months": 12
+    },
+    {
+      "year": 2014,
+      "checkouts": 9136081,
+      "months": 12
+    },
+    {
+      "year": 2015,
+      "checkouts": 9084179,
+      "months": 12
+    },
+    {
+      "year": 2016,
+      "checkouts": 9021051,
+      "months": 12
+    },
+    {
+      "year": 2017,
+      "checkouts": 9231648,
+      "months": 12
+    },
+    {
+      "year": 2018,
+      "checkouts": 9149176,
+      "months": 12
+    },
+    {
+      "year": 2019,
+      "checkouts": 9199083,
+      "months": 12
+    },
+    {
+      "year": 2020,
+      "checkouts": 6053717,
+      "months": 12
+    },
+    {
+      "year": 2021,
+      "checkouts": 7361031,
+      "months": 12
+    },
+    {
+      "year": 2022,
+      "checkouts": 8402376,
+      "months": 12
+    },
+    {
+      "year": 2023,
+      "checkouts": 9197232,
+      "months": 12
+    },
+    {
+      "year": 2024,
+      "checkouts": 8320678,
+      "months": 12
+    },
+    {
+      "year": 2025,
+      "checkouts": 9513049,
+      "months": 12
+    },
+    {
+      "year": 2026,
+      "checkouts": 4940589,
+      "months": 6
+    }
+  ],
   "byYearUsage": [
     {
       "year": 2005,
@@ -214,44 +342,348 @@
     {
       "year": 2026,
       "usage": "Digital",
-      "checkouts": 2698096
+      "checkouts": 3245983
     },
     {
       "year": 2026,
       "usage": "Physical",
-      "checkouts": 1410687
+      "checkouts": 1694606
     }
   ],
+  "ransomware": {
+    "year": 2024,
+    "outageMonth": "May",
+    "preMonth": "April",
+    "prePhysical": 299019,
+    "lowMonth": "July",
+    "lowPhysical": 99346,
+    "dropPct": 67,
+    "yearCheckouts": 8320678,
+    "prevYearCheckouts": 9197232,
+    "series": [
+      {
+        "ym": "2023-01",
+        "physical": 344572,
+        "digital": 450043
+      },
+      {
+        "ym": "2023-02",
+        "physical": 299916,
+        "digital": 406141
+      },
+      {
+        "ym": "2023-03",
+        "physical": 327655,
+        "digital": 442928
+      },
+      {
+        "ym": "2023-04",
+        "physical": 308302,
+        "digital": 432967
+      },
+      {
+        "ym": "2023-05",
+        "physical": 297099,
+        "digital": 445816
+      },
+      {
+        "ym": "2023-06",
+        "physical": 306893,
+        "digital": 445770
+      },
+      {
+        "ym": "2023-07",
+        "physical": 317677,
+        "digital": 476408
+      },
+      {
+        "ym": "2023-08",
+        "physical": 327088,
+        "digital": 479953
+      },
+      {
+        "ym": "2023-09",
+        "physical": 303107,
+        "digital": 461510
+      },
+      {
+        "ym": "2023-10",
+        "physical": 308090,
+        "digital": 477094
+      },
+      {
+        "ym": "2023-11",
+        "physical": 293340,
+        "digital": 466794
+      },
+      {
+        "ym": "2023-12",
+        "physical": 286835,
+        "digital": 491234
+      },
+      {
+        "ym": "2024-01",
+        "physical": 322089,
+        "digital": 527339
+      },
+      {
+        "ym": "2024-02",
+        "physical": 296231,
+        "digital": 476153
+      },
+      {
+        "ym": "2024-03",
+        "physical": 311672,
+        "digital": 501752
+      },
+      {
+        "ym": "2024-04",
+        "physical": 299019,
+        "digital": 479670
+      },
+      {
+        "ym": "2024-05",
+        "physical": 211515,
+        "digital": 387485
+      },
+      {
+        "ym": "2024-06",
+        "physical": 111340,
+        "digital": 270091
+      },
+      {
+        "ym": "2024-07",
+        "physical": 99346,
+        "digital": 420397
+      },
+      {
+        "ym": "2024-08",
+        "physical": 227370,
+        "digital": 449891
+      },
+      {
+        "ym": "2024-09",
+        "physical": 254632,
+        "digital": 439116
+      },
+      {
+        "ym": "2024-10",
+        "physical": 277740,
+        "digital": 453399
+      },
+      {
+        "ym": "2024-11",
+        "physical": 272117,
+        "digital": 461229
+      },
+      {
+        "ym": "2024-12",
+        "physical": 270963,
+        "digital": 500122
+      },
+      {
+        "ym": "2025-01",
+        "physical": 304685,
+        "digital": 521431
+      },
+      {
+        "ym": "2025-02",
+        "physical": 273795,
+        "digital": 466829
+      },
+      {
+        "ym": "2025-03",
+        "physical": 307176,
+        "digital": 508581
+      },
+      {
+        "ym": "2025-04",
+        "physical": 276051,
+        "digital": 492637
+      },
+      {
+        "ym": "2025-05",
+        "physical": 274817,
+        "digital": 505264
+      },
+      {
+        "ym": "2025-06",
+        "physical": 282932,
+        "digital": 493469
+      },
+      {
+        "ym": "2025-07",
+        "physical": 304712,
+        "digital": 517547
+      },
+      {
+        "ym": "2025-08",
+        "physical": 300201,
+        "digital": 522796
+      },
+      {
+        "ym": "2025-09",
+        "physical": 283518,
+        "digital": 504349
+      },
+      {
+        "ym": "2025-10",
+        "physical": 275623,
+        "digital": 510852
+      },
+      {
+        "ym": "2025-11",
+        "physical": 285010,
+        "digital": 507685
+      },
+      {
+        "ym": "2025-12",
+        "physical": 268333,
+        "digital": 524756
+      }
+    ]
+  },
+  "formatRace": [
+    {
+      "year": 2010,
+      "ebook": 84328,
+      "audiobook": 87551,
+      "months": 12
+    },
+    {
+      "year": 2011,
+      "ebook": 269917,
+      "audiobook": 133447,
+      "months": 12
+    },
+    {
+      "year": 2012,
+      "ebook": 543122,
+      "audiobook": 168395,
+      "months": 12
+    },
+    {
+      "year": 2013,
+      "ebook": 754296,
+      "audiobook": 238360,
+      "months": 12
+    },
+    {
+      "year": 2014,
+      "ebook": 1101645,
+      "audiobook": 335926,
+      "months": 12
+    },
+    {
+      "year": 2015,
+      "ebook": 1329606,
+      "audiobook": 468275,
+      "months": 12
+    },
+    {
+      "year": 2016,
+      "ebook": 1436345,
+      "audiobook": 586391,
+      "months": 12
+    },
+    {
+      "year": 2017,
+      "ebook": 1578697,
+      "audiobook": 730389,
+      "months": 12
+    },
+    {
+      "year": 2018,
+      "ebook": 1860638,
+      "audiobook": 983019,
+      "months": 12
+    },
+    {
+      "year": 2019,
+      "ebook": 2130439,
+      "audiobook": 1276883,
+      "months": 12
+    },
+    {
+      "year": 2020,
+      "ebook": 2793961,
+      "audiobook": 1513625,
+      "months": 12
+    },
+    {
+      "year": 2021,
+      "ebook": 2705503,
+      "audiobook": 1687686,
+      "months": 12
+    },
+    {
+      "year": 2022,
+      "ebook": 2736499,
+      "audiobook": 1954869,
+      "months": 12
+    },
+    {
+      "year": 2023,
+      "ebook": 3025281,
+      "audiobook": 2451377,
+      "months": 12
+    },
+    {
+      "year": 2024,
+      "ebook": 2866226,
+      "audiobook": 2500418,
+      "months": 12
+    },
+    {
+      "year": 2025,
+      "ebook": 3113180,
+      "audiobook": 2963016,
+      "months": 12
+    },
+    {
+      "year": 2026,
+      "ebook": 1597695,
+      "audiobook": 1648288,
+      "months": 6
+    }
+  ],
+  "raceStats": {
+    "year": 2026,
+    "months": 6,
+    "ebook": 1597695,
+    "audiobook": 1648288,
+    "prevLeadYear": 2010
+  },
   "materialTypes": [
     {
       "type": "BOOK",
       "label": "Print book",
-      "checkouts": 73685566
+      "checkouts": 73905224
     },
     {
       "type": "VIDEODISC",
       "label": "DVD / Blu-ray",
-      "checkouts": 33095073
+      "checkouts": 33128480
     },
     {
       "type": "EBOOK",
       "label": "E-book",
-      "checkouts": 29723678
+      "checkouts": 29991339
     },
     {
       "type": "AUDIOBOOK",
       "label": "Audiobook (digital)",
-      "checkouts": 19569253
+      "checkouts": 19849479
     },
     {
       "type": "SOUNDDISC",
       "label": "CD / audio disc",
-      "checkouts": 15129614
+      "checkouts": 15141272
     },
     {
       "type": "VIDEOCASS",
       "label": "VHS",
-      "checkouts": 1501280
+      "checkouts": 1501289
     },
     {
       "type": "SONG",
@@ -261,12 +693,12 @@
     {
       "type": "MIXED",
       "label": "Mixed / kit",
-      "checkouts": 482712
+      "checkouts": 486583
     },
     {
       "type": "MUSIC",
       "label": "Music",
-      "checkouts": 397618
+      "checkouts": 397976
     },
     {
       "type": "MAGAZINE",
@@ -274,18 +706,19 @@
       "checkouts": 389867
     }
   ],
+  "topBooksSince": 2023,
   "topBooks": [
     {
       "title": "Braiding Sweetgrass: Indigenous Wisdom, Scientific Knowledge and the Teachings of Plants (unabridged)",
-      "checkouts": 23352
+      "checkouts": 23881
     },
     {
       "title": "Tom Lake: A Novel (unabridged)",
-      "checkouts": 14531
+      "checkouts": 14949
     },
     {
       "title": "Demon Copperhead: A Novel (unabridged)",
-      "checkouts": 14433
+      "checkouts": 14828
     },
     {
       "title": "Fourth Wing (unabridged)",
@@ -297,45 +730,46 @@
     },
     {
       "title": "Fourth Wing",
-      "checkouts": 13206
+      "checkouts": 13288
+    },
+    {
+      "title": "Remarkably Bright Creatures: A Novel (unabridged)",
+      "checkouts": 11392
     },
     {
       "title": "The Covenant of Water (unabridged)",
       "checkouts": 11088
     },
     {
-      "title": "Remarkably Bright Creatures: A Novel (unabridged)",
-      "checkouts": 11080
-    },
-    {
       "title": "Tomorrow, and Tomorrow, and Tomorrow: A novel",
-      "checkouts": 10769
+      "checkouts": 10813
     },
     {
       "title": "A Court of Thorns and Roses (unabridged)",
       "checkouts": 10737
     },
     {
+      "title": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life (unabridged)",
+      "checkouts": 10541
+    },
+    {
       "title": "The Women: A Novel",
-      "checkouts": 10501
+      "checkouts": 10534
     },
     {
       "title": "Lessons in Chemistry: A Novel",
-      "checkouts": 10304
+      "checkouts": 10321
     },
     {
-      "title": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life (unabridged)",
-      "checkouts": 10274
-    },
-    {
-      "title": "I'm Glad My Mom Died (unabridged)",
-      "checkouts": 10105
+      "title": "Educated: A Memoir (unabridged)",
+      "checkouts": 10156
     },
     {
       "title": "The Guest List: A Novel (unabridged)",
-      "checkouts": 9915
+      "checkouts": 10154
     }
   ],
+  "seismographSince": 2019,
   "seismograph": [
     {
       "label": "Lessons in Chemistry",
@@ -540,6 +974,10 @@
         {
           "ym": "2026-05",
           "checkouts": 35
+        },
+        {
+          "ym": "2026-06",
+          "checkouts": 37
         }
       ]
     },
@@ -878,6 +1316,10 @@
         {
           "ym": "2026-05",
           "checkouts": 27
+        },
+        {
+          "ym": "2026-06",
+          "checkouts": 22
         }
       ]
     },
@@ -1240,6 +1682,10 @@
         {
           "ym": "2026-05",
           "checkouts": 660
+        },
+        {
+          "ym": "2026-06",
+          "checkouts": 637
         }
       ]
     },
@@ -1394,6 +1840,10 @@
         {
           "ym": "2026-05",
           "checkouts": 685
+        },
+        {
+          "ym": "2026-06",
+          "checkouts": 591
         }
       ]
     }

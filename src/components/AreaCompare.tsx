@@ -93,8 +93,11 @@ export function AreaCompare({ data, unit }: { data: AreaData; unit: string }) {
         </table>
       </div>
       <p className="foot">
-        Rate is per 1,000 residents, using Census ACS 5-year population. Based on {data.windowLabel}. Downtown and
-        campus ZIP codes have too few residents for a meaningful rate and show n/a.
+        Rate is per 1,000 residents, using Census ACS 5-year population (2020 to 2024). Based on {data.windowLabel}.
+        Downtown ZIP codes have too few residents for a meaningful rate and show n/a. These are counts of what gets
+        reported, which is not the same as what happens: areas differ in how much people report, and places where many
+        people work or pass through will rank high against a resident-only denominator.{' '}
+        <a href="/notes">More in the data notes.</a>
       </p>
     </div>
   );

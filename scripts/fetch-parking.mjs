@@ -1,42 +1,45 @@
-// Tries to build src/lib/generated/parking.json: average paid on-street parking
-// occupancy by paid-parking area for a few years (the post-2020 recovery arc).
-// The annual files are ~286M rows each, so each aggregation is slow; curl with a
-// long timeout + retries. Run: SOCRATA_APP_TOKEN=xxx node scripts/fetch-parking.mjs
+// Builds src/lib/generated/parking.json: average paid on-street parking
+// occupancy by paid-parking area and year (the post-2020 recovery arc), plus an
+// hour-of-day cut for two contrast areas. The annual files are ~300M rows each,
+// so every aggregation is slow; the shared soql helper retries.
+// Run: SOCRATA_APP_TOKEN=xxx node scripts/fetch-parking.mjs
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { execFileSync } from 'node:child_process';
+import { soql, num } from './lib/socrata.mjs';
 
-const TOKEN = process.env.SOCRATA_APP_TOKEN ?? '';
 const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'lib', 'generated', 'parking.json');
-const num = (v) => Number(v) || 0;
-const YEARS = [
-  { year: 2019, id: 'qktt-2bsy' },
-  { year: 2022, id: 'bwk6-iycu' },
-  { year: 2023, id: '3uar-q5py' },
-  { year: 2024, id: 'snbb-v8b9' },
-];
 
-function soql(id, params) {
-  const args = ['-s', '--max-time', '560', '-H', `X-App-Token: ${TOKEN}`, '-G', `https://data.seattle.gov/resource/${id}.json`];
-  for (const [k, v] of Object.entries(params)) args.push('--data-urlencode', `${k}=${v}`);
-  for (let attempt = 0; attempt < 3; attempt++) {
-    try {
-      const out = execFileSync('curl', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
-      const json = JSON.parse(out);
-      if (Array.isArray(json)) return json;
-      throw new Error(`unexpected: ${out.slice(0, 160)}`);
-    } catch (e) {
-      console.log(`   retry (${String(e.message).slice(0, 70)})`);
-    }
-  }
-  throw new Error('failed after retries');
-}
+// Seattle publishes one dataset per calendar year. 2020 and 2021 exist
+// (wtpb-jp8d, jb6y-98nr) but are the pandemic trough and are omitted by design:
+// the page compares pre-pandemic 2019 against the recovery years.
+const YEAR_IDS = {
+  2019: 'qktt-2bsy',
+  2022: 'bwk6-iycu',
+  2023: '3uar-q5py',
+  2024: 'snbb-v8b9',
+  2025: '7c2e-uany',
+  2026: 'q2e4-e7e5',
+};
+
+// Keep only complete years: the current year's dataset is a partial period.
+const CURRENT_YEAR = new Date().getFullYear();
+const YEARS = Object.entries(YEAR_IDS)
+  .map(([y, id]) => ({ year: Number(y), id }))
+  .filter((y) => y.year < CURRENT_YEAR);
+const LATEST = Math.max(...YEARS.map((y) => y.year));
+
+// Hour-of-day contrast: one neighborhood decliner against the recovered core,
+// first year vs latest full year.
+const HOURLY_AREAS = ['Ballard', 'Commercial Core'];
+const HOURLY_YEARS = [Math.min(...YEARS.map((y) => y.year)), LATEST];
+
+const rate = (occ, spaces) => Math.round((num(occ) / num(spaces)) * 1000) / 1000;
 
 async function main() {
   const byAreaYear = [];
   for (const y of YEARS) {
-    console.log(`year ${y.year}...`);
+    console.log(`year ${y.year} (${y.id})...`);
     const rows = soql(y.id, {
       $select: 'paidparkingarea, avg(paidoccupancy) AS occ, avg(parkingspacecount) AS spaces, count(*) AS n',
       $group: 'paidparkingarea',
@@ -52,15 +55,48 @@ async function main() {
         area,
         occ: Math.round(num(r.occ) * 100) / 100,
         spaces: Math.round(spaces * 10) / 10,
-        rate: Math.round((num(r.occ) / spaces) * 1000) / 1000,
+        rate: rate(r.occ, r.spaces),
         n: num(r.n),
       });
     }
     console.log(`   ${rows.length} areas`);
   }
+
+  const byAreaHour = [];
+  for (const area of HOURLY_AREAS) {
+    for (const year of HOURLY_YEARS) {
+      const id = YEAR_IDS[year];
+      console.log(`hourly ${area} ${year} (${id})...`);
+      const rows = soql(id, {
+        $select: 'date_extract_hh(occupancydatetime) AS hh, avg(paidoccupancy) AS occ, avg(parkingspacecount) AS spaces, count(*) AS n',
+        $where: `paidparkingarea='${area}'`,
+        $group: 'hh',
+        $order: 'hh',
+        $limit: '30',
+      });
+      // Drop stray hours with a handful of readings (e.g. a lone 6:59am row);
+      // real paid hours carry millions of readings each.
+      const maxN = Math.max(...rows.map((r) => num(r.n)));
+      for (const r of rows) {
+        if (num(r.spaces) <= 0 || num(r.n) < maxN * 0.01) continue;
+        byAreaHour.push({ area, year, hour: num(r.hh), rate: rate(r.occ, r.spaces), n: num(r.n) });
+      }
+      console.log(`   ${rows.length} hours`);
+    }
+  }
+
   fs.mkdirSync(path.dirname(FILE), { recursive: true });
-  fs.writeFileSync(FILE, JSON.stringify({ generatedAt: new Date().toISOString(), byAreaYear }, null, 2));
-  console.log(`Wrote parking.json (${byAreaYear.length} area-years)`);
+  fs.writeFileSync(
+    FILE,
+    JSON.stringify({ generatedAt: new Date().toISOString(), latestYear: LATEST, yearIds: YEAR_IDS, byAreaYear, byAreaHour }, null, 2),
+  );
+  console.log(`Wrote parking.json (${byAreaYear.length} area-years, ${byAreaHour.length} area-hours, latest ${LATEST})`);
+
+  // Sanity echoes for the console log.
+  const a = (yr, area) => byAreaYear.find((r) => r.year === yr && r.area === area);
+  console.log('Commercial Core 2019 -> latest rate:', a(2019, 'Commercial Core')?.rate, '->', a(LATEST, 'Commercial Core')?.rate);
+  console.log('Ballard 2019 -> latest rate:', a(2019, 'Ballard')?.rate, '->', a(LATEST, 'Ballard')?.rate);
+  console.log('Uptown n 2019 -> latest:', a(2019, 'Uptown')?.n, '->', a(LATEST, 'Uptown')?.n);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

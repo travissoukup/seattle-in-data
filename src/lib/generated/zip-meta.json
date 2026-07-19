@@ -1,101 +1,102 @@
 {
- "generatedAt": "2026-06-29T23:12:13.297Z",
- "totalPop": 783000,
+ "generatedAt": "2026-07-19T20:58:58.377Z",
+ "acsRelease": "ACS 2024 5-year",
+ "totalPop": 839616,
  "zips": {
   "98101": {
-   "pop": 13200,
+   "pop": 17153,
    "label": "Downtown"
   },
   "98102": {
-   "pop": 23800,
+   "pop": 27333,
    "label": "Capitol Hill and Eastlake"
   },
   "98103": {
-   "pop": 50500,
+   "pop": 52671,
    "label": "Wallingford, Fremont, Green Lake"
   },
   "98104": {
-   "pop": 14600,
+   "pop": 16542,
    "label": "Pioneer Square and Chinatown"
   },
   "98105": {
-   "pop": 47900,
+   "pop": 49767,
    "label": "University District"
   },
   "98106": {
-   "pop": 26900,
+   "pop": 28690,
    "label": "Delridge and Highland Park"
   },
   "98107": {
-   "pop": 30400,
+   "pop": 28776,
    "label": "Ballard"
   },
   "98108": {
-   "pop": 24600,
+   "pop": 25529,
    "label": "Beacon Hill and Georgetown"
   },
   "98109": {
-   "pop": 27200,
+   "pop": 34328,
    "label": "South Lake Union and Queen Anne"
   },
   "98112": {
-   "pop": 23500,
+   "pop": 23921,
    "label": "Montlake and Madison Park"
   },
   "98115": {
-   "pop": 47800,
+   "pop": 54349,
    "label": "Ravenna, Bryant, Wedgwood"
   },
   "98116": {
-   "pop": 28800,
+   "pop": 28711,
    "label": "West Seattle and Alki"
   },
   "98117": {
-   "pop": 39900,
+   "pop": 35711,
    "label": "Ballard and Crown Hill"
   },
   "98118": {
-   "pop": 45900,
+   "pop": 50500,
    "label": "Columbia City and Rainier Valley"
   },
   "98119": {
-   "pop": 24800,
+   "pop": 26879,
    "label": "Queen Anne"
   },
   "98121": {
-   "pop": 16400,
+   "pop": 21166,
    "label": "Belltown"
   },
   "98122": {
-   "pop": 37300,
+   "pop": 43234,
    "label": "Capitol Hill and Central District"
   },
   "98125": {
-   "pop": 41400,
+   "pop": 44520,
    "label": "Lake City and Northgate"
   },
   "98126": {
-   "pop": 27600,
+   "pop": 22975,
    "label": "West Seattle and Highland Park"
   },
   "98133": {
-   "pop": 49200,
+   "pop": 53249,
    "label": "Bitter Lake and Broadview"
   },
   "98134": {
-   "pop": 900,
+   "pop": 645,
    "label": "SODO"
   },
   "98136": {
-   "pop": 18900,
+   "pop": 17252,
    "label": "West Seattle and Fauntleroy"
   },
   "98144": {
-   "pop": 31400,
+   "pop": 33787,
    "label": "Mount Baker and Judkins Park"
   },
   "98146": {
-   "pop": 22300,
+   "pop": 28573,
    "label": "White Center and Arbor Heights"
   },
   "98154": {
@@ -103,7 +104,7 @@
    "label": "Downtown core"
   },
   "98164": {
-   "pop": 0,
+   "pop": 292,
    "label": "Downtown core"
   },
   "98174": {
@@ -111,19 +112,19 @@
    "label": "Downtown core"
   },
   "98177": {
-   "pop": 22000,
+   "pop": 21090,
    "label": "Broadview and Blue Ridge"
   },
   "98178": {
-   "pop": 24000,
+   "pop": 26748,
    "label": "Rainier Beach and Skyway"
   },
   "98195": {
-   "pop": 0,
+   "pop": 2757,
    "label": "University of Washington"
   },
   "98199": {
-   "pop": 21800,
+   "pop": 22468,
    "label": "Magnolia"
   }
  }

@@ -1,24 +1,26 @@
 // Generates src/lib/generated/library.json from the Seattle Public Library
-// "Checkouts by Title" dataset (tmmm-ytt6, ~51M rows) via server-side SoQL
-// aggregation, so nothing large is downloaded. Run:
+// "Checkouts by Title" dataset (tmmm-ytt6, ~51M title-month rows) via
+// server-side SoQL aggregation, so nothing large is downloaded. Run:
 //   SOCRATA_APP_TOKEN=xxx node scripts/fetch-library.mjs
+// Preserves the topBooksMonthly section written by fetch-top-books-monthly.mjs.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { soql, num } from './lib/socrata.mjs';
 
-const TOKEN = process.env.SOCRATA_APP_TOKEN ?? '';
-const BASE = 'https://data.seattle.gov/resource/tmmm-ytt6.json';
+const ID = 'tmmm-ytt6';
 const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'lib', 'generated');
+const FILE = path.join(DIR, 'library.json');
 
-async function soql(params) {
-  const url = new URL(BASE);
-  for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
-  const res = await fetch(url, { headers: TOKEN ? { 'X-App-Token': TOKEN } : {} });
-  if (!res.ok) throw new Error(`${res.status} ${(await res.text()).slice(0, 200)}`);
-  return res.json();
-}
+const NOW_YEAR = new Date().getFullYear();
+// Rolling windows, computed from the run date rather than hardcoded.
+const TOP_BOOKS_SINCE = NOW_YEAR - 3;
+const SEISMO_SINCE = NOW_YEAR - 7;
+// Fixed historical event, not a moving cutoff: the ransomware attack that took
+// SPL's catalog and checkout systems down at the end of May 2024.
+const RANSOM = { year: 2024, month: 5 };
 
-const num = (v) => Number(v) || 0;
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 // Material-type normalization (case variants collapse; friendly labels).
 const MAT_LABEL = {
@@ -37,15 +39,119 @@ const SEISMO = [
   { match: 'Fourth Wing', label: 'Fourth Wing', note: 'The 2023 romantasy explosion, almost entirely driven by social media.' },
 ];
 
-async function main() {
-  console.log('1/4 by-year usage...');
-  const yu = await soql({ $select: 'checkoutyear,usageclass,sum(checkouts) as c', $group: 'checkoutyear,usageclass', $order: 'checkoutyear', $limit: '500' });
+function main() {
+  console.log('1/7 grand totals...');
+  const tot = soql(ID, { $select: 'sum(checkouts) as total, count(*) as n' })[0];
+  const totalCheckouts = num(tot.total);
+  const totalRows = num(tot.n);
+  console.log(`   ${totalCheckouts.toLocaleString()} checkouts across ${totalRows.toLocaleString()} rows`);
+
+  console.log('2/7 by-year usage...');
+  const yu = soql(ID, { $select: 'checkoutyear,usageclass,sum(checkouts) as c', $group: 'checkoutyear,usageclass', $order: 'checkoutyear', $limit: '500' });
   const byYearUsage = yu
     .map((r) => ({ year: num(r.checkoutyear), usage: r.usageclass, checkouts: num(r.c) }))
     .filter((r) => r.year >= 2005);
 
-  console.log('2/4 material types...');
-  const mt = await soql({ $select: 'materialtype,sum(checkouts) as c', $group: 'materialtype', $order: 'c DESC', $limit: '40' });
+  console.log('3/7 by-year totals + month coverage...');
+  const ym = soql(ID, { $select: 'checkoutyear,checkoutmonth,sum(checkouts) as c', $group: 'checkoutyear,checkoutmonth', $order: 'checkoutyear,checkoutmonth', $limit: '600' });
+  const yearMap = new Map();
+  for (const r of ym) {
+    const y = num(r.checkoutyear);
+    if (y < 2005) continue;
+    if (!yearMap.has(y)) yearMap.set(y, { year: y, checkouts: 0, months: 0 });
+    const row = yearMap.get(y);
+    row.checkouts += num(r.c);
+    row.months += 1;
+  }
+  const byYear = [...yearMap.values()].sort((a, b) => a.year - b.year);
+  const fullYears = byYear.filter((r) => r.months === 12);
+  const record = fullYears.reduce((a, b) => (b.checkouts > a.checkouts ? b : a));
+  const priorPeak = fullYears.filter((r) => r.year < record.year).reduce((a, b) => (b.checkouts > a.checkouts ? b : a));
+  const last = byYear[byYear.length - 1];
+  const partial = last.months < 12 ? last : null;
+  const stats = {
+    totalCheckouts,
+    totalRows,
+    firstYear: byYear[0].year,
+    firstFullYear: fullYears[0].year,
+    latestFullYear: fullYears[fullYears.length - 1].year,
+    recordYear: record.year,
+    recordCheckouts: record.checkouts,
+    priorPeakYear: priorPeak.year,
+    priorPeakCheckouts: priorPeak.checkouts,
+    partialYear: partial ? partial.year : null,
+    partialMonths: partial ? partial.months : null,
+    partialThroughMonth: partial ? MONTHS[partial.months - 1] : null,
+    partialCheckouts: partial ? partial.checkouts : null,
+    partialPaceAnnual: partial ? Math.round((partial.checkouts / partial.months) * 12) : null,
+  };
+  console.log(`   record ${stats.recordYear}: ${stats.recordCheckouts.toLocaleString()} (old peak ${stats.priorPeakYear}: ${stats.priorPeakCheckouts.toLocaleString()})`);
+  if (partial) console.log(`   partial ${partial.year}: ${partial.checkouts.toLocaleString()} through ${stats.partialThroughMonth}, pace ${stats.partialPaceAnnual.toLocaleString()}`);
+
+  console.log('4/7 ransomware window, monthly physical vs digital...');
+  const rw = soql(ID, {
+    $select: 'checkoutyear,checkoutmonth,usageclass,sum(checkouts) as c',
+    $where: `checkoutyear>=${RANSOM.year - 1} AND checkoutyear<=${RANSOM.year + 1}`,
+    $group: 'checkoutyear,checkoutmonth,usageclass', $order: 'checkoutyear,checkoutmonth', $limit: '200',
+  });
+  const rm = new Map();
+  for (const r of rw) {
+    const key = `${r.checkoutyear}-${String(num(r.checkoutmonth)).padStart(2, '0')}`;
+    if (!rm.has(key)) rm.set(key, { ym: key, physical: 0, digital: 0 });
+    rm.get(key)[String(r.usageclass).toLowerCase() === 'digital' ? 'digital' : 'physical'] += num(r.c);
+  }
+  const ransomSeries = [...rm.values()].sort((a, b) => a.ym.localeCompare(b.ym));
+  // Compare the last full month before the outage to the low point after it.
+  const eventYearPhys = ransomSeries.filter((p) => p.ym.startsWith(`${RANSOM.year}-`));
+  const pre = eventYearPhys[RANSOM.month - 2]; // month before the outage month
+  const low = eventYearPhys.slice(RANSOM.month - 1).reduce((a, b) => (b.physical < a.physical ? b : a));
+  const ransomware = {
+    year: RANSOM.year,
+    outageMonth: MONTHS[RANSOM.month - 1],
+    preMonth: MONTHS[num(pre.ym.slice(5)) - 1],
+    prePhysical: pre.physical,
+    lowMonth: MONTHS[num(low.ym.slice(5)) - 1],
+    lowPhysical: low.physical,
+    dropPct: Math.round((1 - low.physical / pre.physical) * 100),
+    yearCheckouts: byYear.find((r) => r.year === RANSOM.year)?.checkouts ?? 0,
+    prevYearCheckouts: byYear.find((r) => r.year === RANSOM.year - 1)?.checkouts ?? 0,
+    series: ransomSeries,
+  };
+  console.log(`   physical ${ransomware.preMonth} ${ransomware.prePhysical.toLocaleString()} -> ${ransomware.lowMonth} ${ransomware.lowPhysical.toLocaleString()} (${ransomware.dropPct}% drop)`);
+
+  console.log('5/7 e-book vs audiobook race...');
+  const fr = soql(ID, {
+    $select: 'checkoutyear,upper(materialtype) as mt,sum(checkouts) as c',
+    $where: "upper(materialtype) in ('EBOOK','AUDIOBOOK')",
+    $group: 'checkoutyear,mt', $order: 'checkoutyear', $limit: '200',
+  });
+  const frMap = new Map();
+  for (const r of fr) {
+    const y = num(r.checkoutyear);
+    if (!frMap.has(y)) frMap.set(y, { year: y, ebook: 0, audiobook: 0, months: yearMap.get(y)?.months ?? 12 });
+    frMap.get(y)[r.mt === 'EBOOK' ? 'ebook' : 'audiobook'] = num(r.c);
+  }
+  // Trim leading years before the formats meant anything (under 100k combined).
+  const raceAll = [...frMap.values()].sort((a, b) => a.year - b.year);
+  const raceStart = raceAll.findIndex((r) => r.ebook + r.audiobook >= 100000);
+  const formatRace = raceStart >= 0 ? raceAll.slice(raceStart) : [];
+  // The most recent year audiobooks took the lead back from e-books (skips the
+  // early-2010s blip when both formats were tiny).
+  let crossover = null;
+  for (let i = formatRace.length - 1; i > 0; i--) {
+    if (formatRace[i].audiobook > formatRace[i].ebook && formatRace[i - 1].audiobook <= formatRace[i - 1].ebook) {
+      crossover = formatRace[i];
+      break;
+    }
+  }
+  const prevLead = crossover ? [...formatRace].reverse().find((r) => r.year < crossover.year && r.audiobook > r.ebook) : null;
+  const raceStats = crossover
+    ? { year: crossover.year, months: crossover.months, ebook: crossover.ebook, audiobook: crossover.audiobook, prevLeadYear: prevLead ? prevLead.year : null }
+    : null;
+  console.log(`   ${formatRace.length} years; audiobook crossover: ${raceStats ? `${raceStats.year} (${raceStats.audiobook.toLocaleString()} vs ${raceStats.ebook.toLocaleString()}, prev lead ${raceStats.prevLeadYear})` : 'none'}`);
+
+  console.log('6/7 material types + top books...');
+  const mt = soql(ID, { $select: 'materialtype,sum(checkouts) as c', $group: 'materialtype', $order: 'c DESC', $limit: '40' });
   const mm = new Map();
   for (const r of mt) {
     const k = String(r.materialtype || '').toUpperCase();
@@ -57,10 +163,9 @@ async function main() {
     .sort((a, b) => b.checkouts - a.checkouts)
     .slice(0, 10);
 
-  console.log('3/4 top books (2023+)...');
-  const tb = await soql({
+  const tb = soql(ID, {
     $select: 'title,sum(checkouts) as c',
-    $where: "checkoutyear>=2023 AND (materialtype='BOOK' OR upper(materialtype)='EBOOK' OR upper(materialtype)='AUDIOBOOK')",
+    $where: `checkoutyear>=${TOP_BOOKS_SINCE} AND (materialtype='BOOK' OR upper(materialtype)='EBOOK' OR upper(materialtype)='AUDIOBOOK')`,
     $group: 'title', $order: 'c DESC', $limit: '60',
   });
   const topBooks = tb
@@ -68,12 +173,12 @@ async function main() {
     .filter((b) => b.title && !JUNK.test(b.title))
     .slice(0, 15);
 
-  console.log('4/4 seismograph titles...');
+  console.log('7/7 seismograph titles...');
   const seismograph = [];
   for (const t of SEISMO) {
-    const rows = await soql({
+    const rows = soql(ID, {
       $select: 'checkoutyear,checkoutmonth,sum(checkouts) as c',
-      $where: `title like '${t.match}%' AND checkoutyear>=2019`,
+      $where: `title like '${t.match}%' AND checkoutyear>=${SEISMO_SINCE}`,
       $group: 'checkoutyear,checkoutmonth', $order: 'checkoutyear,checkoutmonth', $limit: '200',
     });
     const series = rows.map((r) => ({
@@ -84,10 +189,21 @@ async function main() {
     console.log(`   ${t.label}: ${series.length} months`);
   }
 
+  // Carry forward topBooksMonthly (written by fetch-top-books-monthly.mjs).
+  let topBooksMonthly = [];
+  try {
+    topBooksMonthly = JSON.parse(fs.readFileSync(FILE, 'utf8')).topBooksMonthly ?? [];
+  } catch { /* first run */ }
+
   fs.mkdirSync(DIR, { recursive: true });
-  const out = { generatedAt: new Date().toISOString(), byYearUsage, materialTypes, topBooks, seismograph };
-  fs.writeFileSync(path.join(DIR, 'library.json'), JSON.stringify(out, null, 2));
-  console.log(`Wrote library.json (${byYearUsage.length} year-usage rows, ${materialTypes.length} material types, ${topBooks.length} books, ${seismograph.length} seismo titles)`);
+  const out = {
+    generatedAt: new Date().toISOString(),
+    stats, byYear, byYearUsage, ransomware, formatRace, raceStats, materialTypes,
+    topBooksSince: TOP_BOOKS_SINCE, topBooks, seismographSince: SEISMO_SINCE, seismograph,
+    topBooksMonthly,
+  };
+  fs.writeFileSync(FILE, JSON.stringify(out, null, 2));
+  console.log(`Wrote library.json (${byYear.length} years, ${ransomSeries.length} ransom months, ${formatRace.length} race years, ${topBooks.length} books, ${topBooksMonthly.length} monthly books)`);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+main();

@@ -43,11 +43,69 @@ export interface TopBookMonthly {
   total: number;
   series: BookMonthlyPoint[];
 }
+export interface YearTotalRow {
+  year: number;
+  checkouts: number;
+  months: number;
+}
+export interface LibraryStats {
+  totalCheckouts: number;
+  totalRows: number;
+  firstYear: number;
+  firstFullYear: number;
+  latestFullYear: number;
+  recordYear: number;
+  recordCheckouts: number;
+  priorPeakYear: number;
+  priorPeakCheckouts: number;
+  partialYear: number | null;
+  partialMonths: number | null;
+  partialThroughMonth: string | null;
+  partialCheckouts: number | null;
+  partialPaceAnnual: number | null;
+}
+export interface RansomPoint {
+  ym: string;
+  physical: number;
+  digital: number;
+}
+export interface RansomwareData {
+  year: number;
+  outageMonth: string;
+  preMonth: string;
+  prePhysical: number;
+  lowMonth: string;
+  lowPhysical: number;
+  dropPct: number;
+  yearCheckouts: number;
+  prevYearCheckouts: number;
+  series: RansomPoint[];
+}
+export interface FormatRaceRow {
+  year: number;
+  ebook: number;
+  audiobook: number;
+  months: number;
+}
+export interface RaceStats {
+  year: number;
+  months: number;
+  ebook: number;
+  audiobook: number;
+  prevLeadYear: number | null;
+}
 export interface LibraryData {
   generatedAt: string;
+  stats: LibraryStats;
+  byYear: YearTotalRow[];
   byYearUsage: YearUsageRow[];
+  ransomware: RansomwareData;
+  formatRace: FormatRaceRow[];
+  raceStats: RaceStats | null;
   materialTypes: MaterialRow[];
+  topBooksSince: number;
   topBooks: BookRow[];
+  seismographSince: number;
   seismograph: SeismoTitle[];
   topBooksMonthly: TopBookMonthly[];
 }
@@ -67,10 +125,48 @@ export interface FilerControlledRow {
   med_city_days: number;
   med_cycles: number;
 }
+export interface UnitYearRow {
+  year: number;
+  added: number;
+  removed: number;
+  net: number;
+}
+export interface AduYearRow {
+  year: number;
+  permits: number;
+}
 export interface PermitsData {
+  generatedAt: string;
   note: string;
+  windowStartYear: number;
+  fastLaneN: number;
+  contractorFillPct: number;
+  windowAll: number;
   rawByFiler: FilerRawRow[];
   controlledByFiler: FilerControlledRow[];
+  unitYears: UnitYearRow[];
+  unitsStats: {
+    peakYear: number;
+    peakAdded: number;
+    lowYear: number;
+    lowAdded: number;
+    latestYear: number;
+    latestAdded: number;
+    latestVsPeakPct: number;
+  };
+  aduByYear: AduYearRow[];
+  aduStats: {
+    reformYear: number;
+    reformPermits: number;
+    peakYear: number;
+    peakPermits: number;
+    lastFullYear: number;
+    fieldLastFilled: string;
+    partialThroughMonth: number;
+    partialYear: number;
+    partialPermits: number;
+    priorSameMonths: number;
+  };
 }
 
 export const permits = permitsRaw as unknown as PermitsData;
@@ -96,7 +192,19 @@ export interface PetsData {
   topDogNames: KeyCount[];
   topCatNames: KeyCount[];
   zipBreed: ZipBreedRow[];
-  totals: { dogTotal: number; frenchTotal: number; pitTotal: number };
+  catZips: Array<{ zip: string; cats: number; dogs: number; total: number; catPct: number }>;
+  catZipMin: number;
+  goats: Array<{ name: string; zip: string; breed: string }>;
+  totals: {
+    dogTotal: number;
+    catTotal: number;
+    goatTotal: number;
+    totalPets: number;
+    frenchTotal: number;
+    pitTotal: number;
+    recentSharePct: number;
+    recentSinceYear: number;
+  };
 }
 export const pets = petsRaw as unknown as PetsData;
 
@@ -110,12 +218,32 @@ export interface TitleWage {
   title: string;
   n: number;
   median: number;
+  avg: number;
 }
 export interface WagesData {
   generatedAt: string;
-  summary: { n: number; median: number; p90: number; p99: number; max: number };
+  summary: {
+    n: number;
+    median: number;
+    p90: number;
+    p99: number;
+    max: number;
+    min: number;
+    /** Seattle's citywide minimum wage (policy constant set in the fetch script). */
+    minWage: number;
+    /** Employees whose rate is below the citywide minimum wage. */
+    belowMinWage: number;
+  };
   byDept: DeptWage[];
+  /** Departments with 400+ employees, ranked by headcount, with average rate. */
+  bigDepts: Array<{ department: string; n: number; avg: number }>;
   topTitles: TitleWage[];
+  /** Most common job titles by headcount. */
+  commonTitles: TitleWage[];
+  /** Lowest average rate among titles with 10+ people. */
+  bottomTitles: TitleWage[];
+  /** Every distinct job title, for the full CSV export. */
+  allTitles: TitleWage[];
   dist: Array<{ label: string; n: number }>;
 }
 export const wages = wagesRaw as unknown as WagesData;
@@ -180,10 +308,25 @@ export interface SdotPermitType {
   /** Percent of the average wait that sits in the applicant's control. */
   applicantShare: number | null;
 }
+export interface SdotTrendYear {
+  year: number;
+  permits: number;
+  medCity: number;
+  meanCity: number;
+}
 export interface SdotData {
   generatedAt: string;
-  overall: { totalIssued: number; meanCity: number; meanApp: number; medTotal: number };
+  overall: {
+    totalIssued: number;
+    meanCity: number;
+    meanApp: number;
+    medTotal: number;
+    neverIssued: number;
+    neverIssuedPct: number;
+  };
   types: SdotPermitType[];
+  /** Minor Utility Permit city-review days by applied year (full years only). */
+  muTrend: SdotTrendYear[];
 }
 export const sdot = sdotRaw as unknown as SdotData;
 

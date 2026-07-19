@@ -1,11 +1,14 @@
 {
-  "generatedAt": "2026-06-16T21:08:35.188Z",
+  "generatedAt": "2026-07-19T21:05:34.140Z",
   "summary": {
     "n": 14194,
     "median": 55.19,
     "p90": 84.88,
     "p99": 110.35,
-    "max": 254.79
+    "max": 254.79,
+    "min": 21.51,
+    "minWage": 20.76,
+    "belowMinWage": 0
   },
   "byDept": [
     {
@@ -183,81 +186,7424 @@
       "p90": 60.22
     }
   ],
+  "bigDepts": [
+    {
+      "department": "Parks and Recreation Department",
+      "n": 1970,
+      "avg": 38.7
+    },
+    {
+      "department": "Seattle City Light",
+      "n": 1817,
+      "avg": 67.37
+    },
+    {
+      "department": "Seattle Police Department",
+      "n": 1649,
+      "avg": 69
+    },
+    {
+      "department": "Seattle Public Utilities",
+      "n": 1590,
+      "avg": 58.69
+    },
+    {
+      "department": "Seattle Department of Transportation",
+      "n": 1184,
+      "avg": 59.95
+    },
+    {
+      "department": "Seattle Fire Department",
+      "n": 1130,
+      "avg": 57.05
+    },
+    {
+      "department": "Seattle Public Library",
+      "n": 648,
+      "avg": 45.39
+    },
+    {
+      "department": "Seattle Center",
+      "n": 608,
+      "avg": 41.69
+    },
+    {
+      "department": "Finance and Administrative Service",
+      "n": 575,
+      "avg": 58.87
+    },
+    {
+      "department": "Information Technology",
+      "n": 573,
+      "avg": 75.97
+    },
+    {
+      "department": "Human Services",
+      "n": 469,
+      "avg": 54.56
+    },
+    {
+      "department": "Construction and Inspections",
+      "n": 406,
+      "avg": 65.27
+    }
+  ],
   "topTitles": [
     {
       "title": "Executive 4",
       "n": 32,
-      "median": 150.43
+      "median": 150.43,
+      "avg": 141.11
     },
     {
       "title": "Police Captain",
       "n": 13,
-      "median": 123.97
+      "median": 123.97,
+      "avg": 121.44
     },
     {
       "title": "Executive 3",
       "n": 62,
-      "median": 116.2
+      "median": 116.2,
+      "avg": 116.45
     },
     {
       "title": "Power Dispatcher,Senior",
       "n": 13,
-      "median": 107.51
+      "median": 107.51,
+      "avg": 107.51
     },
     {
       "title": "Police Lieutenant-WC",
       "n": 16,
-      "median": 107.38
+      "median": 107.38,
+      "avg": 105.9
     },
     {
       "title": "Executive 2",
       "n": 135,
-      "median": 106.92
+      "median": 106.92,
+      "avg": 104.89
     },
     {
       "title": "Police Lieutenant",
       "n": 35,
-      "median": 104.25
+      "median": 104.25,
+      "avg": 103.91
     },
     {
       "title": "Electrical Power Systems Engineer,Principal -Mrt",
       "n": 15,
-      "median": 103.22
+      "median": 103.22,
+      "avg": 104.96
     },
     {
       "title": "Power Dispatcher",
       "n": 13,
-      "median": 100.13
+      "median": 100.13,
+      "avg": 99.62
     },
     {
       "title": "Electrical Power Systems Engineer,Principal",
       "n": 10,
-      "median": 99.55
+      "median": 99.55,
+      "avg": 97.71
     },
     {
       "title": "Electrical Power Systems Engineer-Mrt",
       "n": 17,
-      "median": 98.25
+      "median": 98.25,
+      "avg": 96.65
     },
     {
       "title": "Civil Engineer Supervisor",
       "n": 58,
-      "median": 94.12
+      "median": 94.12,
+      "avg": 93.49
     },
     {
       "title": "Executive 1",
       "n": 12,
-      "median": 93.4
+      "median": 93.4,
+      "avg": 90.53
     },
     {
       "title": "Electrical Power Systems Engineer",
       "n": 21,
-      "median": 92.88
+      "median": 92.88,
+      "avg": 88.78
     },
     {
       "title": "Manager 3, Engineering and Plans Review L21 SPU",
       "n": 11,
-      "median": 92.84
+      "median": 92.84,
+      "avg": 91.17
+    }
+  ],
+  "commonTitles": [
+    {
+      "title": "Lifeguard",
+      "n": 371,
+      "median": 26.92,
+      "avg": 26.95
+    },
+    {
+      "title": "Police Officer-Patrol-BWV",
+      "n": 367,
+      "median": 76.46,
+      "avg": 76.44
+    },
+    {
+      "title": "Information Technology Professional B BU",
+      "n": 343,
+      "median": 76.44,
+      "avg": 76.44
+    },
+    {
+      "title": "Firefighter-90.46 Hrs",
+      "n": 340,
+      "median": 48.88,
+      "avg": 47.39
+    },
+    {
+      "title": "Maintenance Laborer",
+      "n": 303,
+      "median": 37.95,
+      "avg": 37.95
+    },
+    {
+      "title": "Recreation Attendant",
+      "n": 266,
+      "median": 26.92,
+      "avg": 28.03
+    },
+    {
+      "title": "Laborer",
+      "n": 207,
+      "median": 31.97,
+      "avg": 32.41
+    },
+    {
+      "title": "Police Officer- Student",
+      "n": 197,
+      "median": 60.51,
+      "avg": 60.19
+    },
+    {
+      "title": "Firefighter-Ap Driver C-90.46",
+      "n": 163,
+      "median": 55.06,
+      "avg": 55.06
+    },
+    {
+      "title": "Counselor",
+      "n": 156,
+      "median": 50.42,
+      "avg": 48.88
+    }
+  ],
+  "bottomTitles": [
+    {
+      "title": "High School Intern",
+      "n": 39,
+      "median": 21.51,
+      "avg": 21.51
+    },
+    {
+      "title": "Work Training Enrollee",
+      "n": 48,
+      "median": 21.51,
+      "avg": 21.51
+    },
+    {
+      "title": "Cooperative Intern",
+      "n": 61,
+      "median": 22.56,
+      "avg": 22.56
+    },
+    {
+      "title": "Office/Maintenance Aide",
+      "n": 85,
+      "median": 22.48,
+      "avg": 24.56
+    },
+    {
+      "title": "Usher",
+      "n": 89,
+      "median": 26.92,
+      "avg": 26.92
+    },
+    {
+      "title": "Parks Maintenance Aide",
+      "n": 10,
+      "median": 26.92,
+      "avg": 26.92
+    },
+    {
+      "title": "Lifeguard",
+      "n": 371,
+      "median": 26.92,
+      "avg": 26.95
+    },
+    {
+      "title": "Parking Attendant",
+      "n": 25,
+      "median": 26.92,
+      "avg": 27.14
+    },
+    {
+      "title": "Municipal Government Intern",
+      "n": 67,
+      "median": 27.67,
+      "avg": 27.67
+    },
+    {
+      "title": "Recreation Attendant",
+      "n": 266,
+      "median": 26.92,
+      "avg": 28.03
+    }
+  ],
+  "allTitles": [
+    {
+      "title": "Lifeguard",
+      "n": 371,
+      "median": 26.92,
+      "avg": 26.95
+    },
+    {
+      "title": "Police Officer-Patrol-BWV",
+      "n": 367,
+      "median": 76.46,
+      "avg": 76.44
+    },
+    {
+      "title": "Information Technology Professional B BU",
+      "n": 343,
+      "median": 76.44,
+      "avg": 76.44
+    },
+    {
+      "title": "Firefighter-90.46 Hrs",
+      "n": 340,
+      "median": 48.88,
+      "avg": 47.39
+    },
+    {
+      "title": "Maintenance Laborer",
+      "n": 303,
+      "median": 37.95,
+      "avg": 37.95
+    },
+    {
+      "title": "Recreation Attendant",
+      "n": 266,
+      "median": 26.92,
+      "avg": 28.03
+    },
+    {
+      "title": "Laborer",
+      "n": 207,
+      "median": 31.97,
+      "avg": 32.41
+    },
+    {
+      "title": "Police Officer- Student",
+      "n": 197,
+      "median": 60.51,
+      "avg": 60.19
+    },
+    {
+      "title": "Firefighter-Ap Driver C-90.46",
+      "n": 163,
+      "median": 55.06,
+      "avg": 55.06
+    },
+    {
+      "title": "Counselor",
+      "n": 156,
+      "median": 50.42,
+      "avg": 48.88
+    },
+    {
+      "title": "Library Associate II",
+      "n": 145,
+      "median": 35.72,
+      "avg": 34.34
+    },
+    {
+      "title": "Civil Engineer,Senior",
+      "n": 141,
+      "median": 87.31,
+      "avg": 85.12
+    },
+    {
+      "title": "Stage Technician",
+      "n": 138,
+      "median": 45.05,
+      "avg": 45.05
+    },
+    {
+      "title": "Executive 2",
+      "n": 135,
+      "median": 106.92,
+      "avg": 104.89
+    },
+    {
+      "title": "Police Officer-BWV",
+      "n": 127,
+      "median": 70.46,
+      "avg": 69.87
+    },
+    {
+      "title": "Information Technology Professional A,Exempt",
+      "n": 119,
+      "median": 87.94,
+      "avg": 87.59
+    },
+    {
+      "title": "Capital Projects Coordinator,Senior",
+      "n": 118,
+      "median": 74.86,
+      "avg": 72.78
+    },
+    {
+      "title": "Strategic Advisor 2, Exempt",
+      "n": 114,
+      "median": 76.72,
+      "avg": 76.55
+    },
+    {
+      "title": "Civil Engineering Specialist,Associate",
+      "n": 114,
+      "median": 62.4,
+      "avg": 60.69
+    },
+    {
+      "title": "Customer Service Representative",
+      "n": 110,
+      "median": 34.82,
+      "avg": 35.48
+    },
+    {
+      "title": "Recreation Leader",
+      "n": 110,
+      "median": 34.08,
+      "avg": 37.62
+    },
+    {
+      "title": "Civil Engineering Specialist,Senior",
+      "n": 107,
+      "median": 70.35,
+      "avg": 69.78
+    },
+    {
+      "title": "Lineworker",
+      "n": 104,
+      "median": 77.36,
+      "avg": 77.36
+    },
+    {
+      "title": "Administrative Specialist II-BU",
+      "n": 102,
+      "median": 41.31,
+      "avg": 40.48
+    },
+    {
+      "title": "Planning and Development Specialist,Senior-BU",
+      "n": 92,
+      "median": 65.54,
+      "avg": 63.57
+    },
+    {
+      "title": "Librarian",
+      "n": 91,
+      "median": 54.46,
+      "avg": 53.28
+    },
+    {
+      "title": "Strategic Advisor 1,Exempt",
+      "n": 89,
+      "median": 65.34,
+      "avg": 64.33
+    },
+    {
+      "title": "Usher",
+      "n": 89,
+      "median": 26.92,
+      "avg": 26.92
+    },
+    {
+      "title": "Parking Enforcement Officer",
+      "n": 86,
+      "median": 37.18,
+      "avg": 36.12
+    },
+    {
+      "title": "Management Systems Analyst,Senior",
+      "n": 85,
+      "median": 65.54,
+      "avg": 63.3
+    },
+    {
+      "title": "Office/Maintenance Aide",
+      "n": 85,
+      "median": 22.48,
+      "avg": 24.56
+    },
+    {
+      "title": "Police Sergeant-Patrol-BWV",
+      "n": 81,
+      "median": 87.98,
+      "avg": 87.77
+    },
+    {
+      "title": "Accounting Technician II-BU",
+      "n": 81,
+      "median": 39.18,
+      "avg": 38.5
+    },
+    {
+      "title": "Strategic Advisor 2, General Government",
+      "n": 81,
+      "median": 79.21,
+      "avg": 79.23
+    },
+    {
+      "title": "Strategic Advisor 1, General Government",
+      "n": 78,
+      "median": 70.34,
+      "avg": 70.51
+    },
+    {
+      "title": "Library Associate IV",
+      "n": 76,
+      "median": 47.24,
+      "avg": 45.48
+    },
+    {
+      "title": "Police Recruit",
+      "n": 74,
+      "median": 39.53,
+      "avg": 39.53
+    },
+    {
+      "title": "Planning and Development Specialist II",
+      "n": 70,
+      "median": 55.19,
+      "avg": 54.14
+    },
+    {
+      "title": "Administrative Specialist III-BU",
+      "n": 68,
+      "median": 44.51,
+      "avg": 43.74
+    },
+    {
+      "title": "Information Technology Professional C BU",
+      "n": 68,
+      "median": 66.1,
+      "avg": 65.36
+    },
+    {
+      "title": "Accounting Technician III-BU",
+      "n": 68,
+      "median": 43.09,
+      "avg": 42.43
+    },
+    {
+      "title": "911 Emergency Communication Dispatcher I",
+      "n": 67,
+      "median": 42.77,
+      "avg": 42.88
+    },
+    {
+      "title": "Municipal Government Intern",
+      "n": 67,
+      "median": 27.67,
+      "avg": 27.67
+    },
+    {
+      "title": "Administrative Staff Analyst",
+      "n": 66,
+      "median": 55.19,
+      "avg": 53.64
+    },
+    {
+      "title": "Electrician-Constructor",
+      "n": 65,
+      "median": 77.36,
+      "avg": 77.36
+    },
+    {
+      "title": "Fire Lieutenant-90.46 Hrs",
+      "n": 64,
+      "median": 59.18,
+      "avg": 58.9
+    },
+    {
+      "title": "City Attorney,Assistant",
+      "n": 63,
+      "median": 89.95,
+      "avg": 89.08
+    },
+    {
+      "title": "Executive 3",
+      "n": 62,
+      "median": 116.2,
+      "avg": 116.45
+    },
+    {
+      "title": "Cooperative Intern",
+      "n": 61,
+      "median": 22.56,
+      "avg": 22.56
+    },
+    {
+      "title": "Police Officer-Detective",
+      "n": 61,
+      "median": 76.82,
+      "avg": 76.82
+    },
+    {
+      "title": "Gardener",
+      "n": 60,
+      "median": 37.06,
+      "avg": 36.41
+    },
+    {
+      "title": "Civil Engineer,Associate",
+      "n": 58,
+      "median": 70.06,
+      "avg": 69.46
+    },
+    {
+      "title": "Civil Engineer Supervisor",
+      "n": 58,
+      "median": 94.12,
+      "avg": 93.49
+    },
+    {
+      "title": "Administrative Staff Assistant",
+      "n": 58,
+      "median": 46.43,
+      "avg": 46.19
+    },
+    {
+      "title": "Utility Account Representative II",
+      "n": 56,
+      "median": 44.92,
+      "avg": 44.03
+    },
+    {
+      "title": "Accountant",
+      "n": 54,
+      "median": 51.46,
+      "avg": 50
+    },
+    {
+      "title": "Court Cashier",
+      "n": 54,
+      "median": 41.66,
+      "avg": 41.42
+    },
+    {
+      "title": "Strategic Advisor 2, Utilities - L21C SCL",
+      "n": 54,
+      "median": 83.97,
+      "avg": 80.64
+    },
+    {
+      "title": "Strategic Advisor 2, Utilities L21 SPU",
+      "n": 52,
+      "median": 81.54,
+      "avg": 80.7
+    },
+    {
+      "title": "Drainage and Wastewater Collection Worker",
+      "n": 50,
+      "median": 45.88,
+      "avg": 44.99
+    },
+    {
+      "title": "Personnel Specialist,Senior",
+      "n": 50,
+      "median": 55.19,
+      "avg": 53.57
+    },
+    {
+      "title": "Grants and Contracts Specialist,Senior",
+      "n": 50,
+      "median": 50.33,
+      "avg": 48.68
+    },
+    {
+      "title": "Executive Assistant",
+      "n": 48,
+      "median": 65.54,
+      "avg": 63.96
+    },
+    {
+      "title": "Drainage and Wastewater Collection Lead Worker",
+      "n": 48,
+      "median": 51.16,
+      "avg": 50.49
+    },
+    {
+      "title": "Work Training Enrollee",
+      "n": 48,
+      "median": 21.51,
+      "avg": 21.51
+    },
+    {
+      "title": "Truck Driver,Heavy",
+      "n": 47,
+      "median": 44.08,
+      "avg": 43.86
+    },
+    {
+      "title": "Accountant,Senior",
+      "n": 46,
+      "median": 55.96,
+      "avg": 54.69
+    },
+    {
+      "title": "Auto Mechanic",
+      "n": 45,
+      "median": 55.56,
+      "avg": 53.45
+    },
+    {
+      "title": "Management Systems Analyst",
+      "n": 42,
+      "median": 55.19,
+      "avg": 53.77
+    },
+    {
+      "title": "High School Intern",
+      "n": 39,
+      "median": 21.51,
+      "avg": 21.51
+    },
+    {
+      "title": "Strategic Advisor 2, Engineering and Plans Review",
+      "n": 39,
+      "median": 79.21,
+      "avg": 80.62
+    },
+    {
+      "title": "911 Emergency Communication Dispatcher II",
+      "n": 38,
+      "median": 49.88,
+      "avg": 50.45
+    },
+    {
+      "title": "Strategic Advisor 3, Exempt",
+      "n": 38,
+      "median": 86.34,
+      "avg": 87.09
+    },
+    {
+      "title": "Manager 3, Engineering and Plans Review",
+      "n": 37,
+      "median": 92.36,
+      "avg": 90.95
+    },
+    {
+      "title": "Warehouser,Senior-BU",
+      "n": 37,
+      "median": 44.52,
+      "avg": 44.3
+    },
+    {
+      "title": "Transportation Planner,Senior",
+      "n": 36,
+      "median": 67.84,
+      "avg": 68.02
+    },
+    {
+      "title": "Fire Lieutenant, Senior-90.46 Hrs",
+      "n": 36,
+      "median": 60.36,
+      "avg": 60.36
+    },
+    {
+      "title": "Police Lieutenant",
+      "n": 35,
+      "median": 104.25,
+      "avg": 103.91
+    },
+    {
+      "title": "Utility Laborer",
+      "n": 35,
+      "median": 34.32,
+      "avg": 34.29
+    },
+    {
+      "title": "Environmental Analyst,Senior",
+      "n": 34,
+      "median": 67.84,
+      "avg": 66.91
+    },
+    {
+      "title": "Accountant Principal",
+      "n": 34,
+      "median": 62.9,
+      "avg": 61.73
+    },
+    {
+      "title": "Electrical Engineer,Associate",
+      "n": 33,
+      "median": 72.73,
+      "avg": 71.27
+    },
+    {
+      "title": "Security Officer",
+      "n": 33,
+      "median": 39.68,
+      "avg": 38.88
+    },
+    {
+      "title": "Janitor-SC/Parks/SPU",
+      "n": 33,
+      "median": 28.14,
+      "avg": 28.66
+    },
+    {
+      "title": "Executive 4",
+      "n": 32,
+      "median": 150.43,
+      "avg": 141.11
+    },
+    {
+      "title": "Line C Crew Chief",
+      "n": 32,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "Firefighter-Paramedic Tech-90.46 Hrs",
+      "n": 32,
+      "median": 60.21,
+      "avg": 59.65
+    },
+    {
+      "title": "Water Pipe Worker",
+      "n": 32,
+      "median": 48.62,
+      "avg": 48.48
+    },
+    {
+      "title": "Public Relations Specialist,Senior BU",
+      "n": 31,
+      "median": 55.19,
+      "avg": 54.03
+    },
+    {
+      "title": "Program Intake Representative",
+      "n": 31,
+      "median": 44.21,
+      "avg": 42.87
+    },
+    {
+      "title": "Truck Driver",
+      "n": 31,
+      "median": 41.92,
+      "avg": 41.92
+    },
+    {
+      "title": "Legislative Assistant",
+      "n": 31,
+      "median": 54.79,
+      "avg": 54.13
+    },
+    {
+      "title": "Meter Reader",
+      "n": 31,
+      "median": 38.7,
+      "avg": 36.74
+    },
+    {
+      "title": "Strategic Advisor 1, Human Services",
+      "n": 31,
+      "median": 63.84,
+      "avg": 66.33
+    },
+    {
+      "title": "Permit Technician",
+      "n": 30,
+      "median": 44.64,
+      "avg": 44.15
+    },
+    {
+      "title": "Finance Analyst,Senior",
+      "n": 30,
+      "median": 62.9,
+      "avg": 62.28
+    },
+    {
+      "title": "Installation Maintenance Worker",
+      "n": 30,
+      "median": 38.84,
+      "avg": 38.79
+    },
+    {
+      "title": "Court Clerk",
+      "n": 30,
+      "median": 43.93,
+      "avg": 42.87
+    },
+    {
+      "title": "Student Engineer Intern",
+      "n": 30,
+      "median": 29.46,
+      "avg": 29.14
+    },
+    {
+      "title": "Manager 3, Utilities L21 SPU",
+      "n": 30,
+      "median": 90.4,
+      "avg": 88.7
+    },
+    {
+      "title": "Strategic Advisor 2, Information Technology",
+      "n": 29,
+      "median": 78.54,
+      "avg": 77.96
+    },
+    {
+      "title": "Strategic Advisor-Legislative L17",
+      "n": 28,
+      "median": 68.14,
+      "avg": 70.92
+    },
+    {
+      "title": "Management Systems Analyst,Senior-BU",
+      "n": 28,
+      "median": 65.54,
+      "avg": 64.78
+    },
+    {
+      "title": "Manager 2, General Government",
+      "n": 28,
+      "median": 78.65,
+      "avg": 78.44
+    },
+    {
+      "title": "Fire Captain-90.46 Hrs",
+      "n": 28,
+      "median": 68.05,
+      "avg": 67.94
+    },
+    {
+      "title": "Water Pipe Worker, Senior-WDM II",
+      "n": 28,
+      "median": 55.21,
+      "avg": 55.14
+    },
+    {
+      "title": "Electrical Service Representative",
+      "n": 27,
+      "median": 48.31,
+      "avg": 47.63
+    },
+    {
+      "title": "Construction and Maintenance Equipment Operator Senior",
+      "n": 27,
+      "median": 48.87,
+      "avg": 48.87
+    },
+    {
+      "title": "Capital Projects Coordinator",
+      "n": 27,
+      "median": 65.41,
+      "avg": 63.7
+    },
+    {
+      "title": "Sound and Video Equipment Technician",
+      "n": 27,
+      "median": 51.83,
+      "avg": 52.26
+    },
+    {
+      "title": "Page",
+      "n": 27,
+      "median": 32.61,
+      "avg": 31.17
+    },
+    {
+      "title": "Customer Service Representative,Senior",
+      "n": 27,
+      "median": 40.37,
+      "avg": 39.68
+    },
+    {
+      "title": "Operations Supervisor",
+      "n": 26,
+      "median": 59.2,
+      "avg": 57.64
+    },
+    {
+      "title": "Construction and Maintenance Equipment Operator",
+      "n": 26,
+      "median": 46.53,
+      "avg": 46.25
+    },
+    {
+      "title": "Cable Splicer-Net Area",
+      "n": 25,
+      "median": 77.36,
+      "avg": 77.36
+    },
+    {
+      "title": "Magistrate, Pro Tempore Day",
+      "n": 25,
+      "median": 67.96,
+      "avg": 69.09
+    },
+    {
+      "title": "Manager 2, Exempt",
+      "n": 25,
+      "median": 79.21,
+      "avg": 78.34
+    },
+    {
+      "title": "Electrician Constructor Apprentice",
+      "n": 25,
+      "median": 67.3,
+      "avg": 65.69
+    },
+    {
+      "title": "Parking Attendant",
+      "n": 25,
+      "median": 26.92,
+      "avg": 27.14
+    },
+    {
+      "title": "Drainage and Wastewater Collection Worker Apprentice",
+      "n": 25,
+      "median": 37.52,
+      "avg": 38.76
+    },
+    {
+      "title": "Lifeguard,Senior",
+      "n": 24,
+      "median": 32.02,
+      "avg": 32.62
+    },
+    {
+      "title": "Library Associate I",
+      "n": 24,
+      "median": 33.89,
+      "avg": 32.48
+    },
+    {
+      "title": "Recreation Center Coordinator",
+      "n": 24,
+      "median": 57,
+      "avg": 56.3
+    },
+    {
+      "title": "Management Systems Analyst BU",
+      "n": 24,
+      "median": 52.19,
+      "avg": 52.22
+    },
+    {
+      "title": "Utility Construction Worker",
+      "n": 24,
+      "median": 40.61,
+      "avg": 39.59
+    },
+    {
+      "title": "Manager 3, General Government",
+      "n": 24,
+      "median": 92.77,
+      "avg": 90.07
+    },
+    {
+      "title": "Electrical Service Representative,Senior",
+      "n": 24,
+      "median": 54.34,
+      "avg": 53.81
+    },
+    {
+      "title": "Park Ranger",
+      "n": 24,
+      "median": 37.79,
+      "avg": 38.73
+    },
+    {
+      "title": "Firefighter-ERG-90.46 Hrs",
+      "n": 24,
+      "median": 54.03,
+      "avg": 52.53
+    },
+    {
+      "title": "Victim Advocate BU",
+      "n": 23,
+      "median": 47.77,
+      "avg": 46.65
+    },
+    {
+      "title": "Strategic Advisor 2, Exempt-L17",
+      "n": 23,
+      "median": 71.37,
+      "avg": 71.73
+    },
+    {
+      "title": "Licenses and Standards Inspector",
+      "n": 23,
+      "median": 53.95,
+      "avg": 52.31
+    },
+    {
+      "title": "Manager 2, Engineering and Plans Review",
+      "n": 23,
+      "median": 78.76,
+      "avg": 79.91
+    },
+    {
+      "title": "Electrical Engineering Specialist,Senior",
+      "n": 23,
+      "median": 70.35,
+      "avg": 69.14
+    },
+    {
+      "title": "Manager 3, Utilities L21C SCL",
+      "n": 23,
+      "median": 92.84,
+      "avg": 90.72
+    },
+    {
+      "title": "Janitor-FAS/CL",
+      "n": 23,
+      "median": 30.3,
+      "avg": 30.12
+    },
+    {
+      "title": "Lineworker Apprentice",
+      "n": 23,
+      "median": 61.89,
+      "avg": 62.83
+    },
+    {
+      "title": "Manager 3, Exempt",
+      "n": 22,
+      "median": 88.5,
+      "avg": 88.37
+    },
+    {
+      "title": "Engineering Aide",
+      "n": 22,
+      "median": 42.07,
+      "avg": 41.03
+    },
+    {
+      "title": "Meter Electrician",
+      "n": 22,
+      "median": 71.69,
+      "avg": 71.69
+    },
+    {
+      "title": "Real Property Agent Senior",
+      "n": 22,
+      "median": 67.77,
+      "avg": 66.31
+    },
+    {
+      "title": "Police Officer-SWAT-BWV",
+      "n": 22,
+      "median": 77.57,
+      "avg": 77.57
+    },
+    {
+      "title": "Carpenter",
+      "n": 21,
+      "median": 51.12,
+      "avg": 51.12
+    },
+    {
+      "title": "Tennis Instructor",
+      "n": 21,
+      "median": 38.72,
+      "avg": 40.2
+    },
+    {
+      "title": "Bridge Operator",
+      "n": 21,
+      "median": 41.56,
+      "avg": 40.7
+    },
+    {
+      "title": "Electrical Power Systems Engineer",
+      "n": 21,
+      "median": 92.88,
+      "avg": 88.78
+    },
+    {
+      "title": "Firefighter-Dispatcher-84 Hrs",
+      "n": 21,
+      "median": 59.56,
+      "avg": 59.16
+    },
+    {
+      "title": "Gardener,Senior",
+      "n": 21,
+      "median": 41.44,
+      "avg": 41.08
+    },
+    {
+      "title": "Grounds Maintenance Lead Worker",
+      "n": 21,
+      "median": 42.22,
+      "avg": 42
+    },
+    {
+      "title": "Firefighter-HM-90.46 Hrs",
+      "n": 21,
+      "median": 54.55,
+      "avg": 53.32
+    },
+    {
+      "title": "Police Officer-Patrol",
+      "n": 20,
+      "median": 74.98,
+      "avg": 74.98
+    },
+    {
+      "title": "Police Data Technician",
+      "n": 20,
+      "median": 44.49,
+      "avg": 44.97
+    },
+    {
+      "title": "Paralegal - Law",
+      "n": 20,
+      "median": 48.32,
+      "avg": 47.26
+    },
+    {
+      "title": "Management Systems Analyst,Senior BU",
+      "n": 20,
+      "median": 63.19,
+      "avg": 62.02
+    },
+    {
+      "title": "Community Service Officer",
+      "n": 20,
+      "median": 53.87,
+      "avg": 52.76
+    },
+    {
+      "title": "Information Technology Systems Analyst",
+      "n": 20,
+      "median": 58.51,
+      "avg": 58.17
+    },
+    {
+      "title": "Electrician",
+      "n": 20,
+      "median": 62.99,
+      "avg": 62.15
+    },
+    {
+      "title": "Civil Engineering Specialist Supervisor",
+      "n": 20,
+      "median": 73.66,
+      "avg": 73.66
+    },
+    {
+      "title": "Cable Splicer Apprentice",
+      "n": 20,
+      "median": 64.21,
+      "avg": 64.59
+    },
+    {
+      "title": "Fire Battalion Chief-91.4 Hrs",
+      "n": 19,
+      "median": 84.77,
+      "avg": 84.77
+    },
+    {
+      "title": "Community Crisis Responder II",
+      "n": 19,
+      "median": 57.31,
+      "avg": 56.14
+    },
+    {
+      "title": "Warehouser-BU",
+      "n": 19,
+      "median": 40.46,
+      "avg": 40.14
+    },
+    {
+      "title": "Cement Finisher",
+      "n": 19,
+      "median": 42.95,
+      "avg": 42.78
+    },
+    {
+      "title": "Maintenance Laborer,Senior-Traffic",
+      "n": 19,
+      "median": 40.62,
+      "avg": 40.62
+    },
+    {
+      "title": "Energy Management Analyst,Senior",
+      "n": 19,
+      "median": 72.34,
+      "avg": 70.42
+    },
+    {
+      "title": "Strategic Advisor 1, General Government-L17",
+      "n": 19,
+      "median": 62.66,
+      "avg": 63.37
+    },
+    {
+      "title": "Safety and Health Specialist,Senior",
+      "n": 18,
+      "median": 61.94,
+      "avg": 61.95
+    },
+    {
+      "title": "Administrative Staff Assistant BU",
+      "n": 18,
+      "median": 48.31,
+      "avg": 47.23
+    },
+    {
+      "title": "Strategic Advisor 1, Finance,Budget,and Accounting",
+      "n": 18,
+      "median": 72.43,
+      "avg": 72.21
+    },
+    {
+      "title": "Early Education Specialist,Senior BU",
+      "n": 18,
+      "median": 56.23,
+      "avg": 55.66
+    },
+    {
+      "title": "Administrative Staff Analyst BU",
+      "n": 18,
+      "median": 55.19,
+      "avg": 53.76
+    },
+    {
+      "title": "Recreation Center Coordinator,Assistant",
+      "n": 18,
+      "median": 49.83,
+      "avg": 50.29
+    },
+    {
+      "title": "Strategic Advisor 2, Finance,Budget,and Accounting",
+      "n": 18,
+      "median": 77.81,
+      "avg": 78.11
+    },
+    {
+      "title": "Cable Splicer Crew Chief-Net Area",
+      "n": 18,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "Police Officer-Det-Non Patrol-BWV",
+      "n": 18,
+      "median": 78.3,
+      "avg": 78.22
+    },
+    {
+      "title": "Signal Electrician,Journey-Level",
+      "n": 18,
+      "median": 69.98,
+      "avg": 69.84
+    },
+    {
+      "title": "Administrative Specialist I-BU",
+      "n": 18,
+      "median": 36.89,
+      "avg": 36.7
+    },
+    {
+      "title": "Security Officer Library",
+      "n": 18,
+      "median": 45.93,
+      "avg": 43.53
+    },
+    {
+      "title": "Custodian",
+      "n": 18,
+      "median": 33.44,
+      "avg": 32.54
+    },
+    {
+      "title": "Utility Account Representative I",
+      "n": 17,
+      "median": 35.58,
+      "avg": 36.31
+    },
+    {
+      "title": "Electrical Power Systems Engineer-Mrt",
+      "n": 17,
+      "median": 98.25,
+      "avg": 96.65
+    },
+    {
+      "title": "911 Emergency Communication Dispatcher Supervisor",
+      "n": 17,
+      "median": 70.24,
+      "avg": 67.57
+    },
+    {
+      "title": "Information Technology Professional A BU",
+      "n": 17,
+      "median": 86.61,
+      "avg": 84.89
+    },
+    {
+      "title": "Police Officer-Academy Instructor",
+      "n": 17,
+      "median": 76.09,
+      "avg": 75.8
+    },
+    {
+      "title": "Electrical Construction and Maintenance Supervisor-BU",
+      "n": 17,
+      "median": 92.07,
+      "avg": 91.66
+    },
+    {
+      "title": "Planning and Development Specialist I",
+      "n": 17,
+      "median": 51.24,
+      "avg": 49.88
+    },
+    {
+      "title": "Strategic Advisor 3, General Government",
+      "n": 16,
+      "median": 91.87,
+      "avg": 89.91
+    },
+    {
+      "title": "Capital Projects Coordinator Assistant",
+      "n": 16,
+      "median": 58.21,
+      "avg": 56.72
+    },
+    {
+      "title": "Firefighter-Paramedic Tech Senior-90.46",
+      "n": 16,
+      "median": 60.98,
+      "avg": 60.98
+    },
+    {
+      "title": "Personnel Specialist",
+      "n": 16,
+      "median": 51.24,
+      "avg": 50.91
+    },
+    {
+      "title": "Recreation Program Specialist",
+      "n": 16,
+      "median": 50.56,
+      "avg": 49.21
+    },
+    {
+      "title": "Strategic Advisor 1, Utilities L21 SPU",
+      "n": 16,
+      "median": 70.11,
+      "avg": 69.19
+    },
+    {
+      "title": "Strategic Advisor 1, Purchasing, Contracting & Risk Management",
+      "n": 16,
+      "median": 66.98,
+      "avg": 68.5
+    },
+    {
+      "title": "Strategic Advisor 1, Customer Service, Public Information & Promotion",
+      "n": 16,
+      "median": 72.12,
+      "avg": 71.84
+    },
+    {
+      "title": "Legal Assistant",
+      "n": 16,
+      "median": 39.18,
+      "avg": 38.82
+    },
+    {
+      "title": "Project Fund and Agreements Coordinator,Senior",
+      "n": 16,
+      "median": 57.37,
+      "avg": 57.55
+    },
+    {
+      "title": "Utility Service Representative",
+      "n": 16,
+      "median": 48.77,
+      "avg": 47.44
+    },
+    {
+      "title": "Police Lieutenant-WC",
+      "n": 16,
+      "median": 107.38,
+      "avg": 105.9
+    },
+    {
+      "title": "Housing/Zoning Inspector",
+      "n": 16,
+      "median": 56.05,
+      "avg": 54.05
+    },
+    {
+      "title": "Plumber",
+      "n": 15,
+      "median": 62.41,
+      "avg": 61.01
+    },
+    {
+      "title": "Communications Electrician II",
+      "n": 15,
+      "median": 69.56,
+      "avg": 69.35
+    },
+    {
+      "title": "Manager 2, Finance, Budget, and Accounting",
+      "n": 15,
+      "median": 80.2,
+      "avg": 80.2
+    },
+    {
+      "title": "Firefighter-Prevention Inspector I-80 Hrs",
+      "n": 15,
+      "median": 62.54,
+      "avg": 62.54
+    },
+    {
+      "title": "Manager 1, General Government",
+      "n": 15,
+      "median": 74.59,
+      "avg": 73.78
+    },
+    {
+      "title": "Executive Assistant, Senior",
+      "n": 15,
+      "median": 68.03,
+      "avg": 67.23
+    },
+    {
+      "title": "Electrical Power Systems Engineer,Principal -Mrt",
+      "n": 15,
+      "median": 103.22,
+      "avg": 104.96
+    },
+    {
+      "title": "Power Marketer-BU",
+      "n": 15,
+      "median": 86.32,
+      "avg": 86.82
+    },
+    {
+      "title": "Probation Counselor I",
+      "n": 15,
+      "median": 54.14,
+      "avg": 55.63
+    },
+    {
+      "title": "Management Systems Analyst,Assistant",
+      "n": 15,
+      "median": 48.31,
+      "avg": 47.16
+    },
+    {
+      "title": "Human Services Program Supervisor,Senior",
+      "n": 15,
+      "median": 64.14,
+      "avg": 63.49
+    },
+    {
+      "title": "Pool Maintenance Worker",
+      "n": 15,
+      "median": 38.84,
+      "avg": 37.99
+    },
+    {
+      "title": "Transportation Planner,Associate",
+      "n": 15,
+      "median": 60.55,
+      "avg": 59.81
+    },
+    {
+      "title": "Equipment Servicer",
+      "n": 14,
+      "median": 37.36,
+      "avg": 36.85
+    },
+    {
+      "title": "Recreation Program Coordinator",
+      "n": 14,
+      "median": 59.06,
+      "avg": 58.57
+    },
+    {
+      "title": "Painter",
+      "n": 14,
+      "median": 49.73,
+      "avg": 49.73
+    },
+    {
+      "title": "Tree Trimmer",
+      "n": 14,
+      "median": 42.5,
+      "avg": 42.04
+    },
+    {
+      "title": "Permit Specialist II",
+      "n": 14,
+      "median": 53.14,
+      "avg": 52.73
+    },
+    {
+      "title": "Water Pipe Worker Apprentice",
+      "n": 14,
+      "median": 42.57,
+      "avg": 42.07
+    },
+    {
+      "title": "Firefighter Administrative-80 Hrs",
+      "n": 14,
+      "median": 62.54,
+      "avg": 62.33
+    },
+    {
+      "title": "Manager 2, Customer Service, Public Information & Promotion",
+      "n": 14,
+      "median": 73.22,
+      "avg": 74.61
+    },
+    {
+      "title": "Manager 2, Utilities L21 SPU",
+      "n": 14,
+      "median": 81.66,
+      "avg": 80.82
+    },
+    {
+      "title": "Utility Account Representative Trainee",
+      "n": 14,
+      "median": 32.44,
+      "avg": 32.43
+    },
+    {
+      "title": "Strategic Advisor 2, Courts Legal & Public Safety",
+      "n": 13,
+      "median": 75.52,
+      "avg": 76.58
+    },
+    {
+      "title": "Permit Specialist I",
+      "n": 13,
+      "median": 49.25,
+      "avg": 49.25
+    },
+    {
+      "title": "Land Use Planner III",
+      "n": 13,
+      "median": 66.5,
+      "avg": 66.5
+    },
+    {
+      "title": "Library Technician II",
+      "n": 13,
+      "median": 36.27,
+      "avg": 35.89
+    },
+    {
+      "title": "Human Services Coordinator",
+      "n": 13,
+      "median": 49.08,
+      "avg": 47.46
+    },
+    {
+      "title": "Firefighter-RB-90.46 Hrs",
+      "n": 13,
+      "median": 51.45,
+      "avg": 52.25
+    },
+    {
+      "title": "Power Dispatcher,Senior",
+      "n": 13,
+      "median": 107.51,
+      "avg": 107.51
+    },
+    {
+      "title": "Community Development Specialist, Senior",
+      "n": 13,
+      "median": 65.54,
+      "avg": 63.91
+    },
+    {
+      "title": "Power Structures Mechanic",
+      "n": 13,
+      "median": 54.13,
+      "avg": 54.13
+    },
+    {
+      "title": "Personnel Specialist,Assistant",
+      "n": 13,
+      "median": 40.76,
+      "avg": 39.03
+    },
+    {
+      "title": "Firefighter-TRT Dive-90.46 Hrs",
+      "n": 13,
+      "median": 54.55,
+      "avg": 54.55
+    },
+    {
+      "title": "Civil Engineering Specialist,Assistant I",
+      "n": 13,
+      "median": 43.71,
+      "avg": 44.32
+    },
+    {
+      "title": "Hydroelectric Maintenance Machinist",
+      "n": 13,
+      "median": 66.52,
+      "avg": 65.5
+    },
+    {
+      "title": "Police Captain",
+      "n": 13,
+      "median": 123.97,
+      "avg": 121.44
+    },
+    {
+      "title": "Police Sergeant-Detective-Non Patrol",
+      "n": 13,
+      "median": 88.4,
+      "avg": 88.4
+    },
+    {
+      "title": "Radio Dispatcher",
+      "n": 13,
+      "median": 37.06,
+      "avg": 36.03
+    },
+    {
+      "title": "Animal Control Officer II",
+      "n": 13,
+      "median": 54.46,
+      "avg": 52.41
+    },
+    {
+      "title": "Manager 3, Finance, Budget, and Accounting",
+      "n": 13,
+      "median": 88.15,
+      "avg": 86.08
+    },
+    {
+      "title": "Structural Iron Worker",
+      "n": 13,
+      "median": 62.07,
+      "avg": 61.17
+    },
+    {
+      "title": "Early Education Specialist",
+      "n": 13,
+      "median": 52.18,
+      "avg": 50.61
+    },
+    {
+      "title": "Drainage and Wastewater Collection Crew Chief",
+      "n": 13,
+      "median": 62.84,
+      "avg": 62.03
+    },
+    {
+      "title": "Management Systems Analyst Supervisor",
+      "n": 13,
+      "median": 71.86,
+      "avg": 69.9
+    },
+    {
+      "title": "Power Dispatcher",
+      "n": 13,
+      "median": 100.13,
+      "avg": 99.62
+    },
+    {
+      "title": "Traffic Sign and Marking Lead Worker",
+      "n": 12,
+      "median": 41.85,
+      "avg": 41.72
+    },
+    {
+      "title": "Solid Waste Field Representative,Lead",
+      "n": 12,
+      "median": 58.38,
+      "avg": 56.95
+    },
+    {
+      "title": "Auto Mechanic,Senior",
+      "n": 12,
+      "median": 58.39,
+      "avg": 58.2
+    },
+    {
+      "title": "Land Use Planner IV",
+      "n": 12,
+      "median": 70.4,
+      "avg": 70.4
+    },
+    {
+      "title": "Firefighter-HM-Ap Driver C-90.46 Hrs",
+      "n": 12,
+      "median": 58.15,
+      "avg": 58.15
+    },
+    {
+      "title": "Manager 1, Exempt",
+      "n": 12,
+      "median": 64.59,
+      "avg": 65.96
+    },
+    {
+      "title": "Site Development Inspector",
+      "n": 12,
+      "median": 64.3,
+      "avg": 63.9
+    },
+    {
+      "title": "Hydroelectric Operator II",
+      "n": 12,
+      "median": 68.9,
+      "avg": 68.9
+    },
+    {
+      "title": "Material Supplier-Assigned Leo/Pdm/Hb",
+      "n": 12,
+      "median": 56.09,
+      "avg": 56.09
+    },
+    {
+      "title": "Manager 2, Human Services",
+      "n": 12,
+      "median": 78.97,
+      "avg": 78.65
+    },
+    {
+      "title": "Community Development Specialist",
+      "n": 12,
+      "median": 55.19,
+      "avg": 54.18
+    },
+    {
+      "title": "Personnel Analyst",
+      "n": 12,
+      "median": 55.19,
+      "avg": 53.7
+    },
+    {
+      "title": "Janitor Library",
+      "n": 12,
+      "median": 32.08,
+      "avg": 31.46
+    },
+    {
+      "title": "Parking Enforcement Officer Supervisor",
+      "n": 12,
+      "median": 51.84,
+      "avg": 51.84
+    },
+    {
+      "title": "Strategic Advisor 2, General Government L21 SPU",
+      "n": 12,
+      "median": 80.54,
+      "avg": 78.78
+    },
+    {
+      "title": "Firefighter-80 Hrs",
+      "n": 12,
+      "median": 52.37,
+      "avg": 53.33
+    },
+    {
+      "title": "Executive 1",
+      "n": 12,
+      "median": 93.4,
+      "avg": 90.53
+    },
+    {
+      "title": "Structural Painter",
+      "n": 12,
+      "median": 51.47,
+      "avg": 51.31
+    },
+    {
+      "title": "Video Specialist II BU",
+      "n": 12,
+      "median": 55.19,
+      "avg": 55.02
+    },
+    {
+      "title": "Water Pipe Helper",
+      "n": 12,
+      "median": 33.09,
+      "avg": 35.45
+    },
+    {
+      "title": "Police Officer-Diver-BWV",
+      "n": 11,
+      "median": 79.05,
+      "avg": 79.05
+    },
+    {
+      "title": "Manager 3, Engineering and Plans Review L21 SPU",
+      "n": 11,
+      "median": 92.84,
+      "avg": 91.17
+    },
+    {
+      "title": "Power Analyst,Senior",
+      "n": 11,
+      "median": 74.23,
+      "avg": 73.25
+    },
+    {
+      "title": "Manager 2, Parks and Recreation",
+      "n": 11,
+      "median": 71.86,
+      "avg": 72.02
+    },
+    {
+      "title": "Animal Control Officer I",
+      "n": 11,
+      "median": 37.99,
+      "avg": 38.22
+    },
+    {
+      "title": "Cement Finisher,Senior",
+      "n": 11,
+      "median": 45.43,
+      "avg": 45.43
+    },
+    {
+      "title": "Electrical Engineer,Assistant I",
+      "n": 11,
+      "median": 53.15,
+      "avg": 52.24
+    },
+    {
+      "title": "Journeyworker In Charge",
+      "n": 11,
+      "median": 81.48,
+      "avg": 81.48
+    },
+    {
+      "title": "Municipal Court Marshal",
+      "n": 11,
+      "median": 55.46,
+      "avg": 53.47
+    },
+    {
+      "title": "Water Pipe Worker-WMD I",
+      "n": 11,
+      "median": 49.59,
+      "avg": 49.59
+    },
+    {
+      "title": "Building Inspector,Senior(Expert)",
+      "n": 11,
+      "median": 64.3,
+      "avg": 64.3
+    },
+    {
+      "title": "City Prosecutor, Assistant-BU",
+      "n": 11,
+      "median": 67.12,
+      "avg": 70.88
+    },
+    {
+      "title": "Police Officer-Detective-Homicide",
+      "n": 11,
+      "median": 78.3,
+      "avg": 78.3
+    },
+    {
+      "title": "Arboriculturist",
+      "n": 11,
+      "median": 50.6,
+      "avg": 50.51
+    },
+    {
+      "title": "Scale Attendant",
+      "n": 10,
+      "median": 34.62,
+      "avg": 34.24
+    },
+    {
+      "title": "Electrical Inspector,Senior(Expert)",
+      "n": 10,
+      "median": 72.31,
+      "avg": 72.31
+    },
+    {
+      "title": "Strategic Advisor 1, Utilities L21C SCL",
+      "n": 10,
+      "median": 66.51,
+      "avg": 67.76
+    },
+    {
+      "title": "Strategic Advisor 2, Human Services",
+      "n": 10,
+      "median": 73.38,
+      "avg": 73.58
+    },
+    {
+      "title": "Electrical Inspector,(J)",
+      "n": 10,
+      "median": 69.58,
+      "avg": 68.02
+    },
+    {
+      "title": "Public Relations Specialist BU",
+      "n": 10,
+      "median": 47.39,
+      "avg": 46.52
+    },
+    {
+      "title": "911 Emergency Communication Analyst",
+      "n": 10,
+      "median": 62.38,
+      "avg": 61.26
+    },
+    {
+      "title": "Police Officer-Hostage Neg-Patrol-BWV",
+      "n": 10,
+      "median": 77.57,
+      "avg": 77.57
+    },
+    {
+      "title": "Golf Course Technician",
+      "n": 10,
+      "median": 44.84,
+      "avg": 42.32
+    },
+    {
+      "title": "Warehouser, Chief",
+      "n": 10,
+      "median": 51.9,
+      "avg": 50.8
+    },
+    {
+      "title": "Counselor,Senior",
+      "n": 10,
+      "median": 53.48,
+      "avg": 52.72
+    },
+    {
+      "title": "Executive Assistant BU",
+      "n": 10,
+      "median": 65.54,
+      "avg": 64.36
+    },
+    {
+      "title": "Engineering Emergency Laborer",
+      "n": 10,
+      "median": 45.29,
+      "avg": 45.29
+    },
+    {
+      "title": "Strategic Advisor 3, Utilities - L21C SCL",
+      "n": 10,
+      "median": 92.84,
+      "avg": 91.41
+    },
+    {
+      "title": "Library Technician III",
+      "n": 10,
+      "median": 38.91,
+      "avg": 38.73
+    },
+    {
+      "title": "Firefighter-ERG Ap Driver C-90.46 Hrs",
+      "n": 10,
+      "median": 57.64,
+      "avg": 57.64
+    },
+    {
+      "title": "Building Maintenance Worker",
+      "n": 10,
+      "median": 39.24,
+      "avg": 39.48
+    },
+    {
+      "title": "Environmental Analyst,Associate",
+      "n": 10,
+      "median": 58.21,
+      "avg": 56.76
+    },
+    {
+      "title": "Electrical Engineer,Assistant II",
+      "n": 10,
+      "median": 58.49,
+      "avg": 57.84
+    },
+    {
+      "title": "Strategic Advisor 2, Finance, Budget, and Accounting - L21C SCL",
+      "n": 10,
+      "median": 83.04,
+      "avg": 82.22
+    },
+    {
+      "title": "Stage Technician,Lead",
+      "n": 10,
+      "median": 48.56,
+      "avg": 48.56
+    },
+    {
+      "title": "Electrical Power Systems Engineer,Principal",
+      "n": 10,
+      "median": 99.55,
+      "avg": 97.71
+    },
+    {
+      "title": "Assistant City Attorney",
+      "n": 10,
+      "median": 86.87,
+      "avg": 83.03
+    },
+    {
+      "title": "Parks Maintenance Aide",
+      "n": 10,
+      "median": 26.92,
+      "avg": 26.92
+    },
+    {
+      "title": "Elevator Inspector(J)",
+      "n": 9,
+      "median": 61.69,
+      "avg": 61.43
+    },
+    {
+      "title": "Assistant City Prosecutor",
+      "n": 9,
+      "median": 50.15,
+      "avg": 53.29
+    },
+    {
+      "title": "Equipment and Facilities Coordinator BU",
+      "n": 9,
+      "median": 55.16,
+      "avg": 54.72
+    },
+    {
+      "title": "Manager 1, Parks and Recreation",
+      "n": 9,
+      "median": 66.46,
+      "avg": 67.2
+    },
+    {
+      "title": "Strategic Advisor 3, Engineering and Plans Review",
+      "n": 9,
+      "median": 92.36,
+      "avg": 90.42
+    },
+    {
+      "title": "Finance Analyst,Senior-BU",
+      "n": 9,
+      "median": 62.9,
+      "avg": 60.87
+    },
+    {
+      "title": "Firefighter-SLT-90.46 Hrs",
+      "n": 9,
+      "median": 54.03,
+      "avg": 53.46
+    },
+    {
+      "title": "Material Supplier,Electric-Assigned Cs and/or Cdt",
+      "n": 9,
+      "median": 48.25,
+      "avg": 48.25
+    },
+    {
+      "title": "Electrical Engineering Specialist,Associate",
+      "n": 9,
+      "median": 60.07,
+      "avg": 59.16
+    },
+    {
+      "title": "Golf Course Groundskeeper II",
+      "n": 9,
+      "median": 35.48,
+      "avg": 35.48
+    },
+    {
+      "title": "Recreation Program Specialist,Senior",
+      "n": 9,
+      "median": 55.67,
+      "avg": 54.09
+    },
+    {
+      "title": "Civil Rights Analyst,Senior",
+      "n": 9,
+      "median": 63.57,
+      "avg": 62.05
+    },
+    {
+      "title": "Work Training Enrollee Tier II",
+      "n": 9,
+      "median": 22.84,
+      "avg": 23.49
+    },
+    {
+      "title": "Managing Librarian II",
+      "n": 9,
+      "median": 73.11,
+      "avg": 72.36
+    },
+    {
+      "title": "Aquatic Center Coordinator",
+      "n": 9,
+      "median": 52.05,
+      "avg": 52.05
+    },
+    {
+      "title": "Tax Auditor",
+      "n": 9,
+      "median": 55.36,
+      "avg": 54.51
+    },
+    {
+      "title": "Civil Engineer,Assistant I",
+      "n": 9,
+      "median": 53.15,
+      "avg": 52.04
+    },
+    {
+      "title": "Training and Education Coordinator,Senior",
+      "n": 9,
+      "median": 53.14,
+      "avg": 53.42
+    },
+    {
+      "title": "Code Compliance Analyst",
+      "n": 9,
+      "median": 57.31,
+      "avg": 56.4
+    },
+    {
+      "title": "Strategic Advisor 1, Engineering and Plans Review",
+      "n": 9,
+      "median": 72.34,
+      "avg": 72.56
+    },
+    {
+      "title": "Community Crisis Responder I",
+      "n": 9,
+      "median": 46.43,
+      "avg": 46.14
+    },
+    {
+      "title": "Community Crisis Responder Supervisor",
+      "n": 8,
+      "median": 59.61,
+      "avg": 59.91
+    },
+    {
+      "title": "Facilities Lead Worker",
+      "n": 8,
+      "median": 42.22,
+      "avg": 42.03
+    },
+    {
+      "title": "Electrician-Constructor-Working Crew Chief",
+      "n": 8,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "Firefighter-FB-90.46 Hrs",
+      "n": 8,
+      "median": 54.03,
+      "avg": 53.71
+    },
+    {
+      "title": "Police Sergeant-Detective-Patrol",
+      "n": 8,
+      "median": 88.4,
+      "avg": 88.4
+    },
+    {
+      "title": "Arts Program Specialist BU",
+      "n": 8,
+      "median": 45.58,
+      "avg": 45.46
+    },
+    {
+      "title": "Librarian,Supervising",
+      "n": 8,
+      "median": 60.22,
+      "avg": 59.53
+    },
+    {
+      "title": "Permit Process Leader",
+      "n": 8,
+      "median": 70.42,
+      "avg": 70.42
+    },
+    {
+      "title": "Meter Reader,Senior",
+      "n": 8,
+      "median": 45.37,
+      "avg": 44.3
+    },
+    {
+      "title": "Electrical Inspector,Senior/ElectricalPlnExmExp",
+      "n": 8,
+      "median": 72.31,
+      "avg": 72.31
+    },
+    {
+      "title": "Police Officer-Canine-BWV",
+      "n": 8,
+      "median": 77.57,
+      "avg": 77.57
+    },
+    {
+      "title": "Street Paving Crew Chief",
+      "n": 8,
+      "median": 51.58,
+      "avg": 51.36
+    },
+    {
+      "title": "Strategic Advisor 3, Utilities L21 SPU",
+      "n": 8,
+      "median": 86.44,
+      "avg": 87.52
+    },
+    {
+      "title": "Property Management Specialist",
+      "n": 8,
+      "median": 69.22,
+      "avg": 68.6
+    },
+    {
+      "title": "Strategic Advisor 2, Courts Legal & Public Safety-L17",
+      "n": 8,
+      "median": 71.45,
+      "avg": 69.61
+    },
+    {
+      "title": "Manager 2, Utilities L21C SCL",
+      "n": 8,
+      "median": 84.88,
+      "avg": 81.03
+    },
+    {
+      "title": "Aquatic Center Coordinator,Assistant",
+      "n": 8,
+      "median": 47.25,
+      "avg": 45.99
+    },
+    {
+      "title": "Utility Construction Lead Worker",
+      "n": 8,
+      "median": 43.4,
+      "avg": 42.81
+    },
+    {
+      "title": "Water Pipe Crew Chief-WDM II",
+      "n": 8,
+      "median": 63.48,
+      "avg": 63.2
+    },
+    {
+      "title": "Manager 1, Finance, Budget, and Accounting",
+      "n": 8,
+      "median": 75.91,
+      "avg": 73.51
+    },
+    {
+      "title": "Fire Captain, Senior-90.46 Hrs",
+      "n": 8,
+      "median": 69.92,
+      "avg": 69.92
+    },
+    {
+      "title": "Public Services Program Manager",
+      "n": 8,
+      "median": 58.35,
+      "avg": 57.67
+    },
+    {
+      "title": "Facilities Maintenance Worker",
+      "n": 8,
+      "median": 42.22,
+      "avg": 41.46
+    },
+    {
+      "title": "Water Laboratory Technician",
+      "n": 7,
+      "median": 38.85,
+      "avg": 39.08
+    },
+    {
+      "title": "Training and Education Coordinator,Senior -BU",
+      "n": 7,
+      "median": 55.19,
+      "avg": 54.9
+    },
+    {
+      "title": "Auto Mechanic - Specialized",
+      "n": 7,
+      "median": 57.24,
+      "avg": 57.24
+    },
+    {
+      "title": "Firefighter-FIU Prevention Inspector I-84 Hrs",
+      "n": 7,
+      "median": 60.95,
+      "avg": 60.95
+    },
+    {
+      "title": "Asphalt Raker,Senior",
+      "n": 7,
+      "median": 44.97,
+      "avg": 44.73
+    },
+    {
+      "title": "Administrative Support Supervisor-BU",
+      "n": 7,
+      "median": 47.09,
+      "avg": 46.6
+    },
+    {
+      "title": "Rights-Of-Way Maintenance Worker",
+      "n": 7,
+      "median": 41.85,
+      "avg": 41.85
+    },
+    {
+      "title": "Police Officer-Motorcycle-BWV",
+      "n": 7,
+      "median": 77.57,
+      "avg": 77.57
+    },
+    {
+      "title": "Customer Service Representative Supervisor",
+      "n": 7,
+      "median": 45.23,
+      "avg": 45.51
+    },
+    {
+      "title": "Personnel Analyst,Senior",
+      "n": 7,
+      "median": 64.25,
+      "avg": 63.26
+    },
+    {
+      "title": "Material Supplier,Electric-Assigned OperatorVTCHBNSTR",
+      "n": 7,
+      "median": 49.76,
+      "avg": 49.76
+    },
+    {
+      "title": "Protection and Control Electrician II",
+      "n": 7,
+      "median": 88.63,
+      "avg": 87.77
+    },
+    {
+      "title": "Municipal Judge",
+      "n": 7,
+      "median": 102.87,
+      "avg": 102.87
+    },
+    {
+      "title": "Electric Utility Executive 3,Officer",
+      "n": 7,
+      "median": 170.28,
+      "avg": 171.08
+    },
+    {
+      "title": "Electrical Service Engineer",
+      "n": 7,
+      "median": 76.38,
+      "avg": 74.4
+    },
+    {
+      "title": "Strategic Advisor 1, Information Technology",
+      "n": 7,
+      "median": 72.12,
+      "avg": 70.63
+    },
+    {
+      "title": "Video Specialist II",
+      "n": 7,
+      "median": 55.19,
+      "avg": 54.9
+    },
+    {
+      "title": "Power Structures Mechanic Crew Chief",
+      "n": 7,
+      "median": 62.07,
+      "avg": 62.07
+    },
+    {
+      "title": "Economist,Principal",
+      "n": 7,
+      "median": 74.37,
+      "avg": 73.62
+    },
+    {
+      "title": "Councilmember - District",
+      "n": 7,
+      "median": 79.53,
+      "avg": 79.53
+    },
+    {
+      "title": "Manager 3, Human Services",
+      "n": 7,
+      "median": 82.24,
+      "avg": 83.94
+    },
+    {
+      "title": "Structural Plans Engineer",
+      "n": 7,
+      "median": 78.67,
+      "avg": 78.67
+    },
+    {
+      "title": "Strategic Advisor 2, Customer Service, Public Information & Promotion",
+      "n": 7,
+      "median": 79.61,
+      "avg": 77.26
+    },
+    {
+      "title": "Meter Electrician Working Crew Chief",
+      "n": 7,
+      "median": 80.64,
+      "avg": 80.64
+    },
+    {
+      "title": "Metal Fabricator",
+      "n": 7,
+      "median": 60.11,
+      "avg": 59.78
+    },
+    {
+      "title": "Security Programs Specialist",
+      "n": 7,
+      "median": 58.22,
+      "avg": 56.14
+    },
+    {
+      "title": "Landscape Architect,Senior",
+      "n": 7,
+      "median": 85.57,
+      "avg": 83.82
+    },
+    {
+      "title": "Environmental Field Specialist",
+      "n": 7,
+      "median": 48.28,
+      "avg": 47.31
+    },
+    {
+      "title": "Manager 2, General Government - L17 SPD",
+      "n": 7,
+      "median": 74.48,
+      "avg": 77.29
+    },
+    {
+      "title": "Complaint Investigator",
+      "n": 7,
+      "median": 48.31,
+      "avg": 47.06
+    },
+    {
+      "title": "Structural Plans Engineer Senior",
+      "n": 7,
+      "median": 86.24,
+      "avg": 85.36
+    },
+    {
+      "title": "Library Associate IV - Floating",
+      "n": 7,
+      "median": 40.88,
+      "avg": 40.88
+    },
+    {
+      "title": "Executive Manager-Legislative",
+      "n": 7,
+      "median": 94.81,
+      "avg": 91.86
+    },
+    {
+      "title": "Water Treatment Operator,Senior",
+      "n": 7,
+      "median": 48.55,
+      "avg": 47.77
+    },
+    {
+      "title": "Shop Operations Supervisor",
+      "n": 7,
+      "median": 63.2,
+      "avg": 63.2
+    },
+    {
+      "title": "Payroll Supervisor",
+      "n": 7,
+      "median": 55.19,
+      "avg": 55.51
+    },
+    {
+      "title": "Grounds Equipment Mechanic",
+      "n": 7,
+      "median": 42.25,
+      "avg": 42.25
+    },
+    {
+      "title": "Manager 1, Property & Facility Management",
+      "n": 7,
+      "median": 68.16,
+      "avg": 68.98
+    },
+    {
+      "title": "Manager 1, Human Services",
+      "n": 7,
+      "median": 73.89,
+      "avg": 73.2
+    },
+    {
+      "title": "Carpenter Crew Chief",
+      "n": 7,
+      "median": 58.66,
+      "avg": 58.33
+    },
+    {
+      "title": "Parks Maintenance Crew Chief",
+      "n": 7,
+      "median": 60.22,
+      "avg": 60.22
+    },
+    {
+      "title": "AMH System Operator",
+      "n": 7,
+      "median": 29.16,
+      "avg": 30.01
+    },
+    {
+      "title": "Administrative Specialist II",
+      "n": 7,
+      "median": 39.65,
+      "avg": 39.52
+    },
+    {
+      "title": "Street Maintenance Crew Chief",
+      "n": 6,
+      "median": 50.74,
+      "avg": 50.11
+    },
+    {
+      "title": "Public/Cultural Programs Specialist,Senior",
+      "n": 6,
+      "median": 52.19,
+      "avg": 51.9
+    },
+    {
+      "title": "Pump Station Electrical Technician,Senior",
+      "n": 6,
+      "median": 66.83,
+      "avg": 65.59
+    },
+    {
+      "title": "Parks Special Events Scheduler",
+      "n": 6,
+      "median": 44.51,
+      "avg": 43.98
+    },
+    {
+      "title": "Electrical Engineering Specialist,Assistant I",
+      "n": 6,
+      "median": 45.77,
+      "avg": 45.49
+    },
+    {
+      "title": "Land Use Planner II",
+      "n": 6,
+      "median": 61.68,
+      "avg": 61.68
+    },
+    {
+      "title": "Training and Education Coordinator",
+      "n": 6,
+      "median": 51.24,
+      "avg": 49.07
+    },
+    {
+      "title": "Crime Prevention Coordinator",
+      "n": 6,
+      "median": 55.61,
+      "avg": 54.59
+    },
+    {
+      "title": "Arts Program Specialist,Senior BU",
+      "n": 6,
+      "median": 54.17,
+      "avg": 54.22
+    },
+    {
+      "title": "Facility Maintenance Supervisor,Assistant",
+      "n": 6,
+      "median": 66.75,
+      "avg": 65.18
+    },
+    {
+      "title": "Police Sergeant-Academy Instructor",
+      "n": 6,
+      "median": 87.55,
+      "avg": 87.55
+    },
+    {
+      "title": "Utility Systems Maintenance Technician",
+      "n": 6,
+      "median": 47.26,
+      "avg": 46.11
+    },
+    {
+      "title": "Police Data Technician,Senior",
+      "n": 6,
+      "median": 49.7,
+      "avg": 49.4
+    },
+    {
+      "title": "Asphalt Raker",
+      "n": 6,
+      "median": 41.31,
+      "avg": 40.57
+    },
+    {
+      "title": "Strategic Advisor 1, Exempt L21 SPU",
+      "n": 6,
+      "median": 74.35,
+      "avg": 73.27
+    },
+    {
+      "title": "Pressure Systems Inspector(J)",
+      "n": 6,
+      "median": 61.69,
+      "avg": 61.69
+    },
+    {
+      "title": "Security Officer,Senior",
+      "n": 6,
+      "median": 42.72,
+      "avg": 43.17
+    },
+    {
+      "title": "Firefighter-Ap Driver C-80 Hrs",
+      "n": 6,
+      "median": 62.25,
+      "avg": 62.25
+    },
+    {
+      "title": "Evidence Control Specialist, Senior",
+      "n": 6,
+      "median": 52.27,
+      "avg": 51
+    },
+    {
+      "title": "Water Systems Operator",
+      "n": 6,
+      "median": 60.65,
+      "avg": 59.22
+    },
+    {
+      "title": "Disposal Crew Chief",
+      "n": 6,
+      "median": 55.19,
+      "avg": 53.89
+    },
+    {
+      "title": "Seattle Conservation Corps Supervisor",
+      "n": 6,
+      "median": 40.29,
+      "avg": 40.29
+    },
+    {
+      "title": "Grants and Contracts Specialist",
+      "n": 6,
+      "median": 43.11,
+      "avg": 43.65
+    },
+    {
+      "title": "Tree Trimmer,Lead",
+      "n": 6,
+      "median": 46.42,
+      "avg": 46.42
+    },
+    {
+      "title": "Sound Operator",
+      "n": 6,
+      "median": 51.83,
+      "avg": 51.83
+    },
+    {
+      "title": "Water Quality Analyst Senior",
+      "n": 6,
+      "median": 59.94,
+      "avg": 57.81
+    },
+    {
+      "title": "Elevator Inspector,Senior(Expert)",
+      "n": 6,
+      "median": 64.12,
+      "avg": 64.12
+    },
+    {
+      "title": "Magistrate",
+      "n": 6,
+      "median": 86.19,
+      "avg": 83.58
+    },
+    {
+      "title": "Fire Lieutenant-Prevention Inspector I 80",
+      "n": 6,
+      "median": 71.27,
+      "avg": 71.27
+    },
+    {
+      "title": "Property Rehab Specialist",
+      "n": 6,
+      "median": 54.68,
+      "avg": 53.36
+    },
+    {
+      "title": "Paralegal,Sr",
+      "n": 6,
+      "median": 48.31,
+      "avg": 47.68
+    },
+    {
+      "title": "Watershed Inspector",
+      "n": 6,
+      "median": 41.09,
+      "avg": 43.03
+    },
+    {
+      "title": "Utility Account Representative Supervisor II",
+      "n": 6,
+      "median": 57.8,
+      "avg": 56.1
+    },
+    {
+      "title": "Electrical Engineering Specialist Supervisor",
+      "n": 6,
+      "median": 73.66,
+      "avg": 73.66
+    },
+    {
+      "title": "Assistant City Prosecutor - BU",
+      "n": 6,
+      "median": 59.74,
+      "avg": 59.51
+    },
+    {
+      "title": "HVAC Technician/SC-BU",
+      "n": 6,
+      "median": 77.49,
+      "avg": 77
+    },
+    {
+      "title": "Grants and Contracts Supervisor",
+      "n": 6,
+      "median": 55.19,
+      "avg": 53.54
+    },
+    {
+      "title": "Strategic Advisor 1, Exempt L17",
+      "n": 6,
+      "median": 62.88,
+      "avg": 62.35
+    },
+    {
+      "title": "Building Plans Examiner(E)-BU",
+      "n": 6,
+      "median": 60.97,
+      "avg": 60.97
+    },
+    {
+      "title": "Material Controller Senior BU",
+      "n": 6,
+      "median": 46.36,
+      "avg": 45.27
+    },
+    {
+      "title": "Lineworker Pre-Apprentice",
+      "n": 6,
+      "median": 50.28,
+      "avg": 51.25
+    },
+    {
+      "title": "Water Treatment Equipment Technician",
+      "n": 6,
+      "median": 47.32,
+      "avg": 48.64
+    },
+    {
+      "title": "Mayoral Staff Assistant 2",
+      "n": 6,
+      "median": 61.13,
+      "avg": 61.36
+    },
+    {
+      "title": "Library Associate II - Floating",
+      "n": 6,
+      "median": 30.16,
+      "avg": 30.16
+    },
+    {
+      "title": "Water Treatment Plant Operator",
+      "n": 6,
+      "median": 57.31,
+      "avg": 56.26
+    },
+    {
+      "title": "Delivery Worker",
+      "n": 5,
+      "median": 32.47,
+      "avg": 31.78
+    },
+    {
+      "title": "Fire Equipment Technician",
+      "n": 5,
+      "median": 43.41,
+      "avg": 42.72
+    },
+    {
+      "title": "Police Captain-Precinct",
+      "n": 5,
+      "median": 131.41,
+      "avg": 127.38
+    },
+    {
+      "title": "Firefighter-Decon-90.46 Hrs",
+      "n": 5,
+      "median": 54.03,
+      "avg": 54.03
+    },
+    {
+      "title": "Police Officer-Detective-Bomb Squad",
+      "n": 5,
+      "median": 80.52,
+      "avg": 80.52
+    },
+    {
+      "title": "Public Education Program Specialist",
+      "n": 5,
+      "median": 47.29,
+      "avg": 46.03
+    },
+    {
+      "title": "Program Intake Representative,Senior",
+      "n": 5,
+      "median": 45.95,
+      "avg": 45.6
+    },
+    {
+      "title": "Recreation Program Coordinator Senior",
+      "n": 5,
+      "median": 55.19,
+      "avg": 55.19
+    },
+    {
+      "title": "Bridge Operator,Senior",
+      "n": 5,
+      "median": 43.87,
+      "avg": 43.87
+    },
+    {
+      "title": "Events Service Representative,Senior",
+      "n": 5,
+      "median": 55.19,
+      "avg": 55.19
+    },
+    {
+      "title": "Strategic Advisor 1, Finance,Budget,and Accounting L21 SPU",
+      "n": 5,
+      "median": 70.9,
+      "avg": 71.76
+    },
+    {
+      "title": "Police Officer-Detective-FIT",
+      "n": 5,
+      "median": 78.3,
+      "avg": 78.3
+    },
+    {
+      "title": "Community Garden Coordinator",
+      "n": 5,
+      "median": 52.36,
+      "avg": 52.01
+    },
+    {
+      "title": "Events Service Representative",
+      "n": 5,
+      "median": 45.59,
+      "avg": 46.04
+    },
+    {
+      "title": "Manager 2, Courts Legal & Public Safety-L17",
+      "n": 5,
+      "median": 81.12,
+      "avg": 81.51
+    },
+    {
+      "title": "Bridge Carpentry and Maintenance Lead",
+      "n": 5,
+      "median": 51.12,
+      "avg": 51.12
+    },
+    {
+      "title": "Registered Nurse Consultant",
+      "n": 5,
+      "median": 57.11,
+      "avg": 56.26
+    },
+    {
+      "title": "Permit Specialist Supervisor",
+      "n": 5,
+      "median": 58.95,
+      "avg": 58.95
+    },
+    {
+      "title": "Auto Maintenance Crew Chief",
+      "n": 5,
+      "median": 64.99,
+      "avg": 64.49
+    },
+    {
+      "title": "Electrician-Constructor Core Crew Chief",
+      "n": 5,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "Strategic Advisor 1, Purchasing, Contracting & Risk Management L21 SPU",
+      "n": 5,
+      "median": 72.1,
+      "avg": 72.3
+    },
+    {
+      "title": "Utility Accounts Supervisor",
+      "n": 5,
+      "median": 49.25,
+      "avg": 48.52
+    },
+    {
+      "title": "Strategic Advisor-Audit L17",
+      "n": 5,
+      "median": 70.8,
+      "avg": 76.43
+    },
+    {
+      "title": "Bridge Maintenance Mechanic",
+      "n": 5,
+      "median": 60.91,
+      "avg": 60.49
+    },
+    {
+      "title": "Civil Engineering Specialist,Assistant II",
+      "n": 5,
+      "median": 48.33,
+      "avg": 48.42
+    },
+    {
+      "title": "Hydroelectric Maintenance Worker I-Gen",
+      "n": 5,
+      "median": 43.92,
+      "avg": 41.93
+    },
+    {
+      "title": "Strategic Advisor 2, Utilities",
+      "n": 5,
+      "median": 84.88,
+      "avg": 81.7
+    },
+    {
+      "title": "Latent Print Examiner",
+      "n": 5,
+      "median": 58.33,
+      "avg": 58.33
+    },
+    {
+      "title": "Mechanical Inspector(J)- BU",
+      "n": 5,
+      "median": 61.96,
+      "avg": 61.96
+    },
+    {
+      "title": "Admissions Employee",
+      "n": 5,
+      "median": 34.64,
+      "avg": 34.64
+    },
+    {
+      "title": "Building Inspector,Structural",
+      "n": 5,
+      "median": 66.68,
+      "avg": 66.68
+    },
+    {
+      "title": "Administrative Specialist,Senior-Library",
+      "n": 5,
+      "median": 45.84,
+      "avg": 44.6
+    },
+    {
+      "title": "Project Fund and Agreements Coordinator",
+      "n": 5,
+      "median": 55.19,
+      "avg": 52.84
+    },
+    {
+      "title": "Strategic Advisor 2, General Government - L21C SCL",
+      "n": 5,
+      "median": 80.22,
+      "avg": 78.3
+    },
+    {
+      "title": "Parks Concessions Coordinator",
+      "n": 5,
+      "median": 54.09,
+      "avg": 53.45
+    },
+    {
+      "title": "Manager 2, Finance, Budget, and Accounting - L21C SCL",
+      "n": 5,
+      "median": 84.88,
+      "avg": 82.58
+    },
+    {
+      "title": "Photographer,Senior",
+      "n": 5,
+      "median": 49.85,
+      "avg": 49.11
+    },
+    {
+      "title": "Electrician-Constructor-Working Crew Chief-Assigned C Coordinator",
+      "n": 5,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "Electrical Service Representative,Supervising",
+      "n": 5,
+      "median": 60.74,
+      "avg": 58.99
+    },
+    {
+      "title": "Assistant Managing Librarian",
+      "n": 5,
+      "median": 65.09,
+      "avg": 63.33
+    },
+    {
+      "title": "Protection and Control Electrician-In Charge",
+      "n": 5,
+      "median": 93.34,
+      "avg": 93.34
+    },
+    {
+      "title": "Firefighter-Training-80 Hrs",
+      "n": 5,
+      "median": 62.54,
+      "avg": 61.38
+    },
+    {
+      "title": "Selection Services Librarian",
+      "n": 5,
+      "median": 62.78,
+      "avg": 62.78
+    },
+    {
+      "title": "Research and Evaluation Assistant-BU",
+      "n": 5,
+      "median": 44.73,
+      "avg": 44.73
+    },
+    {
+      "title": "Material Supplier,Electric-Assigned Phd/Cw/D",
+      "n": 5,
+      "median": 52.78,
+      "avg": 52.78
+    },
+    {
+      "title": "Electrical Engineering Design Specialist,Assistant II",
+      "n": 5,
+      "median": 51.33,
+      "avg": 52.25
+    },
+    {
+      "title": "Strategic Advisor 1, Parks and Recreation",
+      "n": 5,
+      "median": 61.5,
+      "avg": 61.51
+    },
+    {
+      "title": "Police Sergeant-Hostage Neg-Patrol-BWV",
+      "n": 5,
+      "median": 89.25,
+      "avg": 88.11
+    },
+    {
+      "title": "Librarian Intermittent",
+      "n": 5,
+      "median": 44.92,
+      "avg": 44.92
+    },
+    {
+      "title": "Auto Engineer,Senior",
+      "n": 5,
+      "median": 57.31,
+      "avg": 59.17
+    },
+    {
+      "title": "Signal Electrician Crew Chief",
+      "n": 5,
+      "median": 75.37,
+      "avg": 75.37
+    },
+    {
+      "title": "Manager 3, Parks and Recreation",
+      "n": 5,
+      "median": 88.24,
+      "avg": 88.91
+    },
+    {
+      "title": "Water Quality Analyst",
+      "n": 5,
+      "median": 52.38,
+      "avg": 51.68
+    },
+    {
+      "title": "Strategic Advisor 1 - OoC",
+      "n": 5,
+      "median": 65.35,
+      "avg": 65.88
+    },
+    {
+      "title": "Janitor,Lead-FAS/CL",
+      "n": 4,
+      "median": 32.82,
+      "avg": 32.82
+    },
+    {
+      "title": "Coordinating Library Technician",
+      "n": 4,
+      "median": 41.29,
+      "avg": 41.29
+    },
+    {
+      "title": "Research Aide",
+      "n": 4,
+      "median": 25.9,
+      "avg": 25.9
+    },
+    {
+      "title": "Fire Lieutenant-Training-80 Hrs",
+      "n": 4,
+      "median": 71.27,
+      "avg": 71.27
+    },
+    {
+      "title": "Power Analyst",
+      "n": 4,
+      "median": 66.22,
+      "avg": 66.22
+    },
+    {
+      "title": "Civil Rights Analyst",
+      "n": 4,
+      "median": 58.79,
+      "avg": 57.71
+    },
+    {
+      "title": "Finance Analyst-HSD",
+      "n": 4,
+      "median": 57.11,
+      "avg": 55.09
+    },
+    {
+      "title": "Firefighter-SLT Ap Driver C-90.46 Hrs",
+      "n": 4,
+      "median": 57.64,
+      "avg": 57.64
+    },
+    {
+      "title": "Contract Analyst,Senior",
+      "n": 4,
+      "median": 55.19,
+      "avg": 54.68
+    },
+    {
+      "title": "Fireboat Engineer-90.46 Hrs",
+      "n": 4,
+      "median": 68.05,
+      "avg": 68.05
+    },
+    {
+      "title": "Line Crew Chief-Assigned C Coordinator",
+      "n": 4,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "Station Maintenance Machinist",
+      "n": 4,
+      "median": 53.71,
+      "avg": 53.16
+    },
+    {
+      "title": "Fire Chief,Deputy-91.4 Hrs",
+      "n": 4,
+      "median": 97.47,
+      "avg": 97.47
+    },
+    {
+      "title": "Fire Chief,Deputy Admin-80 Hrs",
+      "n": 4,
+      "median": 118.62,
+      "avg": 118.62
+    },
+    {
+      "title": "Strategic Advisor 2, Property & Facility Management",
+      "n": 4,
+      "median": 78.33,
+      "avg": 78.07
+    },
+    {
+      "title": "Firefighter-Decon Ap Driver C-90.46 Hrs",
+      "n": 4,
+      "median": 57.64,
+      "avg": 57.64
+    },
+    {
+      "title": "Firefighter-TRT Dive Driver C-90.46Hr",
+      "n": 4,
+      "median": 58.15,
+      "avg": 58.15
+    },
+    {
+      "title": "Police Sergeant-SWAT-BWV",
+      "n": 4,
+      "median": 89.25,
+      "avg": 89.25
+    },
+    {
+      "title": "Fire Lieutenant-HM 90.46 Hrs",
+      "n": 4,
+      "median": 62.27,
+      "avg": 62.27
+    },
+    {
+      "title": "Painter,Senior",
+      "n": 4,
+      "median": 51.99,
+      "avg": 51.99
+    },
+    {
+      "title": "Strategic Advisor 2, Information Technology - L21C SCL",
+      "n": 4,
+      "median": 79.04,
+      "avg": 78.92
+    },
+    {
+      "title": "Probation Supervisor BU",
+      "n": 4,
+      "median": 70.75,
+      "avg": 69.44
+    },
+    {
+      "title": "Hydroelectric Maintenance Worker II-Gen",
+      "n": 4,
+      "median": 46.63,
+      "avg": 46.63
+    },
+    {
+      "title": "Painter Crew Chief",
+      "n": 4,
+      "median": 57.07,
+      "avg": 56.52
+    },
+    {
+      "title": "Information Technology Professional B",
+      "n": 4,
+      "median": 76.32,
+      "avg": 77.08
+    },
+    {
+      "title": "Manager-Legislative",
+      "n": 4,
+      "median": 87.16,
+      "avg": 82.33
+    },
+    {
+      "title": "Strategic Advisor 1, Finance, Budget ,and Accounting - L21C SCL",
+      "n": 4,
+      "median": 69.19,
+      "avg": 71.04
+    },
+    {
+      "title": "Police Sergeant-Detective-Homicide",
+      "n": 4,
+      "median": 90.1,
+      "avg": 90.1
+    },
+    {
+      "title": "Strategic Advisor 2, Purchasing, Contracting & Risk Management",
+      "n": 4,
+      "median": 79.77,
+      "avg": 80.56
+    },
+    {
+      "title": "Commercial Vehicle Enforcement Officer",
+      "n": 4,
+      "median": 49.92,
+      "avg": 49.43
+    },
+    {
+      "title": "Manager 3, Property & Facility Management",
+      "n": 4,
+      "median": 84.88,
+      "avg": 86.18
+    },
+    {
+      "title": "Human Services Coordinator,Assistant",
+      "n": 4,
+      "median": 42.98,
+      "avg": 42.98
+    },
+    {
+      "title": "Housing/Zoning Inspector,Senior",
+      "n": 4,
+      "median": 59.28,
+      "avg": 59.28
+    },
+    {
+      "title": "Retirement Specialist",
+      "n": 4,
+      "median": 54.69,
+      "avg": 54.19
+    },
+    {
+      "title": "Capital Projects Coordinator Supervisor",
+      "n": 4,
+      "median": 77.64,
+      "avg": 77.64
+    },
+    {
+      "title": "Construction and Repair Crew Chief",
+      "n": 4,
+      "median": 48.68,
+      "avg": 48.76
+    },
+    {
+      "title": "Cable Splicer Crew Chief-Assigned C Coordinator",
+      "n": 4,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "Delivery Driver Driver I",
+      "n": 4,
+      "median": 34.22,
+      "avg": 33.82
+    },
+    {
+      "title": "Planning and Development Specialist, Supervising L17",
+      "n": 4,
+      "median": 70.59,
+      "avg": 69.95
+    },
+    {
+      "title": "Workers' Compensation Analyst",
+      "n": 4,
+      "median": 55.19,
+      "avg": 54.2
+    },
+    {
+      "title": "Housing/Zoning Technician",
+      "n": 4,
+      "median": 39.74,
+      "avg": 40.14
+    },
+    {
+      "title": "Store Clerk",
+      "n": 4,
+      "median": 27.65,
+      "avg": 28.78
+    },
+    {
+      "title": "Police Sergeant-Diver-BWV",
+      "n": 4,
+      "median": 90.95,
+      "avg": 90.53
+    },
+    {
+      "title": "Civil Engineer,Assistant III",
+      "n": 4,
+      "median": 57.36,
+      "avg": 58.57
+    },
+    {
+      "title": "HVAC Technician",
+      "n": 4,
+      "median": 66.81,
+      "avg": 66.81
+    },
+    {
+      "title": "Community Service Officer Supervisor",
+      "n": 4,
+      "median": 59.25,
+      "avg": 59.25
+    },
+    {
+      "title": "Manager 3, Information Technology",
+      "n": 4,
+      "median": 92.42,
+      "avg": 90.66
+    },
+    {
+      "title": "Watershed Resources Technician",
+      "n": 4,
+      "median": 45.52,
+      "avg": 45.52
+    },
+    {
+      "title": "Grounds Maintenance Crew Chief",
+      "n": 4,
+      "median": 53.15,
+      "avg": 53.15
+    },
+    {
+      "title": "Golf Course Maintenance Supervisor",
+      "n": 4,
+      "median": 62.08,
+      "avg": 60.91
+    },
+    {
+      "title": "Hydroelectric Operator I",
+      "n": 4,
+      "median": 62.4,
+      "avg": 61.59
+    },
+    {
+      "title": "Economist,Senior",
+      "n": 4,
+      "median": 66.62,
+      "avg": 67.26
+    },
+    {
+      "title": "Electrical Work Rev Crew Chief",
+      "n": 4,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "Court Clerk Supervisor",
+      "n": 4,
+      "median": 49.09,
+      "avg": 49.09
+    },
+    {
+      "title": "Fireboat Pilot-90.46 Hrs",
+      "n": 4,
+      "median": 68.05,
+      "avg": 68.05
+    },
+    {
+      "title": "Account Executive",
+      "n": 4,
+      "median": 65.54,
+      "avg": 65.54
+    },
+    {
+      "title": "Pension Program Administrator",
+      "n": 4,
+      "median": 84.83,
+      "avg": 89.07
+    },
+    {
+      "title": "Street Maintenance Supervisor",
+      "n": 4,
+      "median": 54.72,
+      "avg": 54.72
+    },
+    {
+      "title": "Fire Lieutenant-ERG-90.46 Hrs",
+      "n": 4,
+      "median": 61.75,
+      "avg": 61.75
+    },
+    {
+      "title": "Energy Management Analyst Supervisor",
+      "n": 4,
+      "median": 78,
+      "avg": 76.59
+    },
+    {
+      "title": "Firefighter-RB Ap Driver C-90.46 Hrs",
+      "n": 4,
+      "median": 57.64,
+      "avg": 57.64
+    },
+    {
+      "title": "Fire Captain-Administrative-80 Hrs",
+      "n": 4,
+      "median": 81.31,
+      "avg": 81.31
+    },
+    {
+      "title": "911 Emergency Communication Dispatcher III",
+      "n": 4,
+      "median": 58.1,
+      "avg": 58.1
+    },
+    {
+      "title": "Safety and Health Specialist,Senior-BU",
+      "n": 4,
+      "median": 64.3,
+      "avg": 63.11
+    },
+    {
+      "title": "Police Officer-Detective-Patrol-BWV",
+      "n": 4,
+      "median": 78.3,
+      "avg": 78.3
+    },
+    {
+      "title": "Parking Pay Station Technician",
+      "n": 4,
+      "median": 47.28,
+      "avg": 47.28
+    },
+    {
+      "title": "Volunteer Programs Coordinator",
+      "n": 4,
+      "median": 47.72,
+      "avg": 47.29
+    },
+    {
+      "title": "Building Plans Examiner-BU",
+      "n": 4,
+      "median": 67.6,
+      "avg": 67.6
+    },
+    {
+      "title": "Utility Service Inspector",
+      "n": 4,
+      "median": 52.15,
+      "avg": 51.7
+    },
+    {
+      "title": "Technical Writer",
+      "n": 4,
+      "median": 46.42,
+      "avg": 47.36
+    },
+    {
+      "title": "Forest Maintenance Worker",
+      "n": 4,
+      "median": 44.19,
+      "avg": 44.24
+    },
+    {
+      "title": "Marketing Development Coordinator",
+      "n": 4,
+      "median": 60.75,
+      "avg": 59.62
+    },
+    {
+      "title": "Buyer",
+      "n": 4,
+      "median": 52.22,
+      "avg": 51.76
+    },
+    {
+      "title": "Building Inspector,Journey",
+      "n": 4,
+      "median": 60.69,
+      "avg": 60.69
+    },
+    {
+      "title": "Fire Protection Engineer",
+      "n": 4,
+      "median": 71.89,
+      "avg": 69.92
+    },
+    {
+      "title": "Utility Systems Maintenance Technician,Senior",
+      "n": 4,
+      "median": 49.07,
+      "avg": 48.63
+    },
+    {
+      "title": "Electric Utility Executive 3,Director",
+      "n": 4,
+      "median": 140.98,
+      "avg": 141.34
+    },
+    {
+      "title": "Mechanical Engineer,Senior",
+      "n": 4,
+      "median": 84.08,
+      "avg": 82.62
+    },
+    {
+      "title": "Utility Account Representative Supervisor I",
+      "n": 4,
+      "median": 47.76,
+      "avg": 48.27
+    },
+    {
+      "title": "Pump Station Electrical Technician",
+      "n": 4,
+      "median": 63.14,
+      "avg": 63.14
+    },
+    {
+      "title": "Park Ranger, Senior",
+      "n": 4,
+      "median": 43.75,
+      "avg": 44.3
+    },
+    {
+      "title": "Strategic Advisor 1, Exempt-L17",
+      "n": 4,
+      "median": 62.66,
+      "avg": 61.34
+    },
+    {
+      "title": "Police Data Technician Trainee",
+      "n": 4,
+      "median": 37.06,
+      "avg": 36.73
+    },
+    {
+      "title": "Police Sergeant-Motorcycle-BWV",
+      "n": 3,
+      "median": 89.25,
+      "avg": 89.25
+    },
+    {
+      "title": "Energy Management Analyst,Assistant",
+      "n": 3,
+      "median": 58.83,
+      "avg": 57.39
+    },
+    {
+      "title": "Powerline Clear Tree Trimmer",
+      "n": 3,
+      "median": 61.52,
+      "avg": 61.52
+    },
+    {
+      "title": "Contract Analyst",
+      "n": 3,
+      "median": 47.29,
+      "avg": 47.35
+    },
+    {
+      "title": "Traffic Sign and Marking Crew Chief I",
+      "n": 3,
+      "median": 50.74,
+      "avg": 50.05
+    },
+    {
+      "title": "Identification Data Specialist",
+      "n": 3,
+      "median": 39.19,
+      "avg": 38.72
+    },
+    {
+      "title": "Strategic Advisor 1, Customer Service, Public Information & Promotion L21C",
+      "n": 3,
+      "median": 70.49,
+      "avg": 70.87
+    },
+    {
+      "title": "Police Officer-Non Patrol",
+      "n": 3,
+      "median": 74.98,
+      "avg": 74.98
+    },
+    {
+      "title": "Latent Print Supervisor",
+      "n": 3,
+      "median": 68.58,
+      "avg": 68.58
+    },
+    {
+      "title": "Cable Splicer-Journeyworker In Charge",
+      "n": 3,
+      "median": 81.48,
+      "avg": 81.48
+    },
+    {
+      "title": "Transportation Planner,Assistant",
+      "n": 3,
+      "median": 46.3,
+      "avg": 46.33
+    },
+    {
+      "title": "Permit Process Leader, Senior",
+      "n": 3,
+      "median": 76.02,
+      "avg": 76.02
+    },
+    {
+      "title": "Warehouse Supervisor,General",
+      "n": 3,
+      "median": 55.19,
+      "avg": 55.19
+    },
+    {
+      "title": "Electrical Engineer,Assistant III",
+      "n": 3,
+      "median": 64.39,
+      "avg": 64.39
+    },
+    {
+      "title": "Manager 3, General Government - L17 SPD",
+      "n": 3,
+      "median": 88.23,
+      "avg": 89.56
+    },
+    {
+      "title": "Manager 3, General Government L21 SPU",
+      "n": 3,
+      "median": 92.84,
+      "avg": 89.56
+    },
+    {
+      "title": "Manager 1, Customer Service, Public Information & Promotion",
+      "n": 3,
+      "median": 67.94,
+      "avg": 66.5
+    },
+    {
+      "title": "Manager 3, Customer Service, Public Information & Promotion",
+      "n": 3,
+      "median": 92.36,
+      "avg": 88.07
+    },
+    {
+      "title": "FIRE FIGHTER-STAFF 10-84 HRS",
+      "n": 3,
+      "median": 61.51,
+      "avg": 61.51
+    },
+    {
+      "title": "Public Safety Civil Service Examiner, Senior",
+      "n": 3,
+      "median": 64.25,
+      "avg": 62.7
+    },
+    {
+      "title": "Parks Custodial Crew Chief",
+      "n": 3,
+      "median": 54.5,
+      "avg": 54.5
+    },
+    {
+      "title": "Systems Analyst 1,Senior-Library",
+      "n": 3,
+      "median": 76.32,
+      "avg": 76.32
+    },
+    {
+      "title": "Probation Counselor II",
+      "n": 3,
+      "median": 62.13,
+      "avg": 62.13
+    },
+    {
+      "title": "Management Systems Analyst, Assistant BU",
+      "n": 3,
+      "median": 48.31,
+      "avg": 48.31
+    },
+    {
+      "title": "Police Officer-Detective-Patrol",
+      "n": 3,
+      "median": 76.82,
+      "avg": 76.82
+    },
+    {
+      "title": "Paralegal,Senior - Law",
+      "n": 3,
+      "median": 51.24,
+      "avg": 50.58
+    },
+    {
+      "title": "Planning and Development Specialist,Supervising",
+      "n": 3,
+      "median": 70.59,
+      "avg": 68.12
+    },
+    {
+      "title": "Fire Lieutenant, Senior-TRT Dive-90.46",
+      "n": 3,
+      "median": 63.45,
+      "avg": 63.45
+    },
+    {
+      "title": "Building Plans Examiner,Senior -BU",
+      "n": 3,
+      "median": 72.84,
+      "avg": 72.84
+    },
+    {
+      "title": "Station Maintenance Machinist,Senior",
+      "n": 3,
+      "median": 57.07,
+      "avg": 56.28
+    },
+    {
+      "title": "Police Data Technician Supervisor",
+      "n": 3,
+      "median": 55.77,
+      "avg": 55.1
+    },
+    {
+      "title": "Inspection Support Analyst",
+      "n": 3,
+      "median": 57.07,
+      "avg": 56.42
+    },
+    {
+      "title": "Manager 2, Courts Legal & Public Safety",
+      "n": 3,
+      "median": 77.57,
+      "avg": 77.21
+    },
+    {
+      "title": "Administrative Specialist III",
+      "n": 3,
+      "median": 44.51,
+      "avg": 44.51
+    },
+    {
+      "title": "Audio/Video Technician and Events Assistant",
+      "n": 3,
+      "median": 35.27,
+      "avg": 35.4
+    },
+    {
+      "title": "Noise Control Program Specialist",
+      "n": 3,
+      "median": 60.75,
+      "avg": 60.75
+    },
+    {
+      "title": "Risk Management Analyst",
+      "n": 3,
+      "median": 55.19,
+      "avg": 55.19
+    },
+    {
+      "title": "Strategic Advisor 2, Customer Service, Public Information & Promotion - L21C SCL",
+      "n": 3,
+      "median": 81.93,
+      "avg": 75.67
+    },
+    {
+      "title": "Transmission Crew Chief-WDM II",
+      "n": 3,
+      "median": 63.48,
+      "avg": 63.48
+    },
+    {
+      "title": "Machinist Specialist",
+      "n": 3,
+      "median": 47.08,
+      "avg": 47.08
+    },
+    {
+      "title": "Strategic Advisor 2, Customer Service, Public Information & Promotion L21 SPU",
+      "n": 3,
+      "median": 82.41,
+      "avg": 81.06
+    },
+    {
+      "title": "Strategic Advisor 1 L21 SPU - OoC",
+      "n": 3,
+      "median": 68.38,
+      "avg": 68.76
+    },
+    {
+      "title": "Accounting Technician III",
+      "n": 3,
+      "median": 43.09,
+      "avg": 43.09
+    },
+    {
+      "title": "Surveyor,Chief",
+      "n": 3,
+      "median": 88.34,
+      "avg": 88.34
+    },
+    {
+      "title": "Plumber,Senior",
+      "n": 3,
+      "median": 64.62,
+      "avg": 64.62
+    },
+    {
+      "title": "Manager 3, Finance, Budget, and Accounting L21 SPU",
+      "n": 3,
+      "median": 84.84,
+      "avg": 87.51
+    },
+    {
+      "title": "Accounting Technician II-MC",
+      "n": 3,
+      "median": 39.18,
+      "avg": 39.18
+    },
+    {
+      "title": "Strategic Advisor 1, Property & Facility Management",
+      "n": 3,
+      "median": 65.26,
+      "avg": 67.21
+    },
+    {
+      "title": "Fire Protection Engineer,Senior",
+      "n": 3,
+      "median": 78.8,
+      "avg": 78.8
+    },
+    {
+      "title": "Lineworker-Assigned Locator",
+      "n": 3,
+      "median": 77.36,
+      "avg": 77.36
+    },
+    {
+      "title": "Strategic Advisor 1, General Government L21 SPU",
+      "n": 3,
+      "median": 67.34,
+      "avg": 68.19
+    },
+    {
+      "title": "Manager 2, Property & Facility Management",
+      "n": 3,
+      "median": 77.55,
+      "avg": 75.9
+    },
+    {
+      "title": "Human Services Program Supervisor",
+      "n": 3,
+      "median": 59.37,
+      "avg": 59.37
+    },
+    {
+      "title": "Cable Splicer-Assigned Locator",
+      "n": 3,
+      "median": 77.36,
+      "avg": 77.36
+    },
+    {
+      "title": "Civil Engineering Specialist,Assistant III",
+      "n": 3,
+      "median": 56.62,
+      "avg": 56.62
+    },
+    {
+      "title": "Material Controller Principal BU",
+      "n": 3,
+      "median": 55.03,
+      "avg": 53.72
+    },
+    {
+      "title": "Carpenter,Senior",
+      "n": 3,
+      "median": 53.29,
+      "avg": 53.29
+    },
+    {
+      "title": "Strategic Advisor 2, Parks and Recreation",
+      "n": 3,
+      "median": 77.36,
+      "avg": 75.82
+    },
+    {
+      "title": "Evidence Control Specialist, Chief",
+      "n": 3,
+      "median": 54.47,
+      "avg": 55.85
+    },
+    {
+      "title": "Fire Lieutenant-Dispatcher-84 Hrs",
+      "n": 3,
+      "median": 67.88,
+      "avg": 67.88
+    },
+    {
+      "title": "Fire Lieutenant, Senior-Dispatcher-84 H",
+      "n": 3,
+      "median": 69.28,
+      "avg": 69.28
+    },
+    {
+      "title": "Fire Lieutenant-Paramedic Tech Senior-90.46",
+      "n": 3,
+      "median": 68.7,
+      "avg": 68.7
+    },
+    {
+      "title": "Retirement Specialist Assistant",
+      "n": 3,
+      "median": 49.74,
+      "avg": 48.58
+    },
+    {
+      "title": "Strategic Advisor 1, Customer Service, Public Information & Promotion L21 SPU",
+      "n": 3,
+      "median": 75.75,
+      "avg": 73.04
+    },
+    {
+      "title": "Generation Supervisor-BU",
+      "n": 3,
+      "median": 92.07,
+      "avg": 92.07
+    },
+    {
+      "title": "Legislative Information Specialist II BU",
+      "n": 3,
+      "median": 44.73,
+      "avg": 43.13
+    },
+    {
+      "title": "Dining Room Attendant",
+      "n": 3,
+      "median": 30.28,
+      "avg": 29.56
+    },
+    {
+      "title": "Permit Technician Supervisor",
+      "n": 3,
+      "median": 51.24,
+      "avg": 51.24
+    },
+    {
+      "title": "Fire Captain-Prevention Inspector I 80",
+      "n": 3,
+      "median": 81.31,
+      "avg": 81.31
+    },
+    {
+      "title": "City Records Management Analyst BU",
+      "n": 3,
+      "median": 55.19,
+      "avg": 53.21
+    },
+    {
+      "title": "Utility Maintenance Specialist-SPU",
+      "n": 3,
+      "median": 48.09,
+      "avg": 48.09
+    },
+    {
+      "title": "Manager 1, Utilities L21 SPU",
+      "n": 3,
+      "median": 73.77,
+      "avg": 73.61
+    },
+    {
+      "title": "Hydroelectric Maintenance Machinist Crew Chief",
+      "n": 3,
+      "median": 77.17,
+      "avg": 76.15
+    },
+    {
+      "title": "Plumber Crew Chief",
+      "n": 3,
+      "median": 69.56,
+      "avg": 69.56
+    },
+    {
+      "title": "Conservation Policy Analyst",
+      "n": 3,
+      "median": 60.75,
+      "avg": 61.6
+    },
+    {
+      "title": "Manager 2, Purchasing, Contracting & Risk Management",
+      "n": 3,
+      "median": 82.28,
+      "avg": 81.07
+    },
+    {
+      "title": "Strategic Advisor 2, Exempt L17",
+      "n": 3,
+      "median": 67.95,
+      "avg": 72.06
+    },
+    {
+      "title": "Chief of Staff",
+      "n": 3,
+      "median": 109.87,
+      "avg": 108.48
+    },
+    {
+      "title": "Police Sergeant-Patrol",
+      "n": 3,
+      "median": 86.28,
+      "avg": 86.28
+    },
+    {
+      "title": "Information Technology Specialist",
+      "n": 3,
+      "median": 48.31,
+      "avg": 46.58
+    },
+    {
+      "title": "Strategic Advisor 2, Property & Facility Management L21 SPU",
+      "n": 3,
+      "median": 82.38,
+      "avg": 80.56
+    },
+    {
+      "title": "Events Booking Representative,Senior",
+      "n": 3,
+      "median": 55.19,
+      "avg": 53.87
+    },
+    {
+      "title": "Electrician Crew Chief",
+      "n": 3,
+      "median": 69.7,
+      "avg": 69.7
+    },
+    {
+      "title": "Human Resources Manager",
+      "n": 3,
+      "median": 79.62,
+      "avg": 79.51
+    },
+    {
+      "title": "Delivery Driver/Driver II",
+      "n": 3,
+      "median": 37.17,
+      "avg": 35.5
+    },
+    {
+      "title": "Strategic Advisor 2, Exempt L21 SPU",
+      "n": 3,
+      "median": 79.77,
+      "avg": 79.22
+    },
+    {
+      "title": "Strategic Advisor 3, Finance,Budget,and Accounting",
+      "n": 3,
+      "median": 87.61,
+      "avg": 85.85
+    },
+    {
+      "title": "Office Assistant",
+      "n": 3,
+      "median": 27.99,
+      "avg": 27.99
+    },
+    {
+      "title": "Capital Improvement Project Manager",
+      "n": 3,
+      "median": 64.11,
+      "avg": 64.16
+    },
+    {
+      "title": "Operations Response Center Trainee",
+      "n": 3,
+      "median": 37.95,
+      "avg": 40.02
+    },
+    {
+      "title": "Utility Service Inspector,Senior",
+      "n": 3,
+      "median": 52.99,
+      "avg": 55.11
+    },
+    {
+      "title": "Economist",
+      "n": 3,
+      "median": 55.96,
+      "avg": 56.06
+    },
+    {
+      "title": "Student Accountant Intern",
+      "n": 3,
+      "median": 29.3,
+      "avg": 29.3
+    },
+    {
+      "title": "Lead Page",
+      "n": 2,
+      "median": 33.8,
+      "avg": 33.8
+    },
+    {
+      "title": "Mechanical Plans Engineer",
+      "n": 2,
+      "median": 71.6,
+      "avg": 71.6
+    },
+    {
+      "title": "Operations Response Center Operator",
+      "n": 2,
+      "median": 44.15,
+      "avg": 44.15
+    },
+    {
+      "title": "Environmental Field Supervisor",
+      "n": 2,
+      "median": 56.35,
+      "avg": 56.35
+    },
+    {
+      "title": "Fire Captain-HM-90.46 Hrs",
+      "n": 2,
+      "median": 71.14,
+      "avg": 71.14
+    },
+    {
+      "title": "Program Coordinator",
+      "n": 2,
+      "median": 49.24,
+      "avg": 49.24
+    },
+    {
+      "title": "Security Officer Lead Library",
+      "n": 2,
+      "median": 50.71,
+      "avg": 50.71
+    },
+    {
+      "title": "Manager 2, Finance, Budget, and Accounting L21 SPU",
+      "n": 2,
+      "median": 77.34,
+      "avg": 77.34
+    },
+    {
+      "title": "Strategic Advisor 3, Courts Legal & Public Safety",
+      "n": 2,
+      "median": 88.86,
+      "avg": 88.86
+    },
+    {
+      "title": "Power Marketer",
+      "n": 2,
+      "median": 101.38,
+      "avg": 101.38
+    },
+    {
+      "title": "Administrative Support Assistant-MC",
+      "n": 2,
+      "median": 34.94,
+      "avg": 34.94
+    },
+    {
+      "title": "Building Plans Examiner Supervisor",
+      "n": 2,
+      "median": 78.57,
+      "avg": 78.57
+    },
+    {
+      "title": "Cement Finisher-Parks Facilities",
+      "n": 2,
+      "median": 46.05,
+      "avg": 46.05
+    },
+    {
+      "title": "Forest Maintenance Worker,Senior",
+      "n": 2,
+      "median": 49,
+      "avg": 49
+    },
+    {
+      "title": "Photographic Services Supervisor",
+      "n": 2,
+      "median": 53.88,
+      "avg": 53.88
+    },
+    {
+      "title": "Civil Engineer,Assistant II",
+      "n": 2,
+      "median": 56.26,
+      "avg": 56.26
+    },
+    {
+      "title": "Structural Painter Crew Chief",
+      "n": 2,
+      "median": 59.16,
+      "avg": 59.16
+    },
+    {
+      "title": "Animal Control Officer Supervisor",
+      "n": 2,
+      "median": 53.23,
+      "avg": 53.23
+    },
+    {
+      "title": "Civil Rights Analyst, Supervising",
+      "n": 2,
+      "median": 69.23,
+      "avg": 69.23
+    },
+    {
+      "title": "Firefighter-ERG Ap Driver C-80 Hrs",
+      "n": 2,
+      "median": 65.16,
+      "avg": 65.16
+    },
+    {
+      "title": "Rule 9 Intern",
+      "n": 2,
+      "median": 32.47,
+      "avg": 32.47
+    },
+    {
+      "title": "Energy Research and Evaluation Analyst",
+      "n": 2,
+      "median": 57.42,
+      "avg": 57.42
+    },
+    {
+      "title": "Strategic Advisor 2, Exempt L21C SCL",
+      "n": 2,
+      "median": 77.97,
+      "avg": 77.97
+    },
+    {
+      "title": "Latent Print Examiner,Senior",
+      "n": 2,
+      "median": 62.5,
+      "avg": 62.5
+    },
+    {
+      "title": "Auto Sheet Metal Worker",
+      "n": 2,
+      "median": 55.56,
+      "avg": 55.56
+    },
+    {
+      "title": "Power Supply Engineer",
+      "n": 2,
+      "median": 101.66,
+      "avg": 101.66
+    },
+    {
+      "title": "Permit Process Leader, Supv",
+      "n": 2,
+      "median": 80.52,
+      "avg": 80.52
+    },
+    {
+      "title": "Victim Advocate Supervisor",
+      "n": 2,
+      "median": 55.7,
+      "avg": 55.7
+    },
+    {
+      "title": "Strategic Advisor 1,Exempt L17",
+      "n": 2,
+      "median": 62.93,
+      "avg": 62.93
+    },
+    {
+      "title": "Manager 3, Property & Facility Management L21 SPU",
+      "n": 2,
+      "median": 88.16,
+      "avg": 88.16
+    },
+    {
+      "title": "Strategic Advisor 2, Information Technology L21 SPU",
+      "n": 2,
+      "median": 79,
+      "avg": 79
+    },
+    {
+      "title": "Facility Technical Supervisor",
+      "n": 2,
+      "median": 55.07,
+      "avg": 55.07
+    },
+    {
+      "title": "Fire Lieutenant, Senior-HM 90.46 Hrs",
+      "n": 2,
+      "median": 63.45,
+      "avg": 63.45
+    },
+    {
+      "title": "Manager 3, Information Technology L21 SPU",
+      "n": 2,
+      "median": 90.74,
+      "avg": 90.74
+    },
+    {
+      "title": "Credit and Collections Supervisor-BU",
+      "n": 2,
+      "median": 55.19,
+      "avg": 55.19
+    },
+    {
+      "title": "Mechanical Engineer Supervisor",
+      "n": 2,
+      "median": 92.42,
+      "avg": 92.42
+    },
+    {
+      "title": "Arts Conservation Technician",
+      "n": 2,
+      "median": 45.48,
+      "avg": 45.48
+    },
+    {
+      "title": "Metal Fabricator Crew Chief",
+      "n": 2,
+      "median": 63.84,
+      "avg": 63.84
+    },
+    {
+      "title": "Landscape Supervisor",
+      "n": 2,
+      "median": 51.58,
+      "avg": 51.58
+    },
+    {
+      "title": "Fire Lieutenant, Senior-ERG-90.46 Hrs",
+      "n": 2,
+      "median": 62.93,
+      "avg": 62.93
+    },
+    {
+      "title": "Finance Analyst,Assistant",
+      "n": 2,
+      "median": 45.4,
+      "avg": 45.4
+    },
+    {
+      "title": "Manager 1, Exempt - L17",
+      "n": 2,
+      "median": 68.1,
+      "avg": 68.1
+    },
+    {
+      "title": "Structural Plans Engineer Supervisor",
+      "n": 2,
+      "median": 91.97,
+      "avg": 91.97
+    },
+    {
+      "title": "Manager 3, Information Technology - L21C SCL",
+      "n": 2,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Auto Body Worker/Painter",
+      "n": 2,
+      "median": 48.93,
+      "avg": 48.93
+    },
+    {
+      "title": "Accounting Specialist",
+      "n": 2,
+      "median": 45.82,
+      "avg": 45.82
+    },
+    {
+      "title": "Elevator Inspector,Chief",
+      "n": 2,
+      "median": 69.12,
+      "avg": 69.12
+    },
+    {
+      "title": "Personnel Specialist Trainee",
+      "n": 2,
+      "median": 43.06,
+      "avg": 43.06
+    },
+    {
+      "title": "Passenger and Tugboat Operator",
+      "n": 2,
+      "median": 49.28,
+      "avg": 49.28
+    },
+    {
+      "title": "Workers' Compensation Analyst,Senior",
+      "n": 2,
+      "median": 58.49,
+      "avg": 58.49
+    },
+    {
+      "title": "Apprenticeship Coordinator-BU",
+      "n": 2,
+      "median": 51.3,
+      "avg": 51.3
+    },
+    {
+      "title": "Passenger and Tugboat Operator,Senior",
+      "n": 2,
+      "median": 54.67,
+      "avg": 54.67
+    },
+    {
+      "title": "Police Captain - Permanent Night",
+      "n": 2,
+      "median": 127.69,
+      "avg": 127.69
+    },
+    {
+      "title": "Bridge Maintenance Mechanic,Senior",
+      "n": 2,
+      "median": 65.77,
+      "avg": 65.77
+    },
+    {
+      "title": "Latent Print Examiner Trainee",
+      "n": 2,
+      "median": 48,
+      "avg": 48
+    },
+    {
+      "title": "Accountant,Senior BU",
+      "n": 2,
+      "median": 55.96,
+      "avg": 55.96
+    },
+    {
+      "title": "Utility Maintenance Supervisor",
+      "n": 2,
+      "median": 60.15,
+      "avg": 60.15
+    },
+    {
+      "title": "Firefighter-HM-80 Hrs",
+      "n": 2,
+      "median": 60.22,
+      "avg": 60.22
+    },
+    {
+      "title": "Building Engineer-Library",
+      "n": 2,
+      "median": 44.45,
+      "avg": 44.45
+    },
+    {
+      "title": "Legislative Assistant - OoC",
+      "n": 2,
+      "median": 38.86,
+      "avg": 38.86
+    },
+    {
+      "title": "Fire Lieutenant, Senior-FB-90.46 Hrs",
+      "n": 2,
+      "median": 62.93,
+      "avg": 62.93
+    },
+    {
+      "title": "Library Associate IV, Intermittent",
+      "n": 2,
+      "median": 38.96,
+      "avg": 38.96
+    },
+    {
+      "title": "Claims Adjuster-FAS",
+      "n": 2,
+      "median": 60.79,
+      "avg": 60.79
+    },
+    {
+      "title": "Pump Station Maintenance Worker CI",
+      "n": 2,
+      "median": 38.84,
+      "avg": 38.84
+    },
+    {
+      "title": "Architect,Senior",
+      "n": 2,
+      "median": 85.58,
+      "avg": 85.58
+    },
+    {
+      "title": "Fire Lieutenant-Administrative-80 Hrs",
+      "n": 2,
+      "median": 71.27,
+      "avg": 71.27
+    },
+    {
+      "title": "Fire Lieutenant, Senior-Administrative-80 Hrs",
+      "n": 2,
+      "median": 72.61,
+      "avg": 72.61
+    },
+    {
+      "title": "Training and Education Coordinator,Assistant",
+      "n": 2,
+      "median": 37.84,
+      "avg": 37.84
+    },
+    {
+      "title": "Pump Station Maintenance Worker",
+      "n": 2,
+      "median": 38.09,
+      "avg": 38.09
+    },
+    {
+      "title": "Fire Captain-Training-80 Hrs",
+      "n": 2,
+      "median": 81.31,
+      "avg": 81.31
+    },
+    {
+      "title": "Equipment Maintenance Crew Chief",
+      "n": 2,
+      "median": 62.54,
+      "avg": 62.54
+    },
+    {
+      "title": "Arborist",
+      "n": 2,
+      "median": 64.39,
+      "avg": 64.39
+    },
+    {
+      "title": "Strategic Advisor 2, Engineering and Plans Review L21 SPU",
+      "n": 2,
+      "median": 82.85,
+      "avg": 82.85
+    },
+    {
+      "title": "Strategic Advisor-Legislative",
+      "n": 2,
+      "median": 72.21,
+      "avg": 72.21
+    },
+    {
+      "title": "Manager 3, Purchasing, Contracting & Risk Management - L21C SCL",
+      "n": 2,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Energy Conservation Representative,Senior",
+      "n": 2,
+      "median": 47.73,
+      "avg": 47.73
+    },
+    {
+      "title": "Transmission Line Crew Chief",
+      "n": 2,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "Water System Operator,Senior",
+      "n": 2,
+      "median": 63.41,
+      "avg": 63.41
+    },
+    {
+      "title": "Strategic Advisor 2, General Government L17",
+      "n": 2,
+      "median": 70.93,
+      "avg": 70.93
+    },
+    {
+      "title": "Usher,Head",
+      "n": 2,
+      "median": 39.36,
+      "avg": 39.36
+    },
+    {
+      "title": "Paralegal",
+      "n": 2,
+      "median": 48.31,
+      "avg": 48.31
+    },
+    {
+      "title": "Licenses and Standards Supervisor",
+      "n": 2,
+      "median": 59.31,
+      "avg": 59.31
+    },
+    {
+      "title": "Police Sergeant-Detective-Patrol-BWV",
+      "n": 2,
+      "median": 90.1,
+      "avg": 90.1
+    },
+    {
+      "title": "Development Finance Specialist,Senior",
+      "n": 2,
+      "median": 58.51,
+      "avg": 58.51
+    },
+    {
+      "title": "Camp Service Aide",
+      "n": 2,
+      "median": 29.12,
+      "avg": 29.12
+    },
+    {
+      "title": "Safety and Health Supervisor",
+      "n": 2,
+      "median": 67.99,
+      "avg": 67.99
+    },
+    {
+      "title": "Water Quality Analyst,Assistant",
+      "n": 2,
+      "median": 49.74,
+      "avg": 49.74
+    },
+    {
+      "title": "Information Technology Professional B,Exempt",
+      "n": 2,
+      "median": 74.29,
+      "avg": 74.29
+    },
+    {
+      "title": "Call Center Supervisor",
+      "n": 2,
+      "median": 47.09,
+      "avg": 47.09
+    },
+    {
+      "title": "Protection and Control Electrician Crew Chief",
+      "n": 2,
+      "median": 99.71,
+      "avg": 99.71
+    },
+    {
+      "title": "Fire Lieutenant-Decon-90.46 Hrs",
+      "n": 2,
+      "median": 61.75,
+      "avg": 61.75
+    },
+    {
+      "title": "HR Business Partner",
+      "n": 2,
+      "median": 56.7,
+      "avg": 56.7
+    },
+    {
+      "title": "Pump Station Maintenance Lead Worker CII",
+      "n": 2,
+      "median": 43.61,
+      "avg": 43.61
+    },
+    {
+      "title": "Pump Station Maintenance Leadwkr",
+      "n": 2,
+      "median": 41.12,
+      "avg": 41.12
+    },
+    {
+      "title": "Grounds Equipment Mechanic,Senior",
+      "n": 2,
+      "median": 45.59,
+      "avg": 45.59
+    },
+    {
+      "title": "Material Supplier,Electric-Assigned Equipment Cust",
+      "n": 2,
+      "median": 59.37,
+      "avg": 59.37
+    },
+    {
+      "title": "Electrical Engineering Specialist,Assistant III",
+      "n": 2,
+      "median": 56.62,
+      "avg": 56.62
+    },
+    {
+      "title": "Administrative Specialist I",
+      "n": 2,
+      "median": 36.28,
+      "avg": 36.28
+    },
+    {
+      "title": "Seattle Conservation Corps Supervisor,Senior",
+      "n": 2,
+      "median": 44.73,
+      "avg": 44.73
+    },
+    {
+      "title": "Fire Lieutenant-RB-90.46 Hrs",
+      "n": 2,
+      "median": 61.75,
+      "avg": 61.75
+    },
+    {
+      "title": "Administrative Support Supervisor-MC",
+      "n": 2,
+      "median": 47.09,
+      "avg": 47.09
+    },
+    {
+      "title": "Strategic Advisor 2, General Government-L17",
+      "n": 2,
+      "median": 75.55,
+      "avg": 75.55
+    },
+    {
+      "title": "Meter Reader Supervisor",
+      "n": 2,
+      "median": 50.98,
+      "avg": 50.98
+    },
+    {
+      "title": "Workday Configuration Analyst",
+      "n": 2,
+      "median": 72.26,
+      "avg": 72.26
+    },
+    {
+      "title": "Fire Lieutenant-SLT-90.46 Hrs",
+      "n": 2,
+      "median": 61.75,
+      "avg": 61.75
+    },
+    {
+      "title": "Firefighter-Paramedic Tech Senior-80",
+      "n": 2,
+      "median": 68.94,
+      "avg": 68.94
+    },
+    {
+      "title": "Water Treatment Crew Chief",
+      "n": 2,
+      "median": 55.19,
+      "avg": 55.19
+    },
+    {
+      "title": "Strategic Advisor 3, Information Technology - L21C SCL",
+      "n": 2,
+      "median": 90.13,
+      "avg": 90.13
+    },
+    {
+      "title": "Strategic Advisor 1, General Government L17",
+      "n": 2,
+      "median": 60.03,
+      "avg": 60.03
+    },
+    {
+      "title": "Project/Program Manager - IT, Library",
+      "n": 2,
+      "median": 73.5,
+      "avg": 73.5
+    },
+    {
+      "title": "Strategic Advisor 1, Courts Legal & Public Safety-L17",
+      "n": 2,
+      "median": 61.44,
+      "avg": 61.44
+    },
+    {
+      "title": "Public Safety Civil Service Examiner",
+      "n": 2,
+      "median": 53.22,
+      "avg": 53.22
+    },
+    {
+      "title": "Permit Technician,Senior",
+      "n": 2,
+      "median": 47.32,
+      "avg": 47.32
+    },
+    {
+      "title": "Communications Specialist",
+      "n": 2,
+      "median": 60.96,
+      "avg": 60.96
+    },
+    {
+      "title": "Asphalt Paving Crew Chief Assistant",
+      "n": 2,
+      "median": 47.95,
+      "avg": 47.95
+    },
+    {
+      "title": "Legal Assistant,Senior",
+      "n": 2,
+      "median": 42.26,
+      "avg": 42.26
+    },
+    {
+      "title": "Strategic Advisor 3, General Government L21 SPU",
+      "n": 2,
+      "median": 92.8,
+      "avg": 92.8
+    },
+    {
+      "title": "Firefighter-TRT Dive Master C-90.46Hr",
+      "n": 2,
+      "median": 59.18,
+      "avg": 59.18
+    },
+    {
+      "title": "Cashier",
+      "n": 2,
+      "median": 26.92,
+      "avg": 26.92
+    },
+    {
+      "title": "Electric Utility Executive 2",
+      "n": 2,
+      "median": 125.14,
+      "avg": 125.14
+    },
+    {
+      "title": "Parking Attendant,Senior",
+      "n": 2,
+      "median": 35.41,
+      "avg": 35.41
+    },
+    {
+      "title": "Water Quality Analyst,Supervisor",
+      "n": 2,
+      "median": 65.84,
+      "avg": 65.84
+    },
+    {
+      "title": "Human Resources Specialist",
+      "n": 2,
+      "median": 50.18,
+      "avg": 50.18
+    },
+    {
+      "title": "Dispute Resolution Mediator",
+      "n": 2,
+      "median": 58.5,
+      "avg": 58.5
+    },
+    {
+      "title": "Public Relations Supervisor",
+      "n": 2,
+      "median": 59.61,
+      "avg": 59.61
+    },
+    {
+      "title": "Public Relations Specialist, Senior",
+      "n": 2,
+      "median": 49.25,
+      "avg": 49.25
+    },
+    {
+      "title": "Building Maintenance Support Lead",
+      "n": 2,
+      "median": 48.06,
+      "avg": 48.06
+    },
+    {
+      "title": "Treasury Cashier",
+      "n": 2,
+      "median": 46.72,
+      "avg": 46.72
+    },
+    {
+      "title": "Fire Lieutenant-Paramedic Tech Senior-84",
+      "n": 2,
+      "median": 73.98,
+      "avg": 73.98
+    },
+    {
+      "title": "Accounting Technician I-BU",
+      "n": 2,
+      "median": 36.28,
+      "avg": 36.28
+    },
+    {
+      "title": "Meter Electrician Crew Chief Assigned C Coordinator",
+      "n": 2,
+      "median": 80.64,
+      "avg": 80.64
+    },
+    {
+      "title": "Energy Management Analyst",
+      "n": 2,
+      "median": 62.65,
+      "avg": 62.65
+    },
+    {
+      "title": "Accounting Technician II",
+      "n": 2,
+      "median": 38.39,
+      "avg": 38.39
+    },
+    {
+      "title": "Police Sergeant-Detective-Bomb Squad",
+      "n": 2,
+      "median": 92.65,
+      "avg": 92.65
+    },
+    {
+      "title": "Naturalist",
+      "n": 2,
+      "median": 38.42,
+      "avg": 38.42
+    },
+    {
+      "title": "Human Resources Associate",
+      "n": 2,
+      "median": 37.09,
+      "avg": 37.09
+    },
+    {
+      "title": "Fair Hearing Coordinator",
+      "n": 2,
+      "median": 52.87,
+      "avg": 52.87
+    },
+    {
+      "title": "Police Sergeant-Det-Non Patrol-BWV",
+      "n": 2,
+      "median": 90.1,
+      "avg": 90.1
+    },
+    {
+      "title": "Fire Lieutenant, Senior-Prevention Inspector 80",
+      "n": 2,
+      "median": 72.61,
+      "avg": 72.61
+    },
+    {
+      "title": "Labor Relations Coordinator",
+      "n": 2,
+      "median": 65.5,
+      "avg": 65.5
+    },
+    {
+      "title": "Utility Maintenance Specialist,Senior-SPU",
+      "n": 2,
+      "median": 50.89,
+      "avg": 50.89
+    },
+    {
+      "title": "Arts Program Supervisor",
+      "n": 2,
+      "median": 61.96,
+      "avg": 61.96
+    },
+    {
+      "title": "Finance Analyst",
+      "n": 2,
+      "median": 52.01,
+      "avg": 52.01
+    },
+    {
+      "title": "Veterinary Assistant",
+      "n": 2,
+      "median": 33.1,
+      "avg": 33.1
+    },
+    {
+      "title": "Mechanical Engineer,Associate",
+      "n": 2,
+      "median": 68.71,
+      "avg": 68.71
+    },
+    {
+      "title": "Councilmember - At Large",
+      "n": 2,
+      "median": 84.63,
+      "avg": 84.63
+    },
+    {
+      "title": "Municipal Government Intern W/S",
+      "n": 2,
+      "median": 27.67,
+      "avg": 27.67
+    },
+    {
+      "title": "Electrician,Senior",
+      "n": 1,
+      "median": 65.16,
+      "avg": 65.16
+    },
+    {
+      "title": "Fire Captain, Senior-TRT Dive-90.46 Hrs",
+      "n": 1,
+      "median": 72.5,
+      "avg": 72.5
+    },
+    {
+      "title": "Manager 3, Courts Legal & Public Safety - L17 SPD",
+      "n": 1,
+      "median": 79.54,
+      "avg": 79.54
+    },
+    {
+      "title": "Executive Assistant, Senior - L17 Leg",
+      "n": 1,
+      "median": 68.03,
+      "avg": 68.03
+    },
+    {
+      "title": "Library Applications and Systems Manager",
+      "n": 1,
+      "median": 77.16,
+      "avg": 77.16
+    },
+    {
+      "title": "Facility Technical Supervisor-BU",
+      "n": 1,
+      "median": 66.81,
+      "avg": 66.81
+    },
+    {
+      "title": "Equity and Engagement Program Specialist",
+      "n": 1,
+      "median": 43.12,
+      "avg": 43.12
+    },
+    {
+      "title": "Hearing Examiner,Deputy",
+      "n": 1,
+      "median": 93.58,
+      "avg": 93.58
+    },
+    {
+      "title": "Firefighter-TRT Dive Master-90.46Hr",
+      "n": 1,
+      "median": 55.58,
+      "avg": 55.58
+    },
+    {
+      "title": "Electrical Quality Assurance Specialist",
+      "n": 1,
+      "median": 63.54,
+      "avg": 63.54
+    },
+    {
+      "title": "Manager 1, Purchasing, Contracting & Risk Management",
+      "n": 1,
+      "median": 71.94,
+      "avg": 71.94
+    },
+    {
+      "title": "Bridge Maintenance General Supervisor",
+      "n": 1,
+      "median": 56.78,
+      "avg": 56.78
+    },
+    {
+      "title": "Executive Assistant,Senior BU",
+      "n": 1,
+      "median": 68.03,
+      "avg": 68.03
+    },
+    {
+      "title": "Law Data Transparency Intern",
+      "n": 1,
+      "median": 22.56,
+      "avg": 22.56
+    },
+    {
+      "title": "Police Officer-Detective-CSI",
+      "n": 1,
+      "median": 78.3,
+      "avg": 78.3
+    },
+    {
+      "title": "Fire Lieutenant-Paramedic Tech Senior AMR-80",
+      "n": 1,
+      "median": 82.04,
+      "avg": 82.04
+    },
+    {
+      "title": "Manager 1, General Government L21 SPU",
+      "n": 1,
+      "median": 75.63,
+      "avg": 75.63
+    },
+    {
+      "title": "Code Development Analyst,Senior",
+      "n": 1,
+      "median": 61.96,
+      "avg": 61.96
+    },
+    {
+      "title": "Safety and Health Manager",
+      "n": 1,
+      "median": 62.6,
+      "avg": 62.6
+    },
+    {
+      "title": "Head of Communications",
+      "n": 1,
+      "median": 85.36,
+      "avg": 85.36
+    },
+    {
+      "title": "City Light General Manager & CEO",
+      "n": 1,
+      "median": 254.79,
+      "avg": 254.79
+    },
+    {
+      "title": "Rights-Of-Way Maintenance Lead Worker",
+      "n": 1,
+      "median": 47.78,
+      "avg": 47.78
+    },
+    {
+      "title": "Fire Captain, Senior-ERG-90.46 Hrs",
+      "n": 1,
+      "median": 71.98,
+      "avg": 71.98
+    },
+    {
+      "title": "Manager 1, Finance, Budget, and Accounting L21 SPU",
+      "n": 1,
+      "median": 77.82,
+      "avg": 77.82
+    },
+    {
+      "title": "Data Engineer-Library",
+      "n": 1,
+      "median": 74.37,
+      "avg": 74.37
+    },
+    {
+      "title": "Graphic Arts Designer",
+      "n": 1,
+      "median": 45.59,
+      "avg": 45.59
+    },
+    {
+      "title": "Manager 1, General Government - L17",
+      "n": 1,
+      "median": 71.47,
+      "avg": 71.47
+    },
+    {
+      "title": "Material Controller,Senior",
+      "n": 1,
+      "median": 47.39,
+      "avg": 47.39
+    },
+    {
+      "title": "Treasury Cashier,Senior",
+      "n": 1,
+      "median": 51.24,
+      "avg": 51.24
+    },
+    {
+      "title": "Strategy and Policy Advisor, CLO",
+      "n": 1,
+      "median": 76.94,
+      "avg": 76.94
+    },
+    {
+      "title": "Youth Instructor",
+      "n": 1,
+      "median": 44.73,
+      "avg": 44.73
+    },
+    {
+      "title": "Fire Lieutenant, Senior-80 Hrs",
+      "n": 1,
+      "median": 68.26,
+      "avg": 68.26
+    },
+    {
+      "title": "Water Quality Engineer",
+      "n": 1,
+      "median": 70.4,
+      "avg": 70.4
+    },
+    {
+      "title": "Manager 2, Information Technology - L21C SCL",
+      "n": 1,
+      "median": 84.88,
+      "avg": 84.88
+    },
+    {
+      "title": "Manager 3, Exempt L21 SPU",
+      "n": 1,
+      "median": 88.9,
+      "avg": 88.9
+    },
+    {
+      "title": "Admissions Personnel Dispatcher",
+      "n": 1,
+      "median": 39.31,
+      "avg": 39.31
+    },
+    {
+      "title": "Manager 3, Customer Service, Public Information & Promotion L21 SPU",
+      "n": 1,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Head of Finance & Accounting",
+      "n": 1,
+      "median": 85.82,
+      "avg": 85.82
+    },
+    {
+      "title": "Janitor Lead",
+      "n": 1,
+      "median": 39.37,
+      "avg": 39.37
+    },
+    {
+      "title": "Trial Team Unit Lead",
+      "n": 1,
+      "median": 71.48,
+      "avg": 71.48
+    },
+    {
+      "title": "Court Cashier Supervisor",
+      "n": 1,
+      "median": 46.91,
+      "avg": 46.91
+    },
+    {
+      "title": "Investments/Debt Director",
+      "n": 1,
+      "median": 102.51,
+      "avg": 102.51
+    },
+    {
+      "title": "Assistant City Prosecutor - BU (Saturday Filing)",
+      "n": 1,
+      "median": 69.13,
+      "avg": 69.13
+    },
+    {
+      "title": "Retirement Specialist, Senior",
+      "n": 1,
+      "median": 64.25,
+      "avg": 64.25
+    },
+    {
+      "title": "Senior Assistant City Prosecutor, Trail Team Lead",
+      "n": 1,
+      "median": 77.61,
+      "avg": 77.61
+    },
+    {
+      "title": "Fire Battalion Chief-80 Hrs",
+      "n": 1,
+      "median": 96.85,
+      "avg": 96.85
+    },
+    {
+      "title": "Fire Battalion Chief-Administrative",
+      "n": 1,
+      "median": 104.11,
+      "avg": 104.11
+    },
+    {
+      "title": "Control Technician",
+      "n": 1,
+      "median": 52.07,
+      "avg": 52.07
+    },
+    {
+      "title": "Hydroelectric Operator,Chief",
+      "n": 1,
+      "median": 84.89,
+      "avg": 84.89
+    },
+    {
+      "title": "Traffic Sign and Marking Crew Chief II",
+      "n": 1,
+      "median": 55.8,
+      "avg": 55.8
+    },
+    {
+      "title": "Domestic Violence Unit Supervisor",
+      "n": 1,
+      "median": 87.27,
+      "avg": 87.27
+    },
+    {
+      "title": "Identification Technician",
+      "n": 1,
+      "median": 48.28,
+      "avg": 48.28
+    },
+    {
+      "title": "Contracts and Concessions Assistant",
+      "n": 1,
+      "median": 48.77,
+      "avg": 48.77
+    },
+    {
+      "title": "Budget and Accounting Manager",
+      "n": 1,
+      "median": 75.42,
+      "avg": 75.42
+    },
+    {
+      "title": "Electrical Engineer Supervisor",
+      "n": 1,
+      "median": 94.12,
+      "avg": 94.12
+    },
+    {
+      "title": "Specialty Courts Unit Lead",
+      "n": 1,
+      "median": 77.61,
+      "avg": 77.61
+    },
+    {
+      "title": "Administrative Specialist Library",
+      "n": 1,
+      "median": 41.86,
+      "avg": 41.86
+    },
+    {
+      "title": "Planning and Development Specialist,Senior",
+      "n": 1,
+      "median": 56.23,
+      "avg": 56.23
+    },
+    {
+      "title": "Web Development Manager",
+      "n": 1,
+      "median": 66.81,
+      "avg": 66.81
+    },
+    {
+      "title": "Infractions Clerk",
+      "n": 1,
+      "median": 43.93,
+      "avg": 43.93
+    },
+    {
+      "title": "Facilities Manager - Library",
+      "n": 1,
+      "median": 63.22,
+      "avg": 63.22
+    },
+    {
+      "title": "Cable Splicer Crew Chief-Assigned Locator",
+      "n": 1,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "Fire Captain - 84 Hrs",
+      "n": 1,
+      "median": 73.29,
+      "avg": 73.29
+    },
+    {
+      "title": "Special Assistant-Law",
+      "n": 1,
+      "median": 68.03,
+      "avg": 68.03
+    },
+    {
+      "title": "Manager, Computing Infrastructure and Support Services",
+      "n": 1,
+      "median": 81.06,
+      "avg": 81.06
+    },
+    {
+      "title": "Strategic Advisor 2, Finance,Budget,and Accounting L21 SPU",
+      "n": 1,
+      "median": 84.88,
+      "avg": 84.88
+    },
+    {
+      "title": "Manager 3, Utilities",
+      "n": 1,
+      "median": 85.02,
+      "avg": 85.02
+    },
+    {
+      "title": "Plant Ecologist",
+      "n": 1,
+      "median": 50.33,
+      "avg": 50.33
+    },
+    {
+      "title": "Station Maintenance Machinist Crew Chief",
+      "n": 1,
+      "median": 63.68,
+      "avg": 63.68
+    },
+    {
+      "title": "Arts Program Specialist,Senior",
+      "n": 1,
+      "median": 57.31,
+      "avg": 57.31
+    },
+    {
+      "title": "Building/Facilities Operations Supervisor-BU",
+      "n": 1,
+      "median": 47.39,
+      "avg": 47.39
+    },
+    {
+      "title": "Director of Public Affairs and Policy",
+      "n": 1,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Powerline Clear Tree Trimmer-JIC",
+      "n": 1,
+      "median": 65.1,
+      "avg": 65.1
+    },
+    {
+      "title": "Strategic Advisor 3, Customer Service, Public Information & Promotion",
+      "n": 1,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Assistant Director-Public Services",
+      "n": 1,
+      "median": 83.93,
+      "avg": 83.93
+    },
+    {
+      "title": "Strategic Advisor 2, Finance,Budget,andAccounting-L17",
+      "n": 1,
+      "median": 65.58,
+      "avg": 65.58
+    },
+    {
+      "title": "Tax Auditor,Senior",
+      "n": 1,
+      "median": 59.62,
+      "avg": 59.62
+    },
+    {
+      "title": "Project and Operations Lead",
+      "n": 1,
+      "median": 62.01,
+      "avg": 62.01
+    },
+    {
+      "title": "Material Handling Supervisor,General-BU",
+      "n": 1,
+      "median": 53.14,
+      "avg": 53.14
+    },
+    {
+      "title": "Accounting Technician Supervisor-BU",
+      "n": 1,
+      "median": 46.37,
+      "avg": 46.37
+    },
+    {
+      "title": "Executive Director and Chief Librarian",
+      "n": 1,
+      "median": 115.19,
+      "avg": 115.19
+    },
+    {
+      "title": "Claims Adjuster I",
+      "n": 1,
+      "median": 48.31,
+      "avg": 48.31
+    },
+    {
+      "title": "Strategic Advisor 2 - L21C SCL - OoC",
+      "n": 1,
+      "median": 65.65,
+      "avg": 65.65
+    },
+    {
+      "title": "Facilities Support Coordinator",
+      "n": 1,
+      "median": 59.61,
+      "avg": 59.61
+    },
+    {
+      "title": "Administrative Specialist I-MC",
+      "n": 1,
+      "median": 38.25,
+      "avg": 38.25
+    },
+    {
+      "title": "Systems Analyst 2,Senior-Library",
+      "n": 1,
+      "median": 78.07,
+      "avg": 78.07
+    },
+    {
+      "title": "Powerline Clear Coordinator",
+      "n": 1,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "SPU General Manager & CEO",
+      "n": 1,
+      "median": 179.55,
+      "avg": 179.55
+    },
+    {
+      "title": "Utility Assistance Supervisor",
+      "n": 1,
+      "median": 57.11,
+      "avg": 57.11
+    },
+    {
+      "title": "Community Resources Specialist",
+      "n": 1,
+      "median": 50.42,
+      "avg": 50.42
+    },
+    {
+      "title": "Security Operations Analyst",
+      "n": 1,
+      "median": 57.2,
+      "avg": 57.2
+    },
+    {
+      "title": "Content Strategist",
+      "n": 1,
+      "median": 59.02,
+      "avg": 59.02
+    },
+    {
+      "title": "Executive Assistant-Library, Senior",
+      "n": 1,
+      "median": 68.03,
+      "avg": 68.03
+    },
+    {
+      "title": "Manager 2, Information Technology",
+      "n": 1,
+      "median": 84.37,
+      "avg": 84.37
+    },
+    {
+      "title": "Finance Analyst Exempt",
+      "n": 1,
+      "median": 59.6,
+      "avg": 59.6
+    },
+    {
+      "title": "Librarian,Floating",
+      "n": 1,
+      "median": 54.46,
+      "avg": 54.46
+    },
+    {
+      "title": "Head of Marketing and Online Service",
+      "n": 1,
+      "median": 87.66,
+      "avg": 87.66
+    },
+    {
+      "title": "Safety/Occupational Health Coordinator",
+      "n": 1,
+      "median": 64.25,
+      "avg": 64.25
+    },
+    {
+      "title": "Marketing and Online Services Project Manager",
+      "n": 1,
+      "median": 54.5,
+      "avg": 54.5
+    },
+    {
+      "title": "Fire Lieutenant,Senior-Paramedic Tech Senior-84",
+      "n": 1,
+      "median": 75.25,
+      "avg": 75.25
+    },
+    {
+      "title": "Water Quality Engineer,Senior",
+      "n": 1,
+      "median": 79.78,
+      "avg": 79.78
+    },
+    {
+      "title": "Solid Waste Field Representative Supervisor",
+      "n": 1,
+      "median": 64.07,
+      "avg": 64.07
+    },
+    {
+      "title": "Veterinarian, Principal",
+      "n": 1,
+      "median": 88.33,
+      "avg": 88.33
+    },
+    {
+      "title": "Senior Systems Analyst",
+      "n": 1,
+      "median": 80.24,
+      "avg": 80.24
+    },
+    {
+      "title": "Fire Captain-80 Hrs",
+      "n": 1,
+      "median": 76.95,
+      "avg": 76.95
+    },
+    {
+      "title": "Special Advisor on LGBTQ+ Affairs",
+      "n": 1,
+      "median": 82,
+      "avg": 82
+    },
+    {
+      "title": "Electrical Maintenance Helper",
+      "n": 1,
+      "median": 40.52,
+      "avg": 40.52
+    },
+    {
+      "title": "Greenhouse Supervisor",
+      "n": 1,
+      "median": 43.12,
+      "avg": 43.12
+    },
+    {
+      "title": "Code Compliance Director",
+      "n": 1,
+      "median": 110.06,
+      "avg": 110.06
+    },
+    {
+      "title": "Fire Captain-Paramedic Tech Senior EMS-80",
+      "n": 1,
+      "median": 92.08,
+      "avg": 92.08
+    },
+    {
+      "title": "Communications Electrician Crew Chief",
+      "n": 1,
+      "median": 78.26,
+      "avg": 78.26
+    },
+    {
+      "title": "Bridge Maintenance Mechanical Helper",
+      "n": 1,
+      "median": 41.78,
+      "avg": 41.78
+    },
+    {
+      "title": "Accounting Operators Supervisor",
+      "n": 1,
+      "median": 56.32,
+      "avg": 56.32
+    },
+    {
+      "title": "Director,Institutional and Strategic Advancement",
+      "n": 1,
+      "median": 104.87,
+      "avg": 104.87
+    },
+    {
+      "title": "Cook",
+      "n": 1,
+      "median": 38.08,
+      "avg": 38.08
+    },
+    {
+      "title": "Manager 2,Information Technology BU-P",
+      "n": 1,
+      "median": 79.91,
+      "avg": 79.91
+    },
+    {
+      "title": "Chief Marshal",
+      "n": 1,
+      "median": 75.42,
+      "avg": 75.42
+    },
+    {
+      "title": "Strategic Advisor 1, Finance,Budget,and Accounting L17",
+      "n": 1,
+      "median": 70.93,
+      "avg": 70.93
+    },
+    {
+      "title": "Janitorial Crew Chief-FAS",
+      "n": 1,
+      "median": 41.92,
+      "avg": 41.92
+    },
+    {
+      "title": "Plumber Apprentice",
+      "n": 1,
+      "median": 42.19,
+      "avg": 42.19
+    },
+    {
+      "title": "Generation Supervisor",
+      "n": 1,
+      "median": 92.07,
+      "avg": 92.07
+    },
+    {
+      "title": "Strategic Advisor 1, Human Services-L17",
+      "n": 1,
+      "median": 69.08,
+      "avg": 69.08
+    },
+    {
+      "title": "Events Booking Representative BU",
+      "n": 1,
+      "median": 43.86,
+      "avg": 43.86
+    },
+    {
+      "title": "Operations Crew Chief,Senior-SC",
+      "n": 1,
+      "median": 55.15,
+      "avg": 55.15
+    },
+    {
+      "title": "Bridge Maintenance Mechanic Crew Chief",
+      "n": 1,
+      "median": 67.28,
+      "avg": 67.28
+    },
+    {
+      "title": "Probation Counselor-Assigned Personal Recognizance",
+      "n": 1,
+      "median": 45.6,
+      "avg": 45.6
+    },
+    {
+      "title": "Deputy General Counsel",
+      "n": 1,
+      "median": 82.05,
+      "avg": 82.05
+    },
+    {
+      "title": "Director, Administrative Services",
+      "n": 1,
+      "median": 108.66,
+      "avg": 108.66
+    },
+    {
+      "title": "Fire Lieutenant, Senior-Training-80 Hrs",
+      "n": 1,
+      "median": 72.61,
+      "avg": 72.61
+    },
+    {
+      "title": "Telecom System Installer",
+      "n": 1,
+      "median": 49.98,
+      "avg": 49.98
+    },
+    {
+      "title": "Lock Technician",
+      "n": 1,
+      "median": 42.25,
+      "avg": 42.25
+    },
+    {
+      "title": "Fire Lieutenant-Paramedic Tech Senior EMS-80",
+      "n": 1,
+      "median": 82.04,
+      "avg": 82.04
+    },
+    {
+      "title": "Supply and Inventory Technician",
+      "n": 1,
+      "median": 37.06,
+      "avg": 37.06
+    },
+    {
+      "title": "SharePoint Online Administrator",
+      "n": 1,
+      "median": 78.07,
+      "avg": 78.07
+    },
+    {
+      "title": "Accountant,Principal  BU",
+      "n": 1,
+      "median": 58.21,
+      "avg": 58.21
+    },
+    {
+      "title": "Conservation Fish Hatchery Supervisor",
+      "n": 1,
+      "median": 57.31,
+      "avg": 57.31
+    },
+    {
+      "title": "Telecom System Installer Senior",
+      "n": 1,
+      "median": 56.74,
+      "avg": 56.74
+    },
+    {
+      "title": "Housing Ordinance Specialist",
+      "n": 1,
+      "median": 47.39,
+      "avg": 47.39
+    },
+    {
+      "title": "Fire Captain, Senior-Decon-90.46 Hrs",
+      "n": 1,
+      "median": 71.98,
+      "avg": 71.98
+    },
+    {
+      "title": "Marine Equipment Servicer BU",
+      "n": 1,
+      "median": 52.18,
+      "avg": 52.18
+    },
+    {
+      "title": "Police Lieutenant-CRG",
+      "n": 1,
+      "median": 107.38,
+      "avg": 107.38
+    },
+    {
+      "title": "Head of Division Operations",
+      "n": 1,
+      "median": 69.64,
+      "avg": 69.64
+    },
+    {
+      "title": "Interim Chief Operating Officer",
+      "n": 1,
+      "median": 144.96,
+      "avg": 144.96
+    },
+    {
+      "title": "Internal Communications Manager",
+      "n": 1,
+      "median": 75,
+      "avg": 75
+    },
+    {
+      "title": "Systems Analyst 1, Senior - Library - FLSA Exempt",
+      "n": 1,
+      "median": 65.96,
+      "avg": 65.96
+    },
+    {
+      "title": "Mechanical Plans Engineer Supervisor",
+      "n": 1,
+      "median": 91.97,
+      "avg": 91.97
+    },
+    {
+      "title": "Fire Lieutenant, Senior-RB-90.46 Hrs",
+      "n": 1,
+      "median": 62.93,
+      "avg": 62.93
+    },
+    {
+      "title": "Bridge Operations General Supervisor",
+      "n": 1,
+      "median": 56.86,
+      "avg": 56.86
+    },
+    {
+      "title": "Stage Crew Chief",
+      "n": 1,
+      "median": 57.17,
+      "avg": 57.17
+    },
+    {
+      "title": "Strategic Advisor 3, General Government - L12C SCL",
+      "n": 1,
+      "median": 88.27,
+      "avg": 88.27
+    },
+    {
+      "title": "Interim Chief Customer Officer",
+      "n": 1,
+      "median": 138.12,
+      "avg": 138.12
+    },
+    {
+      "title": "Pump Station Crew Chief",
+      "n": 1,
+      "median": 70.83,
+      "avg": 70.83
+    },
+    {
+      "title": "Web Developer I",
+      "n": 1,
+      "median": 51.12,
+      "avg": 51.12
+    },
+    {
+      "title": "Paralegal - OCR",
+      "n": 1,
+      "median": 48.31,
+      "avg": 48.31
+    },
+    {
+      "title": "Police Sergeant-Detective-CSI",
+      "n": 1,
+      "median": 90.1,
+      "avg": 90.1
+    },
+    {
+      "title": "Fire Lieutenant-80 Hrs",
+      "n": 1,
+      "median": 66.91,
+      "avg": 66.91
+    },
+    {
+      "title": "Police Officer-DWI-Am/Pm Enf-BWV",
+      "n": 1,
+      "median": 76.46,
+      "avg": 76.46
+    },
+    {
+      "title": "Parks Special Events Scheduler,Senior",
+      "n": 1,
+      "median": 48.05,
+      "avg": 48.05
+    },
+    {
+      "title": "Deputy Director of Community Relations",
+      "n": 1,
+      "median": 82,
+      "avg": 82
+    },
+    {
+      "title": "Early Learning Access Coordinator",
+      "n": 1,
+      "median": 47.21,
+      "avg": 47.21
+    },
+    {
+      "title": "Information Technology Specialist 2,Senior-Library",
+      "n": 1,
+      "median": 65.04,
+      "avg": 65.04
+    },
+    {
+      "title": "Camp Service Aide,Senior",
+      "n": 1,
+      "median": 32.14,
+      "avg": 32.14
+    },
+    {
+      "title": "Library Technology Officer",
+      "n": 1,
+      "median": 93.41,
+      "avg": 93.41
+    },
+    {
+      "title": "Network Engineer - Exempt",
+      "n": 1,
+      "median": 79.84,
+      "avg": 79.84
+    },
+    {
+      "title": "Finance Analyst & Accountant, Sr-Library",
+      "n": 1,
+      "median": 65.64,
+      "avg": 65.64
+    },
+    {
+      "title": "Dining Room Attendant,Senior",
+      "n": 1,
+      "median": 34.52,
+      "avg": 34.52
+    },
+    {
+      "title": "Police Captain - Traffic",
+      "n": 1,
+      "median": 121.59,
+      "avg": 121.59
+    },
+    {
+      "title": "Manager 3, Courts Legal & Public Safety",
+      "n": 1,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Business Analyst & Policy Advisor",
+      "n": 1,
+      "median": 60.31,
+      "avg": 60.31
+    },
+    {
+      "title": "Land Use Supervisor",
+      "n": 1,
+      "median": 96.69,
+      "avg": 96.69
+    },
+    {
+      "title": "Court Interpreter Coordinator",
+      "n": 1,
+      "median": 59.61,
+      "avg": 59.61
+    },
+    {
+      "title": "Manager 2, Exempt - L21 SPU",
+      "n": 1,
+      "median": 79.77,
+      "avg": 79.77
+    },
+    {
+      "title": "Structural Plans Engineer (Entry)",
+      "n": 1,
+      "median": 64.94,
+      "avg": 64.94
+    },
+    {
+      "title": "Administrative Specialist III L17 Leg",
+      "n": 1,
+      "median": 44.51,
+      "avg": 44.51
+    },
+    {
+      "title": "Manager 3, Exempt L21C SCL",
+      "n": 1,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Strategic Advisor 1, Information Technology L21 SPU",
+      "n": 1,
+      "median": 62.49,
+      "avg": 62.49
+    },
+    {
+      "title": "Manager 2, Finance, Budget, and Accounting - L17 SPD",
+      "n": 1,
+      "median": 80.65,
+      "avg": 80.65
+    },
+    {
+      "title": "Head of CIP",
+      "n": 1,
+      "median": 85,
+      "avg": 85
+    },
+    {
+      "title": "Fire Chief",
+      "n": 1,
+      "median": 179.55,
+      "avg": 179.55
+    },
+    {
+      "title": "Park Ranger Supervisor",
+      "n": 1,
+      "median": 48.26,
+      "avg": 48.26
+    },
+    {
+      "title": "Human Resources Generalist, Senior",
+      "n": 1,
+      "median": 50.02,
+      "avg": 50.02
+    },
+    {
+      "title": "Police Sergeant-Canine-BWV",
+      "n": 1,
+      "median": 89.25,
+      "avg": 89.25
+    },
+    {
+      "title": "Manager 3, Finance, Budget, and Accounting - L21C SCL",
+      "n": 1,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Pole Yard Crew Chief",
+      "n": 1,
+      "median": 62.07,
+      "avg": 62.07
+    },
+    {
+      "title": "Water Pipe Worker,Senior",
+      "n": 1,
+      "median": 52.15,
+      "avg": 52.15
+    },
+    {
+      "title": "Operations Response Center Operator,Senior",
+      "n": 1,
+      "median": 51.46,
+      "avg": 51.46
+    },
+    {
+      "title": "Graphics and Design Manager",
+      "n": 1,
+      "median": 55.25,
+      "avg": 55.25
+    },
+    {
+      "title": "Store Keeper",
+      "n": 1,
+      "median": 43.12,
+      "avg": 43.12
+    },
+    {
+      "title": "Strategic Advisor 1 L17",
+      "n": 1,
+      "median": 53.2,
+      "avg": 53.2
+    },
+    {
+      "title": "Parking Meter Collector",
+      "n": 1,
+      "median": 34.67,
+      "avg": 34.67
+    },
+    {
+      "title": "Mechanical Plans Engineer Senior",
+      "n": 1,
+      "median": 86.24,
+      "avg": 86.24
+    },
+    {
+      "title": "Manager 3, Property & Facility Management - L21C SCL",
+      "n": 1,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Director, Public Services",
+      "n": 1,
+      "median": 106.97,
+      "avg": 106.97
+    },
+    {
+      "title": "Manager 2, Engineering and Plans Review L21 SPU",
+      "n": 1,
+      "median": 71.48,
+      "avg": 71.48
+    },
+    {
+      "title": "Community Crisis Responder Sup",
+      "n": 1,
+      "median": 61.96,
+      "avg": 61.96
+    },
+    {
+      "title": "Janitor,Lead-SC/Parks/SPU",
+      "n": 1,
+      "median": 32.82,
+      "avg": 32.82
+    },
+    {
+      "title": "Events Services Specialist",
+      "n": 1,
+      "median": 39.92,
+      "avg": 39.92
+    },
+    {
+      "title": "Strategic Advisor 3,Information Technology",
+      "n": 1,
+      "median": 88.56,
+      "avg": 88.56
+    },
+    {
+      "title": "Enterprise Applications Analyst",
+      "n": 1,
+      "median": 69.26,
+      "avg": 69.26
+    },
+    {
+      "title": "Firefighter-TRT Dive-80 Hrs",
+      "n": 1,
+      "median": 61.67,
+      "avg": 61.67
+    },
+    {
+      "title": "Finance Analyst Supervisor",
+      "n": 1,
+      "median": 67.84,
+      "avg": 67.84
+    },
+    {
+      "title": "Specialty Courts Unit Supervisor",
+      "n": 1,
+      "median": 90.6,
+      "avg": 90.6
+    },
+    {
+      "title": "Electrical Construction and Maintenance Supervisor",
+      "n": 1,
+      "median": 92.07,
+      "avg": 92.07
+    },
+    {
+      "title": "Materials Distribution Services Specialist",
+      "n": 1,
+      "median": 45.84,
+      "avg": 45.84
+    },
+    {
+      "title": "Labor Relations Specialist",
+      "n": 1,
+      "median": 64.25,
+      "avg": 64.25
+    },
+    {
+      "title": "Pool Maintenance Lead Worker",
+      "n": 1,
+      "median": 43.12,
+      "avg": 43.12
+    },
+    {
+      "title": "City Prosecutor Senior,Assistant-BU",
+      "n": 1,
+      "median": 77.61,
+      "avg": 77.61
+    },
+    {
+      "title": "Senior Manager",
+      "n": 1,
+      "median": 105,
+      "avg": 105
+    },
+    {
+      "title": "Equipment and Facilities Coordinator,Senior BU",
+      "n": 1,
+      "median": 59.49,
+      "avg": 59.49
+    },
+    {
+      "title": "AMH System Operator Lead",
+      "n": 1,
+      "median": 33.76,
+      "avg": 33.76
+    },
+    {
+      "title": "Information Technology Programmer Analyst-Specialist",
+      "n": 1,
+      "median": 55.78,
+      "avg": 55.78
+    },
+    {
+      "title": "Capital Planning and Strategic Initiatives Manager",
+      "n": 1,
+      "median": 81.06,
+      "avg": 81.06
+    },
+    {
+      "title": "Fire Captain-ERG-90.46 Hrs",
+      "n": 1,
+      "median": 70.62,
+      "avg": 70.62
+    },
+    {
+      "title": "Auto Maintenance-Specialist Crew Chief",
+      "n": 1,
+      "median": 63.69,
+      "avg": 63.69
+    },
+    {
+      "title": "City Attorney, Assistant - OoC",
+      "n": 1,
+      "median": 95.78,
+      "avg": 95.78
+    },
+    {
+      "title": "Bailiff",
+      "n": 1,
+      "median": 36.13,
+      "avg": 36.13
+    },
+    {
+      "title": "Manager 3, Purchasing, Contracting & Risk Management L21 SPU",
+      "n": 1,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Material Controller,Principal",
+      "n": 1,
+      "median": 55.19,
+      "avg": 55.19
+    },
+    {
+      "title": "Municipal Court Marshal Senior",
+      "n": 1,
+      "median": 62.16,
+      "avg": 62.16
+    },
+    {
+      "title": "Security Services Supervisor",
+      "n": 1,
+      "median": 61.96,
+      "avg": 61.96
+    },
+    {
+      "title": "Strategic Advisor 1, General Government - L21C SCL",
+      "n": 1,
+      "median": 69.85,
+      "avg": 69.85
+    },
+    {
+      "title": "Director, Employee Relations",
+      "n": 1,
+      "median": 104.81,
+      "avg": 104.81
+    },
+    {
+      "title": "Electrician-Constructor Crew Chief-Assigned Crew Coordinator",
+      "n": 1,
+      "median": 87.02,
+      "avg": 87.02
+    },
+    {
+      "title": "Buyer,Senior-Library",
+      "n": 1,
+      "median": 60.76,
+      "avg": 60.76
+    },
+    {
+      "title": "Manager 2, Customer Service, Public Information, and Promotion-L17",
+      "n": 1,
+      "median": 84.88,
+      "avg": 84.88
+    },
+    {
+      "title": "Police Captain - Violent Crime",
+      "n": 1,
+      "median": 127.69,
+      "avg": 127.69
+    },
+    {
+      "title": "Office Manager & Legislation Coordinator",
+      "n": 1,
+      "median": 60.75,
+      "avg": 60.75
+    },
+    {
+      "title": "Public Records Coordinator",
+      "n": 1,
+      "median": 47.7,
+      "avg": 47.7
+    },
+    {
+      "title": "Strategic Advisor 2, Purchasing, Contracting & Risk Management - L21C SCL",
+      "n": 1,
+      "median": 83.23,
+      "avg": 83.23
+    },
+    {
+      "title": "Strategic Advisor 3, Purchasing, Contracting & Risk Management - L21C SCL",
+      "n": 1,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Review and Filing Unit Lead",
+      "n": 1,
+      "median": 77.61,
+      "avg": 77.61
+    },
+    {
+      "title": "Administrative Staff Analyst  - L17 Leg",
+      "n": 1,
+      "median": 53.14,
+      "avg": 53.14
+    },
+    {
+      "title": "Structural Iron Worker Crew Chief",
+      "n": 1,
+      "median": 69.83,
+      "avg": 69.83
+    },
+    {
+      "title": "Community Resources Specialist, Senior",
+      "n": 1,
+      "median": 55.55,
+      "avg": 55.55
+    },
+    {
+      "title": "Project Fund and Agreements Coordinator,Supervisor",
+      "n": 1,
+      "median": 65.54,
+      "avg": 65.54
+    },
+    {
+      "title": "Legislative Editor",
+      "n": 1,
+      "median": 45.59,
+      "avg": 45.59
+    },
+    {
+      "title": "Manager 3, Customer Service, Public Information & Promotion L21C SCL",
+      "n": 1,
+      "median": 92.84,
+      "avg": 92.84
+    },
+    {
+      "title": "Sign Painter",
+      "n": 1,
+      "median": 49.73,
+      "avg": 49.73
+    },
+    {
+      "title": "Fire Captain, Senior-FB-90.46 Hrs",
+      "n": 1,
+      "median": 71.98,
+      "avg": 71.98
+    },
+    {
+      "title": "Bridge Electrical Maintenance Supervisor",
+      "n": 1,
+      "median": 64.65,
+      "avg": 64.65
+    },
+    {
+      "title": "Legislative Information Supervisor BU",
+      "n": 1,
+      "median": 55.19,
+      "avg": 55.19
+    },
+    {
+      "title": "Fire Lieutenant, Senior-Dispatcher-80 H",
+      "n": 1,
+      "median": 72.61,
+      "avg": 72.61
+    },
+    {
+      "title": "Manager 1, Property & Facility Management - L17",
+      "n": 1,
+      "median": 59.38,
+      "avg": 59.38
+    },
+    {
+      "title": "Manager 2, Purchasing, Contracting & Risk Management - L21C SCL",
+      "n": 1,
+      "median": 84.88,
+      "avg": 84.88
+    },
+    {
+      "title": "Conservation Fish Hatchery Operator",
+      "n": 1,
+      "median": 42.26,
+      "avg": 42.26
+    },
+    {
+      "title": "Firefighter-TRT-90.46 Hrs",
+      "n": 1,
+      "median": 54.03,
+      "avg": 54.03
+    },
+    {
+      "title": "Watershed Inspector,Senior",
+      "n": 1,
+      "median": 52.09,
+      "avg": 52.09
+    },
+    {
+      "title": "Executive Assistant - Chief of Staff",
+      "n": 1,
+      "median": 60.09,
+      "avg": 60.09
+    },
+    {
+      "title": "Fire Captain-RB-90.46 Hrs",
+      "n": 1,
+      "median": 70.62,
+      "avg": 70.62
+    },
+    {
+      "title": "Benefits Assistant",
+      "n": 1,
+      "median": 39.94,
+      "avg": 39.94
+    },
+    {
+      "title": "Safety and Health Specialist-BU",
+      "n": 1,
+      "median": 60.75,
+      "avg": 60.75
+    },
+    {
+      "title": "Recreation Center Coordinator, Assistant",
+      "n": 1,
+      "median": 51.76,
+      "avg": 51.76
+    },
+    {
+      "title": "Water Meter Repairer",
+      "n": 1,
+      "median": 41.99,
+      "avg": 41.99
+    },
+    {
+      "title": "Investments/Debt Director,Assistant",
+      "n": 1,
+      "median": 108.47,
+      "avg": 108.47
+    },
+    {
+      "title": "Paralegal - LEAD, CoLEAD & Familiar Faces Vital Programs",
+      "n": 1,
+      "median": 49.25,
+      "avg": 49.25
+    },
+    {
+      "title": "Water Pipe Crew Chief",
+      "n": 1,
+      "median": 61.9,
+      "avg": 61.9
+    },
+    {
+      "title": "Interpreter Services Administrative Specialist",
+      "n": 1,
+      "median": 41.66,
+      "avg": 41.66
+    },
+    {
+      "title": "Safety and Health Specialist",
+      "n": 1,
+      "median": 56.23,
+      "avg": 56.23
+    },
+    {
+      "title": "Firefighter-TRT Ap DriverC-90.46 Hrs",
+      "n": 1,
+      "median": 57.64,
+      "avg": 57.64
+    },
+    {
+      "title": "Building Project Coordinator",
+      "n": 1,
+      "median": 58.51,
+      "avg": 58.51
+    },
+    {
+      "title": "Fire Lieutenant-FB-90.46 Hrs",
+      "n": 1,
+      "median": 61.75,
+      "avg": 61.75
+    },
+    {
+      "title": "Fire Captain, Senior-SLT-90.46 Hrs",
+      "n": 1,
+      "median": 71.98,
+      "avg": 71.98
+    },
+    {
+      "title": "HVAC Technician Supervisor/SC",
+      "n": 1,
+      "median": 81.93,
+      "avg": 81.93
+    },
+    {
+      "title": "Manager 1  - OoC",
+      "n": 1,
+      "median": 67,
+      "avg": 67
+    },
+    {
+      "title": "Painter Apprentice",
+      "n": 1,
+      "median": 41.28,
+      "avg": 41.28
+    },
+    {
+      "title": "Fire Lieutenant, Senior-SLT-90.46 Hrs",
+      "n": 1,
+      "median": 62.93,
+      "avg": 62.93
+    },
+    {
+      "title": "Assistant Director - Library Experiences",
+      "n": 1,
+      "median": 83.93,
+      "avg": 83.93
+    },
+    {
+      "title": "Sound Systems Chief",
+      "n": 1,
+      "median": 59.73,
+      "avg": 59.73
+    },
+    {
+      "title": "Code Development Analyst",
+      "n": 1,
+      "median": 57.31,
+      "avg": 57.31
+    },
+    {
+      "title": "Fleet Management Analyst BU",
+      "n": 1,
+      "median": 55.19,
+      "avg": 55.19
+    },
+    {
+      "title": "Manager 2, Courts Legal & Public Safety -  L17 SPD",
+      "n": 1,
+      "median": 79.54,
+      "avg": 79.54
+    },
+    {
+      "title": "Public Education Program Supervisor",
+      "n": 1,
+      "median": 59.61,
+      "avg": 59.61
+    },
+    {
+      "title": "Custodial/Janitorial Support Lead,Senior",
+      "n": 1,
+      "median": 37.29,
+      "avg": 37.29
+    },
+    {
+      "title": "Material Controller Supervisor",
+      "n": 1,
+      "median": 60.75,
+      "avg": 60.75
+    },
+    {
+      "title": "Water Treatment Operator",
+      "n": 1,
+      "median": 43.31,
+      "avg": 43.31
+    },
+    {
+      "title": "Bridge Electrical Crew Chief",
+      "n": 1,
+      "median": 69.7,
+      "avg": 69.7
+    },
+    {
+      "title": "Firefighter-Training Dispatcher-80 Hr",
+      "n": 1,
+      "median": 69.24,
+      "avg": 69.24
+    },
+    {
+      "title": "Video Specialist I",
+      "n": 1,
+      "median": 39.18,
+      "avg": 39.18
+    },
+    {
+      "title": "Communications Electrician Journeyworker-In Charge-Skagit",
+      "n": 1,
+      "median": 73.27,
+      "avg": 73.27
+    },
+    {
+      "title": "Protection and Control Electrician I",
+      "n": 1,
+      "median": 81.1,
+      "avg": 81.1
+    },
+    {
+      "title": "HR Operations & Data Manager, 2",
+      "n": 1,
+      "median": 79.77,
+      "avg": 79.77
+    },
+    {
+      "title": "Appraiser,Senior",
+      "n": 1,
+      "median": 66.75,
+      "avg": 66.75
+    },
+    {
+      "title": "Fire Prevention Technician",
+      "n": 1,
+      "median": 54.09,
+      "avg": 54.09
+    },
+    {
+      "title": "PC Technician",
+      "n": 1,
+      "median": 39.18,
+      "avg": 39.18
+    },
+    {
+      "title": "Hearing Examiner",
+      "n": 1,
+      "median": 112.16,
+      "avg": 112.16
+    },
+    {
+      "title": "Research and Evaluation Assistant",
+      "n": 1,
+      "median": 44.73,
+      "avg": 44.73
+    },
+    {
+      "title": "Aquatics Technical Supervisor",
+      "n": 1,
+      "median": 53.14,
+      "avg": 53.14
+    },
+    {
+      "title": "FACILITIES MANAGER-LIBRARY",
+      "n": 1,
+      "median": 63.22,
+      "avg": 63.22
+    },
+    {
+      "title": "Sign Painter Crew Chief",
+      "n": 1,
+      "median": 57.07,
+      "avg": 57.07
+    },
+    {
+      "title": "Information Technology Specialist 1,Senior-Library",
+      "n": 1,
+      "median": 52.44,
+      "avg": 52.44
+    },
+    {
+      "title": "Fire Protection Engineer,Supervisor",
+      "n": 1,
+      "median": 84.03,
+      "avg": 84.03
+    },
+    {
+      "title": "Public Disclosure Officer",
+      "n": 1,
+      "median": 49.25,
+      "avg": 49.25
+    },
+    {
+      "title": "Community Partnerships and Government Relations Program Manager - Library",
+      "n": 1,
+      "median": 73.08,
+      "avg": 73.08
+    },
+    {
+      "title": "Strategic Advisor 2 - OoC",
+      "n": 1,
+      "median": 74.48,
+      "avg": 74.48
+    },
+    {
+      "title": "Materials Distribution Services Manager",
+      "n": 1,
+      "median": 69.66,
+      "avg": 69.66
+    },
+    {
+      "title": "Manager 2, Property & Facility Management L21 SPU",
+      "n": 1,
+      "median": 82.49,
+      "avg": 82.49
+    },
+    {
+      "title": "Strategic Advisor 3, Exempt - L21C SCL",
+      "n": 1,
+      "median": 84.79,
+      "avg": 84.79
+    },
+    {
+      "title": "Designer",
+      "n": 1,
+      "median": 39.23,
+      "avg": 39.23
+    },
+    {
+      "title": "Veterinary Technician",
+      "n": 1,
+      "median": 38.48,
+      "avg": 38.48
+    },
+    {
+      "title": "Manager 1, Utilities L21C SCL",
+      "n": 1,
+      "median": 74.95,
+      "avg": 74.95
+    },
+    {
+      "title": "Auto Mechanic-Specialized,Senior",
+      "n": 1,
+      "median": 60.12,
+      "avg": 60.12
+    },
+    {
+      "title": "Parking Pay Station Shop,Supervisor",
+      "n": 1,
+      "median": 57.2,
+      "avg": 57.2
+    },
+    {
+      "title": "Assistant To The General Manager & CEO",
+      "n": 1,
+      "median": 60.76,
+      "avg": 60.76
+    },
+    {
+      "title": "Golf Course Groundskeeper I",
+      "n": 1,
+      "median": 26.92,
+      "avg": 26.92
+    },
+    {
+      "title": "Personnel Analyst Supervisor-Compensation",
+      "n": 1,
+      "median": 66.75,
+      "avg": 66.75
+    },
+    {
+      "title": "Interim Director of Workplace Logistics",
+      "n": 1,
+      "median": 100.28,
+      "avg": 100.28
+    },
+    {
+      "title": "Firearm Advocate Paralegal",
+      "n": 1,
+      "median": 45.59,
+      "avg": 45.59
+    },
+    {
+      "title": "ERPO Advocate",
+      "n": 1,
+      "median": 45.59,
+      "avg": 45.59
+    },
+    {
+      "title": "Elevator Inspector, Journey",
+      "n": 1,
+      "median": 57.11,
+      "avg": 57.11
+    },
+    {
+      "title": "Library Associate II, Intermittent",
+      "n": 1,
+      "median": 29.39,
+      "avg": 29.39
+    },
+    {
+      "title": "HRIS Specialist",
+      "n": 1,
+      "median": 47.39,
+      "avg": 47.39
+    },
+    {
+      "title": "Human Resources Generalist",
+      "n": 1,
+      "median": 52.37,
+      "avg": 52.37
+    },
+    {
+      "title": "Judicial Executive Assistant",
+      "n": 1,
+      "median": 60.75,
+      "avg": 60.75
+    },
+    {
+      "title": "Seattle Police Chief",
+      "n": 1,
+      "median": 179.54,
+      "avg": 179.54
+    },
+    {
+      "title": "Precinct Liaison Attorney (S/SW)",
+      "n": 1,
+      "median": 82.3,
+      "avg": 82.3
+    },
+    {
+      "title": "Cyber Security Analyst",
+      "n": 1,
+      "median": 79.84,
+      "avg": 79.84
+    },
+    {
+      "title": "Workers Compensation Specialist",
+      "n": 1,
+      "median": 43.86,
+      "avg": 43.86
+    },
+    {
+      "title": "Events Booking Representative",
+      "n": 1,
+      "median": 43.86,
+      "avg": 43.86
+    },
+    {
+      "title": "Capital Projects Coordinator Supervisor-BU",
+      "n": 1,
+      "median": 74.95,
+      "avg": 74.95
+    },
+    {
+      "title": "Manager 3, Purchasing, Contracting & Risk Management",
+      "n": 1,
+      "median": 91.17,
+      "avg": 91.17
+    },
+    {
+      "title": "Electrical Engineer,Senior",
+      "n": 1,
+      "median": 77.83,
+      "avg": 77.83
+    },
+    {
+      "title": "Development Finance Specialist",
+      "n": 1,
+      "median": 49.25,
+      "avg": 49.25
+    },
+    {
+      "title": "Real Property Agent",
+      "n": 1,
+      "median": 51.71,
+      "avg": 51.71
+    },
+    {
+      "title": "Applications Developer",
+      "n": 1,
+      "median": 71.34,
+      "avg": 71.34
+    },
+    {
+      "title": "Administrative Specialist I - P17 Leg",
+      "n": 1,
+      "median": 35.57,
+      "avg": 35.57
+    },
+    {
+      "title": "Research and Evaluation Assistant - P17 Leg",
+      "n": 1,
+      "median": 38.45,
+      "avg": 38.45
+    },
+    {
+      "title": "Criminal Division Operations Manager",
+      "n": 1,
+      "median": 74.43,
+      "avg": 74.43
+    },
+    {
+      "title": "Personnel Analyst,Senior-Compensation",
+      "n": 1,
+      "median": 64.25,
+      "avg": 64.25
+    },
+    {
+      "title": "Call Center Representative",
+      "n": 1,
+      "median": 40.04,
+      "avg": 40.04
+    },
+    {
+      "title": "Assistant Service Manager-Library",
+      "n": 1,
+      "median": 54.67,
+      "avg": 54.67
+    },
+    {
+      "title": "Upward Bound Tutor",
+      "n": 1,
+      "median": 24.87,
+      "avg": 24.87
+    },
+    {
+      "title": "Strategic Advisor 1, Exempt- L17",
+      "n": 1,
+      "median": 62.66,
+      "avg": 62.66
+    },
+    {
+      "title": "Legal Intern",
+      "n": 1,
+      "median": 32.47,
+      "avg": 32.47
+    },
+    {
+      "title": "Construction Engineer Intern",
+      "n": 1,
+      "median": 29.46,
+      "avg": 29.46
+    },
+    {
+      "title": "Assistant CTO, Business Solutions",
+      "n": 1,
+      "median": 114.99,
+      "avg": 114.99
+    },
+    {
+      "title": "Firearm Risk Assessment Investigator",
+      "n": 1,
+      "median": 45.59,
+      "avg": 45.59
+    },
+    {
+      "title": "Data Engineering & Innovation Analyst",
+      "n": 1,
+      "median": 78.76,
+      "avg": 78.76
+    },
+    {
+      "title": "Director of Employee Development, Equity & Belonging",
+      "n": 1,
+      "median": 106.59,
+      "avg": 106.59
+    },
+    {
+      "title": "Arts Program Specialist",
+      "n": 1,
+      "median": 44.73,
+      "avg": 44.73
+    },
+    {
+      "title": "Library Environment & Security Services Manager",
+      "n": 1,
+      "median": 63.82,
+      "avg": 63.82
+    },
+    {
+      "title": "Cooperative Intern W/S",
+      "n": 1,
+      "median": 22.56,
+      "avg": 22.56
+    },
+    {
+      "title": "Finance Analyst, Assistant Library",
+      "n": 1,
+      "median": 40.92,
+      "avg": 40.92
+    },
+    {
+      "title": "PACT Project Manager",
+      "n": 1,
+      "median": 82.88,
+      "avg": 82.88
+    },
+    {
+      "title": "NobleReach Fellow",
+      "n": 1,
+      "median": 50.08,
+      "avg": 50.08
+    },
+    {
+      "title": "Events Services Manager",
+      "n": 1,
+      "median": 51.12,
+      "avg": 51.12
+    },
+    {
+      "title": "BEPS Technical Advisor",
+      "n": 1,
+      "median": 70.45,
+      "avg": 70.45
+    },
+    {
+      "title": "Director of Inclusion & Belonging",
+      "n": 1,
+      "median": 101.59,
+      "avg": 101.59
+    },
+    {
+      "title": "Nisqually Earthquake Anniversary Communications Intern",
+      "n": 1,
+      "median": 22.56,
+      "avg": 22.56
+    },
+    {
+      "title": "Safety and Health Specialist, Senior-BU",
+      "n": 1,
+      "median": 56.23,
+      "avg": 56.23
+    },
+    {
+      "title": "Treasury Lead",
+      "n": 1,
+      "median": 54.57,
+      "avg": 54.57
+    },
+    {
+      "title": "Manager 2, Utilities",
+      "n": 1,
+      "median": 77.7,
+      "avg": 77.7
+    },
+    {
+      "title": "Development Finance Specialist I",
+      "n": 1,
+      "median": 44.73,
+      "avg": 44.73
+    },
+    {
+      "title": "City Attorney",
+      "n": 1,
+      "median": 111.39,
+      "avg": 111.39
+    },
+    {
+      "title": "Youth Supervisor I",
+      "n": 1,
+      "median": 24.87,
+      "avg": 24.87
+    },
+    {
+      "title": "Communications Director",
+      "n": 1,
+      "median": 70.4,
+      "avg": 70.4
+    },
+    {
+      "title": "Mayor",
+      "n": 1,
+      "median": 130.93,
+      "avg": 130.93
+    },
+    {
+      "title": "Water Treatment Plant Operator, Supervisor",
+      "n": 1,
+      "median": 68.03,
+      "avg": 68.03
+    },
+    {
+      "title": "Director of External Affairs",
+      "n": 1,
+      "median": 62.26,
+      "avg": 62.26
+    },
+    {
+      "title": "Water Treatment Plant Operator, Senior",
+      "n": 1,
+      "median": 61.96,
+      "avg": 61.96
+    },
+    {
+      "title": "Sr IT Project Manager",
+      "n": 1,
+      "median": 84.5,
+      "avg": 84.5
+    },
+    {
+      "title": "Conservation Fish Hatchery, Assistant",
+      "n": 1,
+      "median": 32.47,
+      "avg": 32.47
+    },
+    {
+      "title": "Water Treatment Plant Operator, Assistant",
+      "n": 1,
+      "median": 42.25,
+      "avg": 42.25
+    },
+    {
+      "title": "Criminal Division Chief",
+      "n": 1,
+      "median": 109.87,
+      "avg": 109.87
+    },
+    {
+      "title": "Case Preparation Clerk",
+      "n": 1,
+      "median": 34.92,
+      "avg": 34.92
+    },
+    {
+      "title": "Assistant City Attorney - Worker's Compensation",
+      "n": 1,
+      "median": 86.55,
+      "avg": 86.55
+    },
+    {
+      "title": "Assistant City Attorney (OH)",
+      "n": 1,
+      "median": 89.18,
+      "avg": 89.18
+    },
+    {
+      "title": "Civil Division Chief",
+      "n": 1,
+      "median": 109.87,
+      "avg": 109.87
+    },
+    {
+      "title": "Strategic Advisor 1, Courts Legal & Public Safety",
+      "n": 1,
+      "median": 67.06,
+      "avg": 67.06
+    },
+    {
+      "title": "Strategic Advisor 2, Exempt-P",
+      "n": 1,
+      "median": 58,
+      "avg": 58
+    },
+    {
+      "title": "Strategic Advisor 1, Utilities",
+      "n": 1,
+      "median": 73.47,
+      "avg": 73.47
+    },
+    {
+      "title": "Communications Intern",
+      "n": 1,
+      "median": 22.56,
+      "avg": 22.56
+    },
+    {
+      "title": "Data Analytics Manager",
+      "n": 1,
+      "median": 74.23,
+      "avg": 74.23
+    },
+    {
+      "title": "Personnel Analyst, Assistant",
+      "n": 1,
+      "median": 37.67,
+      "avg": 37.67
+    },
+    {
+      "title": "Systems Analyst 3, Senior - Library - FLSA Exempt",
+      "n": 1,
+      "median": 65.7,
+      "avg": 65.7
+    },
+    {
+      "title": "Discovery Records Clerk",
+      "n": 1,
+      "median": 36.89,
+      "avg": 36.89
+    },
+    {
+      "title": "Rule 9 Legal Intern",
+      "n": 1,
+      "median": 32.47,
+      "avg": 32.47
+    },
+    {
+      "title": "Center Utility Account Representative, Trainee",
+      "n": 1,
+      "median": 31.77,
+      "avg": 31.77
+    },
+    {
+      "title": "Energy Planning Supervisor-BU",
+      "n": 1,
+      "median": 72.34,
+      "avg": 72.34
     }
   ],
   "dist": [

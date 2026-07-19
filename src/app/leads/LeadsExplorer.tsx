@@ -12,8 +12,8 @@ interface LeadCase {
 interface Lead {
   addr: string;
   zip: string;
-  lat: number;
-  lng: number;
+  lat: number | null;
+  lng: number | null;
   score: number;
   openCount: number;
   daysSince: number;
@@ -46,8 +46,9 @@ const LEGEND = [
   { label: '4 to 6', color: '#fee08b' },
   { label: 'under 4', color: '#9aa3ad' },
 ];
+const ANY_TIME = 1e9;
 const RECENCY = [
-  { label: 'Any time', days: 1e9 },
+  { label: 'Any time', days: ANY_TIME },
   { label: 'Last 30 days', days: 30 },
   { label: 'Last 90 days', days: 90 },
   { label: 'Last 6 months', days: 180 },
@@ -57,25 +58,47 @@ const TREND_ARROW = { up: '↑ worsening', flat: '→ steady', down: '↓ easing
 const MAX_MARKERS = 6000;
 const MAX_ROWS = 250;
 
+type SortKey = 'score' | 'openCount' | 'daysSince' | 'addr' | 'zip';
+const SORT_KEYS: SortKey[] = ['score', 'openCount', 'daysSince', 'addr', 'zip'];
+
 function csvCell(v: unknown): string {
   const s = v == null ? '' : String(v);
   return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+}
+
+// Filters live in the querystring so a filtered view can be shared or
+// bookmarked. Read once at first client render; written back on every change.
+function urlParams(): URLSearchParams | null {
+  if (typeof window === 'undefined') return null;
+  return new URLSearchParams(window.location.search);
+}
+function splitParam(v: string | null | undefined): string[] {
+  return (v ?? '').split('|').filter(Boolean);
 }
 
 export function LeadsExplorer() {
   const [data, setData] = useState<LeadsData | null>(null);
   const [err, setErr] = useState<string>('');
 
-  // filters
-  const [q, setQ] = useState('');
-  const [minScore, setMinScore] = useState(0);
-  const [recency, setRecency] = useState(1e9);
-  const [escalatedOnly, setEscalatedOnly] = useState(false);
-  const [types, setTypes] = useState<Set<string>>(new Set());
-  const [zips, setZips] = useState<Set<string>>(new Set());
+  // filters (initialized from the querystring when present)
+  const [q, setQ] = useState(() => urlParams()?.get('q') ?? '');
+  const [minScore, setMinScore] = useState(() => {
+    const v = Number(urlParams()?.get('min'));
+    return Number.isInteger(v) && v >= 1 && v <= 10 ? v : 0;
+  });
+  const [recency, setRecency] = useState(() => {
+    const v = Number(urlParams()?.get('days'));
+    return RECENCY.some((r) => r.days === v) ? v : ANY_TIME;
+  });
+  const [escalatedOnly, setEscalatedOnly] = useState(() => urlParams()?.get('esc') === '1');
+  const [types, setTypes] = useState<Set<string>>(() => new Set(splitParam(urlParams()?.get('type'))));
+  const [zips, setZips] = useState<Set<string>>(() => new Set(splitParam(urlParams()?.get('zip'))));
   // sort + selection
-  const [sortKey, setSortKey] = useState<'score' | 'openCount' | 'daysSince' | 'addr' | 'zip'>('score');
-  const [sortDir, setSortDir] = useState<1 | -1>(-1);
+  const [sortKey, setSortKey] = useState<SortKey>(() => {
+    const v = urlParams()?.get('sort');
+    return SORT_KEYS.includes(v as SortKey) ? (v as SortKey) : 'score';
+  });
+  const [sortDir, setSortDir] = useState<1 | -1>(() => (urlParams()?.get('dir') === 'asc' ? 1 : -1));
   const [selected, setSelected] = useState<Lead | null>(null);
 
   const mapEl = useRef<HTMLDivElement | null>(null);
@@ -89,6 +112,23 @@ export function LeadsExplorer() {
       .then(setData)
       .catch((e) => setErr(String(e)));
   }, []);
+
+  // Keep the querystring in sync with the filters, without adding history entries.
+  useEffect(() => {
+    const sp = new URLSearchParams();
+    if (q.trim()) sp.set('q', q.trim());
+    if (minScore > 0) sp.set('min', String(minScore));
+    if (recency !== ANY_TIME) sp.set('days', String(recency));
+    if (escalatedOnly) sp.set('esc', '1');
+    if (types.size) sp.set('type', [...types].sort().join('|'));
+    if (zips.size) sp.set('zip', [...zips].sort().join('|'));
+    if (sortKey !== 'score' || sortDir !== -1) {
+      sp.set('sort', sortKey);
+      sp.set('dir', sortDir === 1 ? 'asc' : 'desc');
+    }
+    const qs = sp.toString();
+    window.history.replaceState(null, '', qs ? `${window.location.pathname}?${qs}` : window.location.pathname);
+  }, [q, minScore, recency, escalatedOnly, types, zips, sortKey, sortDir]);
 
   const filtered = useMemo(() => {
     if (!data) return [];
@@ -107,8 +147,8 @@ export function LeadsExplorer() {
   const sorted = useMemo(() => {
     const arr = [...filtered];
     arr.sort((a, b) => {
-      let av: number | string = a[sortKey];
-      let bv: number | string = b[sortKey];
+      const av: number | string = a[sortKey] ?? 0;
+      const bv: number | string = b[sortKey] ?? 0;
       if (sortKey === 'addr' || sortKey === 'zip') return String(av).localeCompare(String(bv)) * sortDir;
       return ((Number(av) || 0) - (Number(bv) || 0)) * sortDir;
     });
@@ -151,9 +191,9 @@ export function LeadsExplorer() {
     const layer = layerRef.current;
     if (!L || !layer) return;
     layer.clearLayers();
-    const pts = sorted.slice(0, MAX_MARKERS);
+    const pts = sorted.filter((l) => l.lat != null && l.lng != null).slice(0, MAX_MARKERS);
     for (const l of pts) {
-      const m = L.circleMarker([l.lat, l.lng], {
+      const m = L.circleMarker([l.lat as number, l.lng as number], {
         radius: l.score >= 8 ? 6 : l.score >= 6 ? 5 : 4,
         color: '#333',
         weight: 0.5,
@@ -170,10 +210,10 @@ export function LeadsExplorer() {
   function focusLead(l: Lead) {
     setSelected(l);
     const map = mapRef.current;
-    if (map) map.setView([l.lat, l.lng], 16, { animate: true });
+    if (map && l.lat != null && l.lng != null) map.setView([l.lat, l.lng], 16, { animate: true });
   }
 
-  function sortBy(k: typeof sortKey) {
+  function sortBy(k: SortKey) {
     if (sortKey === k) setSortDir((d) => (d === 1 ? -1 : 1));
     else {
       setSortKey(k);
@@ -191,7 +231,7 @@ export function LeadsExplorer() {
   function resetFilters() {
     setQ('');
     setMinScore(0);
-    setRecency(1e9);
+    setRecency(ANY_TIME);
     setEscalatedOnly(false);
     setTypes(new Set());
     setZips(new Set());
@@ -219,7 +259,7 @@ export function LeadsExplorer() {
   if (err) return <p className="muted">Could not load the data: {err}</p>;
   if (!data) return <p className="muted">Loading properties...</p>;
 
-  const arrow = (k: typeof sortKey) => (sortKey === k ? (sortDir < 0 ? ' ▼' : ' ▲') : '');
+  const arrow = (k: SortKey) => (sortKey === k ? (sortDir < 0 ? ' ▼' : ' ▲') : '');
 
   return (
     <div className="lead-x">
@@ -333,6 +373,7 @@ export function LeadsExplorer() {
                       <div className="addr">{l.addr}</div>
                       <div className="addr-sub">
                         {l.topCat} {l.escalated ? <span className="esc">escalated</span> : null}
+                        {l.lat == null ? ' · not on the map' : null}
                       </div>
                     </td>
                     <td className="num">{l.openCount}</td>

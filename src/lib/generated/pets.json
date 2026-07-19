@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-06-29T23:00:10.614Z",
+  "generatedAt": "2026-07-19T21:05:28.076Z",
   "species": [
     {
       "key": "Dog",
-      "n": 26652
+      "n": 26449
     },
     {
       "key": "Cat",
-      "n": 12978
+      "n": 13076
     },
     {
       "key": "Goat",
-      "n": 21
+      "n": 12
     },
     {
       "key": "Pig",
@@ -21,257 +21,257 @@
   "topDogBreeds": [
     {
       "key": "Retriever, Labrador",
-      "n": 2452
+      "n": 2390
     },
     {
       "key": "Chihuahua, Short Coat",
-      "n": 1367
+      "n": 1369
     },
     {
       "key": "Retriever, Golden",
-      "n": 1336
+      "n": 1319
     },
     {
       "key": "German Shepherd",
-      "n": 926
+      "n": 917
     },
     {
       "key": "Poodle, Miniature",
-      "n": 847
+      "n": 861
     },
     {
       "key": "Mixed Breed, Medium (up to 44 lbs fully grown)",
-      "n": 845
+      "n": 851
     },
     {
       "key": "Poodle, Standard",
-      "n": 815
+      "n": 819
     },
     {
       "key": "Mixed Breed, Large (over 44 lbs fully grown)",
-      "n": 697
+      "n": 712
     },
     {
       "key": "Terrier",
-      "n": 677
+      "n": 657
     },
     {
       "key": "Terrier, American Pit Bull",
-      "n": 645
+      "n": 641
     },
     {
       "key": "Australian Shepherd",
-      "n": 637
-    },
-    {
-      "key": "Border Collie",
-      "n": 615
+      "n": 632
     },
     {
       "key": "Australian Cattle Dog",
-      "n": 608
+      "n": 603
+    },
+    {
+      "key": "Border Collie",
+      "n": 587
     },
     {
       "key": "Siberian Husky",
-      "n": 519
+      "n": 506
     },
     {
       "key": "Mix",
-      "n": 467
+      "n": 451
     }
   ],
   "topCatBreeds": [
     {
       "key": "Domestic Shorthair",
-      "n": 7221
-    },
-    {
-      "key": "Domestic Medium Hair",
-      "n": 1479
+      "n": 7181
     },
     {
       "key": "American Shorthair",
-      "n": 1447
+      "n": 1513
+    },
+    {
+      "key": "Domestic Medium Hair",
+      "n": 1477
     },
     {
       "key": "Domestic Longhair",
-      "n": 806
+      "n": 811
     },
     {
       "key": "Siamese",
-      "n": 399
+      "n": 414
     },
     {
       "key": "Mix",
-      "n": 381
+      "n": 389
     },
     {
       "key": "Maine Coon",
-      "n": 175
+      "n": 173
     },
     {
       "key": "Ragdoll",
-      "n": 139
+      "n": 154
     },
     {
       "key": "Siberian",
-      "n": 107
+      "n": 121
     },
     {
       "key": "Russian Blue",
-      "n": 96
+      "n": 105
     }
   ],
   "topNames": [
     {
       "key": "Luna",
-      "n": 387
+      "n": 373
     },
     {
       "key": "Charlie",
-      "n": 245
+      "n": 242
     },
     {
       "key": "Lucy",
-      "n": 229
+      "n": 234
     },
     {
       "key": "Daisy",
-      "n": 188
+      "n": 193
     },
     {
       "key": "Milo",
-      "n": 174
+      "n": 173
     },
     {
       "key": "Bella",
-      "n": 168
-    },
-    {
-      "key": "Penny",
-      "n": 153
+      "n": 167
     },
     {
       "key": "Rosie",
-      "n": 152
+      "n": 156
     },
     {
-      "key": "Ruby",
-      "n": 140
-    },
-    {
-      "key": "Pepper",
-      "n": 137
+      "key": "Penny",
+      "n": 151
     },
     {
       "key": "Poppy",
-      "n": 135
-    },
-    {
-      "key": "Lily",
-      "n": 134
+      "n": 146
     },
     {
       "key": "Leo",
-      "n": 131
+      "n": 142
     },
     {
-      "key": "Max",
-      "n": 129
+      "key": "Ruby",
+      "n": 136
     },
     {
-      "key": "Buddy",
-      "n": 127
+      "key": "Pepper",
+      "n": 136
+    },
+    {
+      "key": "Lily",
+      "n": 135
     },
     {
       "key": "Oliver",
-      "n": 125
+      "n": 132
     },
     {
       "key": "Coco",
-      "n": 122
+      "n": 130
     },
     {
-      "key": "Olive",
+      "key": "Max",
+      "n": 130
+    },
+    {
+      "key": "Buddy",
       "n": 120
+    },
+    {
+      "key": "Scout",
+      "n": 119
     },
     {
       "key": "Ollie",
       "n": 118
     },
     {
-      "key": "Lola",
-      "n": 115
-    },
-    {
-      "key": "Maggie",
-      "n": 113
+      "key": "Olive",
+      "n": 116
     },
     {
       "key": "Jack",
       "n": 113
     },
     {
-      "key": "Stella",
+      "key": "Maggie",
       "n": 113
     },
     {
       "key": "Cooper",
-      "n": 112
+      "n": 113
     },
     {
-      "key": "Bailey",
-      "n": 111
+      "key": "Stella",
+      "n": 110
+    },
+    {
+      "key": "Lola",
+      "n": 109
     }
   ],
   "topDogNames": [
     {
       "key": "Luna",
-      "n": 276
+      "n": 262
     },
     {
       "key": "Charlie",
-      "n": 198
-    },
-    {
-      "key": "Lucy",
-      "n": 170
+      "n": 193
     },
     {
       "key": "Daisy",
-      "n": 167
+      "n": 171
     },
     {
-      "key": "Milo",
-      "n": 133
+      "key": "Lucy",
+      "n": 171
     },
     {
       "key": "Rosie",
-      "n": 129
+      "n": 134
+    },
+    {
+      "key": "Milo",
+      "n": 130
     },
     {
       "key": "Ruby",
-      "n": 125
+      "n": 122
     },
     {
-      "key": "Penny",
-      "n": 124
+      "key": "Poppy",
+      "n": 121
     },
     {
       "key": "Bella",
       "n": 120
     },
     {
-      "key": "Poppy",
-      "n": 114
+      "key": "Penny",
+      "n": 119
     },
     {
-      "key": "Bailey",
-      "n": 104
+      "key": "Coco",
+      "n": 106
     },
     {
-      "key": "Cooper",
-      "n": 103
+      "key": "Scout",
+      "n": 105
     }
   ],
   "topCatNames": [
@@ -281,262 +281,500 @@
     },
     {
       "key": "Lucy",
-      "n": 59
-    },
-    {
-      "key": "Oliver",
-      "n": 50
-    },
-    {
-      "key": "Bella",
-      "n": 48
-    },
-    {
-      "key": "Charlie",
-      "n": 47
+      "n": 63
     },
     {
       "key": "Lily",
+      "n": 50
+    },
+    {
+      "key": "Charlie",
+      "n": 49
+    },
+    {
+      "key": "Oliver",
+      "n": 49
+    },
+    {
+      "key": "Bella",
+      "n": 47
+    },
+    {
+      "key": "Leo",
       "n": 46
+    },
+    {
+      "key": "Pepper",
+      "n": 44
+    },
+    {
+      "key": "Shadow",
+      "n": 44
+    },
+    {
+      "key": "Milo",
+      "n": 43
     },
     {
       "key": "Loki",
       "n": 43
     },
     {
-      "key": "Shadow",
-      "n": 43
-    },
-    {
-      "key": "Pepper",
-      "n": 42
-    },
-    {
-      "key": "Milo",
-      "n": 41
-    },
-    {
-      "key": "Max",
+      "key": "Momo",
       "n": 40
-    },
-    {
-      "key": "Willow",
-      "n": 38
     }
   ],
   "zipBreed": [
     {
       "zip": "98115",
-      "dogs": 2597,
-      "french": 22,
-      "pit": 62,
+      "dogs": 2491,
+      "french": 21,
+      "pit": 61,
       "frenchPer100": 0.8,
       "pitPer100": 2.4
     },
     {
       "zip": "98103",
-      "dogs": 2179,
+      "dogs": 2159,
       "french": 17,
-      "pit": 61,
+      "pit": 57,
       "frenchPer100": 0.8,
-      "pitPer100": 2.8
+      "pitPer100": 2.6
     },
     {
       "zip": "98117",
-      "dogs": 1860,
-      "french": 24,
-      "pit": 37,
-      "frenchPer100": 1.3,
-      "pitPer100": 2
+      "dogs": 1840,
+      "french": 25,
+      "pit": 38,
+      "frenchPer100": 1.4,
+      "pitPer100": 2.1
     },
     {
       "zip": "98125",
-      "dogs": 1514,
-      "french": 15,
-      "pit": 41,
-      "frenchPer100": 1,
+      "dogs": 1468,
+      "french": 13,
+      "pit": 39,
+      "frenchPer100": 0.9,
       "pitPer100": 2.7
     },
     {
       "zip": "98118",
-      "dogs": 1483,
-      "french": 25,
-      "pit": 71,
-      "frenchPer100": 1.7,
-      "pitPer100": 4.8
+      "dogs": 1449,
+      "french": 20,
+      "pit": 68,
+      "frenchPer100": 1.4,
+      "pitPer100": 4.7
     },
     {
       "zip": "98122",
-      "dogs": 1348,
+      "dogs": 1298,
       "french": 27,
-      "pit": 55,
-      "frenchPer100": 2,
-      "pitPer100": 4.1
-    },
-    {
-      "zip": "98107",
-      "dogs": 1163,
-      "french": 7,
-      "pit": 33,
-      "frenchPer100": 0.6,
-      "pitPer100": 2.8
+      "pit": 56,
+      "frenchPer100": 2.1,
+      "pitPer100": 4.3
     },
     {
       "zip": "98199",
-      "dogs": 1149,
+      "dogs": 1234,
       "french": 26,
-      "pit": 28,
-      "frenchPer100": 2.3,
-      "pitPer100": 2.4
-    },
-    {
-      "zip": "98144",
-      "dogs": 1145,
-      "french": 20,
-      "pit": 62,
-      "frenchPer100": 1.7,
-      "pitPer100": 5.4
+      "pit": 27,
+      "frenchPer100": 2.1,
+      "pitPer100": 2.2
     },
     {
       "zip": "98116",
-      "dogs": 1139,
+      "dogs": 1137,
       "french": 12,
-      "pit": 32,
+      "pit": 34,
       "frenchPer100": 1.1,
-      "pitPer100": 2.8
+      "pitPer100": 3
+    },
+    {
+      "zip": "98144",
+      "dogs": 1127,
+      "french": 18,
+      "pit": 59,
+      "frenchPer100": 1.6,
+      "pitPer100": 5.2
+    },
+    {
+      "zip": "98107",
+      "dogs": 1127,
+      "french": 7,
+      "pit": 35,
+      "frenchPer100": 0.6,
+      "pitPer100": 3.1
     },
     {
       "zip": "98105",
-      "dogs": 1112,
-      "french": 8,
-      "pit": 30,
-      "frenchPer100": 0.7,
-      "pitPer100": 2.7
-    },
-    {
-      "zip": "98126",
-      "dogs": 983,
-      "french": 13,
-      "pit": 26,
-      "frenchPer100": 1.3,
+      "dogs": 1068,
+      "french": 9,
+      "pit": 28,
+      "frenchPer100": 0.8,
       "pitPer100": 2.6
     },
     {
       "zip": "98112",
-      "dogs": 932,
-      "french": 9,
+      "dogs": 984,
+      "french": 10,
       "pit": 18,
       "frenchPer100": 1,
+      "pitPer100": 1.8
+    },
+    {
+      "zip": "98126",
+      "dogs": 955,
+      "french": 9,
+      "pit": 23,
+      "frenchPer100": 0.9,
+      "pitPer100": 2.4
+    },
+    {
+      "zip": "98119",
+      "dogs": 944,
+      "french": 10,
+      "pit": 23,
+      "frenchPer100": 1.1,
+      "pitPer100": 2.4
+    },
+    {
+      "zip": "98109",
+      "dogs": 940,
+      "french": 19,
+      "pit": 18,
+      "frenchPer100": 2,
       "pitPer100": 1.9
     },
     {
       "zip": "98106",
-      "dogs": 904,
+      "dogs": 889,
       "french": 15,
-      "pit": 56,
+      "pit": 55,
       "frenchPer100": 1.7,
       "pitPer100": 6.2
     },
     {
-      "zip": "98119",
-      "dogs": 870,
-      "french": 8,
-      "pit": 16,
-      "frenchPer100": 0.9,
-      "pitPer100": 1.8
-    },
-    {
       "zip": "98133",
-      "dogs": 834,
-      "french": 9,
-      "pit": 42,
-      "frenchPer100": 1.1,
-      "pitPer100": 5
-    },
-    {
-      "zip": "98109",
-      "dogs": 827,
-      "french": 18,
-      "pit": 20,
-      "frenchPer100": 2.2,
-      "pitPer100": 2.4
+      "dogs": 836,
+      "french": 11,
+      "pit": 38,
+      "frenchPer100": 1.3,
+      "pitPer100": 4.5
     },
     {
       "zip": "98136",
-      "dogs": 827,
-      "french": 12,
-      "pit": 20,
-      "frenchPer100": 1.5,
-      "pitPer100": 2.4
+      "dogs": 803,
+      "french": 13,
+      "pit": 21,
+      "frenchPer100": 1.6,
+      "pitPer100": 2.6
     },
     {
       "zip": "98102",
-      "dogs": 782,
-      "french": 18,
+      "dogs": 727,
+      "french": 19,
       "pit": 31,
-      "frenchPer100": 2.3,
-      "pitPer100": 4
+      "frenchPer100": 2.6,
+      "pitPer100": 4.3
     },
     {
       "zip": "98108",
-      "dogs": 594,
+      "dogs": 602,
       "french": 3,
-      "pit": 29,
+      "pit": 33,
       "frenchPer100": 0.5,
-      "pitPer100": 4.9
+      "pitPer100": 5.5
     },
     {
       "zip": "98177",
-      "dogs": 459,
-      "french": 10,
-      "pit": 11,
-      "frenchPer100": 2.2,
-      "pitPer100": 2.4
+      "dogs": 454,
+      "french": 9,
+      "pit": 10,
+      "frenchPer100": 2,
+      "pitPer100": 2.2
     },
     {
       "zip": "98121",
-      "dogs": 387,
-      "french": 4,
-      "pit": 13,
-      "frenchPer100": 1,
-      "pitPer100": 3.4
+      "dogs": 423,
+      "french": 5,
+      "pit": 11,
+      "frenchPer100": 1.2,
+      "pitPer100": 2.6
     },
     {
       "zip": "98101",
-      "dogs": 299,
-      "french": 5,
-      "pit": 8,
-      "frenchPer100": 1.7,
-      "pitPer100": 2.7
-    },
-    {
-      "zip": "98104",
-      "dogs": 299,
+      "dogs": 315,
       "french": 7,
-      "pit": 33,
-      "frenchPer100": 2.3,
-      "pitPer100": 11
+      "pit": 6,
+      "frenchPer100": 2.2,
+      "pitPer100": 1.9
     },
     {
       "zip": "98146",
-      "dogs": 298,
-      "french": 1,
-      "pit": 12,
-      "frenchPer100": 0.3,
-      "pitPer100": 4
+      "dogs": 288,
+      "french": 2,
+      "pit": 13,
+      "frenchPer100": 0.7,
+      "pitPer100": 4.5
+    },
+    {
+      "zip": "98104",
+      "dogs": 281,
+      "french": 3,
+      "pit": 34,
+      "frenchPer100": 1.1,
+      "pitPer100": 12.1
     },
     {
       "zip": "98178",
-      "dogs": 241,
-      "french": 4,
-      "pit": 16,
-      "frenchPer100": 1.7,
-      "pitPer100": 6.6
+      "dogs": 222,
+      "french": 1,
+      "pit": 12,
+      "frenchPer100": 0.5,
+      "pitPer100": 5.4
+    }
+  ],
+  "catZips": [
+    {
+      "zip": "98104",
+      "cats": 243,
+      "dogs": 281,
+      "total": 524,
+      "catPct": 46.4
+    },
+    {
+      "zip": "98121",
+      "cats": 355,
+      "dogs": 423,
+      "total": 778,
+      "catPct": 45.6
+    },
+    {
+      "zip": "98102",
+      "cats": 579,
+      "dogs": 727,
+      "total": 1306,
+      "catPct": 44.3
+    },
+    {
+      "zip": "98101",
+      "cats": 251,
+      "dogs": 315,
+      "total": 566,
+      "catPct": 44.3
+    },
+    {
+      "zip": "98109",
+      "cats": 707,
+      "dogs": 940,
+      "total": 1647,
+      "catPct": 42.9
+    },
+    {
+      "zip": "98122",
+      "cats": 833,
+      "dogs": 1298,
+      "total": 2133,
+      "catPct": 39.1
+    },
+    {
+      "zip": "98107",
+      "cats": 710,
+      "dogs": 1127,
+      "total": 1837,
+      "catPct": 38.6
+    },
+    {
+      "zip": "98133",
+      "cats": 496,
+      "dogs": 836,
+      "total": 1332,
+      "catPct": 37.2
+    },
+    {
+      "zip": "98119",
+      "cats": 539,
+      "dogs": 944,
+      "total": 1483,
+      "catPct": 36.3
+    },
+    {
+      "zip": "98125",
+      "cats": 776,
+      "dogs": 1468,
+      "total": 2244,
+      "catPct": 34.6
+    },
+    {
+      "zip": "98103",
+      "cats": 1097,
+      "dogs": 2159,
+      "total": 3256,
+      "catPct": 33.7
+    },
+    {
+      "zip": "98105",
+      "cats": 536,
+      "dogs": 1068,
+      "total": 1604,
+      "catPct": 33.4
+    },
+    {
+      "zip": "98112",
+      "cats": 447,
+      "dogs": 984,
+      "total": 1431,
+      "catPct": 31.2
+    },
+    {
+      "zip": "98144",
+      "cats": 508,
+      "dogs": 1127,
+      "total": 1637,
+      "catPct": 31
+    },
+    {
+      "zip": "98115",
+      "cats": 1065,
+      "dogs": 2491,
+      "total": 3556,
+      "catPct": 29.9
+    },
+    {
+      "zip": "98117",
+      "cats": 777,
+      "dogs": 1840,
+      "total": 2617,
+      "catPct": 29.7
+    },
+    {
+      "zip": "98106",
+      "cats": 356,
+      "dogs": 889,
+      "total": 1245,
+      "catPct": 28.6
+    },
+    {
+      "zip": "98199",
+      "cats": 471,
+      "dogs": 1234,
+      "total": 1706,
+      "catPct": 27.6
+    },
+    {
+      "zip": "98116",
+      "cats": 429,
+      "dogs": 1137,
+      "total": 1566,
+      "catPct": 27.4
+    },
+    {
+      "zip": "98118",
+      "cats": 544,
+      "dogs": 1449,
+      "total": 1997,
+      "catPct": 27.2
+    },
+    {
+      "zip": "98108",
+      "cats": 225,
+      "dogs": 602,
+      "total": 827,
+      "catPct": 27.2
+    },
+    {
+      "zip": "98126",
+      "cats": 334,
+      "dogs": 955,
+      "total": 1290,
+      "catPct": 25.9
+    },
+    {
+      "zip": "98136",
+      "cats": 256,
+      "dogs": 803,
+      "total": 1059,
+      "catPct": 24.2
+    },
+    {
+      "zip": "98177",
+      "cats": 135,
+      "dogs": 454,
+      "total": 590,
+      "catPct": 22.9
+    }
+  ],
+  "catZipMin": 400,
+  "goats": [
+    {
+      "name": "Hanna",
+      "zip": "98118",
+      "breed": "Miniature"
+    },
+    {
+      "name": "Bubbles",
+      "zip": "98118",
+      "breed": "Miniature"
+    },
+    {
+      "name": "Negroni",
+      "zip": "98118",
+      "breed": "Miniature"
+    },
+    {
+      "name": "Teddy",
+      "zip": "98118",
+      "breed": "Miniature"
+    },
+    {
+      "name": "Peanut",
+      "zip": "98122",
+      "breed": "Miniature"
+    },
+    {
+      "name": "Pepina",
+      "zip": "98122",
+      "breed": "Miniature"
+    },
+    {
+      "name": "Star",
+      "zip": "98144",
+      "breed": "Miniature"
+    },
+    {
+      "name": "Stripe",
+      "zip": "98144",
+      "breed": "Miniature"
+    },
+    {
+      "name": "Piper",
+      "zip": "98146",
+      "breed": "Miniature"
+    },
+    {
+      "name": "Tacoma",
+      "zip": "98146",
+      "breed": "Miniature"
+    },
+    {
+      "name": "Finn",
+      "zip": "98178",
+      "breed": "Miniature"
+    },
+    {
+      "name": "Mollie",
+      "zip": "98178",
+      "breed": "Miniature"
     }
   ],
   "totals": {
-    "dogTotal": 26652,
-    "frenchTotal": 343,
-    "pitTotal": 892
+    "dogTotal": 26449,
+    "catTotal": 13076,
+    "goatTotal": 12,
+    "totalPets": 39540,
+    "frenchTotal": 336,
+    "pitTotal": 882,
+    "recentSharePct": 82.5,
+    "recentSinceYear": 2025
   }
 }

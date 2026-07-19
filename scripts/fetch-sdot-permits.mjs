@@ -15,7 +15,7 @@ const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src'
 const num = (v) => Number(v) || 0;
 
 function soql(params) {
-  const args = ['-s', '--max-time', '180', '-H', `X-App-Token: ${TOKEN}`, '-G', `https://${DOMAIN}/resource/${ID}.json`];
+  const args = ['-s', '--compressed', '--max-time', '180', '-H', `X-App-Token: ${TOKEN}`, '-G', `https://${DOMAIN}/resource/${ID}.json`];
   for (const [k, v] of Object.entries(params)) args.push('--data-urlencode', `${k}=${v}`);
   let lastErr;
   for (let attempt = 0; attempt < 3; attempt++) {
@@ -45,7 +45,7 @@ async function main() {
   for (let offset = 0; ; offset += 50000) {
     const page = soql({
       $select:
-        'permitnum, max(permittypedesc) AS t, max(calendardaysplanreviewcity) AS city, max(calendardaysinapplicantscontrol) AS app, max(totalcalendardays) AS total',
+        'permitnum, max(permittypedesc) AS t, max(calendardaysplanreviewcity) AS city, max(calendardaysinapplicantscontrol) AS app, max(totalcalendardays) AS total, max(applieddate) AS applied',
       $where: 'issueddate IS NOT NULL',
       $group: 'permitnum',
       $order: 'permitnum',
@@ -100,8 +100,50 @@ async function main() {
     medTotal: r1(median(perPermit.map((p) => num(p.total)))),
   };
 
+  // Denominator disclosure: permits in the dataset that were never issued
+  // (pending, withdrawn, abandoned) and are excluded from every figure above.
+  const neverIssued = num(
+    soql({ $select: 'count(distinct permitnum) AS n', $where: 'issueddate IS NULL' })[0]?.n,
+  );
+  overall.neverIssued = neverIssued;
+  overall.neverIssuedPct = Math.round((neverIssued / (neverIssued + perPermit.length)) * 100);
+
+  // Trend: Minor Utility Permit (the most common type) median city-review days
+  // by the year the permit was APPLIED for. Trim partial calendar years at both
+  // ends: drop the year data collection began if it starts mid-year, and drop
+  // the still-open current year. Survivorship makes recent years conservative
+  // (slow permits are still pending and not in the issued set), so a rise here
+  // is a floor, not an estimate.
+  const MU = 'Minor Utility Permit';
+  const currentYear = new Date().getFullYear();
+  const muByYear = new Map();
+  let minApplied = null;
+  for (const p of perPermit) {
+    if (p.t !== MU) continue;
+    const applied = p.applied || '';
+    const y = Number(applied.slice(0, 4));
+    if (!y) continue;
+    if (minApplied === null || applied < minApplied) minApplied = applied;
+    if (!muByYear.has(y)) muByYear.set(y, []);
+    muByYear.get(y).push(num(p.city));
+  }
+  const firstYear = Number(minApplied.slice(0, 4));
+  const firstYearFull = minApplied.slice(5, 7) === '01';
+  const muTrend = [...muByYear.entries()]
+    .filter(([y]) => y < currentYear && (firstYearFull || y > firstYear))
+    .sort((a, b) => a[0] - b[0])
+    .map(([year, v]) => ({
+      year,
+      permits: v.length,
+      medCity: r1(median(v)),
+      meanCity: r1(v.reduce((s, x) => s + x, 0) / v.length),
+    }));
+
   fs.mkdirSync(path.dirname(FILE), { recursive: true });
-  fs.writeFileSync(FILE, JSON.stringify({ generatedAt: new Date().toISOString(), overall, types }, null, 2));
+  fs.writeFileSync(FILE, JSON.stringify({ generatedAt: new Date().toISOString(), overall, types, muTrend }, null, 2));
   console.log(`Wrote sdot.json: ${overall.totalIssued} issued permits, ${types.length} permit types (>=300).`);
+  console.log(`Never issued: ${neverIssued} distinct permits (${overall.neverIssuedPct}% of all).`);
+  console.log('Minor Utility Permit median city days by applied year:');
+  for (const r of muTrend) console.log(`  ${r.year}: n=${r.permits} median=${r.medCity} mean=${r.meanCity}`);
 }
 main().catch((e) => { console.error(e); process.exit(1); });

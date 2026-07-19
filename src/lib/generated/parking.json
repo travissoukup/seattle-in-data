@@ -1,5 +1,14 @@
 {
-  "generatedAt": "2026-06-16T21:21:59.624Z",
+  "generatedAt": "2026-07-19T21:22:42.388Z",
+  "latestYear": 2025,
+  "yearIds": {
+    "2019": "qktt-2bsy",
+    "2022": "bwk6-iycu",
+    "2023": "3uar-q5py",
+    "2024": "snbb-v8b9",
+    "2025": "7c2e-uany",
+    "2026": "q2e4-e7e5"
+  },
   "byAreaYear": [
     {
       "year": 2019,
@@ -688,6 +697,527 @@
       "spaces": 32.4,
       "rate": 0.269,
       "n": 456840
+    },
+    {
+      "year": 2025,
+      "area": "Belltown",
+      "occ": 2.79,
+      "spaces": 7.2,
+      "rate": 0.386,
+      "n": 48220969
+    },
+    {
+      "year": 2025,
+      "area": "South Lake Union",
+      "occ": 2.07,
+      "spaces": 7.9,
+      "rate": 0.26,
+      "n": 36393596
+    },
+    {
+      "year": 2025,
+      "area": "Uptown",
+      "occ": 1.82,
+      "spaces": 6.6,
+      "rate": 0.275,
+      "n": 29746924
+    },
+    {
+      "year": 2025,
+      "area": "First Hill",
+      "occ": 0.82,
+      "spaces": 6.2,
+      "rate": 0.132,
+      "n": 28524759
+    },
+    {
+      "year": 2025,
+      "area": "Commercial Core",
+      "occ": 2.35,
+      "spaces": 5.7,
+      "rate": 0.416,
+      "n": 24158800
+    },
+    {
+      "year": 2025,
+      "area": "Pike-Pine",
+      "occ": 2.06,
+      "spaces": 6.3,
+      "rate": 0.327,
+      "n": 21477929
+    },
+    {
+      "year": 2025,
+      "area": "Denny Triangle",
+      "occ": 1.53,
+      "spaces": 5.8,
+      "rate": 0.262,
+      "n": 17315268
+    },
+    {
+      "year": 2025,
+      "area": "University District",
+      "occ": 2.85,
+      "spaces": 9.3,
+      "rate": 0.307,
+      "n": 16981808
+    },
+    {
+      "year": 2025,
+      "area": "Chinatown/ID",
+      "occ": 1.44,
+      "spaces": 5.7,
+      "rate": 0.254,
+      "n": 14034395
+    },
+    {
+      "year": 2025,
+      "area": "Pioneer Square",
+      "occ": 3.13,
+      "spaces": 7.1,
+      "rate": 0.441,
+      "n": 13637711
+    },
+    {
+      "year": 2025,
+      "area": "Ballard",
+      "occ": 3.44,
+      "spaces": 8.7,
+      "rate": 0.397,
+      "n": 13226458
+    },
+    {
+      "year": 2025,
+      "area": "Capitol Hill",
+      "occ": 2.93,
+      "spaces": 9,
+      "rate": 0.325,
+      "n": 9320149
+    },
+    {
+      "year": 2025,
+      "area": "Green Lake",
+      "occ": 2.24,
+      "spaces": 5.1,
+      "rate": 0.44,
+      "n": 6627355
+    },
+    {
+      "year": 2025,
+      "area": "Uptown Triangle",
+      "occ": 4.05,
+      "spaces": 9.4,
+      "rate": 0.432,
+      "n": 3547707
+    },
+    {
+      "year": 2025,
+      "area": "15th Avenue E",
+      "occ": 1.87,
+      "spaces": 4.9,
+      "rate": 0.378,
+      "n": 3419144
+    },
+    {
+      "year": 2025,
+      "area": "12th Avenue",
+      "occ": 1.69,
+      "spaces": 5.4,
+      "rate": 0.315,
+      "n": 2649333
+    },
+    {
+      "year": 2025,
+      "area": "Westlake Ave N",
+      "occ": 6.93,
+      "spaces": 29.5,
+      "rate": 0.235,
+      "n": 2492761
+    },
+    {
+      "year": 2025,
+      "area": "Roosevelt",
+      "occ": 2.39,
+      "spaces": 6.8,
+      "rate": 0.352,
+      "n": 2317680
+    },
+    {
+      "year": 2025,
+      "area": "Columbia City",
+      "occ": 2.09,
+      "spaces": 6.3,
+      "rate": 0.329,
+      "n": 2142567
+    },
+    {
+      "year": 2025,
+      "area": "Fremont",
+      "occ": 2.21,
+      "spaces": 6.5,
+      "rate": 0.342,
+      "n": 2102093
+    },
+    {
+      "year": 2025,
+      "area": "Cherry Hill",
+      "occ": 1.22,
+      "spaces": 9.3,
+      "rate": 0.131,
+      "n": 1254960
+    },
+    {
+      "year": 2025,
+      "area": "Ballard Locks",
+      "occ": 8.45,
+      "spaces": 33,
+      "rate": 0.256,
+      "n": 463440
+    }
+  ],
+  "byAreaHour": [
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 8,
+      "rate": 0.205,
+      "n": 995898
+    },
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 9,
+      "rate": 0.402,
+      "n": 996112
+    },
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 10,
+      "rate": 0.559,
+      "n": 996134
+    },
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 11,
+      "rate": 0.65,
+      "n": 996114
+    },
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 12,
+      "rate": 0.727,
+      "n": 995924
+    },
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 13,
+      "rate": 0.744,
+      "n": 996045
+    },
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 14,
+      "rate": 0.716,
+      "n": 996091
+    },
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 15,
+      "rate": 0.689,
+      "n": 996078
+    },
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 16,
+      "rate": 0.681,
+      "n": 996143
+    },
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 17,
+      "rate": 0.71,
+      "n": 996292
+    },
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 18,
+      "rate": 0.783,
+      "n": 996483
+    },
+    {
+      "area": "Ballard",
+      "year": 2019,
+      "hour": 19,
+      "rate": 0.794,
+      "n": 996347
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 8,
+      "rate": 0.159,
+      "n": 1101872
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 9,
+      "rate": 0.272,
+      "n": 1102013
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 10,
+      "rate": 0.363,
+      "n": 1102059
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 11,
+      "rate": 0.415,
+      "n": 1102106
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 12,
+      "rate": 0.441,
+      "n": 1102071
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 13,
+      "rate": 0.459,
+      "n": 1102083
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 14,
+      "rate": 0.435,
+      "n": 1102112
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 15,
+      "rate": 0.422,
+      "n": 1102261
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 16,
+      "rate": 0.411,
+      "n": 1102499
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 17,
+      "rate": 0.426,
+      "n": 1102500
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 18,
+      "rate": 0.483,
+      "n": 1102442
+    },
+    {
+      "area": "Ballard",
+      "year": 2025,
+      "hour": 19,
+      "rate": 0.482,
+      "n": 1102440
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 7,
+      "rate": 0.2,
+      "n": 1
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 8,
+      "rate": 0.188,
+      "n": 1928533
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 9,
+      "rate": 0.262,
+      "n": 2285583
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 10,
+      "rate": 0.356,
+      "n": 2286230
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 11,
+      "rate": 0.442,
+      "n": 2286673
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 12,
+      "rate": 0.469,
+      "n": 2286254
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 13,
+      "rate": 0.473,
+      "n": 2286749
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 14,
+      "rate": 0.438,
+      "n": 2286470
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 15,
+      "rate": 0.425,
+      "n": 1810592
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 16,
+      "rate": 0.393,
+      "n": 1744763
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 17,
+      "rate": 0.39,
+      "n": 1744384
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 18,
+      "rate": 0.417,
+      "n": 1843383
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2019,
+      "hour": 19,
+      "rate": 0.414,
+      "n": 2293667
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 8,
+      "rate": 0.236,
+      "n": 1812335
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 9,
+      "rate": 0.332,
+      "n": 2203322
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 10,
+      "rate": 0.418,
+      "n": 2205439
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 11,
+      "rate": 0.486,
+      "n": 2206925
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 12,
+      "rate": 0.501,
+      "n": 2208283
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 13,
+      "rate": 0.493,
+      "n": 2208150
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 14,
+      "rate": 0.441,
+      "n": 2207278
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 15,
+      "rate": 0.441,
+      "n": 1731278
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 16,
+      "rate": 0.418,
+      "n": 1701669
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 17,
+      "rate": 0.401,
+      "n": 1701186
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 18,
+      "rate": 0.414,
+      "n": 1760932
+    },
+    {
+      "area": "Commercial Core",
+      "year": 2025,
+      "hour": 19,
+      "rate": 0.385,
+      "n": 2212003
     }
   ]
 }

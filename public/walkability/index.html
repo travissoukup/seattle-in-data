@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seattle Walkability Index</title>
+<meta name="description" content="A reweightable walkability map of Seattle: University District ranks near the top under every weighting profile and Broadview ranks last under all of them.">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
@@ -71,14 +72,31 @@ a{color:var(--accent)}
 details{margin-top:6px}summary{cursor:pointer;color:var(--muted);font-size:12px}
 #loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   background:var(--bg);z-index:1000;color:var(--muted)}
+#back{position:fixed;top:10px;left:54px;z-index:1100;background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:6px 12px;font-size:12.5px;color:var(--accent);text-decoration:none}
+#back:hover{border-color:var(--accent)}
+.ranks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0}
+.rankh{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:4px}
+.ritem{display:flex;align-items:baseline;gap:6px;padding:4px 6px;border-radius:6px;cursor:pointer;font-size:12.5px}
+.ritem:hover{background:var(--panel2)}
+.ritem .rn{color:var(--muted);min-width:20px;text-align:right}
+.ritem .nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ritem .rs{font-variant-numeric:tabular-nums;font-weight:600}
+@media (max-width:800px){
+  html,body{height:auto}
+  #wrap{flex-direction:column;height:auto;overflow:visible}
+  #map{flex:none;width:100%;height:62vh;min-height:320px;position:relative}
+  #side{width:100%;height:auto;border-left:none;border-top:1px solid var(--line);overflow:visible}
+}
 </style>
 </head>
 <body>
+<a id="back" href="https://seattle-data.vercel.app">&larr; Seattle in Data</a>
 <div id="wrap">
   <div id="map"><div id="loading">Loading Seattle walkability data...</div></div>
   <div id="side">
     <h1>Seattle Walkability Index</h1>
-    <p class="sub">A pedestrian-amenity walkability score for every part of Seattle, scored relative to the rest of the city. Adjust the weights to match what walkability means to you, then watch the map recolor.</p>
+    <p class="sub"><span id="finding"></span>A pedestrian-amenity walkability score for every part of Seattle, scored relative to the rest of the city. Adjust the weights to match what walkability means to you, then watch the map recolor.</p>
 
     <div class="legend"><span>Less</span><span class="ramp"></span><span>More</span></div>
     <div class="seg" id="layerseg">
@@ -89,6 +107,10 @@ details{margin-top:6px}summary{cursor:pointer;color:var(--muted);font-size:12px}
     <h2>Weighting profile</h2>
     <div class="chips" id="presetchips"></div>
     <p class="presetdesc" id="presetdesc"></p>
+
+    <h2>Neighborhood rankings, this profile</h2>
+    <div id="rank"></div>
+    <p class="sub" id="robust" style="margin-top:4px"></p>
 
     <div id="detail"></div>
 
@@ -208,6 +230,7 @@ function setLayer(layer){
   ['hex','nb'].forEach(l=>{ if(App.layers[l]&&App.map.hasLayer(App.layers[l])) App.map.removeLayer(App.layers[l]); });
   if(!App.layers[layer]) buildLayer(layer);
   App.layers[layer].addTo(App.map);
+  writeURL();
 }
 
 function recolor(){
@@ -216,6 +239,114 @@ function recolor(){
     App.scores[l]=computeScores(l);
     if(App.layers[l]) App.layers[l].setStyle(styleFn(l));
   });
+  renderRankings();
+  writeURL();
+}
+
+function ordinal(i){
+  const s=['th','st','nd','rd'], v=i%100;
+  return i+(s[(v-20)%10]||s[v]||s[0]);
+}
+
+// Top 5 / bottom 5 neighborhoods under the current weights, recomputed live.
+function renderRankings(){
+  if(!App.data.nb) return;
+  const sc=computeScores('nb');
+  const feats=App.data.nb.features;
+  const order=feats.map((f,i)=>({f,s:sc[i]})).sort((a,b)=>b.s-a.s);
+  const nTot=order.length;
+  const item=(o,r)=>{
+    const el=document.createElement('div');
+    el.className='ritem';
+    el.innerHTML='<span class="rn">'+r+'</span><span class="nm">'+o.f.properties.nb+'</span>'
+      +'<span class="rs" style="color:'+colorFor(o.s)+'">'+Math.round(o.s)+'</span>';
+    el.onclick=()=>focusNb(o.f,o.s);
+    return el;
+  };
+  const box=document.getElementById('rank');
+  box.innerHTML='';
+  const grid=document.createElement('div'); grid.className='ranks';
+  const top=document.createElement('div'); top.innerHTML='<div class="rankh">Top 5</div>';
+  order.slice(0,5).forEach((o,i)=>top.appendChild(item(o,i+1)));
+  const bot=document.createElement('div'); bot.innerHTML='<div class="rankh">Bottom 5</div>';
+  order.slice(-5).forEach((o,i)=>bot.appendChild(item(o,nTot-4+i)));
+  grid.appendChild(top); grid.appendChild(bot);
+  box.appendChild(grid);
+}
+
+function focusNb(feature, score){
+  showDetail(feature, score, 'nb');
+  try{ App.map.fitBounds(L.geoJSON(feature).getBounds(),{maxZoom:14}); }catch(e){}
+}
+
+// Which results survive any choice of weights? Computed from the shipped data
+// across all named profiles, never hand-typed.
+function computeRobust(){
+  const feats=App.data.nb.features;
+  const names=feats.map(f=>f.properties.nb);
+  const nTot=names.length;
+  const saved={w:App.weights,s:App.slope,t:App.traffic};
+  const ranks={};
+  PRESETS.forEach(p=>{
+    App.weights=p.weights; App.slope=p.slope; App.traffic=p.traffic;
+    const sc=computeScores('nb');
+    const order=names.map((nm,i)=>({nm,s:sc[i]})).sort((a,b)=>b.s-a.s);
+    order.forEach((o,i)=>{ (ranks[o.nm]=ranks[o.nm]||[]).push(i+1); });
+  });
+  App.weights=saved.w; App.slope=saved.s; App.traffic=saved.t;
+  const rows=names.map(nm=>{
+    const rs=ranks[nm];
+    return {nm, min:Math.min.apply(null,rs), max:Math.max.apply(null,rs),
+      swing:Math.max.apply(null,rs)-Math.min.apply(null,rs)};
+  });
+  const leader=rows.reduce((a,b)=>b.max<a.max?b:a);
+  const alwaysLast=rows.filter(r=>r.min===nTot)[0];
+  const mover=rows.reduce((a,b)=>b.swing>a.swing?b:a);
+  const bi=ranks[mover.nm].indexOf(mover.min), wi=ranks[mover.nm].indexOf(mover.max);
+  document.getElementById('finding').textContent=
+    leader.nm+' ranks in the top '+leader.max+' of '+nTot+' neighborhoods under every one of the '
+    +PRESETS.length+' weighting profiles below'
+    +(alwaysLast?(', and '+alwaysLast.nm+' ranks last under all of them. '):'. ');
+  document.getElementById('robust').textContent=
+    'Rankings recompute live with your weights. Biggest mover across the '+PRESETS.length+' profiles: '
+    +mover.nm+', '+ordinal(mover.min)+' under '+PRESETS[bi].name+' but '+ordinal(mover.max)+' under '
+    +PRESETS[wi].name+'. Click a neighborhood to zoom in.';
+}
+
+// Shareable state: the preset (or full custom weights) lives in the URL.
+function writeURL(){
+  const q=new URLSearchParams();
+  if(App.activePreset!=='custom'){ q.set('p',App.activePreset); }
+  else{
+    q.set('w',Object.keys(App.weights).map(k=>k+':'+App.weights[k]).join(','));
+    q.set('sl',String(App.slope)); q.set('tr',String(App.traffic));
+  }
+  if(App.active!=='hex') q.set('l',App.active);
+  try{ history.replaceState(null,'','?'+q.toString()); }catch(e){}
+}
+function readURL(){
+  const q=new URLSearchParams(location.search);
+  if(q.get('l')==='nb') App.active='nb';
+  if(q.get('w')){
+    const w={};
+    q.get('w').split(',').forEach(kv=>{
+      const p=kv.split(':');
+      if(p[0]) w[p[0]]=Math.max(0,Math.min(0.5,parseFloat(p[1])||0));
+    });
+    if(Object.keys(w).length){
+      App.weights=Object.assign({},App.weights,w);
+      if(q.has('sl')) App.slope=Math.max(0,Math.min(1,parseFloat(q.get('sl'))||0));
+      if(q.has('tr')) App.traffic=Math.max(0,Math.min(1,parseFloat(q.get('tr'))||0));
+      App.activePreset='custom';
+    }
+    return;
+  }
+  const p=q.get('p');
+  if(p&&getPreset(p)){
+    const pre=getPreset(p);
+    App.activePreset=p;
+    App.weights=Object.assign({},pre.weights); App.slope=pre.slope; App.traffic=pre.traffic;
+  }
 }
 
 function fmt(n){ return n==null?'-':Number(n).toLocaleString('en-US'); }
@@ -225,7 +356,8 @@ function showDetail(feature, score, layer){
   let rows='';
   m.factors.forEach(f=>{
     const v=p['f_'+f.key]||0; const pct=Math.round(v*100);
-    rows+='<div class="frow"><span>'+f.label+'</span>'
+    const tip=(f.key==='tree'&&App.treeNote)?App.treeNote:(f.desc||'');
+    rows+='<div class="frow" title="'+tip+'"><span>'+f.label+'</span>'
       +'<span class="barwrap"><span class="bar" style="width:'+Math.round(v*80)+'px"></span></span>'
       +'<span class="muted">'+pct+'</span></div>';
   });
@@ -236,7 +368,7 @@ function showDetail(feature, score, layer){
   if(layer==='hex'){
     raw='<details><summary>Raw counts in this hex</summary><div class="foot">'
       +'Sidewalk '+fmt(p.n_sidewalk_m)+' m &middot; paths '+fmt(p.n_path_m)+' m &middot; bike '+fmt(p.n_bike_m)+' m<br>'
-      +'Park '+fmt(Math.round((p.n_park_m2||0)/100)/100)+' ha &middot; trees '+fmt(p.n_tree)+' &middot; amenities '+fmt(p.n_amenity)+'<br>'
+      +'Park '+fmt(Math.round((p.n_park_m2||0)/100)/100)+' ha &middot; mapped trees '+fmt(p.n_tree)+' &middot; amenities '+fmt(p.n_amenity)+'<br>'
       +'transit '+fmt(p.n_transit)+' &middot; crossings '+fmt(p.n_crossing)+' &middot; slope '+(p.slope_pct==null?'-':p.slope_pct+'%')
       +'</div></details>';
   }
@@ -282,9 +414,10 @@ function buildControls(){
   const m=App.meta;
   const wbox=document.getElementById('weights');
   m.factors.forEach(f=>{
-    const w=App.weights[f.key];
+    const w=App.weights[f.key]||0;
+    const tip=(f.key==='tree'&&App.treeNote)?App.treeNote:(f.desc||'');
     wbox.insertAdjacentHTML('beforeend',
-      '<div class="slider"><div class="row"><label>'+f.label+' <span class="pillk">'+f.kind+'</span></label>'
+      '<div class="slider" title="'+tip+'"><div class="row"><label>'+f.label+' <span class="pillk">'+f.kind+'</span></label>'
       +'<span class="val" id="wv_'+f.key+'">'+w.toFixed(2)+'</span></div>'
       +'<input type="range" min="0" max="0.5" step="0.01" value="'+w+'" data-w="'+f.key+'"></div>');
   });
@@ -309,15 +442,16 @@ function buildControls(){
   // totals
   const t=m.totals;
   const tbox=document.getElementById('totals');
-  [['Sidewalks',fmt(t.sidewalk_km)+' km'],['Parks',fmt(t.park_km2)+' km²'],
-   ['Amenities',fmt(t.amenities)],['Transit stops',fmt(t.transit_stops)],
-   ['Trees',fmt(t.trees)],['Crossings',fmt(t.crossings)]].forEach(c=>{
-    tbox.insertAdjacentHTML('beforeend','<div class="card"><div class="v">'+c[1]+'</div><div class="l">'+c[0]+'</div></div>');
+  [['Sidewalks',fmt(t.sidewalk_km)+' km',''],['Parks',fmt(t.park_km2)+' km²',''],
+   ['Amenities',fmt(t.amenities),''],['Transit stops',fmt(t.transit_stops),''],
+   ['Mapped trees',fmt(t.trees),App.treeNote||''],['Crossings',fmt(t.crossings),'']].forEach(c=>{
+    tbox.insertAdjacentHTML('beforeend','<div class="card"'+(c[2]?' title="'+c[2]+'"':'')+'><div class="v">'+c[1]+'</div><div class="l">'+c[0]+'</div></div>');
   });
   document.getElementById('foot').innerHTML=
     'Scores are percentile ranks across Seattle (0 = least, 100 = most walkable), recomputed live from your weights. '
     +'Data: OpenStreetMap, elevation via open-meteo, '+fmt(m.n_hexes)+' hexes at H3 resolution '+m.resolution+'. Generated '+m.generatedAt+'. '
-    +'A proxy index, not ground truth; see METHODOLOGY.';
+    +'The tree factor counts OSM-mapped tree points, not real canopy; it undercounts most of the city. '
+    +'A proxy index, not ground truth; read the <a href="/walkability/METHODOLOGY.md">methodology</a>.';
 }
 
 async function init(){
@@ -330,12 +464,22 @@ async function init(){
     fetch('/walkability/data/meta.json').then(r=>r.json())
   ]);
   App.data.hex=hex; App.data.nb=nb; App.meta=meta;
+  const zeroTree=hex.features.filter(f=>!(f.properties.n_tree>0)).length;
+  App.treeNote='Counts OSM-mapped tree points, not measured canopy. '
+    +Math.round(100*zeroTree/hex.features.length)+'% of hexes ('+fmt(zeroTree)+' of '+fmt(hex.features.length)
+    +') have zero mapped trees, so this factor partly reflects mapping coverage.';
   const def=getPreset(DEFAULT_PRESET);
   App.activePreset=DEFAULT_PRESET;
   App.weights=Object.assign({},def.weights);
   App.slope=def.slope; App.traffic=def.traffic;
+  readURL();
+  computeRobust();
   buildControls();
-  setLayer('hex');
+  if(App.activePreset==='custom'){
+    document.getElementById('presetdesc').textContent='Custom weighting from a shared link. Adjust the sliders under Customize, or pick a profile to start from.';
+  }
+  setLayer(App.active);
+  renderRankings();
   document.getElementById('loading').remove();
   // Frame the city. In a flex container the map element can get its real size a
   // tick after init, leaving Leaflet sized for a smaller viewport. A

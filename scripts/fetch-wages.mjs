@@ -9,6 +9,10 @@ import { execFileSync } from 'node:child_process';
 
 const TOKEN = process.env.SOCRATA_APP_TOKEN ?? '';
 const ID = '2khk-5ukd';
+// Seattle's citywide minimum wage for the current year (SMC 14.19; a policy
+// constant, not a field in the dataset). Update when the city announces the
+// new-year rate.
+const MIN_WAGE = 20.76;
 const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'lib', 'generated', 'wages.json');
 const num = (v) => Number(v) || 0;
 
@@ -31,6 +35,8 @@ const pct = (arr, p) => {
   const s = [...arr].sort((a, b) => a - b);
   return s[Math.min(s.length - 1, Math.floor(p * s.length))];
 };
+const mean = (arr) => (arr.length === 0 ? 0 : arr.reduce((a, b) => a + b, 0) / arr.length);
+const r2 = (x) => Math.round(x * 100) / 100;
 
 async function main() {
   const all = [];
@@ -49,9 +55,16 @@ async function main() {
     byDeptMap.get(d).push(num(r.hourly_rate));
   }
   const byDept = [...byDeptMap.entries()]
-    .map(([department, rs]) => ({ department, n: rs.length, median: Math.round(median(rs) * 100) / 100, p90: Math.round(pct(rs, 0.9) * 100) / 100 }))
+    .map(([department, rs]) => ({ department, n: rs.length, median: r2(median(rs)), p90: r2(pct(rs, 0.9)) }))
     .filter((d) => d.n >= 25)
     .sort((a, b) => b.median - a.median);
+
+  // The big departments, ranked by headcount, with average rate: the
+  // size-vs-pay view (Parks is the biggest and the cheapest big one).
+  const bigDepts = [...byDeptMap.entries()]
+    .map(([department, rs]) => ({ department, n: rs.length, avg: r2(mean(rs)) }))
+    .filter((d) => d.n >= 400)
+    .sort((a, b) => b.n - a.n);
 
   // Best-paid job titles (by median rate, with a headcount floor).
   const byTitleMap = new Map();
@@ -60,11 +73,25 @@ async function main() {
     if (!byTitleMap.has(t)) byTitleMap.set(t, []);
     byTitleMap.get(t).push(num(r.hourly_rate));
   }
-  const topTitles = [...byTitleMap.entries()]
-    .map(([title, rs]) => ({ title, n: rs.length, median: Math.round(median(rs) * 100) / 100 }))
+  const titleStats = [...byTitleMap.entries()]
+    .map(([title, rs]) => ({ title, n: rs.length, median: r2(median(rs)), avg: r2(mean(rs)) }));
+  const topTitles = titleStats
     .filter((t) => t.n >= 10)
     .sort((a, b) => b.median - a.median)
     .slice(0, 15);
+
+  // Most common job titles by headcount (lifeguard is #1).
+  const commonTitles = [...titleStats].sort((a, b) => b.n - a.n).slice(0, 10);
+
+  // The bottom of the pay ladder: lowest average rate among titles with
+  // at least 10 people.
+  const bottomTitles = titleStats
+    .filter((t) => t.n >= 10)
+    .sort((a, b) => a.avg - b.avg)
+    .slice(0, 10);
+
+  // Every distinct title, for the full CSV export.
+  const allTitles = [...titleStats].sort((a, b) => b.n - a.n);
 
   // Rate distribution (hourly buckets).
   const buckets = [['<25', 0, 25], ['25-40', 25, 40], ['40-55', 40, 55], ['55-70', 55, 70], ['70-90', 70, 90], ['90-120', 90, 120], ['120+', 120, 1e9]];
@@ -72,14 +99,22 @@ async function main() {
 
   const summary = {
     n: all.length,
-    median: Math.round(median(rates) * 100) / 100,
-    p90: Math.round(pct(rates, 0.9) * 100) / 100,
-    p99: Math.round(pct(rates, 0.99) * 100) / 100,
-    max: Math.round(Math.max(...rates) * 100) / 100,
+    median: r2(median(rates)),
+    p90: r2(pct(rates, 0.9)),
+    p99: r2(pct(rates, 0.99)),
+    max: r2(Math.max(...rates)),
+    min: r2(Math.min(...rates)),
+    minWage: MIN_WAGE,
+    belowMinWage: rates.filter((r) => r < MIN_WAGE).length,
   };
 
   fs.mkdirSync(path.dirname(FILE), { recursive: true });
-  fs.writeFileSync(FILE, JSON.stringify({ generatedAt: new Date().toISOString(), summary, byDept, topTitles, dist }, null, 2));
-  console.log(`Wrote wages.json: ${all.length} employees, ${byDept.length} depts, median $${summary.median}/hr`);
+  fs.writeFileSync(FILE, JSON.stringify({
+    generatedAt: new Date().toISOString(), summary, byDept, bigDepts, topTitles, commonTitles, bottomTitles, allTitles, dist,
+  }, null, 2));
+  console.log(`Wrote wages.json: ${all.length} employees, ${byDept.length} depts, ${allTitles.length} titles, median $${summary.median}/hr`);
+  console.log(`Most common: ${commonTitles.slice(0, 3).map((t) => `${t.title} (${t.n} @ $${t.avg})`).join(', ')}`);
+  console.log(`Biggest depts: ${bigDepts.slice(0, 3).map((d) => `${d.department} (${d.n} @ $${d.avg})`).join(', ')}`);
+  console.log(`Floor: min $${summary.min}/hr, ${summary.belowMinWage} below the $${MIN_WAGE} minimum wage`);
 }
 main().catch((e) => { console.error(e); process.exit(1); });

@@ -18,37 +18,37 @@ export function str(v: unknown): string {
 /** Whole number with thousands separators; em dash for null. */
 export function fmtInt(v: unknown): string {
   const x = num(v);
-  return x === null ? '–' : Math.round(x).toLocaleString('en-US');
+  return x === null ? 'n/a' : Math.round(x).toLocaleString('en-US');
 }
 
 /** Calendar year as a plain integer (no thousands separator). */
 export function fmtYear(v: unknown): string {
   const x = num(v);
-  return x === null ? '–' : String(Math.trunc(x));
+  return x === null ? 'n/a' : String(Math.trunc(x));
 }
 
 /** One decimal place. */
 export function fmt1(v: unknown): string {
   const x = num(v);
-  return x === null ? '–' : x.toFixed(1);
+  return x === null ? 'n/a' : x.toFixed(1);
 }
 
 /** Percentage with one decimal place. */
 export function fmtPct(v: unknown): string {
   const x = num(v);
-  return x === null ? '–' : `${x.toFixed(1)}%`;
+  return x === null ? 'n/a' : `${x.toFixed(1)}%`;
 }
 
 /** Whole-dollar money like $12,345. */
 export function fmtMoney(v: unknown): string {
   const x = num(v);
-  return x === null ? '–' : `$${Math.round(x).toLocaleString('en-US')}`;
+  return x === null ? 'n/a' : `$${Math.round(x).toLocaleString('en-US')}`;
 }
 
 /** Compact money like $1.2M / $3.4B for axis ticks and large totals. */
 export function fmtMoneyCompact(v: unknown): string {
   const x = num(v);
-  if (x === null) return '–';
+  if (x === null) return 'n/a';
   const abs = Math.abs(x);
   if (abs >= 1e9) return `$${(x / 1e9).toFixed(1)}B`;
   if (abs >= 1e6) return `$${(x / 1e6).toFixed(1)}M`;
@@ -59,7 +59,7 @@ export function fmtMoneyCompact(v: unknown): string {
 /** Calendar days with a unit suffix. */
 export function fmtDays(v: unknown): string {
   const x = num(v);
-  return x === null ? '–' : `${Math.round(x).toLocaleString('en-US')} days`;
+  return x === null ? 'n/a' : `${Math.round(x).toLocaleString('en-US')} days`;
 }
 
 /**
