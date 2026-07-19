@@ -1,4 +1,7 @@
+import Link from 'next/link';
 import { ChartCard } from '@/components/ChartCard';
+import { DataFreshness } from '@/components/DataFreshness';
+import { RelatedLinks } from '@/components/RelatedLinks';
 import { DataTable } from '@/components/DataTable';
 import { BarsChart, RankedBars } from '@/components/charts';
 import { pets } from '@/lib/data';
@@ -36,6 +39,7 @@ export default function PetsPage() {
 
   return (
     <>
+      <p className="crumb"><Link href="/">Seattle in Data</Link> <span className="crumb-sep">/</span> <Link href="/category/books-pets-parks">Books, Pets, and Parks</Link></p>
       <div className="page-head">
         <p className="eyebrow">Delight</p>
         <h1>Seattle by pet</h1>
@@ -45,6 +49,8 @@ export default function PetsPage() {
           animals, which breeds they keep, and where. Also, yes, there are goats.
         </p>
       </div>
+
+      <DataFreshness date={pets.generatedAt} />
 
       <div className="stat-grid" style={{ marginBottom: 24 }}>
         <div className="stat-card">
@@ -108,6 +114,8 @@ export default function PetsPage() {
           height={340}
         />
       </ChartCard>
+
+      <RelatedLinks slug="/pets" />
     </>
   );
 }

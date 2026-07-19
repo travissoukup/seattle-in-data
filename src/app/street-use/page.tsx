@@ -4,6 +4,8 @@ import { DataTable } from '@/components/DataTable';
 import { StackedRankedBars } from '@/components/charts';
 import { sdot } from '@/lib/data';
 import { fmtInt, toCsv } from '@/lib/format';
+import { DataFreshness } from '@/components/DataFreshness';
+import { RelatedLinks } from '@/components/RelatedLinks';
 
 export const metadata = { title: 'Whose Clock Is It? · Exploring Seattle with Data' };
 
@@ -40,6 +42,7 @@ export default function StreetUsePage() {
 
   return (
     <>
+      <p className="crumb"><Link href="/">Seattle in Data</Link> <span className="crumb-sep">/</span> <Link href="/category/permits-and-construction">Permits and Construction</Link></p>
       <div className="page-head">
         <p className="eyebrow">Accountability</p>
         <h1>Whose clock is it?</h1>
@@ -52,6 +55,7 @@ export default function StreetUsePage() {
           same kind of question of SDCI building permits.
         </p>
       </div>
+      <DataFreshness date={sdot.generatedAt} />
 
       <div className="stat-grid" style={{ marginBottom: 24 }}>
         <div className="stat-card">
@@ -139,6 +143,8 @@ export default function StreetUsePage() {
           from the SDCI building permits in The Permit Fast Lane.
         </p>
       </div>
+
+      <RelatedLinks slug="/street-use" />
     </>
   );
 }

@@ -1,0 +1,94 @@
+{
+ "generatedAt": "2026-06-24",
+ "resolution": 9,
+ "n_hexes": 2332,
+ "bbox": [
+  47.48,
+  -122.46,
+  47.74,
+  -122.22
+ ],
+ "factors": [
+  {
+   "key": "sidewalk",
+   "label": "Sidewalks",
+   "kind": "infrastructure",
+   "desc": "Sidewalk and footway length"
+  },
+  {
+   "key": "amenity",
+   "label": "Destinations",
+   "kind": "destinations",
+   "desc": "Shops, food, civic amenities"
+  },
+  {
+   "key": "park",
+   "label": "Parks & green",
+   "kind": "green",
+   "desc": "Park and green-space area"
+  },
+  {
+   "key": "path",
+   "label": "Paths & trails",
+   "kind": "infrastructure",
+   "desc": "Foot paths, steps, pedestrian ways"
+  },
+  {
+   "key": "transit",
+   "label": "Transit access",
+   "kind": "destinations",
+   "desc": "Bus stops and rail/transit platforms"
+  },
+  {
+   "key": "bike",
+   "label": "Bike lanes",
+   "kind": "infrastructure",
+   "desc": "Cycleways and bike lanes"
+  },
+  {
+   "key": "tree",
+   "label": "Tree canopy",
+   "kind": "comfort",
+   "desc": "Mapped street and park trees"
+  },
+  {
+   "key": "crossing",
+   "label": "Crossings",
+   "kind": "safety",
+   "desc": "Marked crossings and pedestrian signals"
+  }
+ ],
+ "defaultWeights": {
+  "sidewalk": 0.3,
+  "amenity": 0.16,
+  "park": 0.16,
+  "path": 0.1,
+  "transit": 0.08,
+  "bike": 0.08,
+  "tree": 0.07,
+  "crossing": 0.05
+ },
+ "scalers": {
+  "slope": {
+   "label": "Slope penalty",
+   "default": 0.5,
+   "desc": "Steeper hexes score lower. Uses max grade to neighboring hexes."
+  },
+  "traffic": {
+   "label": "Traffic-calm penalty",
+   "default": 0.3,
+   "desc": "Hexes with more high-speed (>= 30 mph) road exposure score lower."
+  }
+ },
+ "totals": {
+  "sidewalk_km": 4054,
+  "path_km": 128,
+  "bike_km": 428,
+  "park_km2": 16.0,
+  "trees": 17594,
+  "amenities": 6201,
+  "transit_stops": 2642,
+  "crossings": 46267
+ },
+ "source": "OpenStreetMap via Overpass; elevation via open-meteo; neighborhoods via seattleio/seattle-boundaries-data"
+}

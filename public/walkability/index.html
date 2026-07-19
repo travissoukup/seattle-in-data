@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seattle Walkability Index</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+:root{
+  --bg:#0f1419;--panel:#1a212b;--panel2:#222c39;--ink:#e8edf2;--muted:#8a97a6;
+  --line:#2c3744;--accent:#4aa3ff;--good:#2ca25f;--mid:#f4d03f;--bad:#d7191c;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:14px}
+#wrap{display:flex;height:100vh;overflow:hidden}
+#map{flex:1;height:100%;background:#0b0f14}
+#side{width:340px;flex:none;height:100%;overflow-y:auto;background:var(--panel);
+  border-left:1px solid var(--line);padding:16px 16px 60px}
+h1{font-size:17px;margin:0 0 2px}
+.sub{color:var(--muted);font-size:12px;margin:0 0 14px;line-height:1.4}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);
+  margin:20px 0 8px;border-bottom:1px solid var(--line);padding-bottom:5px}
+.seg{display:flex;gap:0;margin:10px 0 4px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{flex:1;background:var(--panel2);color:var(--muted);border:none;padding:8px;
+  font:inherit;cursor:pointer}
+.seg button.on{background:var(--accent);color:#06121f;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 6px}
+.chip{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);border-radius:18px;cursor:pointer}
+.chip:hover{border-color:var(--accent)}
+.chip.on{background:var(--accent);color:#06121f;border-color:var(--accent);font-weight:600}
+.chip.custom{border-style:dashed}
+.presetdesc{color:var(--muted);font-size:12.5px;margin:2px 0 12px;line-height:1.45;min-height:34px}
+details#customize{border:1px solid var(--line);border-radius:8px;padding:0 12px 6px;margin:8px 0}
+details#customize>summary{padding:11px 0;color:var(--ink);font-weight:600;font-size:13px;cursor:pointer;list-style:none}
+details#customize>summary::-webkit-details-marker{display:none}
+details#customize>summary::before{content:'\25B8\00a0';color:var(--muted)}
+details#customize[open]>summary::before{content:'\25BE\00a0'}
+details#customize h3{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:12px 0 4px}
+.slider{margin:11px 0}
+.slider .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
+.slider label{font-size:13px}
+.slider .val{font-variant-numeric:tabular-nums;color:var(--accent);font-size:12px}
+.slider .pillk{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+input[type=range]{width:100%;accent-color:var(--accent);margin:0}
+.btnrow{display:flex;gap:8px;margin:14px 0 4px}
+button.act{flex:1;background:var(--accent);color:#06121f;border:none;border-radius:8px;
+  padding:9px;font:inherit;font-weight:600;cursor:pointer}
+button.ghost{background:var(--panel2);color:var(--ink);border:1px solid var(--line);
+  border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.legend{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:12px;color:var(--muted)}
+.ramp{height:10px;flex:1;border-radius:5px;
+  background:linear-gradient(90deg,#d7191c,#fdae61,#ffffbf,#a6d96a,#1a9641)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0}
+.card{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.card .v{font-size:16px;font-weight:650}
+.card .l{font-size:11px;color:var(--muted)}
+.foot{color:var(--muted);font-size:11px;line-height:1.5;margin-top:10px}
+a{color:var(--accent)}
+#detail{font-size:12.5px}
+#detail .scorebig{font-size:30px;font-weight:700;letter-spacing:-.5px}
+.frow{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid var(--line)}
+.frow .bar{height:6px;background:var(--accent);border-radius:3px;display:inline-block;vertical-align:middle;margin-left:6px}
+.barwrap{flex:1;margin:0 8px;background:#11161d;border-radius:3px;align-self:center}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--panel2);color:var(--ink)}
+.leaflet-popup-content{margin:10px 12px;font-size:12px}
+.muted{color:var(--muted)}
+.tag{display:inline-block;background:var(--panel2);border:1px solid var(--line);border-radius:10px;
+  padding:1px 8px;font-size:11px;color:var(--muted)}
+details{margin-top:6px}summary{cursor:pointer;color:var(--muted);font-size:12px}
+#loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:var(--bg);z-index:1000;color:var(--muted)}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="map"><div id="loading">Loading Seattle walkability data...</div></div>
+  <div id="side">
+    <h1>Seattle Walkability Index</h1>
+    <p class="sub">A pedestrian-amenity walkability score for every part of Seattle, scored relative to the rest of the city. Adjust the weights to match what walkability means to you, then watch the map recolor.</p>
+
+    <div class="legend"><span>Less</span><span class="ramp"></span><span>More</span></div>
+    <div class="seg" id="layerseg">
+      <button data-layer="hex" class="on">Hex grid</button>
+      <button data-layer="nb">Neighborhoods</button>
+    </div>
+
+    <h2>Weighting profile</h2>
+    <div class="chips" id="presetchips"></div>
+    <p class="presetdesc" id="presetdesc"></p>
+
+    <div id="detail"></div>
+
+    <details id="customize">
+      <summary>Customize weights</summary>
+      <h3>Factor weights</h3>
+      <div id="weights"></div>
+      <h3>Adjustment scalers</h3>
+      <div id="scalers"></div>
+      <div class="btnrow">
+        <button class="ghost" id="recalc">Recalculate</button>
+        <button class="ghost" id="reset">Reset to Balanced</button>
+      </div>
+      <label class="slider"><input type="checkbox" id="live" checked> live recompute on every change</label>
+    </details>
+
+    <h2>Seattle totals</h2>
+    <div class="cards" id="totals"></div>
+
+    <p class="foot" id="foot"></p>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+const App = {
+  map:null, layers:{hex:null, nb:null}, data:{hex:null, nb:null}, meta:null,
+  active:'hex', weights:{}, slope:0.5, traffic:0.3, scores:{hex:null, nb:null},
+  activePreset:'balanced'
+};
+
+// Named weighting profiles. The viewer starts on the default (Balanced) and can
+// switch lens in one click, or open Customize to hand-tune (which becomes Custom).
+const PRESETS = [
+  {key:'balanced', name:'Balanced',
+   description:'An even-handed score that rewards good sidewalks while giving fair weight to destinations, parks, and everything else on foot.',
+   weights:{sidewalk:0.30, amenity:0.16, park:0.16, path:0.10, transit:0.08, bike:0.08, tree:0.07, crossing:0.05}, slope:0.5, traffic:0.3},
+  {key:'everyday-errands', name:'Everyday Errands',
+   description:'Favors neighborhoods where shops and daily stops sit within an easy, safe walk of home.',
+   weights:{sidewalk:0.27, amenity:0.30, park:0.06, path:0.05, transit:0.11, bike:0.03, tree:0.04, crossing:0.14}, slope:0.6, traffic:0.6},
+  {key:'transit-first', name:'Transit First',
+   description:'Favors areas with frequent bus and rail nearby and safe walking to reach the stops.',
+   weights:{sidewalk:0.22, amenity:0.14, park:0.05, path:0.05, transit:0.34, bike:0.03, tree:0.05, crossing:0.12}, slope:0.4, traffic:0.45},
+  {key:'stroller-and-wheels', name:'Stroller & Wheels',
+   description:'Smooth flat sidewalks, safe crossings, and quiet streets so wheels roll easily and kids stay close.',
+   weights:{sidewalk:0.38, amenity:0.12, park:0.12, path:0.06, transit:0.08, bike:0.00, tree:0.06, crossing:0.18}, slope:1.0, traffic:0.9},
+  {key:'leafy-stroll', name:'Leafy Stroll',
+   description:'Seeks out parks, trails, and shady tree-lined streets for a calm walk far from traffic.',
+   weights:{sidewalk:0.14, amenity:0.10, park:0.24, path:0.16, transit:0.06, bike:0.06, tree:0.18, crossing:0.06}, slope:0.7, traffic:0.85}
+];
+const DEFAULT_PRESET = 'balanced';
+function getPreset(key){ return PRESETS.filter(p=>p.key===key)[0]; }
+
+function colorFor(score){ // score 0..100
+  // 5-stop diverging red->green
+  const stops=[[0,[215,25,28]],[25,[253,174,97]],[50,[255,255,191]],[75,[166,217,106]],[100,[26,150,65]]];
+  let a=stops[0],b=stops[stops.length-1];
+  for(let i=0;i<stops.length-1;i++){ if(score>=stops[i][0]&&score<=stops[i+1][0]){a=stops[i];b=stops[i+1];break;} }
+  const t=(score-a[0])/((b[0]-a[0])||1);
+  const c=a[1].map((v,i)=>Math.round(v+(b[1][i]-v)*t));
+  return 'rgb('+c[0]+','+c[1]+','+c[2]+')';
+}
+
+function rankNormalize(values){ // -> 0..100 percentile rank
+  const idx=values.map((v,i)=>[v,i]).sort((p,q)=>p[0]-q[0]);
+  const out=new Array(values.length); const n=values.length;
+  let i=0;
+  while(i<n){ let j=i; while(j+1<n && idx[j+1][0]===idx[i][0]) j++;
+    const rank=(i+j)/2; for(let k=i;k<=j;k++) out[idx[k][1]]=n>1?(rank/(n-1))*100:50; i=j+1; }
+  return out;
+}
+
+function computeScores(layer){
+  const feats=App.data[layer].features;
+  const W=App.weights, wsum=Object.values(W).reduce((a,b)=>a+b,0)||1;
+  const slopeS=App.slope, trafficS=App.traffic;
+  const base=feats.map(f=>{
+    const p=f.properties; let s=0;
+    for(const k in W) s+=W[k]*(p['f_'+k]||0);
+    s/=wsum;
+    const slopeScaler=1-slopeS*(p.f_slope||0);
+    const trafficScaler=1-trafficS*(p.f_road_fast||0);
+    return Math.max(0,s)*slopeScaler*trafficScaler;
+  });
+  return rankNormalize(base);
+}
+
+function styleFn(layer){
+  const scores=App.scores[layer];
+  return (feature)=>{
+    const i=feature.__i;
+    const sc=scores[i];
+    return {fillColor:colorFor(sc), fillOpacity:layer==='hex'?0.72:0.6,
+      color:layer==='hex'?'rgba(10,15,20,0.25)':'#0b0f14', weight:layer==='hex'?0.5:1.2};
+  };
+}
+
+function buildLayer(layer){
+  if(App.layers[layer]){ App.map.removeLayer(App.layers[layer]); }
+  App.scores[layer]=computeScores(layer);
+  const gj=App.data[layer];
+  gj.features.forEach((f,i)=>f.__i=i);
+  App.layers[layer]=L.geoJSON(gj,{
+    style:styleFn(layer),
+    onEachFeature:(feature,lyr)=>{
+      lyr.on('click',()=>showDetail(feature, App.scores[layer][feature.__i], layer));
+      lyr.on('mouseover',()=>lyr.setStyle({weight:2,color:'#fff'}));
+      lyr.on('mouseout',()=>App.layers[layer].resetStyle(lyr));
+    }
+  });
+}
+
+function setLayer(layer){
+  App.active=layer;
+  document.querySelectorAll('#layerseg button').forEach(b=>b.classList.toggle('on',b.dataset.layer===layer));
+  ['hex','nb'].forEach(l=>{ if(App.layers[l]&&App.map.hasLayer(App.layers[l])) App.map.removeLayer(App.layers[l]); });
+  if(!App.layers[layer]) buildLayer(layer);
+  App.layers[layer].addTo(App.map);
+}
+
+function recolor(){
+  ['hex','nb'].forEach(l=>{
+    if(!App.data[l]) return;
+    App.scores[l]=computeScores(l);
+    if(App.layers[l]) App.layers[l].setStyle(styleFn(l));
+  });
+}
+
+function fmt(n){ return n==null?'-':Number(n).toLocaleString('en-US'); }
+
+function showDetail(feature, score, layer){
+  const p=feature.properties; const m=App.meta;
+  let rows='';
+  m.factors.forEach(f=>{
+    const v=p['f_'+f.key]||0; const pct=Math.round(v*100);
+    rows+='<div class="frow"><span>'+f.label+'</span>'
+      +'<span class="barwrap"><span class="bar" style="width:'+Math.round(v*80)+'px"></span></span>'
+      +'<span class="muted">'+pct+'</span></div>';
+  });
+  const where = layer==='hex'
+    ? ('<span class="tag">'+(p.nb||'Seattle')+'</span> <span class="tag">hex '+(p.h3||'').slice(0,8)+'</span>')
+    : ('<span class="tag">'+(p.nb||'')+'</span> <span class="tag">'+fmt(p.n_hexes)+' hexes</span>');
+  let raw='';
+  if(layer==='hex'){
+    raw='<details><summary>Raw counts in this hex</summary><div class="foot">'
+      +'Sidewalk '+fmt(p.n_sidewalk_m)+' m &middot; paths '+fmt(p.n_path_m)+' m &middot; bike '+fmt(p.n_bike_m)+' m<br>'
+      +'Park '+fmt(Math.round((p.n_park_m2||0)/100)/100)+' ha &middot; trees '+fmt(p.n_tree)+' &middot; amenities '+fmt(p.n_amenity)+'<br>'
+      +'transit '+fmt(p.n_transit)+' &middot; crossings '+fmt(p.n_crossing)+' &middot; slope '+(p.slope_pct==null?'-':p.slope_pct+'%')
+      +'</div></details>';
+  }
+  document.getElementById('detail').innerHTML=
+    '<div class="scorebig" style="color:'+colorFor(score)+'">'+Math.round(score)+'<span style="font-size:14px;color:var(--muted)"> / 100</span></div>'
+    +'<div style="margin:2px 0 8px">'+where+'</div>'
+    +'<div class="pillk muted" style="font-size:11px;margin-bottom:4px">Factor percentiles (0-100)</div>'
+    +rows+raw;
+}
+
+function syncSliders(){
+  document.querySelectorAll('[data-w]').forEach(i=>{ i.value=App.weights[i.dataset.w]; document.getElementById('wv_'+i.dataset.w).textContent=Number(App.weights[i.dataset.w]).toFixed(2); });
+  document.querySelectorAll('[data-s]').forEach(i=>{ i.value=App[i.dataset.s]; document.getElementById('sv_'+i.dataset.s).textContent=Number(App[i.dataset.s]).toFixed(2); });
+}
+function renderChips(){
+  const box=document.getElementById('presetchips'); box.innerHTML='';
+  PRESETS.forEach(p=>{
+    const b=document.createElement('button');
+    b.className='chip'+(App.activePreset===p.key?' on':'');
+    b.textContent=p.name;
+    b.onclick=()=>applyPreset(p.key);
+    box.appendChild(b);
+  });
+  if(App.activePreset==='custom'){
+    const c=document.createElement('button'); c.className='chip custom on'; c.textContent='Custom'; box.appendChild(c);
+  }
+}
+function applyPreset(key){
+  const p=getPreset(key); if(!p) return;
+  App.weights=Object.assign({},p.weights); App.slope=p.slope; App.traffic=p.traffic; App.activePreset=key;
+  syncSliders(); renderChips();
+  document.getElementById('presetdesc').textContent=p.description;
+  recolor();
+}
+function setCustom(){
+  if(App.activePreset!=='custom'){
+    App.activePreset='custom'; renderChips();
+    document.getElementById('presetdesc').textContent='Custom weighting. Adjust the sliders below, or pick a profile to start from.';
+  }
+}
+
+function buildControls(){
+  const m=App.meta;
+  const wbox=document.getElementById('weights');
+  m.factors.forEach(f=>{
+    const w=App.weights[f.key];
+    wbox.insertAdjacentHTML('beforeend',
+      '<div class="slider"><div class="row"><label>'+f.label+' <span class="pillk">'+f.kind+'</span></label>'
+      +'<span class="val" id="wv_'+f.key+'">'+w.toFixed(2)+'</span></div>'
+      +'<input type="range" min="0" max="0.5" step="0.01" value="'+w+'" data-w="'+f.key+'"></div>');
+  });
+  const sbox=document.getElementById('scalers');
+  [['slope','Slope penalty',App.slope],['traffic','Traffic-calm penalty',App.traffic]].forEach(([k,lab,val])=>{
+    sbox.insertAdjacentHTML('beforeend',
+      '<div class="slider"><div class="row"><label>'+lab+'</label><span class="val" id="sv_'+k+'">'+val.toFixed(2)+'</span></div>'
+      +'<input type="range" min="0" max="1" step="0.05" value="'+val+'" data-s="'+k+'"></div>');
+  });
+  document.getElementById('side').addEventListener('input',e=>{
+    const t=e.target;
+    if(t.dataset.w){ App.weights[t.dataset.w]=parseFloat(t.value); document.getElementById('wv_'+t.dataset.w).textContent=parseFloat(t.value).toFixed(2); setCustom(); }
+    else if(t.dataset.s){ App[t.dataset.s]=parseFloat(t.value); document.getElementById('sv_'+t.dataset.s).textContent=parseFloat(t.value).toFixed(2); setCustom(); }
+    else return;
+    if(document.getElementById('live').checked) recolor();
+  });
+  document.getElementById('recalc').onclick=recolor;
+  document.getElementById('reset').onclick=()=>applyPreset(DEFAULT_PRESET);
+  document.querySelectorAll('#layerseg button').forEach(b=>b.onclick=()=>setLayer(b.dataset.layer));
+  renderChips();
+  document.getElementById('presetdesc').textContent=(getPreset(App.activePreset)||{}).description||'';
+  // totals
+  const t=m.totals;
+  const tbox=document.getElementById('totals');
+  [['Sidewalks',fmt(t.sidewalk_km)+' km'],['Parks',fmt(t.park_km2)+' km²'],
+   ['Amenities',fmt(t.amenities)],['Transit stops',fmt(t.transit_stops)],
+   ['Trees',fmt(t.trees)],['Crossings',fmt(t.crossings)]].forEach(c=>{
+    tbox.insertAdjacentHTML('beforeend','<div class="card"><div class="v">'+c[1]+'</div><div class="l">'+c[0]+'</div></div>');
+  });
+  document.getElementById('foot').innerHTML=
+    'Scores are percentile ranks across Seattle (0 = least, 100 = most walkable), recomputed live from your weights. '
+    +'Data: OpenStreetMap, elevation via open-meteo, '+fmt(m.n_hexes)+' hexes at H3 resolution '+m.resolution+'. Generated '+m.generatedAt+'. '
+    +'A proxy index, not ground truth; see METHODOLOGY.';
+}
+
+async function init(){
+  App.map=L.map('map',{zoomControl:true}).setView([47.62,-122.33],12);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    {attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(App.map);
+  const [hex,nb,meta]=await Promise.all([
+    fetch('/walkability/data/hexes.geojson').then(r=>r.json()),
+    fetch('/walkability/data/neighborhoods.geojson').then(r=>r.json()),
+    fetch('/walkability/data/meta.json').then(r=>r.json())
+  ]);
+  App.data.hex=hex; App.data.nb=nb; App.meta=meta;
+  const def=getPreset(DEFAULT_PRESET);
+  App.activePreset=DEFAULT_PRESET;
+  App.weights=Object.assign({},def.weights);
+  App.slope=def.slope; App.traffic=def.traffic;
+  buildControls();
+  setLayer('hex');
+  document.getElementById('loading').remove();
+  // Frame the city. In a flex container the map element can get its real size a
+  // tick after init, leaving Leaflet sized for a smaller viewport. A
+  // ResizeObserver re-syncs the map whenever the element resizes, which is the
+  // canonical fix and repaints tiles and the hex layer across the full pane.
+  App.map.setView([47.62, -122.34], 11);
+  App.map.invalidateSize();
+  if (window.ResizeObserver){
+    new ResizeObserver(function(){ App.map.invalidateSize(); }).observe(document.getElementById('map'));
+  }
+  window.addEventListener('load', function(){ App.map.invalidateSize(); });
+}
+init().catch(e=>{document.getElementById('loading').textContent='Error: '+e.message;});
+</script>
+</body>
+</html>

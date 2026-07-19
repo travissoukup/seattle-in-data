@@ -1,11 +1,14 @@
+import Link from 'next/link';
 import { ChartCard } from '@/components/ChartCard';
+import { DataFreshness } from '@/components/DataFreshness';
+import { RelatedLinks } from '@/components/RelatedLinks';
 import { DataTable } from '@/components/DataTable';
 import { TrendChart, RankedBars } from '@/components/charts';
 import { TopBooksTimeSeries } from '@/components/TopBooksTimeSeries';
 import { library, digitalSurge, topBooksMerged } from '@/lib/data';
 import { fmtInt, num, toCsv } from '@/lib/format';
 
-export const metadata = { title: 'What Seattle Reads · Exploring Seattle with Data' };
+export const metadata = { title: 'What Seattle reads | Seattle in Data' };
 
 export default function LibraryPage() {
   const surge = digitalSurge().filter((r) => Number(r.year) >= 2010 && Number(r.year) < 2026);
@@ -23,17 +26,20 @@ export default function LibraryPage() {
 
   return (
     <>
+      <p className="crumb"><Link href="/">Seattle in Data</Link> <span className="crumb-sep">/</span> <Link href="/category/books-pets-parks">Books, Pets, and Parks</Link></p>
       <div className="page-head">
         <p className="eyebrow">Culture</p>
         <h1>What Seattle reads</h1>
         <p>
-          Every month the Seattle Public Library publishes what got checked out, title by title, physical and
-          digital, going back to 2005: more than fifty million checkouts in all. A circulation report to most
-          people; a cultural seismograph if you look closely. Here is what it shows, with one honest caveat up
-          front: the public data has no branch and no hold-queue figures, so the neighborhood-divergence and
-          waitlist angles are not possible. What remains is still plenty.
+          Every month the Seattle Public Library posts what got checked out, title by title, physical and
+          digital, going back to 2005. That is more than fifty million checkouts. It reads like a boring
+          circulation report, but it tells you what the whole city was paying attention to, month by month. One
+          thing to know up front: the public data has no branch and no waitlist numbers, so we cannot map it by
+          neighborhood or show holds. What is left is still a lot.
         </p>
       </div>
+
+      <DataFreshness date={library.generatedAt} />
 
       <ChartCard
         title="The pandemic flipped Seattle from print to digital, for good"
@@ -84,7 +90,7 @@ export default function LibraryPage() {
       </ChartCard>
 
       <div className="page-head" style={{ marginTop: 8 }}>
-        <h2 className="section-title" style={{ fontSize: 22 }}>The cultural seismograph</h2>
+        <h2 className="section-title" style={{ fontSize: 22 }}>Why a book suddenly spikes</h2>
         <p className="desc">
           Each title has a shape, and the shape is the story: a news event, a streaming adaptation, a
           book-club pick, a backlash. Monthly checkouts for four titles that each rose for a different reason.
@@ -107,6 +113,8 @@ export default function LibraryPage() {
           />
         </ChartCard>
       ))}
+
+      <RelatedLinks slug="/library" />
     </>
   );
 }

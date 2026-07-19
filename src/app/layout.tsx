@@ -5,9 +5,9 @@ import './globals.css';
 import { SiteNav } from '@/components/SiteNav';
 
 export const metadata: Metadata = {
-  title: 'Exploring Seattle with Data',
+  title: 'Seattle in Data',
   description:
-    "Data-driven investigations into how Seattle actually works, built on the city's open data: what Seattle reads, how its permit system behaves, and more.",
+    "Maps and charts of Seattle, built from the city's own open data: permits, what the city reads, how it moves, where the money goes, and more.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <header className="site-header">
           <div className="container">
             <Link href="/" className="brand">
-              Exploring Seattle <span>with Data</span>
+              Seattle <span>in Data</span>
             </Link>
             <SiteNav />
           </div>
@@ -27,9 +27,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </main>
         <footer className="site-footer">
           <div className="container">
-            Independent data investigations built on Seattle&apos;s open data via the Socrata API. Not
-            affiliated with the City of Seattle or the Seattle Public Library. Each investigation links its
-            sources and methodology.
+            An independent project that turns Seattle&apos;s public data into maps and charts. Not affiliated with
+            the City of Seattle or the Seattle Public Library. Every page links to its source data and explains how
+            the numbers were made. <Link href="/all">All pages</Link> &middot; <Link href="/about">About</Link>
           </div>
         </footer>
       </body>

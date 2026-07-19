@@ -1,0 +1,31 @@
+reviewtype,n_reviews,n_reviewers,n_turn,median_days,p75_days,p90_days,median_simple,median_complex,correction_rate
+Mechanical,79,3,78,14,28,36.3,2,14.5,60.8
+Tree,2221,12,2118,15,26,36.3,10,23,53.6
+City Light,323,6,45,7,10,14,7,8,31.9
+Land Use,524,28,508,5,13,20,1,5,62
+Shoring - Right of Way,84,2,57,20,25,27,10,20,39.3
+Noise,11,2,5,0,5,6.8,,0,27.3
+Drainage,4453,16,4430,8,14,21,4,10,65.7
+ECA Wetland,45,2,23,17,26,36.8,14.5,25,42.2
+Ordinance,676,43,668,8,15.3,26,3,9,57.5
+ECA Wildlife,35,2,16,8.5,11.5,13.5,8,11.5,34.3
+Shoreline,31,2,30,12,22.8,29.6,9,27,45.2
+Revegetation,344,5,226,13,18,22.5,7,15,58.4
+Energy,3305,13,3276,7,17,29,5,16,44.3
+Shoring - Private Property,67,16,64,5,9,17,5.5,5,41.8
+Side Sewer Conflict,389,11,50,0,3.5,6.3,0,,6.2
+Zoning,5568,45,5543,8,14,20,5,11,61.5
+ECA Riparian,27,3,14,18,41,47.6,15,38,37
+Housing,1308,14,843,10,19,30.8,7,12,27.3
+Addressing,2763,17,2728,7,13,17,6,9,35
+Parks,15,4,2,1.5,2.3,2.7,0,3,20
+Geo Soils,369,10,358,15,24,34,9,16,63.7
+Fire,702,9,394,10,17,24.7,3,12,38.7
+Ordinance/Structural,3795,48,3746,5,9,16,4,7,52.9
+Mandatory Housing Affordability,1313,27,1291,9,14,21,4,11,59.9
+ECA GeoTech,1269,13,1244,15,24,33,11,19,67.1
+Floodplain,6,2,6,23.5,40,44,27.5,23.5,50
+Structural Engineer,746,30,736,10,18,29,6,13,51.6
+Conveyance,65,2,46,3.5,13.8,29,0,5,26.2
+Transportation,5,3,5,7,8,15.2,,7,40
+Policy,8,2,8,7.5,11,14.9,7.5,,50

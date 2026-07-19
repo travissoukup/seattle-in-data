@@ -1,0 +1,393 @@
+reviewer,reviewtype,n_reviews,n_turn,median_days,p75_days,p90_days,correction_rate
+Michael Gilbride,Ordinance/Structural,291,289,3,7,11,49.1
+Carlos Lopez,Addressing,196,193,3,7,10,34.7
+Philip Man,Energy,124,123,14,26,35.6,61.3
+Valerie Monsey,Drainage,314,311,13,20,29,64.3
+Don Weissinger,Ordinance,33,33,11,17,33,63.6
+Shimika Dowlen,Addressing,171,160,9,14,18,33.3
+Sung Lee,Mandatory Housing Affordability,30,30,13.5,16,25.3,66.7
+Katrina Nygaard,Mandatory Housing Affordability,88,88,7,12,14,55.7
+Bill Whipkey,Structural Engineer,54,54,10,15,21.7,59.3
+Dean Griswold,ECA GeoTech,211,207,16,24.5,33,71.1
+Stephen Rudolph,Ordinance,31,30,3,7,11,58.1
+Cornell Burt,Shoring - Private Property,6,6,14,36,43.5,50
+Samuel Han,Structural Engineer,83,83,7,12.5,16.8,39.8
+Jae Yu,Fire,122,61,4,7,14,32
+Jackie Bronner,Geo Soils,52,50,13.5,27,33.2,57.7
+Faith Zisk,Zoning,53,53,8,13,16,75.5
+Holly Godard,Land Use,9,9,4,7,9.6,44.4
+Charlie Engel,Mandatory Housing Affordability,15,15,13,21.5,30.2,66.7
+Audrey Tay,Land Use,8,8,1,5,10.1,75
+Clara Pellinger,Geo Soils,1,1,9,9,9,100
+Sajada McCoy,Mandatory Housing Affordability,3,0,,,,100
+Sajada McCoy,Ordinance/Structural,3,1,13,13,13,100
+Hiro Ikeda,Shoring - Private Property,10,10,5,7,7.1,50
+Clara Pellinger,Mandatory Housing Affordability,1,1,9,9,9,100
+Tonya Capps,Zoning,1,1,0,0,0,100
+Jason Steinberg,Zoning,103,103,15,21,27,71.8
+Cornell Burt,Structural Engineer,25,24,20,38.3,52.8,36
+Hiro Ikeda,Structural Engineer,39,39,6,15,22.6,48.7
+Deborah McGarry,Tree,777,722,21,32,44.9,55
+Heather Hirschy,Tree,329,313,8,14,26.8,61.1
+James Clancy,Fire,87,85,9,20,28.6,34.5
+Keary Uhlig,Tree,78,76,12,16,20.5,78.2
+Liz Stinkeoway,Zoning,50,50,19,27.8,36,60
+Dana Biggerstaff,ECA GeoTech,199,198,19,27,35,70.9
+Jose Franco,Addressing,19,19,4,8,9.2,47.4
+Samuel Han,Shoring - Private Property,8,8,5,6.8,9.3,25
+Irving Chu,Land Use,43,39,13,18,27.2,39.5
+Sajada McCoy,Land Use,3,1,3,3,3,100
+Miguel Sanchez,Ordinance,23,22,15.5,29.8,34.9,69.6
+Nathaniel Broughton,City Light,58,10,8.5,9,14,100
+Jolene Lancaster,Addressing,1,0,,,,0
+Christy Carr,ECA Riparian,15,9,38,42,50,33.3
+Michael Place-C,Geo Soils,5,5,12,14,14.6,40
+Bill Whipkey,Shoring - Private Property,2,2,9.5,13.3,15.5,50
+Brian Newson,Structural Engineer,2,0,,,,50
+Joseph Westergreen-C,Geo Soils,2,2,34.5,41.8,46.1,50
+Branin Burdette,Tree,1,1,0,0,0,0
+Eleanor Copeland,Shoring - Private Property,1,0,,,,0
+Adam Bettcher,Ordinance,38,38,6,9.8,14,68.4
+Marsha Poon,Energy,451,445,8,21,32.6,39.9
+Edward Kwitek II,Ordinance/Structural,60,60,7,13,15.1,68.3
+John Cuhel,Ordinance/Structural,173,171,4,7,13,49.1
+Byounggeon Kim,Shoring - Private Property,2,2,4.5,5.8,6.5,0
+Leah Carlson,Mandatory Housing Affordability,120,117,7,11,15,60
+Pao Huang,ECA GeoTech,211,209,13,21,29,63
+Mark Chubb,Fire,168,57,2,6,8.4,30.4
+Shannon Szabo,Zoning,221,221,13,15,22,69.2
+Caelen Ball,Structural Engineer,48,48,8,14,18.2,39.6
+Christy Carr,ECA Wetland,44,22,18,26.5,36.9,43.2
+Lief Friedrichs,Ordinance,4,4,9,13.3,15.5,75
+Ben Perkowski,Shoreline,29,28,13,24.8,30.8,41.4
+Elizabeth Williams,Zoning,101,100,15.5,22.3,27,67.3
+Krzysztof Zaleski,Structural Engineer,47,45,15,28,35.6,72.3
+Maxwell Branham,Zoning,16,16,11,12.5,19.5,56.3
+Heather Hirschy,ECA Wildlife,23,12,8.5,10.8,13.9,47.8
+Judy Edwards,Ordinance,16,15,14,22.5,33.6,62.5
+Joel Lehn,Floodplain,3,3,31,38,42.2,33.3
+Dennis Pradere,Shoring - Private Property,2,2,5,5,5,50
+Rose Cheu,Ordinance,7,7,8,16,23.4,57.1
+Steve Burns,Ordinance/Structural,1,1,4,4,4,0
+Cristina Gallardo,Tree,4,1,0,0,0,0
+Edward Kwitek II,Fire,1,1,0,0,0,0
+Paul Vorapanich,Energy,1,1,33,33,33,0
+Carly Guillory,Land Use,8,8,10,20.3,27.3,37.5
+Roussi Roussev,Ordinance/Structural,3,3,21,28,32.2,66.7
+Pao Huang,Geo Soils,66,64,13,17.5,25,57.6
+Lenny Orlov,Housing,282,155,8,15.5,33,13.1
+Lakshya Sharma-C,City Light,28,6,9,11,14.5,92.9
+Casandra Courtillet,Ordinance/Structural,71,71,5,8,16,47.9
+Valerie Monsey,Side Sewer Conflict,47,0,,,,0
+Ben Perkowski,Land Use,23,22,14,19.3,26.9,60.9
+Shannon Szabo,Housing,25,24,0,0.3,3.7,8
+Stephanie Haines,Land Use,9,6,33,39.5,41,22.2
+AlanW SCI Lee,Ordinance,13,13,8,18,24,53.8
+Nouri Samiee,Structural Engineer,37,37,13,18,21.8,48.6
+Sajada McCoy,Tree,2,2,6.5,9.8,11.7,100
+David Aguilera,Shoring - Private Property,3,2,6,6.5,6.8,66.7
+Leslie Orbino,Mandatory Housing Affordability,12,12,14,17.3,27,58.3
+Emilie Voight,Zoning,32,32,15.5,23.3,28.9,75
+Benjamin Enfield,Ordinance,3,3,3,5.5,7,66.7
+Alisa Johansson,Mandatory Housing Affordability,16,15,5,7.5,11.6,50
+Joel Lehn,Ordinance/Structural,3,3,6,7.5,8.4,66.7
+Clara Pellinger,Tree,1,1,9,9,9,100
+John Shaw,Transportation,2,2,7.5,7.8,7.9,50
+Fatima Prado,Drainage,1,0,,,,100
+Shomari Anderson,Side Sewer Conflict,25,0,,,,8
+Jessica Batterman,Drainage,657,657,6,11,14,66.2
+Cornell Burt,Ordinance/Structural,12,11,16,23,43,50
+Leslie Orbino,Zoning,20,20,14.5,17.3,24.4,65
+Cici Sun,Ordinance/Structural,287,282,3,6,8.9,48.1
+Brian Newson,Ordinance/Structural,142,139,7,13,16.2,52.8
+Alisa Johansson,Zoning,67,66,5,8,11,52.2
+Annie Hillier,Land Use,23,23,2,10,22,65.2
+Kit Chan,Ordinance,60,59,9,15,21,53.3
+Emilie Voight,Mandatory Housing Affordability,11,11,19,23.5,35,63.6
+Hiro Ikeda,Ordinance/Structural,15,14,13,19,44.5,60
+Michael Gilbride,Energy,2,2,3,3,3,50
+Jessica McHegg,Ordinance,18,18,8,14,26.3,55.6
+Toni Miller,Side Sewer Conflict,6,1,4,4,4,16.7
+Erika Ikstrums,Shoreline,2,2,1,1,1,100
+Bosco Cheng,Ordinance,12,12,17.5,36.8,48.3,50
+Jonathan Garner,ECA Wildlife,12,4,9,11.5,12.4,8.3
+Clara Pellinger,Shoring - Private Property,1,1,25,25,25,0
+Lenny Orlov,ECA GeoTech,1,1,40,40,40,0
+Leah Carlson,Housing,1,1,1,1,1,0
+David Graves,Policy,3,3,10,12,13.2,33.3
+Sajada McCoy,Energy,1,1,13,13,13,100
+Jamie Carlson,Zoning,331,331,8,14,17,58
+Bosco Cheng,Structural Engineer,77,75,7,14,24,44.2
+Miguel Sanchez,Ordinance/Structural,170,169,5,8,15.2,61.8
+Eric Lenz,Zoning,191,191,7,9,14,42.4
+Stephen Fesler,Mandatory Housing Affordability,81,81,7,13,14,61.7
+Jackie Bronner,ECA GeoTech,163,161,14,24,36,60.7
+Dean Griswold,Geo Soils,29,28,22,29.5,38.7,72.4
+Faith Sugerman,Mandatory Housing Affordability,90,89,7,11,14,66.7
+Ted Demin,Zoning,315,313,8,13,15,59
+Marie Raschkow,Mandatory Housing Affordability,59,59,14,22.5,32,66.1
+Marlon Bailey,Zoning,39,39,7,11.5,14,38.5
+Christopher Ndifon,Mandatory Housing Affordability,24,24,20.5,28.3,30,41.7
+Cristina Gallardo,Ordinance/Structural,1,0,,,,0
+Ashley Ubil,Zoning,53,53,29,35,42,60.4
+Khanh Nguyen-C,City Light,1,0,,,,100
+Kristen Malec,Shoring - Private Property,1,1,1,1,1,0
+Joseph Hurley,Land Use,3,3,17,18,18.6,0
+Scott Ringgold,Mandatory Housing Affordability,2,1,17,17,17,50
+Jessica McHegg,Structural Engineer,1,1,1,1,1,0
+Maxwell Branham,Energy,1,1,0,0,0,0
+Cristina Gallardo,Fire,1,0,,,,0
+Rob Svetz,Ordinance,3,3,20,20,20,66.7
+Faith Zisk,Housing,1,0,,,,0
+Kit Chan,Structural Engineer,1,1,4,4,4,0
+Bruce Rips,Land Use,2,2,8,9,9.6,0
+Rose Cheu,Ordinance/Structural,67,66,8,16,21.5,59.7
+Mike Peli,Zoning,209,209,14,21,29.2,64.6
+Anesat Leon-Guerrero,Housing,62,47,4,11,34.4,4.8
+Adam Bettcher,Ordinance/Structural,267,266,6,10,13.5,59.6
+Steve Hou,Shoring - Right of Way,12,8,16,18.5,21.8,41.7
+Andres Arjona,Zoning,220,220,6,11.3,16,60.5
+Gerald Buker,Zoning,249,247,9,13,17,64.7
+Sonja Brown,Zoning,76,75,10,14,19.6,60.5
+John Cuhel,Ordinance,65,64,6,12.3,18.7,61.5
+Lief Friedrichs,Ordinance/Structural,203,203,1,4.5,13,65.5
+Christy Carr,Revegetation,19,9,21,28,33.2,26.3
+Judy Edwards,Ordinance/Structural,78,78,7,11,21.4,57.7
+Philip Man,Mechanical,13,12,30.5,33,36.9,61.5
+Alisa Johansson,Land Use,22,22,7,12.5,27.8,50
+David Aguilera,Structural Engineer,45,45,8,21,35.4,60
+Branin Burdette,Mandatory Housing Affordability,38,36,4,6,9,39.5
+Edward Kwitek II,Ordinance,19,19,19,21.5,28.4,78.9
+Jennifer Jurischk,Conveyance,38,21,4,6,13,31.6
+Roussi Roussev,Ordinance,11,11,13,18,23,54.5
+Eric Lenz,Drainage,1,1,21,21,21,100
+Nouri Samiee,Shoring - Private Property,2,2,3,4,4.6,50
+Paul Merkling,Zoning,2,2,17.5,21.8,24.3,50
+Tonya Capps,Structural Engineer,1,1,0,0,0,100
+Jonathan Garner,Parks,1,0,,,,0
+Ray Ramos,City Light,215,24,6,10.3,18.6,4.7
+George Garcia,Energy,832,829,6,12,27,44.7
+Manika Maharjan,ECA GeoTech,235,225,11,19,28,68.1
+Sherri Brown,Addressing,273,270,8,13,16,29.3
+Caelen Ball,Ordinance/Structural,23,23,7,11.5,16.2,34.8
+Kevin Solberg,Structural Engineer,3,3,13,14.5,15.4,0
+Glenda Rader,Zoning,42,41,14,18,21,59.5
+Elena Umanskaya,Addressing,428,426,2,6,10,41.8
+Allison Whitworth,Land Use,21,21,8,13,14,66.7
+Audrey Spang,Land Use,4,4,2,4.3,6.5,0
+Roussi Roussev,Structural Engineer,22,22,12,22.3,31.2,59.1
+Andrew Sandberg,Ordinance/Structural,71,71,7,12,18,43.7
+Jonathan Garner,Tree,56,54,6.5,12.8,20.7,41.1
+Norman McGlashan,Land Use,1,0,,,,0
+Eric Dripps,Side Sewer Conflict,23,9,0,2,2.8,21.7
+Tina Capestany,Housing,5,4,50,53.8,55.1,100
+Krzysztof Zaleski,Ordinance/Structural,12,12,11.5,28.3,33.5,66.7
+Lori Swallow,Zoning,18,18,22,27.5,32.9,61.1
+Benjamin Enfield,Shoring - Private Property,1,1,14,14,14,0
+Chris Baines,Ordinance/Structural,1,0,,,,0
+David Aguilera,Ordinance,4,4,35,45,46.8,100
+Emily Lofstedt,Policy,5,5,6,9,13.8,60
+Crystal Torres,Land Use,2,2,10,13,14.8,0
+Bob Bachmann,Shoring - Private Property,1,1,1,1,1,0
+Jolene Lancaster,Ordinance/Structural,1,0,,,,0
+Tina Capestany,Addressing,1,1,25,25,25,0
+Iris Moore,Zoning,105,105,10,14,18,69.5
+Rob McIntosh,Geo Soils,11,11,14,23,34,63.6
+Dean Greenleaf,Ordinance/Structural,48,48,15.5,21.5,28.3,54.2
+Bill Whipkey,Ordinance/Structural,10,10,8.5,12.8,14.4,70
+Sonja Brown,Mandatory Housing Affordability,60,57,10,14,22,61.7
+Heather Hirschy,ECA Riparian,9,4,13.5,17.5,18.4,44.4
+Kristen Malec,Ordinance,15,15,14,20.5,33.4,53.3
+Carson Cheung,ECA GeoTech,92,89,16,22,29,73.9
+Gerald Buker,Mandatory Housing Affordability,122,121,10,13,16,61.5
+Andres Arjona,Mandatory Housing Affordability,91,89,6,10,17,59.3
+Mike Peli,Mandatory Housing Affordability,74,74,14,22.5,31,60.8
+Rudo Chieza,Addressing,245,245,7,14,20,48.2
+Matthew Lewis,Ordinance,68,68,1,6,9.6,61.8
+Branin Burdette,Zoning,96,94,5.5,9.8,14,66.7
+Viktor Peykov,Side Sewer Conflict,30,0,,,,0
+Samuel Han,Ordinance/Structural,19,19,6,8.5,10.8,47.4
+Christy Carr,Tree,7,6,17.5,22.5,35,0
+Emily Lofstedt,Zoning,6,6,5,7.5,8.5,50
+Lief Friedrichs,Zoning,1,1,0,0,0,100
+Jerry Suder,Land Use,1,0,,,,0
+Shailesh Desai,Energy,1,1,1,1,1,100
+Scott Ringgold,ECA Wetland,1,1,2,2,2,0
+Clara Pellinger,Structural Engineer,1,1,7,7,7,100
+Manika Maharjan,Geo Soils,101,98,13,23,29,60.4
+Paul Humphries,Tree,909,887,14,25,34,47.9
+Heather Hirschy,Revegetation,220,169,13,16,21,59.1
+Steven Souriyadeth,Ordinance/Structural,145,144,7,11.3,19.7,51
+Ray Gu,Shoring - Right of Way,72,49,20,25,27.2,38.9
+Debra Mobley,Addressing,175,171,12,17,22,18.9
+Viktor Peykov,Drainage,332,330,13,20,27,64.2
+Nouri Samiee,Ordinance/Structural,9,9,13,13,14.4,44.4
+Paul Vorapanich,Ordinance,29,29,7,8,12.2,44.8
+Fatima Prado,ECA GeoTech,1,1,0,0,0,100
+Keary Uhlig,Revegetation,25,11,18,24.5,29,84
+Tina Capestany,Zoning,1,1,4,4,4,0
+Geoff Belau,Ordinance/Structural,30,29,17,31,34,63.3
+April Bottman-Haase,Ordinance/Structural,31,31,21,27,35,54.8
+Sean Conrad,Land Use,12,10,11.5,20.8,24.3,41.7
+Gordon Hicks,Ordinance,11,10,15,20,25,45.5
+Tonya Capps,Land Use,1,1,0,0,0,100
+Byounggeon Kim,Ordinance,4,4,9,19.8,37.3,50
+Jason Steinberg,Mandatory Housing Affordability,2,2,27.5,31.3,33.5,100
+Dennis Pradere,Ordinance,3,3,24,34,40,66.7
+Alisa Johansson,Transportation,1,1,7,7,7,0
+Krzysztof Zaleski,Ordinance,10,10,20,32,37.9,60
+Shomari Anderson,Drainage,743,742,7,13,17,64.3
+Charlie Engel,Zoning,248,248,8.5,15,22,69.4
+Greg Johnson,Land Use,13,13,14,18,26.8,46.2
+Kayla Rabb,Addressing,455,449,8,14,21,38.2
+Sung Lee,Zoning,49,49,13,21,28,61.2
+Rachel Tuli,Addressing,149,149,7,9,14.2,28.9
+Katrina Nygaard,Zoning,122,122,8,13,15.9,63.1
+Faith Zisk,Mandatory Housing Affordability,16,15,7,11.5,14.2,68.8
+Cary Novotney,Energy,261,259,9,17,29,44.8
+Clara Pellinger,Zoning,26,26,9,16.8,21.5,53.8
+Lief Friedrichs,Structural Engineer,7,7,12,18,27.4,85.7
+Toni Miller,Drainage,130,129,3,8,16,72.3
+Sekela Rabb,Addressing,64,64,8,11.5,15,50
+Theresa Neylon,Land Use,33,33,2,5,11.6,57.6
+James Heath,Conveyance,27,25,2,27,33.4,18.5
+Jessica Batterman,Side Sewer Conflict,74,2,3.5,4.8,5.5,0
+Sandra Montgomery,Addressing,39,39,11,17.5,22.2,17.9
+Caelen Ball,Ordinance,7,7,6,8,13.2,57.1
+David Aguilera,Ordinance/Structural,18,16,17,30.3,48.5,66.7
+Sajada McCoy,Zoning,5,1,0,0,0,100
+Andrew Sandberg,Ordinance,5,5,15,17,21.2,0
+Rose Cheu,Structural Engineer,3,3,32,33,33.6,0
+Christy Carr,Land Use,1,1,30,30,30,0
+Adam Bettcher,Structural Engineer,1,1,8,8,8,0
+Faith Sugerman,Parks,1,0,,,,100
+Stephen Fesler,Housing,2,2,1,1.5,1.8,0
+Michael Bocklund,Energy,1071,1062,7,15,27,40.9
+Kristen Malec,Ordinance/Structural,128,128,9,14,21,52.3
+Matthew Lewis,Ordinance/Structural,357,348,1,3,5,51.3
+Erika Ikstrums,Land Use,131,130,1,1,5,93.1
+Amy Young,Housing,230,146,10,15,23,29.1
+Daniel Sully,Fire,241,149,14,20,26,50.6
+Corey Buttry,Land Use,42,41,4,8,14,52.4
+Leah Carlson,Zoning,325,321,8,13,17,61.5
+Matthew Bateman,Side Sewer Conflict,50,12,1,1.8,4,16
+Dean Greenleaf,Ordinance,6,6,19.5,26.8,31,33.3
+Shannon Szabo,Mandatory Housing Affordability,20,19,13,22.5,28.2,75
+Larry Liu,Ordinance/Structural,2,2,4.5,5.3,5.7,50
+Bill Whipkey,Ordinance,7,7,16,23,24,57.1
+Amy Barnett,Ordinance/Structural,3,3,3,6,7.8,33.3
+Derek Ohlgren,Structural Engineer,10,10,9,13,14.2,60
+Anthony Jagow,Noise,9,5,0,5,6.8,33.3
+Samuel Han,Ordinance,3,3,15,16,16.6,33.3
+Leslie Orbino,Housing,1,1,24,24,24,0
+Gordon Hicks,Structural Engineer,1,1,8,8,8,0
+Byounggeon Kim,Structural Engineer,80,79,13,19,26.6,50
+Jancarlo Guerrero,Revegetation,30,14,16,21.3,29.7,63.3
+Saranya Gujuluva Rajan,Drainage,212,210,17,22,29,69.3
+Jordon Foster,Fire,63,31,11,15,16,36.5
+Bradley Wilburn,Zoning,1,1,8,8,8,0
+AlanW SCI Lee,Ordinance/Structural,80,80,6,10,16,46.3
+Dennis Pradere,Structural Engineer,34,34,19.5,28.8,37.7,73.5
+Benjamin Enfield,Ordinance/Structural,32,31,10,17,46,59.4
+Art Richardson,Side Sewer Conflict,67,19,0,0,12.2,0
+Colum Lang,Side Sewer Conflict,40,1,13,13,13,0
+Kamran Yazdidoost,Side Sewer Conflict,15,6,1,4.8,7.5,53.3
+Krzysztof Zaleski,Shoring - Private Property,4,4,11,19.3,28.7,75
+Casandra Courtillet,Ordinance,19,19,4,11,16.2,63.2
+Caelen Ball,Shoring - Private Property,7,7,6,7.5,11.6,42.9
+Adam Bettcher,Floodplain,3,3,12,27.5,36.8,66.7
+Mike Peli,Housing,1,1,8,8,8,0
+Nohely Moreno,Mandatory Housing Affordability,12,12,13,14.5,20.5,75
+Jonathan Garner,ECA Riparian,3,1,6,6,6,33.3
+Huy Vu,City Light,8,4,6,8.3,8.7,0
+Tonya Capps,Drainage,1,1,0,0,0,100
+Ellen Aebischer,Land Use,4,4,7,9,12.6,25
+Joel Lehn,Ordinance,3,2,34,44,50,66.7
+Audrey Spang,Transportation,2,2,10,15,18,50
+Ming Alwin,Ordinance,2,2,29.5,33.3,35.5,50
+Bob Bachmann,Ordinance/Structural,3,3,8,11,12.8,0
+Susan Chang,ECA GeoTech,1,1,34,34,34,0
+Colum Lang,Drainage,653,651,5,12,19,64
+Sarah Doersam,Zoning,742,738,1,3,6,57.1
+Kamran Yazdidoost,Drainage,846,840,7,14,19,69.3
+Larry Liu,Structural Engineer,36,35,13,24,34,61.1
+Stephen Rudolph,Ordinance/Structural,281,278,5,9,13,53.7
+Armand Khorrami,Energy,366,360,12,22,32.1,50.3
+Yorusalem Mengistu,Zoning,192,191,6,7,11,46.9
+Saranya Gujuluva Rajan,Side Sewer Conflict,12,0,,,,0
+Fatima Prado,Zoning,169,169,13,17,21,51.5
+Joanna Beza,Addressing,387,384,8,13,16,31.5
+Marsha Poon,Mechanical,41,41,10,17,30,53.7
+Prithy Korathu,Housing,260,172,8,17,28.9,41.5
+Don Weissinger,Ordinance/Structural,51,51,5,9,16,49
+Grace Agana,Addressing,2,2,7,10,11.8,50
+Jonathan Garner,Revegetation,50,23,9,14,19.6,52
+Dana Biggerstaff,Geo Soils,69,68,20,28.3,34,69.6
+Jose Franco,Zoning,85,85,12,15,20,62.4
+Michael Place-C,ECA GeoTech,31,30,20,31,36.8,48.4
+Kristen Malec,Structural Engineer,24,24,9,14.8,24,54.2
+Bosco Cheng,Shoring - Private Property,16,15,3,7.5,18,43.8
+Derek Ohlgren,Ordinance/Structural,5,5,7,8,9.8,60
+Glenda Rader,Mandatory Housing Affordability,29,28,13.5,16.5,21.9,55.2
+Joseph Westergreen-C,ECA GeoTech,24,24,28.5,34.3,43.9,66.7
+Michael Gilbride,Ordinance,23,23,5,7,10.8,52.2
+Art Richardson,Drainage,13,13,6,15,28.8,15.4
+Lori Swallow,Mandatory Housing Affordability,18,18,21.5,28,33.2,55.6
+Clara Pellinger,Ordinance,2,2,10.5,11.3,11.7,100
+Matthew Lewis,Structural Engineer,1,1,2,2,2,0
+Sajada McCoy,Ordinance,1,0,,,,100
+Matthew Allen,Zoning,1,1,13,13,13,100
+Marie Raschkow,Zoning,155,155,14,20,28.6,71
+Paul Vorapanich,Ordinance/Structural,228,227,5,8,13.4,51.8
+Matthew Bateman,Drainage,322,321,11,20,29,62.7
+Gordon Hicks,Ordinance/Structural,63,55,7,12,19.8,50.8
+Stephen Fesler,Zoning,145,145,6,12,15,64.8
+Jamie Carlson,Mandatory Housing Affordability,170,169,8,13,17,55.9
+Benjamin Enfield,Structural Engineer,33,33,11,16,28.8,54.5
+Faith Sugerman,Zoning,274,272,7,11,14,65
+Ted Demin,Mandatory Housing Affordability,109,108,9,12,14,60.6
+Ray Jacobson,Energy,190,188,13,24,36.6,48.9
+Sajada McCoy,Housing,19,2,3.5,5.3,6.3,78.9
+Christopher Ndifon,Zoning,35,35,23,29.5,34.6,48.6
+Max Horne,City Light,13,1,9,9,9,61.5
+Myra Stallworth,Addressing,157,156,10,15,18,26.8
+Byounggeon Kim,Ordinance/Structural,12,11,18,29,29,50
+Maria Cruz,Zoning,3,3,8,15.5,20,33.3
+Bob Bachmann,Structural Engineer,24,23,5,20.5,32.8,41.7
+Geoff Belau,Ordinance,11,11,19,31.5,43,54.5
+David Sachs,Land Use,29,29,11,13,14,51.7
+Nouri Samiee,Ordinance,1,1,29,29,29,0
+Steven Souriyadeth,Ordinance,14,14,16.5,19.8,21.4,42.9
+April Bottman-Haase,Ordinance,6,6,21.5,27,31,66.7
+Sajada McCoy,Addressing,1,0,,,,100
+Clara Pellinger,Parks,1,0,,,,100
+Toni Miller,Structural Engineer,1,1,2,2,2,100
+Tonya Capps,ECA GeoTech,1,1,0,0,0,100
+Brian McWatters,Ordinance/Structural,16,16,11.5,15.5,21,37.5
+Sissi Zeng,Housing,397,281,14,21,33,25.2
+Eric Dripps,Drainage,222,221,9,14,16,63.1
+Nohely Moreno,Zoning,373,373,8,13,16,71.3
+Scott Reynolds,Land Use,56,56,7,15,21,66.1
+Jessica McHegg,Ordinance/Structural,79,79,6,12.5,19.4,43
+Ray Jacobson,Mechanical,25,25,14,24,37.6,72
+Kit Chan,Ordinance/Structural,182,182,5,8,13,48.9
+Sajada McCoy,Drainage,5,2,0,0,0,100
+Rob McIntosh,ECA GeoTech,99,97,20,26,33.4,68.7
+Hiro Ikeda,Ordinance,5,5,13,15,19.2,40
+Jancarlo Guerrero,Tree,56,55,9,14,28,69.6
+Emily Lofstedt,Housing,22,7,12,19,20,90.9
+Bosco Cheng,Ordinance/Structural,8,8,11.5,21.5,36.2,12.5
+Kevin Bergsrud,Parks,12,2,1.5,2.3,2.7,8.3
+Cici Sun,Ordinance,45,45,3,5,13,48.9
+Brian Newson,Ordinance,12,12,7.5,13.5,20.7,58.3
+David Landry,Land Use,19,19,14,15.5,21,42.1
+Miguel Sanchez,Structural Engineer,5,5,2,5,17.6,60
+Carson Cheung,Geo Soils,33,31,16,27.5,36,78.8
+R Richardson,Fire,15,9,19,20,35,40
+Fatima Prado,Tree,1,0,,,,100
+Rafi Ahmadullah,Fire,4,1,51,51,51,25
+Cornell Burt,Ordinance,4,4,10,17.5,25.6,25
+Stephen Rudolph,Energy,4,4,4,5.5,6.4,50
+James Dasher,Noise,2,0,,,,0
+Clara Pellinger,Drainage,1,1,9,9,9,100
+Maxwell Branham,Land Use,1,1,0,0,0,0

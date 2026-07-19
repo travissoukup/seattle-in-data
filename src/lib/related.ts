@@ -1,0 +1,30 @@
+// Hand-picked "keep exploring" links for each page, by route slug. Targets are
+// either internal routes (e.g. /violations) or dashboard keys (DASH_WALK), both
+// of which resolve to a catalog entry. Keep 2 to 4 per page.
+export const RELATED: Record<string, string[]> = {
+  '/building-map': ['/violations', '/leads', '/trades', '/permits'],
+  '/violations': ['/leads', '/building-map', '/encampments'],
+  '/leads': ['/violations', '/rentals', '/building-map'],
+  '/trades': ['/building-map', '/energy', '/permits'],
+  '/permits': ['/street-use', '/building-map', 'DASH_REVIEWERS'],
+  '/street-use': ['/permits', '/building-map', 'DASH_SDCI'],
+  '/library': ['/library-shelf', '/pets', '/parks'],
+  '/library-shelf': ['/library', '/parks'],
+  '/pets': ['/library', '/parks'],
+  '/parks': ['/library', '/pets', 'DASH_WALK'],
+  '/parking': ['/requests', '/bikes', 'DASH_WALK'],
+  '/bikes': ['DASH_WALK', '/parking', '/requests'],
+  '/requests': ['/violations', '/encampments', '/parking'],
+  '/energy': ['/building-map', '/trades', '/budget'],
+  '/wages': ['/budget', '/capital'],
+  '/budget': ['/wages', '/capital'],
+  '/capital': ['/budget', '/building-map'],
+  '/calls': ['/crime', '/fire', '/force'],
+  '/fire': ['/calls', '/crime'],
+  '/crime': ['/calls', '/force', '/oversight'],
+  '/force': ['/oversight', '/crime', '/calls'],
+  '/oversight': ['/force', '/crime'],
+  '/rentals': ['/leads', '/occupancy', '/violations'],
+  '/occupancy': ['/building-map', '/rentals', '/capital'],
+  '/encampments': ['/requests', '/violations', '/rentals'],
+};

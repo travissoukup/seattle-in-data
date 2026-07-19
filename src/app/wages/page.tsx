@@ -1,4 +1,7 @@
+import Link from 'next/link';
 import { ChartCard } from '@/components/ChartCard';
+import { DataFreshness } from '@/components/DataFreshness';
+import { RelatedLinks } from '@/components/RelatedLinks';
 import { DataTable } from '@/components/DataTable';
 import { BarsChart, RankedBars } from '@/components/charts';
 import { wages } from '@/lib/data';
@@ -24,16 +27,19 @@ export default function WagesPage() {
 
   return (
     <>
+      <p className="crumb"><Link href="/">Seattle in Data</Link> <span className="crumb-sep">/</span> <Link href="/category/city-money">City Money</Link></p>
       <div className="page-head">
         <p className="eyebrow">Accountability</p>
         <h1>What Seattle pays its workforce</h1>
         <p>
           The city publishes the hourly pay rate of every employee, by name, title, and department. It is a
-          rare clear look at how a public payroll is structured: the spread from the lowest to the highest
-          rung, and which departments pay near the top of the scale. One honest caveat up front, because it
-          reshapes the story.
+          clear look at how the payroll is built, from the lowest paid rung to the highest, and which
+          departments sit near the top. One thing to know up front, because it changes how you should read the
+          numbers.
         </p>
       </div>
+
+      <DataFreshness date={wages.generatedAt} />
 
       <div className="card" style={{ borderLeft: '4px solid var(--accent-2)' }}>
         <h2 className="section-title">Rates, not paychecks (and why that matters)</h2>
@@ -97,6 +103,8 @@ export default function WagesPage() {
       >
         <BarsChart data={distBars} xKey="label" series={[{ key: 'value', name: 'Employees' }]} valueFormat="int" height={300} />
       </ChartCard>
+
+      <RelatedLinks slug="/wages" />
     </>
   );
 }

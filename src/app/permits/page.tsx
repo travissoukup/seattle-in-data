@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import { ChartCard } from '@/components/ChartCard';
+import { RelatedLinks } from '@/components/RelatedLinks';
 import { DataTable } from '@/components/DataTable';
 import { BarsChart } from '@/components/charts';
 import { permits } from '@/lib/data';
@@ -18,6 +20,7 @@ export default function PermitsPage() {
 
   return (
     <>
+      <p className="crumb"><Link href="/">Seattle in Data</Link> <span className="crumb-sep">/</span> <Link href="/category/permits-and-construction">Permits and Construction</Link></p>
       <div className="page-head">
         <p className="eyebrow">Accountability</p>
         <h1>The permit fast lane that isn&apos;t</h1>
@@ -62,13 +65,13 @@ export default function PermitsPage() {
       <div className="card" style={{ borderLeft: '4px solid var(--accent-2)' }}>
         <h2 className="section-title">What this does and does not show</h2>
         <p className="muted" style={{ margin: '0 0 10px' }}>
-          The honest finding is a debunking: there is no pay-a-pro speed advantage in Seattle permit review.
-          The variance is driven by <strong>what you build</strong> (complexity, the number of correction
-          cycles), not <strong>who files</strong>. Homeowners self-permit simpler projects, which is exactly
-          why we held project type constant, and even then the professional fast lane does not appear.
+          The finding is a debunking. There is no pay-a-pro speed advantage in Seattle permit review. What
+          drives the wait is <strong>what you build</strong> (how complex it is, how many correction rounds it
+          takes), not <strong>who files it</strong>. Homeowners tend to permit simpler projects, which is why we
+          compared like projects to like, and even then the pro fast lane does not show up.
         </p>
         <p className="muted" style={{ margin: 0 }}>
-          Two limits keep this honest. The open data names the <strong>contractor</strong> (the builder), not a{' '}
+          Two limits to keep in mind. The open data names the <strong>contractor</strong> (the builder), not a{' '}
           <strong>permit expediter</strong> (the consultant some applicants hire purely to navigate the
           system), so the precise &quot;hire an expediter to jump the line&quot; mechanism cannot be measured
           directly; its closest available proxy, filing volume, shows nothing. And review time is calendar days
@@ -80,6 +83,8 @@ export default function PermitsPage() {
           dashboard.
         </p>
       </div>
+
+      <RelatedLinks slug="/permits" />
     </>
   );
 }

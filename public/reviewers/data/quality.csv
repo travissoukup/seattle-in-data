@@ -1,0 +1,10 @@
+metric,value
+raw rows,127102
+deduped reviews,100342
+distinct reviewers,286
+rows missing reviewer assign date,6597
+rows with no finish date (open reviews),0
+negative turnaround (data errors),34
+stalled passes (turnaround > 60 days),2496
+earliest review finish,2018-05-04
+latest review finish,2025-06-26

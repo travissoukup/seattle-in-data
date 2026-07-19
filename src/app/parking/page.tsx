@@ -1,4 +1,7 @@
+import Link from 'next/link';
 import { ChartCard } from '@/components/ChartCard';
+import { DataFreshness } from '@/components/DataFreshness';
+import { RelatedLinks } from '@/components/RelatedLinks';
 import { DataTable } from '@/components/DataTable';
 import { TrendChart, RankedBars } from '@/components/charts';
 import { parking, parkingChange, parkingPath } from '@/lib/data';
@@ -38,17 +41,19 @@ export default function ParkingPage() {
 
   return (
     <>
+      <p className="crumb"><Link href="/">Seattle in Data</Link> <span className="crumb-sep">/</span> <Link href="/category/getting-around">Getting Around</Link></p>
       <div className="page-head">
         <p className="eyebrow">Recovery</p>
         <h1>The cars came back downtown. The meters didn&apos;t.</h1>
         <p>
           Seattle records every paid on-street parking transaction, millions a year, with the blockface and how
-          full it was. It is the closest thing the city has to a live pulse of who is driving in and paying to
+          full it was. It is the closest thing the city has to a pulse of who is driving in and paying to
           park. Comparing 2019 with 2024 turns up a result that inverts the usual story: paid parking demand is
           down almost everywhere, and the only corners that recovered to pre-pandemic levels are the dense
           downtown core.
         </p>
       </div>
+      <DataFreshness date={parking.generatedAt} />
 
       <div className="stat-grid" style={{ marginBottom: 24 }}>
         <div className="stat-card">
@@ -110,6 +115,8 @@ export default function ParkingPage() {
           neighborhood districts do not.
         </p>
       </div>
+
+      <RelatedLinks slug="/parking" />
     </>
   );
 }
