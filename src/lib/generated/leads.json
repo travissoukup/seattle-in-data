@@ -1,17 +1,17 @@
 {
- "generatedAt": "2026-07-19T21:30:30.851Z",
- "todayStr": "2026-07-19",
+ "generatedAt": "2026-07-20T16:07:26.485Z",
+ "todayStr": "2026-07-20",
  "currentYear": 2026,
  "dataStart": "2003-11-10",
- "openCases": 14080,
- "properties": 9934,
+ "openCases": 14076,
+ "properties": 9937,
  "dupExcluded": 1018,
  "noCoordProps": 106,
  "noAddrCases": 93,
- "escalatedCases": 2416,
- "escalatedProps": 2040,
- "underInvestigation": 10002,
- "novIssued": 1596,
+ "escalatedCases": 2418,
+ "escalatedProps": 2042,
+ "underInvestigation": 9996,
+ "novIssued": 1597,
  "citationIssued": 238,
  "referredToLaw": 196,
  "oldest": {
@@ -21,7 +21,7 @@
  },
  "decadeYear": 2016,
  "stuckDecadeN": 276,
- "openedThisYear": 4712,
+ "openedThisYear": 4708,
  "byYearOpened": [
   {
    "y": 2003,
@@ -117,17 +117,17 @@
   },
   {
    "y": 2026,
-   "n": 4712
+   "n": 4708
   }
  ],
  "funnel": [
   {
    "status": "Under Investigation",
-   "n": 10002
+   "n": 9996
   },
   {
    "status": "NOV Issued",
-   "n": 1596
+   "n": 1597
   },
   {
    "status": "Initiated",
@@ -162,11 +162,11 @@
    "n": 43
   },
   {
-   "status": "Reviews In Process",
-   "n": 23
+   "status": "Stop Work Issued",
+   "n": 24
   },
   {
-   "status": "Stop Work Issued",
+   "status": "Reviews In Process",
    "n": 23
   },
   {
@@ -318,6 +318,6 @@
  "vacantTopZipOverallRank": 11,
  "leadTopZip": {
   "zip": "98118",
-  "n": 1092
+  "n": 1093
  }
 }

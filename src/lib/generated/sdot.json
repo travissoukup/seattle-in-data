@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-19T21:05:27.376Z",
+  "generatedAt": "2026-07-20T16:09:32.952Z",
   "overall": {
     "totalIssued": 69102,
     "meanCity": 20.8,
@@ -134,7 +134,7 @@
       "type": "Street Improvement Permit Revision",
       "permits": 781,
       "meanCity": 21.7,
-      "meanApp": 37.4,
+      "meanApp": 37.5,
       "meanTotal": 59.1,
       "medCity": 15,
       "medApp": 0,
@@ -157,7 +157,7 @@
       "permits": 635,
       "meanCity": 38,
       "meanApp": 55.1,
-      "meanTotal": 93,
+      "meanTotal": 93.1,
       "medCity": 2,
       "medApp": 0,
       "medTotal": 2,

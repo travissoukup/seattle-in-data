@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-07-19T21:06:47.051Z",
+  "generatedAt": "2026-07-20T16:09:08.954Z",
   "note": "Plan-reviewed Seattle building permits applied 2020+, from SDCI Building Permits (76t5-zqzr). Filers bucketed by the lifetime permit volume of the contractor named on the permit; the contractor field is blank on most permits, so the biggest bucket is 'No contractor recorded'. Days are medians.",
   "windowStartYear": 2020,
-  "fastLaneN": 20661,
+  "fastLaneN": 20664,
   "contractorFillPct": 4.5,
-  "windowAll": 41837,
+  "windowAll": 41841,
   "rawByFiler": [
     {
       "bucket": "No contractor recorded",
-      "n": 19364,
+      "n": 19367,
       "med_issue_days": 95,
       "med_city_days": 44,
       "med_cycles": 3
@@ -45,7 +45,7 @@
   "controlledByFiler": [
     {
       "bucket": "No contractor recorded",
-      "n": 17135,
+      "n": 17138,
       "med_city_days": 46,
       "med_cycles": 3
     },
