@@ -1,0 +1,315 @@
+{
+ "generatedAt": "2026-07-28T18:45:49.167038+00:00",
+ "dataThrough": "2026-06-23",
+ "annualizeFactor": 2.098,
+ "lines": 1416573,
+ "totalBilled": 432968202,
+ "totalPaid": 420378634,
+ "totalDue": 12589568,
+ "totalPermits": 339333,
+ "billedTrend": [
+  {
+   "y": "2020",
+   "billed": 76333240,
+   "pace": null
+  },
+  {
+   "y": "2021",
+   "billed": 68317814,
+   "pace": null
+  },
+  {
+   "y": "2022",
+   "billed": 65332384,
+   "pace": null
+  },
+  {
+   "y": "2023",
+   "billed": 67520133,
+   "pace": null
+  },
+  {
+   "y": "2024",
+   "billed": 57551563,
+   "pace": null
+  },
+  {
+   "y": "2025",
+   "billed": 63209785,
+   "pace": 63209785
+  },
+  {
+   "y": "2026",
+   "billed": null,
+   "pace": 72797119
+  }
+ ],
+ "billed2020": 76333240,
+ "billed2024": 57551563,
+ "billed2025": 63209785,
+ "billed2026Actual": 34703284,
+ "billed2026Pace": 72797119,
+ "core": [
+  {
+   "y": "2020",
+   "permitsIdx": 100.0,
+   "perPermitIdx": 100.0,
+   "permitsPace": null,
+   "perPermitPace": null
+  },
+  {
+   "y": "2021",
+   "permitsIdx": 113.8,
+   "perPermitIdx": 78.6,
+   "permitsPace": null,
+   "perPermitPace": null
+  },
+  {
+   "y": "2022",
+   "permitsIdx": 125.6,
+   "perPermitIdx": 68.1,
+   "permitsPace": null,
+   "perPermitPace": null
+  },
+  {
+   "y": "2023",
+   "permitsIdx": 123.0,
+   "perPermitIdx": 71.9,
+   "permitsPace": null,
+   "perPermitPace": null
+  },
+  {
+   "y": "2024",
+   "permitsIdx": 117.2,
+   "perPermitIdx": 64.3,
+   "permitsPace": null,
+   "perPermitPace": null
+  },
+  {
+   "y": "2025",
+   "permitsIdx": 118.9,
+   "perPermitIdx": 69.6,
+   "permitsPace": 118.9,
+   "perPermitPace": 69.6
+  },
+  {
+   "y": "2026",
+   "permitsIdx": null,
+   "perPermitIdx": null,
+   "permitsPace": 128.7,
+   "perPermitPace": 74.1
+  }
+ ],
+ "permits2020": 48220,
+ "permits2026Pace": 62081,
+ "perPermit2020": 1583,
+ "perPermit2026": 1173,
+ "perPermitDropPct": 25.9,
+ "permitsUpPct": 28.7,
+ "whales": [
+  {
+   "y": "2020",
+   "n": 66
+  },
+  {
+   "y": "2021",
+   "n": 39
+  },
+  {
+   "y": "2022",
+   "n": 37
+  },
+  {
+   "y": "2023",
+   "n": 45
+  },
+  {
+   "y": "2024",
+   "n": 19
+  },
+  {
+   "y": "2025",
+   "n": 18
+  },
+  {
+   "y": "2026*",
+   "n": 6
+  }
+ ],
+ "whales2020": 66,
+ "whales2025": 18,
+ "whales2026Actual": 6,
+ "whaleTotal": 36880525,
+ "whaleSharePct": 8.5,
+ "phPermits": 274,
+ "phBilled": 53209694,
+ "phSharePct": 12.3,
+ "top20": [
+  {
+   "id": "6706025-PH",
+   "billed": 1566500,
+   "address": "2350 6th Ave",
+   "project": "Construction of a residential and retail building with two towers and below grade parking and occupy per plan"
+  },
+  {
+   "id": "6973996-PH",
+   "billed": 1177143,
+   "address": "1901 Minor Ave",
+   "project": "Construct mixed-use residential/retail high rise building with below-grade parking occupy per plan."
+  },
+  {
+   "id": "6957110-PH",
+   "billed": 963333,
+   "address": "3020 NE 45th St",
+   "project": "Construct residential/commercial building with three residential towers above podium and below grade parkin..."
+  },
+  {
+   "id": "6911575-PH",
+   "billed": 874945,
+   "address": "2405 7th Ave",
+   "project": "Construction of residential/retail high rise w/below grade parking and occupy per plan. Mechanical is inclu..."
+  },
+  {
+   "id": "6713441-PH",
+   "billed": 836565,
+   "address": "1120 John St",
+   "project": "Construction of podium and east office and retail tower and occupy per plan (Construction of two office and..."
+  },
+  {
+   "id": "6998504-PH",
+   "billed": 808629,
+   "address": "1101 Thomas St",
+   "project": "Construct multi-family high-rise (west) towers and base structure occupy per plan."
+  },
+  {
+   "id": "6905849-PH",
+   "billed": 759649,
+   "address": "2005 5th Ave",
+   "project": "Construct high-rise mixed-use residential building occupy per plan. Partial facades of existing structures..."
+  },
+  {
+   "id": "6696905-PH",
+   "billed": 737770,
+   "address": "2301 7th Ave",
+   "project": "Construct underground and base structure and north residential high-rise tower occupy per plan. (Phased per..."
+  },
+  {
+   "id": "6971406-PH",
+   "billed": 714673,
+   "address": "900 University St",
+   "project": "Construct high rise residential building addition (west tower) occupy per plan. Mechanical included."
+  },
+  {
+   "id": "6753306-PH",
+   "billed": 707643,
+   "address": "601 4th Ave",
+   "project": "Construction of a residential and retail building with below grade parking per plan"
+  },
+  {
+   "id": "6905992-PH",
+   "billed": 648010,
+   "address": "121 Boren Ave N",
+   "project": "Construction of residential/retail high rise building occupy per plan."
+  },
+  {
+   "id": "6793004-PH",
+   "billed": 640416,
+   "address": "750 Mercer St",
+   "project": "Construction of the west office high rise tower and shared podium with below grade parking and occupy per p..."
+  },
+  {
+   "id": "6769232-PH",
+   "billed": 556027,
+   "address": "803 S Washington St",
+   "project": "Construction of residential and retail building with two towers and below grade parking and occupy per plan..."
+  },
+  {
+   "id": "6779396-PH",
+   "billed": 550096,
+   "address": "824 Howell St",
+   "project": "Construct a residential/hotel/restaurant/retail building occupy per plan."
+  },
+  {
+   "id": "6775483-PH",
+   "billed": 546481,
+   "address": "1931 2nd Ave",
+   "project": "Construction of a residential/hotel/retail building and occupy per plan. Mechanical is included."
+  },
+  {
+   "id": "6939048-PH",
+   "billed": 542988,
+   "address": "4522 Roosevelt Way NE",
+   "project": "Construction of a residential/retail building with 2 high-rise towers and below grade parking occupy per plan."
+  },
+  {
+   "id": "6806487-PH",
+   "billed": 541723,
+   "address": "1370 Stewart St",
+   "project": "Construct mixed-use residential high-rise building with below-grade parking occupy per plan."
+  },
+  {
+   "id": "6720938-PH",
+   "billed": 529513,
+   "address": "1000 6th Ave S",
+   "project": "Phased project for construction of office and retail towers on common base structure with below grade parki..."
+  },
+  {
+   "id": "6870521-PH",
+   "billed": 515438,
+   "address": "1916 Boren Ave",
+   "project": "Construct mixed-use high-rise office building with below-grade parking occupy per plan. Mechanical included..."
+  },
+  {
+   "id": "6963785-PH",
+   "billed": 515198,
+   "address": "1305 Stewart St",
+   "project": "Construction of an office/research and development laboratory/retail building with below grade parking occu..."
+  }
+ ],
+ "top20AllPh": true,
+ "top1Billed": 1566500,
+ "top1Address": "2350 6th Ave",
+ "oldSharePct": 60.0,
+ "leak": [
+  {
+   "y": "2020",
+   "pct": 0.89
+  },
+  {
+   "y": "2021",
+   "pct": 1.57
+  },
+  {
+   "y": "2022",
+   "pct": 1.63
+  },
+  {
+   "y": "2023",
+   "pct": 2.94
+  },
+  {
+   "y": "2024",
+   "pct": 2.59
+  },
+  {
+   "y": "2025",
+   "pct": 4.13
+  },
+  {
+   "y": "2026*",
+   "pct": 10.62
+  }
+ ],
+ "leakMatureMin": 0.89,
+ "leakMatureMax": 2.94,
+ "leak2026": 10.62,
+ "dmMatureUnpaidPct": 14.4,
+ "dmFullyUnpaidPct": 15.2,
+ "dmPartialPct": 0.03,
+ "nsUnpaidPct": 39.0,
+ "nsBilled": 294365,
+ "nsLines": 2434,
+ "cn2025": 36140727,
+ "cn2025IsRecord": true,
+ "cn2026Pace": 44362486
+}

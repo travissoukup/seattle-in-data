@@ -2,11 +2,17 @@
 // either internal routes (e.g. /violations) or dashboard keys (DASH_WALK), both
 // of which resolve to a catalog entry. Keep 2 to 4 per page.
 export const RELATED: Record<string, string[]> = {
-  '/building-map': ['/violations', '/leads', '/trades', '/permits'],
+  '/fees': ['/fees-hikes', '/fees-surcharges', '/permits', '/building-map'],
+  '/fees-hikes': ['/fees', '/fees-hours', '/fees-surcharges'],
+  '/fees-surcharges': ['/fees', '/fees-hikes', '/fees-revenue'],
+  '/fees-revenue': ['/fees', '/fees-housing', '/budget'],
+  '/fees-hours': ['/fees-hikes', '/fees', 'DASH_REVIEWERS', '/street-use'],
+  '/fees-housing': ['/fees', '/fees-revenue', '/building-map', '/permits'],
+  '/building-map': ['/violations', '/leads', '/fees-housing', '/permits'],
   '/violations': ['/leads', '/building-map', '/encampments'],
   '/leads': ['/violations', '/rentals', '/building-map'],
   '/trades': ['/building-map', '/energy', '/permits'],
-  '/permits': ['/street-use', '/building-map', 'DASH_REVIEWERS'],
+  '/permits': ['/fees', '/street-use', '/building-map', 'DASH_REVIEWERS'],
   '/street-use': ['/permits', '/building-map', 'DASH_SDCI'],
   '/library': ['/library-shelf', '/pets', '/parks'],
   '/library-shelf': ['/library', '/parks'],
@@ -17,7 +23,7 @@ export const RELATED: Record<string, string[]> = {
   '/requests': ['/violations', '/encampments', '/parking'],
   '/energy': ['/building-map', '/trades', '/budget'],
   '/wages': ['/budget', '/capital'],
-  '/budget': ['/wages', '/capital'],
+  '/budget': ['/wages', '/capital', '/fees-revenue'],
   '/capital': ['/budget', '/building-map'],
   '/calls': ['/crime', '/fire', '/force'],
   '/fire': ['/calls', '/crime'],

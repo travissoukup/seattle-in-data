@@ -1,0 +1,227 @@
+{
+ "generatedAt": "2026-07-28T18:46:51.471261+00:00",
+ "windowStart": "2020-01-01",
+ "windowEnd": "2026-06-23",
+ "totalLines": 1416573,
+ "totalPaid": 420378634.23,
+ "techLines": 458702,
+ "techPaid": 8866523.45,
+ "techFirstDate": "2023-01-02",
+ "techMedianLine": 3.65,
+ "techMinPaid": 0.01,
+ "adminLines": 151481,
+ "overheadByYear": [
+  {
+   "y": 2020,
+   "tech": 0.0,
+   "admin": 2.0,
+   "overhead": 2.0
+  },
+  {
+   "y": 2021,
+   "tech": 0.0,
+   "admin": 2.26,
+   "overhead": 2.26
+  },
+  {
+   "y": 2022,
+   "tech": 0.0,
+   "admin": 2.03,
+   "overhead": 2.03
+  },
+  {
+   "y": 2023,
+   "tech": 4.0,
+   "admin": 1.94,
+   "overhead": 5.94
+  },
+  {
+   "y": 2024,
+   "tech": 4.16,
+   "admin": 2.24,
+   "overhead": 6.4
+  },
+  {
+   "y": 2025,
+   "tech": 4.23,
+   "admin": 2.19,
+   "overhead": 6.41
+  },
+  {
+   "y": 2026,
+   "tech": 4.37,
+   "admin": 1.45,
+   "overhead": 5.82
+  }
+ ],
+ "overheadFirstFullYear": {
+  "y": 2020,
+  "tech": 0.0,
+  "admin": 2.0,
+  "overhead": 2.0
+ },
+ "overheadLastFullYear": {
+  "y": 2025,
+  "tech": 4.23,
+  "admin": 2.19,
+  "overhead": 6.41
+ },
+ "invoicesWithTech": 151249,
+ "ratioMedian": 5.0,
+ "pctInBand": 95.27534066340935,
+ "pctExactFive": 89.0174480492433,
+ "surchInvoices": 1126,
+ "surchExactIncl": 0.0,
+ "surchExactExcl": 99.82238010657194,
+ "gbpInvoices": 61,
+ "gbpInvoicesWithTech": 0,
+ "eraPermits": 182653,
+ "smallPermits": 139355,
+ "smallMedianShare": 15.539846286630226,
+ "permitsOver20": 65300,
+ "eraMedianPaid": 138.65,
+ "burdenBuckets": [
+  {
+   "label": "Under $100",
+   "n": 72160,
+   "medianShare": 4.8
+  },
+  {
+   "label": "$100 to $250",
+   "n": 41305,
+   "medianShare": 28.9
+  },
+  {
+   "label": "$250 to $500",
+   "n": 25890,
+   "medianShare": 16.2
+  },
+  {
+   "label": "$500 to $1,000",
+   "n": 14839,
+   "medianShare": 4.8
+  },
+  {
+   "label": "$1,000 to $5,000",
+   "n": 20335,
+   "medianShare": 4.8
+  },
+  {
+   "label": "$5,000 to $25,000",
+   "n": 7589,
+   "medianShare": 4.8
+  },
+  {
+   "label": "Over $25,000",
+   "n": 535,
+   "medianShare": 4.6
+  }
+ ],
+ "burdenPeak": {
+  "label": "$100 to $250",
+  "n": 41305,
+  "medianShare": 28.9
+ },
+ "adminStaircase": [
+  {
+   "y": 2020,
+   "fee": 72.95,
+   "n": 20194,
+   "modeShare": 100.0
+  },
+  {
+   "y": 2021,
+   "fee": 65.65,
+   "n": 22723,
+   "modeShare": 100.0
+  },
+  {
+   "y": 2022,
+   "fee": 49.24,
+   "n": 25741,
+   "modeShare": 98.0
+  },
+  {
+   "y": 2023,
+   "fee": 49.24,
+   "n": 25336,
+   "modeShare": 99.6
+  },
+  {
+   "y": 2024,
+   "fee": 49.24,
+   "n": 24922,
+   "modeShare": 100.0
+  },
+  {
+   "y": 2025,
+   "fee": 52.45,
+   "n": 24650,
+   "modeShare": 100.0
+  },
+  {
+   "y": 2026,
+   "fee": 55.48,
+   "n": 7912,
+   "modeShare": 100.0
+  }
+ ],
+ "junk": {
+  "misc": {
+   "lines": 1153,
+   "paid": 1397098.3299999998,
+   "maxPaid": 107670.77,
+   "maxRecord": "6899871-PH",
+   "maxYear": 2024
+  },
+  "typo": {
+   "typoLines": 8167,
+   "typoPaid": 197608.0,
+   "okLines": 1043,
+   "okPaid": 25775.0,
+   "lineRatio": 7.8,
+   "typo2026": 564
+  },
+  "tiny": {
+   "pctLines": 18.365378981527954,
+   "pctRevenue": 0.13419924184142573,
+   "n": 260159,
+   "paid": 564144.9400000002,
+   "pctTech": 92.44077660200108
+  },
+  "dups": {
+   "extraLines": 234,
+   "extraPaid": 102282.76999999999,
+   "maxPaid": 13078.5,
+   "maxDesc": "Building Permit: Intake",
+   "maxRecord": "7016996-CN",
+   "maxYear": 2024
+  },
+  "nsf": {
+   "lines": 19,
+   "paid": 243970.11000000002,
+   "avg": 12846.374210526317,
+   "max": 81533.5,
+   "feeLines": 20,
+   "feePaid": 357.0
+  },
+  "gbp": {
+   "lines": 61,
+   "paid": 236575.87,
+   "firstYear": 2024,
+   "maxLine": 22072.38
+  },
+  "ev": {
+   "lines": 10609,
+   "paid": 688862.52,
+   "lastDate": "2025-12-31",
+   "succLines": 1008,
+   "succPaid": 59065.759999999995,
+   "succKinds": 7,
+   "succFirstDate": "2026-01-02",
+   "peakYear": 2024,
+   "peakLines": 2364
+  },
+  "new2026Descs": 35
+ }
+}

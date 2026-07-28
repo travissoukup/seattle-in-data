@@ -45,6 +45,64 @@ export const HERO = {
 
 export const CATEGORIES: Category[] = [
   {
+    slug: 'permit-fees',
+    name: 'Permit Fees',
+    tagline: 'What the city charges, from a records request',
+    accent: '#7a5195',
+    intro:
+      'Seattle billed $433 million in permit fees from 2020 to mid 2026, one line at a time. This data is not on the open data portal: it came from a public records request, 1.4 million invoice lines covering every permit fee the city charged. These pages check the math on all of it: what a permit really costs, when prices go up, the fee charged on other fees, and where the billed hours went.',
+    entries: [
+      {
+        title: 'What a Seattle permit costs',
+        blurb:
+          'Seattle collected $420.4M in permit fees from 2020 to mid 2026, and half of all permits paid under $165 while the top 1% covered 39.6% of the dollars. Includes a lookup that shows the typical bill for your permit type and project size, from what real permits actually paid.',
+        status: 'investigation',
+        href: '/fees',
+        datasets: ['Public records request (SDCI invoice extract)'],
+      },
+      {
+        title: 'The January price list',
+        blurb:
+          'Seattle repriced its permit fees 166 times since 2020, and every change landed in January. The base fee unit froze for three years, then rose four Januaries straight to $146, while a few fire and refrigeration fees quietly fell by half.',
+        status: 'investigation',
+        href: '/fees-hikes',
+        datasets: ['Public records request (SDCI invoice extract)'],
+      },
+      {
+        title: 'The fee on your other fees',
+        blurb:
+          'Since 2023 every SDCI invoice carries a 5% Technology Fee, now the most billed line in the system at 458,702 lines and a median of $3.65. This page checks the math on the fee, walks the administrative fee staircase, and empties the junk drawer.',
+        status: 'investigation',
+        href: '/fees-surcharges',
+        datasets: ['Public records request (SDCI invoice extract)'],
+      },
+      {
+        title: 'More permits, smaller checks',
+        blurb:
+          'Seattle bills fees on more permits than it did in 2020, but the average check shrank by a quarter. The drop is a handful of missing tower projects, not the thousands of small jobs, and $12.6M of it was never paid at all.',
+        status: 'investigation',
+        href: '/fees-revenue',
+        datasets: ['Public records request (SDCI invoice extract)'],
+      },
+      {
+        title: 'What fees add to housing',
+        blurb:
+          'Seattle permit fees run on a schedule, not a percentage, so the median project under $50K pays about ten times the fee rate of a project over $10M, and a new house carries far more fee per home than a tower unit. Includes the $6.7M paid in fees on buildings that were never built.',
+        status: 'investigation',
+        href: '/fees-housing',
+        datasets: ['Public records request (SDCI invoice extract)', 'Building Permits (76t5-zqzr)'],
+      },
+      {
+        title: 'The price of an hour of review',
+        blurb:
+          'SDCI sells permit review time in quarter hour steps, and the invoice amounts give away the whole rate card. Billed hours fell by almost half while rates rose up to 40 percent, and an overbilling audit of disciplines and individual reviewers came back clean.',
+        status: 'investigation',
+        href: '/fees-hours',
+        datasets: ['Public records request (SDCI invoice extract)', 'Plan Review (tqk8-y2z5)'],
+      },
+    ],
+  },
+  {
     slug: 'permits-and-construction',
     name: 'Permits and Construction',
     tagline: "What's getting built, and how long it takes",
