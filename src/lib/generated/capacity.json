@@ -1,0 +1,117 @@
+{
+ "generatedAt": "2026-08-03T21:27:13.967438+00:00",
+ "address": "3066 63rd Ave SW, Seattle, WA 98116",
+ "pin": "6373000105",
+ "lat": 47.57641687,
+ "lng": -122.41301437,
+ "parcel": {
+  "zone": "LR1 (M)",
+  "lotSf": 4720,
+  "unbuildable": "False",
+  "district": "SEATTLE"
+ },
+ "building": {
+  "units": 1,
+  "sqft": 780,
+  "yrBuilt": 1917,
+  "beds": 2,
+  "bathsFull": 1,
+  "condition": 2,
+  "grade": 5
+ },
+ "values": {
+  "billYr": 2026,
+  "land": 859000,
+  "imps": 1000
+ },
+ "sales": [
+  {
+   "date": "03/18/1999",
+   "price": 200000
+  }
+ ],
+ "zoningGis": {
+  "ZONING": "LR1 (M)",
+  "MHA": "Y",
+  "MHA_VALUE": "M",
+  "OVERLAY": null,
+  "SHORELINE": " ",
+  "PEDESTRIAN": " "
+ },
+ "eca": [
+  {
+   "name": "Steep slope",
+   "atPoint": false,
+   "within60m": false
+  },
+  {
+   "name": "Known slide (affected)",
+   "atPoint": false,
+   "within60m": false
+  },
+  {
+   "name": "Known slide (initiation)",
+   "atPoint": false,
+   "within60m": false
+  },
+  {
+   "name": "Potential slide area",
+   "atPoint": false,
+   "within60m": false
+  },
+  {
+   "name": "Liquefaction prone",
+   "atPoint": true,
+   "within60m": true
+  },
+  {
+   "name": "Flood prone",
+   "atPoint": false,
+   "within60m": false
+  },
+  {
+   "name": "Wetland",
+   "atPoint": false,
+   "within60m": false
+  },
+  {
+   "name": "Riparian corridor",
+   "atPoint": false,
+   "within60m": false
+  },
+  {
+   "name": "Peat settlement",
+   "atPoint": false,
+   "within60m": false
+  },
+  {
+   "name": "Fish and wildlife habitat",
+   "atPoint": false,
+   "within60m": false
+  }
+ ],
+ "transit": {
+  "frequentTransitArea": false,
+  "hb1110MajorTransitHalfMile": false
+ },
+ "comps": {
+  "n": 16,
+  "medPerSf": 590,
+  "p25PerSf": 552,
+  "p75PerSf": 654,
+  "window": "sales 2024 to mid 2026 of homes built 2019 or later in 98116"
+ },
+ "fees": {
+  "newBuild24Units": {
+   "n": 3451,
+   "median": 8978,
+   "p25": 6084,
+   "p75": 11225
+  },
+  "geotechReview": {
+   "n": 8377,
+   "median": 377,
+   "p90": 1667
+  }
+ }
+}

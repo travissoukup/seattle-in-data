@@ -1,0 +1,138 @@
+/* Capacity page: screen extras + print layout for the PDF export. */
+
+.cap-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 4px;
+}
+.cap-chip {
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.cap-chip.warn {
+  background: #fdf2e3;
+  border-color: #e8c188;
+  color: #8a5a00;
+}
+.cap-chip.good {
+  background: #e3f5ef;
+  border-color: #9ad8c2;
+  color: #04795b;
+}
+.cap-hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.scenario-card {
+  border-left: 4px solid var(--accent);
+}
+.scenario-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.scenario-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.scenario-notes {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.scenario-notes li {
+  margin-bottom: 4px;
+}
+@media (max-width: 760px) {
+  .scenario-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.prepared-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+.prepared-row input {
+  font-size: 13.5px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  min-width: 220px;
+}
+.print-only {
+  display: none;
+}
+
+/* ---------- print ---------- */
+@media print {
+  .site-header,
+  .site-footer,
+  .related,
+  .crumb,
+  .no-print,
+  input[type='range'] {
+    display: none !important;
+  }
+  .print-only {
+    display: block;
+  }
+  main {
+    padding: 0;
+  }
+  body {
+    background: #fff;
+    font-size: 12px;
+  }
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+  .card,
+  .scenario-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+    margin: 10px 0;
+    padding: 12px 14px;
+  }
+  .page-head h1 {
+    font-size: 21px;
+  }
+  .cap-hero .stat-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  .findings-table {
+    break-inside: auto;
+  }
+  .findings-table tr {
+    break-inside: avoid;
+  }
+  h2.section-title {
+    font-size: 15px;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .print-footer {
+    margin-top: 14px;
+    padding-top: 8px;
+    border-top: 1px solid #ccc;
+    font-size: 10.5px;
+    color: #555;
+  }
+}
