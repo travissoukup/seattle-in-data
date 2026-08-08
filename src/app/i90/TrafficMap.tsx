@@ -16,13 +16,16 @@ const CELL_MI = 0.1;
 
 type Geom = [number, number, number][]; // [mp, lat, lng]
 
+/** Bands are tuned to what the model actually produces: shaped speeds sit in
+ * 47-60 for uncongested flow (queued traffic drops well below), so the busy
+ * range must span visible colors the way traffic apps key color to delay. */
 function speedColor(v: number): string {
-  if (v >= 55) return '#1a9850';
-  if (v >= 45) return '#91cf60';
-  if (v >= 35) return '#d9ef8b';
-  if (v >= 25) return '#fee08b';
-  if (v >= 15) return '#fc8d59';
-  return '#d73027';
+  if (v >= 55) return '#1a9850'; // free flow
+  if (v >= 51) return '#91cf60'; // getting busy
+  if (v >= 48) return '#fee08b'; // heavy, near capacity
+  if (v >= 38) return '#fc8d59'; // at capacity / slowing
+  if (v >= 22) return '#d73027'; // congested
+  return '#7f0000'; // stop and go
 }
 
 /** Interpolated point at an exact milepost, from the bracketing geometry points. */
@@ -59,6 +62,7 @@ export function TrafficMap({ result, dir }: { result: SimResult; dir: 'EB' | 'WB
   const queueLine = useRef<import('leaflet').Polyline | null>(null);
   const [bin, setBin] = useState(96); // 8:00 am
   const [playing, setPlaying] = useState(false);
+  const [mapReady, setMapReady] = useState(false);
 
   const geom = (data as unknown as { geometry: Geom }).geometry;
 
@@ -79,12 +83,13 @@ export function TrafficMap({ result, dir }: { result: SimResult; dir: 'EB' | 'WB
         const pts = pointsForRange(geom, mpA, mpA + CELL_MI);
         if (pts.length < 2) { gpLines.current.push(null as unknown as import('leaflet').Polyline); hovLines.current.push(null as unknown as import('leaflet').Polyline); continue; }
         const gp = L.polyline(pts, { color: '#1a9850', weight: 7, opacity: 0.95 }).addTo(map);
-        const hv = L.polyline(pts, { color: '#1a9850', weight: 2.5, opacity: 0.95, dashArray: '6 8' }).addTo(map);
+        const hv = L.polyline(pts, { color: '#1a9850', weight: 3, opacity: 1, dashArray: '2 10' }).addTo(map);
         gpLines.current.push(gp);
         hovLines.current.push(hv);
       }
       queueLine.current = L.polyline([], { color: '#7a0177', weight: 9, opacity: 0.9 }).addTo(map);
       mapRef.current = map;
+      setMapReady(true);
       setTimeout(() => map.invalidateSize(), 150);
     })().catch((e) => console.error('TrafficMap init failed:', e));
     return () => { cancelled = true; };
@@ -119,7 +124,7 @@ export function TrafficMap({ result, dir }: { result: SimResult; dir: 'EB' | 'WB
         queueLine.current.setLatLngs([]);
       }
     }
-  }, [bin, result, dir, geom]);
+  }, [bin, result, dir, geom, mapReady]);
 
   // play through the day
   useEffect(() => {
@@ -148,7 +153,9 @@ export function TrafficMap({ result, dir }: { result: SimResult; dir: 'EB' | 'WB
       <div ref={mapEl} style={{ height: 380, borderRadius: 8 }} />
       <div className="lf-legend">
         <span className="lf-key"><span className="lf-dot" style={{ background: '#1a9850' }} /> free flow</span>
-        <span className="lf-key"><span className="lf-dot" style={{ background: '#fee08b' }} /> slowing</span>
+        <span className="lf-key"><span className="lf-dot" style={{ background: '#91cf60' }} /> busy</span>
+        <span className="lf-key"><span className="lf-dot" style={{ background: '#fee08b' }} /> heavy</span>
+        <span className="lf-key"><span className="lf-dot" style={{ background: '#fc8d59' }} /> slowing</span>
         <span className="lf-key"><span className="lf-dot" style={{ background: '#d73027' }} /> jammed</span>
         <span className="lf-key"><span className="lf-dot" style={{ background: '#7a0177' }} /> queue to enter</span>
         <span className="lf-key muted">solid: GP lanes &middot; dashed: HOV lane &middot; {dir === 'WB' ? 'westbound' : 'eastbound'} shown</span>
