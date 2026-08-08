@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import data from '@/lib/generated/i90.json';
 import { simulate, segmentsToday, segmentsPreR8A, type SimParams, type SimResult } from './engine';
+import { TrafficMap } from './TrafficMap';
 
 /** Interactive I-90 corridor simulation. All demand curves are real TMAS
  * weekday averages; everything else is a visible, adjustable assumption. */
@@ -184,6 +185,8 @@ export function Sim() {
           </div>
         </div>
       </div>
+
+      <TrafficMap result={result} dir={dir} />
 
       <div className="card">
         <h2 className="section-title">Speed along the corridor, all day</h2>

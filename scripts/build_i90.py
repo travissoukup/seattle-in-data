@@ -129,6 +129,44 @@ def interchange_deltas(sections):
     return deltas
 
 
+def fetch_geometry():
+    """I-90 centerline as [lat, lng, signedMp] points, ARM 0 to 12, built from
+    the traffic-sections polylines: each section's vertices get mileposts by
+    linear interpolation of cumulative length between its ARM endpoints."""
+    import math
+    url = ('https://data.wsdot.wa.gov/arcgis/rest/services/Shared/TrafficData/MapServer/1/query'
+           '?where=' + urllib.parse.quote("StateRouteNumber='090' AND BeginAccumulatedRouteMile < 12")
+           + '&outFields=BeginAccumulatedRouteMile,EndAccumulatedRouteMile&returnGeometry=true&outSR=4326&f=json')
+    with urllib.request.urlopen(url, timeout=90, context=CTX) as r:
+        j = json.load(r)
+    pts = []
+    for f in j.get('features', []):
+        a0 = f['attributes'].get('BeginAccumulatedRouteMile')
+        a1 = f['attributes'].get('EndAccumulatedRouteMile')
+        paths = (f.get('geometry') or {}).get('paths') or []
+        if a0 is None or a1 is None or not paths:
+            continue
+        verts = [v for path in paths for v in path]
+        if len(verts) < 2:
+            continue
+        # cumulative planar length along the vertices
+        cum = [0.0]
+        for (x0, y0), (x1, y1) in zip(verts, verts[1:]):
+            cum.append(cum[-1] + math.hypot(x1 - x0, (y1 - y0)))
+        total = cum[-1] or 1.0
+        for (x, y), c in zip(verts, cum):
+            arm = a0 + (a1 - a0) * (c / total)
+            pts.append((round(arm + 1.94, 3), round(y, 5), round(x, 5)))  # signed MP
+    pts.sort()
+    # thin to ~0.02 mi spacing
+    out, last = [], -9
+    for mp, lat, lng in pts:
+        if mp - last >= 0.02:
+            out.append([mp, lat, lng])
+            last = mp
+    return out
+
+
 def fetch_sections():
     url = ('https://data.wsdot.wa.gov/arcgis/rest/services/Shared/TrafficData/MapServer/1/query'
            '?where=' + urllib.parse.quote("StateRouteNumber='090' AND BeginAccumulatedRouteMile < 11")
@@ -168,6 +206,7 @@ out = {
     'generatedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(),
     'profiles': profiles,
     'interchangeDeltas': deltas,
+    'geometry': fetch_geometry(),
     'sections': sections,
     'notes': {
         'source': 'FHWA TMAS monthly continuous-count files (May 2019, May 2025), weekday averages; WSDOT Shared/TrafficData ArcGIS for AADT.',
@@ -177,4 +216,5 @@ out = {
 }
 with open(OUT, 'w') as f:
     json.dump(out, f, indent=1)
+print(f"geometry points: {len(out['geometry'])}")
 print(f"\nwrote {OUT} ({os.path.getsize(OUT)//1024}KB), deltas {len(deltas)}, sections {len(sections)}")
