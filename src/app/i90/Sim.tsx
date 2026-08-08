@@ -44,12 +44,12 @@ function nodeRatiosFromDeltas(): { mp: number; ratio: number }[] {
 const NODE_RATIOS = nodeRatiosFromDeltas();
 
 interface DayCurve { gp: number[]; hov: number[] }
-interface DayEntry { date: string; dow: string; EB: DayCurve; WB: DayCurve }
+interface DayEntry { date: string; dow: string; season?: string; EB: DayCurve; WB: DayCurve }
 const DAYS = (data as unknown as { days: DayEntry[] }).days;
-const BUSIEST = DAYS.reduce((best, d) => {
-  const tot = (x: DayEntry) => ['EB', 'WB'].reduce((s2, dd) => s2 + (x[dd as Dir].gp.reduce((a, b) => a + b, 0)), 0);
-  return tot(d) > tot(best) ? d : best;
-}, DAYS[0]);
+const SUMMER = DAYS.filter((d) => d.season === 'summer2026');
+const WINTER = DAYS.filter((d) => d.season !== 'summer2026');
+const dayTotal = (x: DayEntry) => ['EB', 'WB'].reduce((s2, dd) => s2 + (x[dd as Dir].gp.reduce((a, b) => a + b, 0)), 0);
+const BUSIEST = (SUMMER.length ? SUMMER : DAYS).reduce((best, d) => (dayTotal(d) > dayTotal(best) ? d : best), (SUMMER.length ? SUMMER : DAYS)[0]);
 
 function dayLabel(d: DayEntry): string {
   const [y, m, dd] = d.date.split('-');
@@ -130,11 +130,18 @@ export function Sim() {
             <label>Day to simulate</label>
             <select value={preset === 'preR8A' ? 'avg' : dateKey} disabled={preset === 'preR8A'} onChange={(e) => setDateKey(e.target.value)}>
               <option value="avg">Average weekday (May 2025)</option>
-              {DAYS.map((d) => (
-                <option key={d.date} value={d.date}>
-                  {dayLabel(d)}{d.date === BUSIEST.date ? ' (busiest)' : ''}
-                </option>
-              ))}
+              <optgroup label="Summer 2026 (newest, raw recorder data)">
+                {SUMMER.map((d) => (
+                  <option key={d.date} value={d.date}>
+                    {dayLabel(d)}{d.date === BUSIEST.date ? ' (busiest)' : ''}
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label="Winter 2025 (accepted federal data)">
+                {WINTER.map((d) => (
+                  <option key={d.date} value={d.date}>{dayLabel(d)}</option>
+                ))}
+              </optgroup>
             </select>
           </div>
           <div className="lf-field grow">

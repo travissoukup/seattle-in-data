@@ -69,9 +69,11 @@ export default function I90Page() {
           road becomes 81 cells of a tenth of a mile, each with a capacity set by its real lane count (2,000 vehicles
           per lane-hour, trimmed 7% on the bridge and tunnel for missing shoulders), and traffic moves like a
           compressible fluid with a 60 mph free-flow speed and queues that spill backward at about 16 mph. Demand
-          enters on real hourly counts from station {p25.station}: pick any single day from the newest months the
-          federal data covers (each day is that day&apos;s actual lane-by-lane counts), or the May 2025 weekday
-          average; the pre-R8A scenario uses {p19.station}&apos;s May 2019 curve. Demand splits between HOV-eligible
+          enters on real hourly counts from station {p25.station}: pick any single day, lane by lane, from two
+          windows. Summer 2026 days (through early August) come straight from WSDOT&apos;s count database; most had
+          not yet been through the state&apos;s formal acceptance review when we pulled them, so treat them as raw
+          recorder data. Winter 2025 days are fully accepted federal submissions. The May 2025 weekday average and
+          the pre-R8A scenario ({p19.station}, May 2019) round out the options. Demand splits between HOV-eligible
           and general traffic by the observed lane-4 share, and interchanges add or remove flow per WSDOT&apos;s
           published section counts. Speeds sag as flow nears capacity (about 47 mph at full utilization) the way
           real freeways do, so the map shows busy-but-moving as yellow, not just jammed or free.
@@ -85,10 +87,12 @@ export default function I90Page() {
       </div>
 
       <div className="footnote">
-        <strong>Sources.</strong> FHWA Travel Monitoring Analysis System monthly volume files (May 2019, May 2025),
-        weekday averages, stations R117AA and R017AA; WSDOT State Highway Log 2024 (lane counts); WSDOT
-        Shared/TrafficData ArcGIS service (AADT and interchange flows); WSDOT Corridor Capacity Report 2018 (the R8A
-        natural experiment). Pipeline: scripts/build_i90.py in the public repo.
+        <strong>Sources.</strong> WSDOT Traffic Count Database (station R017, hourly by-lane volumes, June 30 to
+        August 5, 2026, harvested August 2026); FHWA Travel Monitoring Analysis System monthly volume files (May
+        2019, May 2025 averages; November and December 2025 daily), stations R117AA and R017AA; WSDOT State Highway
+        Log 2024 (lane counts); WSDOT Shared/TrafficData ArcGIS service (AADT and interchange flows); WSDOT Corridor
+        Capacity Report 2018 (the R8A natural experiment). Pipeline: scripts/build_i90.py in the public repo; the
+        harvested summer file is checked in at scripts/data/.
       </div>
 
       <RelatedLinks slug="/i90" />

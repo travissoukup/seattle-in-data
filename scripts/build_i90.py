@@ -224,12 +224,25 @@ for year in ('2025', '2019'):
         assert 3 < peak / base < 60, 'hourly shape looks wrong; check parser'
         assert 20000 < d['gpDaily'] + d['hovDaily'] < 90000, 'daily total implausible for one direction of I-90'
 
-# per-day curves from the newest published months
+# per-day curves, two sources:
+# (a) FHWA TMAS monthly files (accepted federal data, ~7 month lag): Nov-Dec 2025
+# (b) WSDOT MS2 TCDS by-lane harvest (raw recorder data through early Aug 2026,
+#     checked-in at scripts/data/r017_july2026.json; most summer days had not yet
+#     been through WSDOT's count-acceptance review when harvested Aug 2026)
 recent_days = []
 for key in ('nov2025', 'dec2025'):
     path = fetch_vol(key)
     recent_days += daily_curves(parse_2025(path, 'R017AA', all_days=True))
-print(f"per-day curves: {len(recent_days)} complete days, {recent_days[0]['date']} to {recent_days[-1]['date']}" if recent_days else 'NO recent days!')
+for d in recent_days:
+    d['season'] = 'winter2025'
+harvest_path = os.path.join(ROOT, 'scripts', 'data', 'r017_july2026.json')
+if os.path.exists(harvest_path):
+    with open(harvest_path) as f:
+        hj = json.load(f)
+    for d in hj['days']:
+        d['season'] = 'summer2026'
+        recent_days.append(d)
+print(f"per-day curves: {len(recent_days)} days total; summer2026 = {sum(1 for d in recent_days if d['season']=='summer2026')}")
 
 deltas = interchange_deltas(sections := fetch_sections())
 bridge = next((s for s in sections if 'FLOATING' in (s['location'] or '').upper() or (s['armBegin'] <= 2.6 <= s['armEnd'])), None)
@@ -241,7 +254,7 @@ out = {
     'generatedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(),
     'profiles': profiles,
     'interchangeDeltas': deltas,
-    'days': recent_days[-42:],
+    'days': recent_days[-78:],
     'geometry': fetch_geometry(),
     'sections': sections,
     'notes': {
