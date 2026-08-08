@@ -215,6 +215,14 @@ export const CATEGORIES: Category[] = [
       'Getting around a city leaves a trail of data. Counters track how many people bike over the bridges. Parking meters log every payment. People report potholes and broken streetlights through the city app. These pages map how Seattle moves and what residents ask the city to fix.',
     entries: [
       {
+        title: 'The I-90 simulator',
+        blurb:
+          'A working traffic model of the floating bridge corridor, calibrated with real hourly lane counts. Close the HOV lane, hand cars the 2 Line right of way, crank the demand, and watch the corridor respond.',
+        status: 'investigation',
+        href: '/i90',
+        datasets: ['FHWA TMAS hourly counts', 'WSDOT traffic sections'],
+      },
+      {
         title: 'Walk score for every block',
         blurb: 'A color map that scores how walkable each part of the city is, from sidewalks and parks to bus stops and hills. You can change what counts and watch it redraw.',
         status: 'live',

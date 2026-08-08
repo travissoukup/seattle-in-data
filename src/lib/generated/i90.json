@@ -1,0 +1,430 @@
+{
+ "generatedAt": "2026-08-08T03:26:24.091577+00:00",
+ "profiles": {
+  "2025": {
+   "station": "R017AA",
+   "EB": {
+    "gp": [
+     431,
+     236,
+     193,
+     208,
+     450,
+     1317,
+     3054,
+     4768,
+     4566,
+     4170,
+     3849,
+     3656,
+     3624,
+     3685,
+     4211,
+     4694,
+     4667,
+     4520,
+     3648,
+     2666,
+     2239,
+     2118,
+     1620,
+     1001
+    ],
+    "hov": [
+     47,
+     20,
+     12,
+     8,
+     18,
+     78,
+     291,
+     836,
+     791,
+     590,
+     525,
+     518,
+     523,
+     571,
+     753,
+     1060,
+     1124,
+     1009,
+     681,
+     491,
+     436,
+     473,
+     336,
+     161
+    ],
+    "gpDaily": 65591,
+    "hovDaily": 11351,
+    "laneDays": {
+     "1": 21,
+     "2": 21,
+     "3": 21,
+     "4": 21
+    }
+   },
+   "WB": {
+    "gp": [
+     401,
+     231,
+     213,
+     203,
+     463,
+     1472,
+     3346,
+     4579,
+     4062,
+     3956,
+     3561,
+     3493,
+     3672,
+     3787,
+     4140,
+     4334,
+     4213,
+     4175,
+     4066,
+     3313,
+     2602,
+     2210,
+     1451,
+     790
+    ],
+    "hov": [
+     19,
+     5,
+     4,
+     6,
+     22,
+     87,
+     272,
+     791,
+     1059,
+     737,
+     405,
+     351,
+     414,
+     472,
+     636,
+     914,
+     1228,
+     1223,
+     1048,
+     543,
+     314,
+     235,
+     125,
+     50
+    ],
+    "gpDaily": 64733,
+    "hovDaily": 10962,
+    "laneDays": {
+     "1": 21,
+     "2": 21,
+     "3": 21,
+     "4": 21
+    }
+   }
+  },
+  "2019": {
+   "station": "R117AA",
+   "EB": {
+    "gp": [
+     454,
+     270,
+     227,
+     210,
+     467,
+     1333,
+     3015,
+     3959,
+     3476,
+     3118,
+     2920,
+     2878,
+     2942,
+     3029,
+     3488,
+     3956,
+     3982,
+     3680,
+     3390,
+     2496,
+     1997,
+     1828,
+     1486,
+     955
+    ],
+    "hov": [
+     75,
+     37,
+     25,
+     17,
+     42,
+     189,
+     567,
+     913,
+     860,
+     727,
+     691,
+     678,
+     695,
+     717,
+     866,
+     1070,
+     1237,
+     1087,
+     1037,
+     732,
+     596,
+     528,
+     337,
+     197
+    ],
+    "gpDaily": 55555,
+    "hovDaily": 13917,
+    "laneDays": {
+     "1": 45,
+     "2": 45,
+     "3": 45,
+     "4": 45
+    }
+   },
+   "WB": {
+    "gp": [
+     242,
+     132,
+     112,
+     151,
+     384,
+     1486,
+     3164,
+     3755,
+     2892,
+     2941,
+     2733,
+     2403,
+     2352,
+     2396,
+     2667,
+     3076,
+     3390,
+     3116,
+     3020,
+     2184,
+     1587,
+     1381,
+     969,
+     549
+    ],
+    "hov": [
+     69,
+     43,
+     43,
+     51,
+     162,
+     571,
+     1097,
+     1309,
+     1376,
+     1090,
+     816,
+     760,
+     841,
+     829,
+     651,
+     593,
+     480,
+     655,
+     840,
+     804,
+     563,
+     477,
+     277,
+     158
+    ],
+    "gpDaily": 47083,
+    "hovDaily": 14554,
+    "laneDays": {
+     "1": 46,
+     "2": 46,
+     "3": 46,
+     "4": 46
+    }
+   }
+  }
+ },
+ "interchangeDeltas": [
+  {
+   "arm": 0.85,
+   "delta": 94000,
+   "from": "From Milepost 2.40 A to Milepost 2.79 A",
+   "to": "From Milepost 2.79 A to Milepost 3.94 A"
+  },
+  {
+   "arm": 2.0,
+   "delta": 23000,
+   "from": "From Milepost 2.79 A to Milepost 3.94 A",
+   "to": "From Milepost 3.94 A to Milepost 5.84 A"
+  },
+  {
+   "arm": 3.9,
+   "delta": 0,
+   "from": "From Milepost 3.94 A to Milepost 5.84 A",
+   "to": "From Milepost 5.84 A to Milepost 6.56 A"
+  },
+  {
+   "arm": 4.62,
+   "delta": 0,
+   "from": "From Milepost 5.84 A to Milepost 6.56 A",
+   "to": "From Milepost 6.56 A to Milepost 6.85 A"
+  },
+  {
+   "arm": 4.91,
+   "delta": -8000,
+   "from": "From Milepost 6.56 A to Milepost 6.85 A",
+   "to": "From Milepost 6.85 A to Milepost 7.64 A"
+  },
+  {
+   "arm": 5.7,
+   "delta": 6000,
+   "from": "From Milepost 6.85 A to Milepost 7.64 A",
+   "to": "From Milepost 7.64 A to Milepost 8.70 A"
+  },
+  {
+   "arm": 6.76,
+   "delta": 15000,
+   "from": "From Milepost 7.64 A to Milepost 8.70 A",
+   "to": "From Milepost 8.70 A to Milepost 9.63 A"
+  },
+  {
+   "arm": 7.69,
+   "delta": -58000,
+   "from": "From Milepost 8.70 A to Milepost 9.63 A",
+   "to": "From Milepost 9.63 A to Milepost 9.87 A"
+  },
+  {
+   "arm": 7.93,
+   "delta": -23000,
+   "from": "From Milepost 9.63 A to Milepost 9.87 A",
+   "to": "From Milepost 9.87 A to Milepost 10.15 A"
+  },
+  {
+   "arm": 8.21,
+   "delta": 74000,
+   "from": "From Milepost 9.87 A to Milepost 10.15 A",
+   "to": "From Milepost 10.15 A to Milepost 11.64 A"
+  },
+  {
+   "arm": 9.7,
+   "delta": -48000,
+   "from": "From Milepost 10.15 A to Milepost 11.64 A",
+   "to": "From Milepost 11.64 A to Milepost 12.40 A"
+  },
+  {
+   "arm": 10.46,
+   "delta": 29000,
+   "from": "From Milepost 11.64 A to Milepost 12.40 A",
+   "to": "From Milepost 12.40 A to Milepost 13.26 A"
+  }
+ ],
+ "sections": [
+  {
+   "location": "From Milepost 9.63 A to Milepost 9.87 A",
+   "aadt": 94000,
+   "armBegin": 7.69,
+   "armEnd": 7.93
+  },
+  {
+   "location": "From Milepost 2.79 A to Milepost 3.94 A",
+   "aadt": 116000,
+   "armBegin": 0.85,
+   "armEnd": 2.0
+  },
+  {
+   "location": "From Milepost 3.94 A to Milepost 5.84 A",
+   "aadt": 139000,
+   "armBegin": 2.0,
+   "armEnd": 3.9
+  },
+  {
+   "location": "From Milepost 2.40 A to Milepost 2.79 A",
+   "aadt": 22000,
+   "armBegin": 0.46,
+   "armEnd": 0.85
+  },
+  {
+   "location": "From Milepost 10.15 A to Milepost 11.64 A",
+   "aadt": 145000,
+   "armBegin": 8.21,
+   "armEnd": 9.7
+  },
+  {
+   "location": "From Milepost 1.94 A to Milepost 2.04 A",
+   "aadt": 12000,
+   "armBegin": 0,
+   "armEnd": 0.1
+  },
+  {
+   "location": "From Milepost 5.84 A to Milepost 6.56 A",
+   "aadt": 139000,
+   "armBegin": 3.9,
+   "armEnd": 4.62
+  },
+  {
+   "location": "From Milepost 7.64 A to Milepost 8.70 A",
+   "aadt": 137000,
+   "armBegin": 5.7,
+   "armEnd": 6.76
+  },
+  {
+   "location": "From Milepost 2.04 A to Milepost 2.40 A",
+   "aadt": 43000,
+   "armBegin": 0.1,
+   "armEnd": 0.46
+  },
+  {
+   "location": "From Milepost 8.70 A to Milepost 9.63 A",
+   "aadt": 152000,
+   "armBegin": 6.76,
+   "armEnd": 7.69
+  },
+  {
+   "location": "From Milepost 9.87 A to Milepost 10.15 A",
+   "aadt": 71000,
+   "armBegin": 7.93,
+   "armEnd": 8.21
+  },
+  {
+   "location": "From Milepost 6.85 A to Milepost 7.64 A",
+   "aadt": 131000,
+   "armBegin": 4.91,
+   "armEnd": 5.7
+  },
+  {
+   "location": "From Milepost 12.40 A to Milepost 13.26 A",
+   "aadt": 126000,
+   "armBegin": 10.46,
+   "armEnd": 11.32
+  },
+  {
+   "location": "From Milepost 6.56 A to Milepost 6.85 A",
+   "aadt": 139000,
+   "armBegin": 4.62,
+   "armEnd": 4.91
+  },
+  {
+   "location": "From Milepost 11.64 A to Milepost 12.40 A",
+   "aadt": 97000,
+   "armBegin": 9.7,
+   "armEnd": 10.46
+  }
+ ],
+ "notes": {
+  "source": "FHWA TMAS monthly continuous-count files (May 2019, May 2025), weekday averages; WSDOT Shared/TrafficData ArcGIS for AADT.",
+  "lanes": "GP = TMAS lanes 1-3 summed, HOV = lane 4, verified by curve shape at R017AA.",
+  "armOffset": "ArcGIS AccumulatedRouteMile is about 1.94 miles less than signed mileposts on this stretch."
+ }
+}
