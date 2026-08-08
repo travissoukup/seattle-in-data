@@ -253,17 +253,22 @@ export function simulate(cfgSegments: Segment[], dir: 'EB' | 'WB', p: SimParams)
       queueMiByBin[bin] = (gpQueue + hovQueue) / (KJ_LANE * Math.max(1, gpL[0] + (hovExists ? 1 : 0)));
       for (let i = 0; i < n; i++) {
         const kT = kGp[i];
-        speed[bin * n + i] = kT > 0.5
-          ? Math.min(VF, Math.min(VF * kT, Q_LANE * gpL[i] * capF[i]) / kT)
-          : VF;
+        const qmaxI = Q_LANE * gpL[i] * capF[i];
+        const vCtm = kT > 0.5 ? Math.min(VF, Math.min(VF * kT, qmaxI) / kT) : VF;
+        // Near capacity, real freeway speeds sag before flow breaks down (the
+        // triangular diagram holds free-flow speed right up to qmax). Shape the
+        // recorded speed with an HCM-style dip: ~47 mph at full utilization.
+        const util = Math.min(1, Math.min(VF * kT, qmaxI) / qmaxI);
+        speed[bin * n + i] = Math.min(vCtm, VF * (1 - 0.22 * util * util * util));
         if (speedHov) {
           if (i < hovStart || i > hovEnd) {
             speedHov[bin * n + i] = speed[bin * n + i];
           } else {
             const kH = kHov[i - hovStart];
-            speedHov[bin * n + i] = kH > 0.5
-              ? Math.min(VF, Math.min(VF * kH, Q_LANE * hovCapFSub[i - hovStart]) / kH)
-              : VF;
+            const qmaxH = Q_LANE * hovCapFSub[i - hovStart];
+            const vH = kH > 0.5 ? Math.min(VF, Math.min(VF * kH, qmaxH) / kH) : VF;
+            const utilH = Math.min(1, Math.min(VF * kH, qmaxH) / qmaxH);
+            speedHov[bin * n + i] = Math.min(vH, VF * (1 - 0.22 * utilH * utilH * utilH));
           }
         }
       }

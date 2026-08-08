@@ -24,6 +24,8 @@ os.makedirs(CACHE, exist_ok=True)
 TMAS_ZIPS = {
     '2025': ('https://www.fhwa.dot.gov/policyinformation/tables/tmasdata/2025/may_2025_ccs_data.zip', 'WA_May_2025 (TMAS).VOL'),
     '2019': ('https://www.fhwa.dot.gov/policyinformation/tables/tmasdata/2019/may_2019.zip', 'WA0519.VOL'),
+    'nov2025': ('https://www.fhwa.dot.gov/policyinformation/tables/tmasdata/2025/nov_2025_ccs_data.zip', 'WA_Nov_2025 (TMAS).VOL'),
+    'dec2025': ('https://www.fhwa.dot.gov/policyinformation/tables/tmasdata/2025/dec_2025_ccs_data.zip', 'WA_Dec_2025 (TMAS).VOL'),
 }
 STATIONS = {'2025': 'R017AA', '2019': 'R117AA'}
 DIR_CODES = {'3': 'EB', '7': 'WB'}
@@ -47,7 +49,7 @@ def fetch_vol(year):
     return path
 
 
-def parse_2025(path, station):
+def parse_2025(path, station, all_days=False):
     """Pipe-delimited with header. One row per station/direction/lane/day."""
     rows = []
     with open(path) as f:
@@ -55,11 +57,37 @@ def parse_2025(path, station):
         for r in rd:
             if r['Station_Id'].strip() != station:
                 continue
-            if r['Travel_Dir'] not in DIR_CODES or r['Day_of_Week'] not in WEEKDAY_DOW:
+            if r['Travel_Dir'] not in DIR_CODES:
+                continue
+            if not all_days and r['Day_of_Week'] not in WEEKDAY_DOW:
                 continue
             hours = [int(r[f'Hour_{h:02d}'] or 0) for h in range(24)]
-            rows.append({'dir': DIR_CODES[r['Travel_Dir']], 'lane': int(r['Travel_Lane']), 'hours': hours})
+            rows.append({'dir': DIR_CODES[r['Travel_Dir']], 'lane': int(r['Travel_Lane']),
+                         'hours': hours, 'date': f"{r['Year_Record']}-{int(r['Month_Record']):02d}-{int(r['Day_Record']):02d}",
+                         'dow': int(r['Day_of_Week'])})
     return rows
+
+
+def daily_curves(rows):
+    """Per-calendar-day GP (lanes 1-3 summed) and HOV (lane 4) hourly curves,
+    per direction. A day is kept only if all 4 lanes reported in BOTH directions."""
+    from collections import defaultdict
+    by_day = defaultdict(lambda: defaultdict(dict))  # date -> dir -> lane -> hours
+    for r in rows:
+        by_day[r['date']][r['dir']][r['lane']] = r['hours']
+    DOW = {1: 'Sun', 2: 'Mon', 3: 'Tue', 4: 'Wed', 5: 'Thu', 6: 'Fri', 7: 'Sat'}
+    dows = {r['date']: DOW[r['dow']] for r in rows}
+    days = []
+    for date in sorted(by_day):
+        d = by_day[date]
+        if any(dirn not in d or set(d[dirn].keys()) != {1, 2, 3, 4} for dirn in ('EB', 'WB')):
+            continue
+        entry = {'date': date, 'dow': dows[date]}
+        for dirn in ('EB', 'WB'):
+            gp = [sum(d[dirn][lane][h] for lane in (1, 2, 3)) for h in range(24)]
+            entry[dirn] = {'gp': gp, 'hov': d[dirn][4]}
+        days.append(entry)
+    return days
 
 
 def parse_2019(path, station):
@@ -196,6 +224,13 @@ for year in ('2025', '2019'):
         assert 3 < peak / base < 60, 'hourly shape looks wrong; check parser'
         assert 20000 < d['gpDaily'] + d['hovDaily'] < 90000, 'daily total implausible for one direction of I-90'
 
+# per-day curves from the newest published months
+recent_days = []
+for key in ('nov2025', 'dec2025'):
+    path = fetch_vol(key)
+    recent_days += daily_curves(parse_2025(path, 'R017AA', all_days=True))
+print(f"per-day curves: {len(recent_days)} complete days, {recent_days[0]['date']} to {recent_days[-1]['date']}" if recent_days else 'NO recent days!')
+
 deltas = interchange_deltas(sections := fetch_sections())
 bridge = next((s for s in sections if 'FLOATING' in (s['location'] or '').upper() or (s['armBegin'] <= 2.6 <= s['armEnd'])), None)
 both_dir_daily = sum(profiles['2025'][d]['gpDaily'] + profiles['2025'][d]['hovDaily'] for d in ('EB', 'WB'))
@@ -206,6 +241,7 @@ out = {
     'generatedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(),
     'profiles': profiles,
     'interchangeDeltas': deltas,
+    'days': recent_days[-42:],
     'geometry': fetch_geometry(),
     'sections': sections,
     'notes': {

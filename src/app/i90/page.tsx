@@ -69,9 +69,12 @@ export default function I90Page() {
           road becomes 81 cells of a tenth of a mile, each with a capacity set by its real lane count (2,000 vehicles
           per lane-hour, trimmed 7% on the bridge and tunnel for missing shoulders), and traffic moves like a
           compressible fluid with a 60 mph free-flow speed and queues that spill backward at about 16 mph. Demand
-          enters on the real weekday hourly curve from station {p25.station} (May 2025 average) or {p19.station} (May
-          2019 for the pre-R8A scenario), split between HOV-eligible and general traffic by the observed lane-4
-          share. Interchanges scale flow by the ratios in WSDOT&apos;s published section counts.
+          enters on real hourly counts from station {p25.station}: pick any single day from the newest months the
+          federal data covers (each day is that day&apos;s actual lane-by-lane counts), or the May 2025 weekday
+          average; the pre-R8A scenario uses {p19.station}&apos;s May 2019 curve. Demand splits between HOV-eligible
+          and general traffic by the observed lane-4 share, and interchanges add or remove flow per WSDOT&apos;s
+          published section counts. Speeds sag as flow nears capacity (about 47 mph at full utilization) the way
+          real freeways do, so the map shows busy-but-moving as yellow, not just jammed or free.
         </p>
         <p className="muted" style={{ marginTop: 8 }}>
           What it cannot do: model lane-changing friction, crashes, weaving at the ramps, or where drivers reroute

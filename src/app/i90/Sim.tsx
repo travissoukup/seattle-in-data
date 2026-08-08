@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import data from '@/lib/generated/i90.json';
 import { simulate, segmentsToday, segmentsPreR8A, type SimParams, type SimResult } from './engine';
 import { TrafficMap } from './TrafficMap';
 
-/** Interactive I-90 corridor simulation. All demand curves are real TMAS
- * weekday averages; everything else is a visible, adjustable assumption. */
+/** Interactive I-90 corridor simulation. Demand curves are real TMAS counts:
+ * pick any actual day from the newest published months, or the weekday
+ * average. Everything else is a visible, adjustable assumption. */
 
 type Dir = 'EB' | 'WB';
 type PresetKey = 'today' | 'noHov' | 'hovAsGp' | 'preR8A' | 'centerGp';
@@ -42,29 +43,35 @@ function nodeRatiosFromDeltas(): { mp: number; ratio: number }[] {
 
 const NODE_RATIOS = nodeRatiosFromDeltas();
 
-function speedColor(v: number): [number, number, number] {
-  if (v >= 55) return [26, 152, 80];
-  if (v >= 45) return [145, 207, 96];
-  if (v >= 35) return [217, 239, 139];
-  if (v >= 25) return [254, 224, 139];
-  if (v >= 15) return [252, 141, 89];
-  return [215, 48, 39];
+interface DayCurve { gp: number[]; hov: number[] }
+interface DayEntry { date: string; dow: string; EB: DayCurve; WB: DayCurve }
+const DAYS = (data as unknown as { days: DayEntry[] }).days;
+const BUSIEST = DAYS.reduce((best, d) => {
+  const tot = (x: DayEntry) => ['EB', 'WB'].reduce((s2, dd) => s2 + (x[dd as Dir].gp.reduce((a, b) => a + b, 0)), 0);
+  return tot(d) > tot(best) ? d : best;
+}, DAYS[0]);
+
+function dayLabel(d: DayEntry): string {
+  const [y, m, dd] = d.date.split('-');
+  const mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][Number(m) - 1];
+  return `${d.dow} ${mon} ${Number(dd)}, ${y}`;
 }
 
 export function Sim() {
   const [dir, setDir] = useState<Dir>('WB');
+  const [dateKey, setDateKey] = useState<string>(BUSIEST?.date ?? 'avg');
   const [preset, setPreset] = useState<PresetKey>('today');
   const [demandScale, setDemandScale] = useState(100);
   const [hovShareScale, setHovShareScale] = useState(100);
   const [gpOcc, setGpOcc] = useState(1.2);
   const [hovOcc, setHovOcc] = useState(2.4);
   const [railRiders, setRailRiders] = useState(2000);
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const { result, baseline } = useMemo(() => {
     const year = preset === 'preR8A' ? '2019' : '2025';
-    const prof = (data.profiles as Record<string, Record<Dir, { gp: number[]; hov: number[] }> & { station: string }>)[year];
-    const curve = prof[dir];
+    const prof = (data.profiles as unknown as Record<string, Record<Dir, { gp: number[]; hov: number[] }>>)[year];
+    const day = preset === 'preR8A' || dateKey === 'avg' ? null : DAYS.find((d) => d.date === dateKey);
+    const curve = day ? day[dir] : prof[dir];
 
     const build = (pk: PresetKey): SimResult => {
       const segs = pk === 'preR8A' ? segmentsPreR8A(dir) : segmentsToday(dir);
@@ -91,37 +98,7 @@ export function Sim() {
     };
 
     return { result: build(preset), baseline: preset === 'today' ? null : build('today') };
-  }, [dir, preset, demandScale, hovShareScale, gpOcc, hovOcc, railRiders]);
-
-  // draw heatmap
-  useEffect(() => {
-    const cv = canvasRef.current;
-    if (!cv) return;
-    const { speed, timeBins, cells, queueMiByBin } = result;
-    const QROWS = 6;
-    cv.width = timeBins;
-    cv.height = cells + QROWS;
-    const ctx = cv.getContext('2d');
-    if (!ctx) return;
-    const img = ctx.createImageData(timeBins, cells + QROWS);
-    for (let t = 0; t < timeBins; t++) {
-      // entrance-queue strip on top: white (none) to deep red (2+ miles)
-      const q = Math.min(1, queueMiByBin[t] / 2);
-      for (let rIdx = 0; rIdx < QROWS; rIdx++) {
-        const px = (rIdx * timeBins + t) * 4;
-        img.data[px] = 255 - Math.round(40 * q);
-        img.data[px + 1] = Math.round(255 - 207 * q);
-        img.data[px + 2] = Math.round(255 - 216 * q);
-        img.data[px + 3] = 255;
-      }
-      for (let c = 0; c < cells; c++) {
-        const [r, g, b] = speedColor(speed[t * cells + c]);
-        const px = ((c + QROWS) * timeBins + t) * 4;
-        img.data[px] = r; img.data[px + 1] = g; img.data[px + 2] = b; img.data[px + 3] = 255;
-      }
-    }
-    ctx.putImageData(img, 0, 0);
-  }, [result]);
+  }, [dir, dateKey, preset, demandScale, hovShareScale, gpOcc, hovOcc, railRiders]);
 
   const peakTT = Math.max(...result.travelTimeByHour);
   const peakHr = result.travelTimeByHour.indexOf(peakTT);
@@ -147,6 +124,17 @@ export function Sim() {
             <select value={dir} onChange={(e) => setDir(e.target.value as Dir)}>
               <option value="WB">Westbound (into Seattle)</option>
               <option value="EB">Eastbound (toward Bellevue)</option>
+            </select>
+          </div>
+          <div className="lf-field">
+            <label>Day to simulate</label>
+            <select value={preset === 'preR8A' ? 'avg' : dateKey} disabled={preset === 'preR8A'} onChange={(e) => setDateKey(e.target.value)}>
+              <option value="avg">Average weekday (May 2025)</option>
+              {DAYS.map((d) => (
+                <option key={d.date} value={d.date}>
+                  {dayLabel(d)}{d.date === BUSIEST.date ? ' (busiest)' : ''}
+                </option>
+              ))}
             </select>
           </div>
           <div className="lf-field grow">
@@ -187,22 +175,6 @@ export function Sim() {
       </div>
 
       <TrafficMap result={result} dir={dir} />
-
-      <div className="card">
-        <h2 className="section-title">Speed along the corridor, all day</h2>
-        <p className="desc">
-          Every 5 minutes x every tenth of a mile, {dir === 'WB' ? 'Bellevue at the top, Seattle at the bottom' : 'Seattle at the top, Bellevue at the bottom'}.
-          Green is free flow, red is stop and go. GP lanes shown; the HOV chain is scored separately below.
-        </p>
-        <canvas ref={canvasRef} style={{ width: '100%', height: 300, imageRendering: 'pixelated', borderRadius: 6, border: '1px solid var(--border)' }} />
-        <div className="lf-legend">
-          <span className="lf-key"><span className="lf-dot" style={{ background: 'rgb(26,152,80)' }} /> 55+ mph</span>
-          <span className="lf-key"><span className="lf-dot" style={{ background: 'rgb(217,239,139)' }} /> ~40</span>
-          <span className="lf-key"><span className="lf-dot" style={{ background: 'rgb(252,141,89)' }} /> ~20</span>
-          <span className="lf-key"><span className="lf-dot" style={{ background: 'rgb(215,48,39)' }} /> jammed</span>
-          <span className="lf-key muted" style={{ marginLeft: 10 }}>x: midnight to midnight &middot; top strip: queue waiting to enter the corridor (white none, red 2+ miles) &middot; y: MP 2.0 to 10.1 (bridge MP 4.3-5.9)</span>
-        </div>
-      </div>
 
       <div className="stat-grid">
         <div className="stat-card">
