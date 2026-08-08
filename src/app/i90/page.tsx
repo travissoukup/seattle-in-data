@@ -79,7 +79,15 @@ export default function I90Page() {
           real freeways do, so the map shows busy-but-moving as yellow, not just jammed or free.
         </p>
         <p className="muted" style={{ marginTop: 8 }}>
-          What it cannot do: model lane-changing friction, crashes, weaving at the ramps, or where drivers reroute
+          Why the busiest real day still is not jammed: its peak hour ran at about 90% of capacity, heavy but moving,
+          and the recorder&apos;s own numbers show no breakdown that morning (throughput never sagged mid peak). Real
+          jams on a corridor running at 90% come from things going wrong, which is what the crash toggle simulates: one
+          blocked lane at the bridge turns the same morning into stop and go. One honest limit: on days that truly
+          broke down, a detector records what got through the queue, not what wanted to come, so true demand on jam
+          days cannot be reconstructed from a single station.
+        </p>
+        <p className="muted" style={{ marginTop: 8 }}>
+          What it cannot do: model lane-changing friction, weaving at the ramps, or where drivers reroute
           when you change the road (demand is fixed unless you move the slider). One direction runs at a time. The
           center-roadway scenarios assume its 2 lanes fully serve the simulated direction during its peak, which
           flatters the car option. Treat differences between scenarios as directionally meaningful, not the decimals.

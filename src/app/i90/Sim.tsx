@@ -66,6 +66,7 @@ export function Sim() {
   const [gpOcc, setGpOcc] = useState(1.2);
   const [hovOcc, setHovOcc] = useState(2.4);
   const [railRiders, setRailRiders] = useState(2000);
+  const [incident, setIncident] = useState(false);
 
   const { result, baseline } = useMemo(() => {
     const year = preset === 'preR8A' ? '2019' : '2025';
@@ -73,7 +74,7 @@ export function Sim() {
     const day = preset === 'preR8A' || dateKey === 'avg' ? null : DAYS.find((d) => d.date === dateKey);
     const curve = day ? day[dir] : prof[dir];
 
-    const build = (pk: PresetKey): SimResult => {
+    const build = (pk: PresetKey, withIncident: boolean): SimResult => {
       const segs = pk === 'preR8A' ? segmentsPreR8A(dir) : segmentsToday(dir);
       // Reversible center: WB gets it 5am-1pm historically; we grant it to the
       // direction being simulated during its peak by giving the lanes all day
@@ -92,13 +93,19 @@ export function Sim() {
         hovOcc,
         railRidersPeakHr: railRiders,
         stationMp: year === '2025' ? 4.2 : 3.0,
+        incident: withIncident
+          ? { mpStart: 4.3, mpEnd: 4.6, hourStart: 7.5, hourEnd: 8.5, lanesLost: 1 }
+          : undefined,
       };
       if (pk === 'noHov') { p.hovActive = false; p.hovAsGp = false; }
       return simulate(segs, dir, p);
     };
 
-    return { result: build(preset), baseline: preset === 'today' ? null : build('today') };
-  }, [dir, dateKey, preset, demandScale, hovShareScale, gpOcc, hovOcc, railRiders]);
+    return {
+      result: build(preset, incident),
+      baseline: preset === 'today' && !incident ? null : build('today', false),
+    };
+  }, [dir, dateKey, preset, demandScale, hovShareScale, gpOcc, hovOcc, railRiders, incident]);
 
   const peakTT = Math.max(...result.travelTimeByHour);
   const peakHr = result.travelTimeByHour.indexOf(peakTT);
@@ -177,6 +184,12 @@ export function Sim() {
           <div className="lf-field">
             <label>2 Line riders/peak hr: {railRiders.toLocaleString('en-US')}</label>
             <input type="range" min={0} max={6000} step={250} value={railRiders} onChange={(e) => setRailRiders(Number(e.target.value))} />
+          </div>
+          <div className="lf-field">
+            <label>What jams this road</label>
+            <button className={`chip ${incident ? 'on' : ''}`} onClick={() => setIncident(!incident)}>
+              Crash at the bridge, 7:30 to 8:30am (blocks 1 lane)
+            </button>
           </div>
         </div>
       </div>

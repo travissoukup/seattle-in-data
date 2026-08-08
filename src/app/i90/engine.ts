@@ -41,6 +41,8 @@ export interface SimParams {
   hovOcc: number; // persons per HOV vehicle
   railRidersPeakHr: number; // 2 Line people across the bridge per peak hour (context metric)
   stationMp: number; // milepost of the counting station the demand curve was measured at
+  /** A crash blocking GP lanes over a milepost range and time window. */
+  incident?: { mpStart: number; mpEnd: number; hourStart: number; hourEnd: number; lanesLost: number };
 }
 
 export interface SimResult {
@@ -159,6 +161,11 @@ export function simulate(cfgSegments: Segment[], dir: 'EB' | 'WB', p: SimParams)
     return l;
   });
   const hovL = hov.map((h) => (h && p.hovActive && !p.hovAsGp ? 1 : 0));
+  // Incident variant: same corridor with lanes removed over the crash extent.
+  const inc = p.incident;
+  const gpLIncident = inc
+    ? gpL.map((l, i) => (mp[i] >= inc.mpStart && mp[i] <= inc.mpEnd ? Math.max(1, l - inc.lanesLost) : l))
+    : gpL;
   const hovExists = hovL.some((l) => l > 0);
   // The HOV lane exists on a contiguous stretch; run its chain only there and
   // let traffic exit freely at the end (in reality it merges into GP; the
@@ -220,7 +227,9 @@ export function simulate(cfgSegments: Segment[], dir: 'EB' | 'WB', p: SimParams)
     gpDemand += gpQueue / DT_H; gpQueue = 0;
     hovDemand += hovQueue / DT_H; hovQueue = 0;
 
-    const rGp = step(kGp, gpL, capF, gpDemand, 1, nodeRatio);
+    const hrNow = s * DT_H;
+    const lanesNow = inc && hrNow >= inc.hourStart && hrNow < inc.hourEnd ? gpLIncident : gpL;
+    const rGp = step(kGp, lanesNow, capF, gpDemand, 1, nodeRatio);
     gpQueue += rGp.spill * DT_H;
     if (hovExists) {
       const rHov = step(kHov, hovLanesSub, hovCapFSub, hovDemand, 1,
@@ -231,20 +240,20 @@ export function simulate(cfgSegments: Segment[], dir: 'EB' | 'WB', p: SimParams)
     // metrics: delay = vehicle-hours spent below free-flow speed
     for (let i = 0; i < n; i++) {
       const kTot = kGp[i];
-      const vGp = kTot > 0.5 ? Math.min(VF, (Math.min(VF * kTot, Q_LANE * gpL[i] * capF[i]) / kTot)) : VF;
+      const vGp = kTot > 0.5 ? Math.min(VF, (Math.min(VF * kTot, Q_LANE * lanesNow[i] * capF[i]) / kTot)) : VF;
       vehHoursDelay += kTot * CELL_MI * DT_H * Math.max(0, 1 - vGp / VF);
     }
     vehHoursDelay += gpQueue * DT_H + hovQueue * DT_H;
     const hr = s * DT_H;
     if (hr >= 6 && hr < 10) {
-      bridgeVehPeak += Math.min(VF * kGp[bridgeIdx], Q_LANE * gpL[bridgeIdx] * capF[bridgeIdx]) * DT_H;
+      bridgeVehPeak += Math.min(VF * kGp[bridgeIdx], Q_LANE * lanesNow[bridgeIdx] * capF[bridgeIdx]) * DT_H;
       if (hovExists && bridgeIdx >= hovStart && bridgeIdx <= hovEnd) {
         const bi = bridgeIdx - hovStart;
         bridgeHovVehPeak += Math.min(VF * kHov[bi], Q_LANE * hovCapFSub[bi]) * DT_H;
       }
     }
-    let queueMi = gpQueue / (KJ_LANE * (gpL[0] || 1)) ;
-    for (let i = 0; i < n; i++) if (kGp[i] > 0.6 * KJ_LANE * gpL[i]) queueMi += CELL_MI;
+    let queueMi = gpQueue / (KJ_LANE * (lanesNow[0] || 1));
+    for (let i = 0; i < n; i++) if (kGp[i] > 0.6 * KJ_LANE * lanesNow[i]) queueMi += CELL_MI;
     if (queueMi > maxQueueMi) maxQueueMi = queueMi;
 
     // record heatmap
@@ -253,7 +262,7 @@ export function simulate(cfgSegments: Segment[], dir: 'EB' | 'WB', p: SimParams)
       queueMiByBin[bin] = (gpQueue + hovQueue) / (KJ_LANE * Math.max(1, gpL[0] + (hovExists ? 1 : 0)));
       for (let i = 0; i < n; i++) {
         const kT = kGp[i];
-        const qmaxI = Q_LANE * gpL[i] * capF[i];
+        const qmaxI = Q_LANE * lanesNow[i] * capF[i];
         const vCtm = kT > 0.5 ? Math.min(VF, Math.min(VF * kT, qmaxI) / kT) : VF;
         // Near capacity, real freeway speeds sag before flow breaks down (the
         // triangular diagram holds free-flow speed right up to qmax). Shape the
