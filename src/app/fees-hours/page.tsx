@@ -6,6 +6,7 @@ import { DataTable } from '@/components/DataTable';
 import { fmt1, fmtInt, fmtMoney, fmtMoneyCompact, fmtPct, fmtYear, toCsv } from '@/lib/format';
 import { DataFreshness } from '@/components/DataFreshness';
 import { RelatedLinks } from '@/components/RelatedLinks';
+import { GeotechChart } from './GeotechChart';
 
 export const metadata = {
   title: 'Permit review by the quarter hour',
@@ -285,6 +286,36 @@ export default function FeesHoursPage() {
           wrapCols={[0, 3]}
           caption="Six overbilling tells, geotech against its nearest peer discipline."
         />
+      </ChartCard>
+
+      <ChartCard
+        title="Geotech fees, year by year"
+        desc={`The dollars look steady and that steadiness is the story: geotech billing held between ${fmtMoneyCompact(
+          Math.min(...geo.yearly.filter((r) => !r.partial).map((r) => r.minDollars + r.addlDollars)),
+        )} and ${fmtMoneyCompact(
+          Math.max(...geo.yearly.filter((r) => !r.partial).map((r) => r.minDollars + r.addlDollars)),
+        )} a year while the review hours inside it fell from ${fmtInt(geo.yearly[1].hours)} (${fmtYear(geo.yearly[1].y)}) to ${fmtInt(
+          geo.yearly[5].hours,
+        )} (${fmtYear(geo.yearly[5].y)}), down ${fmtPct(
+          (1 - geo.yearly[5].hours / geo.yearly[1].hours) * 100,
+        )}. The hourly rate climbing from ${fmtMoney(geo.yearly[0].rate)} to ${fmtMoney(geo.yearly[6].rate)} filled the gap. Minimum
+          charges (the flat half hour every ECA parcel pays) jumped in ${fmtYear(geo.yearly[1].y)} and have stayed near ${fmtMoneyCompact(
+          geo.yearly[4].minDollars,
+        )} a year since.`}
+        csv={{
+          filename: 'fees-geotech-yearly.csv',
+          data: toCsv(
+            ['year', 'minimum_charge_dollars', 'metered_hours_dollars', 'review_hours', 'permits_charged', 'hourly_rate', 'partial_year'],
+            geo.yearly.map((r) => [r.y, r.minDollars, r.addlDollars, r.hours, r.permits, r.rate, r.partial ? 'through Jun 23' : '']),
+          ),
+        }}
+        footnote={`Geotech means every ECA GeoTech, Geo Soils, and geotech post issue line item: stacked bars split flat
+          minimum charges from metered additional hours dollars; the line is implied review hours from the rate
+          lattice (engineering rate, ${fmtMoney(geo.yearly[0].rate)} in ${fmtYear(geo.yearly[0].y)} to ${fmtMoney(
+          geo.yearly[6].rate,
+        )} in ${fmtYear(geo.yearly[6].y)}). 2026* runs through June 23 only. ${PROVENANCE}`}
+      >
+        <GeotechChart rows={geo.yearly} />
       </ChartCard>
 
       <ChartCard

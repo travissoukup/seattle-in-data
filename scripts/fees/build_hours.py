@@ -319,7 +319,26 @@ def main():
     mix = h.groupby(['discipline', h.record_id.str.extract(r'-([A-Z]+)$')[0]]).size().unstack(fill_value=0)
     cn_share = lambda d: r1(100 * mix.loc[d, 'CN'] / mix.loc[d].sum())
 
+    # Yearly geotech rollup for the chart: minimum charges vs metered additional
+    # hours, distinct permits touched, and implied hours (lattice-fit).
+    geo_min_df = df[df.description.isin(MIN_DESCS['Geotech'])]
+    geo_yearly = []
+    for y in range(2020, 2027):
+        gm = geo_min_df[geo_min_df.year == y]
+        ga = geo[geo.year == y]
+        permits = pd.concat([gm.record_id, ga.record_id]).nunique()
+        geo_yearly.append({
+            'y': y,
+            'minDollars': r2(gm.billed.sum()),
+            'addlDollars': r2(ga.billed.sum()),
+            'hours': r1(ga.hours.sum()),
+            'permits': int(permits),
+            'rate': RATES['ENG'][y],
+            'partial': y == 2026,
+        })
+
     geo_out = {
+        'yearly': geo_yearly,
         'dollars': r2(geo.billed.sum()), 'hours': r1(geo.hours.sum()), 'lines': int(len(geo)),
         'weeklyMedian': r1(geo_wk.median()), 'weeklyP90': r1(geo_wk.quantile(0.9)), 'weeklyMax': r1(geo_wk.max()),
         'avgWeekly2026': r1(avg_weekly.loc[2026, 'Geotech']), 'avgWeekly2020': r1(avg_weekly.loc[2020, 'Geotech']),
