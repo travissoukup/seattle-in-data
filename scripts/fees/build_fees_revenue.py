@@ -218,6 +218,57 @@ out = {
     "cn2026Pace": round(cn_2026_pace),
 }
 
+
+# ---- quarterly: billed dollars vs permits issued citywide ----
+# Fees cover every SDCI permit system, so issued counts must too: building
+# (76t5-zqzr), electrical (c4tj-daue), trade (c87v-5hwh), land use (ht3q-kdvx).
+CTX = ssl.create_default_context(cafile=certifi.where())
+
+def issued_by_month(dataset):
+    # issueddate is a real date in 76t5 but TEXT in the other three systems,
+    # so group by the raw value and roll up to months here.
+    url = ("https://data.seattle.gov/resource/" + dataset + ".json?"
+           + urllib.parse.urlencode({
+               "$select": "issueddate, count(*) as n",
+               "$where": "issueddate >= '2020-01-01'",
+               "$group": "issueddate", "$order": "issueddate", "$limit": "5000"}))
+    with urllib.request.urlopen(url, timeout=90, context=CTX) as r:
+        rows = json.load(r)
+    out = {}
+    for row in rows:
+        d = str(row.get("issueddate") or "")[:7]
+        if len(d) == 7:
+            out[d] = out.get(d, 0) + int(row["n"])
+    return out
+
+issued_m = {}
+for ds in ("76t5-zqzr", "c4tj-daue", "c87v-5hwh", "ht3q-kdvx"):
+    for m, n in issued_by_month(ds).items():
+        issued_m[m] = issued_m.get(m, 0) + n
+
+df["billed"] = df["amount_paid"] + df["amount_due"]
+df["quarter"] = df["dt"].dt.to_period("Q").astype(str)  # like 2020Q1
+qb = df.groupby("quarter")["billed"].sum()
+
+def month_to_q(m):
+    y, mo = m.split("-")
+    return f"{y}Q{(int(mo) - 1) // 3 + 1}"
+
+issued_q = {}
+for m, n in issued_m.items():
+    q = month_to_q(m)
+    issued_q[q] = issued_q.get(q, 0) + n
+
+# Complete quarters only: fees end 2026-06-23 (Q2 short a week), so stop at 2026Q1.
+quarters = []
+for q in sorted(qb.index):
+    if q >= "2026Q2":
+        continue
+    quarters.append({"q": q, "billed": round(float(qb[q])),
+                     "issued": issued_q.get(q, 0)})
+out["quarters"] = quarters
+print("quarters:", len(quarters), "first:", quarters[0], "last:", quarters[-1])
+
 OUT.write_text(json.dumps(out, indent=1))
 print(f"wrote {OUT} ({OUT.stat().st_size / 1024:.1f} KB)")
 for k in ("totalBilled", "billed2020", "billed2024", "billed2026Pace", "permits2020",

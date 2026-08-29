@@ -7,6 +7,7 @@ import { DataFreshness } from '@/components/DataFreshness';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { fmtInt, fmtMoney, fmtMoneyCompact, fmtPct, toCsv } from '@/lib/format';
 import { PaceTrend } from './PaceTrend';
+import { QuarterlyChart } from './QuarterlyChart';
 
 export const metadata = {
   title: 'More permits, smaller checks',
@@ -109,6 +110,18 @@ export default function FeesRevenuePage() {
           valueFormat="index"
           height={320}
         />
+      </ChartCard>
+
+      <ChartCard
+        title="Fees billed vs permits issued, by quarter"
+        desc={`The same scissors at quarterly grain. Fee dollars (bars, left axis) peaked at $${(Math.max(...data.quarters.map((q) => q.billed)) / 1e6).toFixed(0)}M in ${data.quarters.reduce((a, b) => (b.billed > a.billed ? b : a)).q} while issuance sat near its low; permits issued (line, right axis) peaked at ${fmtInt(Math.max(...data.quarters.map((q) => q.issued)))} in ${data.quarters.reduce((a, b) => (b.issued > a.issued ? b : a)).q} while dollars slid. Complete quarters only, through ${data.quarters[data.quarters.length - 1].q}.`}
+        csv={{
+          filename: 'fees-vs-issued-quarterly.csv',
+          data: toCsv(['quarter', 'fees_billed', 'permits_issued'], data.quarters.map((q) => [q.q, q.billed, q.issued])),
+        }}
+        footnote={`${METHOD} Issued counts span all four permit systems the fees cover: building (76t5-zqzr), electrical (c4tj-daue), trade (c87v-5hwh), and land use (ht3q-kdvx), by issue date. Fees are billed by invoice date, and invoices land throughout a permit's life, including on applications never issued, so the two series describe the same world but not the same permits in the same quarter. 2026Q2 is dropped because the extract ends June 23.`}
+      >
+        <QuarterlyChart rows={data.quarters} />
       </ChartCard>
 
       <ChartCard
