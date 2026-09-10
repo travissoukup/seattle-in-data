@@ -212,6 +212,37 @@ tracked.sort(key=lambda t: -t['revenue'])
 tracked = tracked[:50]
 print(f'\ntracked labels: {len(tracked)}')
 
+# ---- the one-line answer: how much has the typical fee gone up since 2020? ----
+# For every tracked fee with a 2020 price, its cumulative % change from 2020.
+# The median across fees is the headline line; p25 and p75 give the spread.
+import statistics as _stats
+base_year = 2020
+med_inc = []
+have_base = [t for t in tracked if str(base_year) in t['prices']]
+for y in YEARS:
+    pcts = [
+        (t['prices'][str(y)] / t['prices'][str(base_year)] - 1) * 100
+        for t in have_base if str(y) in t['prices']
+    ]
+    if not pcts:
+        continue
+    pcts.sort()
+
+    def _pct(q):
+        i = min(len(pcts) - 1, int(q * (len(pcts) - 1)))
+        return round(pcts[i], 1)
+    med_inc.append({'y': y, 'median': round(_stats.median(pcts), 1),
+                    'p25': _pct(0.25), 'p75': _pct(0.75), 'n': len(pcts)})
+median_increase = {
+    'baseYear': base_year,
+    'rows': med_inc,
+    'nFees': len(have_base),
+    'lastMedian': med_inc[-1]['median'],
+    'lastYear': med_inc[-1]['y'],
+}
+print('median cumulative fee increase since %d:' % base_year,
+      ' '.join(f"{r['y']}:{r['median']:+.0f}%" for r in med_inc))
+
 # risers / cutters, requiring a 2020-or-2021 start and an end in the last two years
 movers = [t for t in tracked if t['firstY'] <= 2021 and t['lastY'] >= YEARS[-2]]
 risers = sorted([t for t in movers if t['pct'] > 0], key=lambda t: -t['pct'])[:8]
@@ -347,6 +378,7 @@ out = {
     'pctJan13': round(jan13 / nChanges * 100, 1),
     'perYear': perYear,
     'explorer': explorer,
+    'medianIncrease': median_increase,
 }
 OUT.write_text(json.dumps(out) + '\n')
 print(f'\nwrote {OUT} ({OUT.stat().st_size/1024:.0f} KB)')

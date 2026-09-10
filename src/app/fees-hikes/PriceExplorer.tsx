@@ -62,6 +62,48 @@ export function StaircaseChart({ data, height = 300 }: { data: Array<{ y: number
   );
 }
 
+/** The one-line answer: median cumulative % increase across all fees since a
+ * base year. A single bold step-line, because for most readers "how much are
+ * fees up?" deserves one clear number, not fifty. */
+export function MedianIncreaseChart({
+  rows,
+  height = 300,
+}: {
+  rows: Array<{ y: number; median: number }>;
+  height?: number;
+}) {
+  const [ref, w] = useWidth();
+  const last = rows[rows.length - 1];
+  return (
+    <div ref={ref} style={{ width: '100%', height }}>
+      {w > 0 ? (
+        <LineChart width={w} height={height} data={rows} margin={{ top: 12, right: 46, bottom: 4, left: 4 }}>
+          <CartesianGrid stroke="#eef1f4" vertical={false} />
+          <XAxis dataKey="y" tick={AXIS_TICK} tickLine={false} axisLine={{ stroke: '#cbd2da' }} />
+          <YAxis
+            tickFormatter={(v) => `+${v}%`}
+            tick={AXIS_TICK}
+            tickLine={false}
+            axisLine={false}
+            width={46}
+          />
+          <Tooltip formatter={(value) => [`+${Number(value)}%`, 'Median fee, vs base year']} />
+          <ReferenceLine y={0} stroke="#cbd2da" />
+          <Line
+            type="stepAfter"
+            dataKey="median"
+            name={`+${last.median}% by ${last.y}`}
+            stroke="#0072b2"
+            strokeWidth={3}
+            dot={{ r: 4 }}
+            isAnimationActive={false}
+          />
+        </LineChart>
+      ) : null}
+    </div>
+  );
+}
+
 export interface ExplorerLabel {
   label: string;
   type: string;

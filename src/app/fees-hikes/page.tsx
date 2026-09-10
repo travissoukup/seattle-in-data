@@ -6,7 +6,7 @@ import { DataTable } from '@/components/DataTable';
 import { DataFreshness } from '@/components/DataFreshness';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { fmtInt, fmtPct, toCsv } from '@/lib/format';
-import { FeeLadder, StaircaseChart, type ExplorerLabel } from './PriceExplorer';
+import { FeeLadder, MedianIncreaseChart, StaircaseChart, type ExplorerLabel } from './PriceExplorer';
 
 export const metadata = {
   title: `Seattle permit fees change once a year, ${data.nOutsideJan === 0 ? 'in January' : 'almost always in January'}`,
@@ -55,6 +55,7 @@ const PRICE_HISTOGRAM_QUERY = soql({
 });
 
 export default function FeesHikesPage() {
+  const mi = data.medianIncrease;
   const y0 = data.years[0];
   const yLast = data.years[data.years.length - 1];
   const firstHikeYear = data.unitHikes[0].y;
@@ -148,6 +149,19 @@ export default function FeesHikesPage() {
         }}
       >
         <StaircaseChart data={data.staircase.map((s) => ({ y: s.y, unit: s.unit }))} height={300} />
+      </ChartCard>
+
+      <ChartCard
+        title={`In one line: the typical permit fee is up ${fmtPct(mi.lastMedian)} since ${mi.baseYear}`}
+        desc={`If you only look at one chart, this is it. Across the ${fmtInt(mi.nFees)} fees we can track, the median fee costs ${fmtPct(mi.lastMedian)} more in ${mi.lastYear} than it did in ${mi.baseYear}. The increases come in January steps, and they move almost in lockstep, because most fees are set as a multiple of the one base fee that the city raises each year. A few fire and refrigeration fees are the exceptions that went the other way.`}
+        csv={{
+          filename: 'median-fee-increase-since-2020.csv',
+          data: toCsv(['year', 'median_pct_increase', 'p25', 'p75', 'fees_counted'], mi.rows.map((r) => [r.y, r.median, r.p25, r.p75, r.n])),
+        }}
+        footnote={`For every tracked fee with a ${mi.baseYear} listed price, its cumulative percent change from ${mi.baseYear}; the line is the median across ${fmtInt(mi.nFees)} fees each year. The middle half of fees sits within about a point of the median in every year, which is why one line tells the story. ${SOURCE_NOTE}`}
+        source={{ id: FEES_DS, query: PRICE_HISTOGRAM_QUERY }}
+      >
+        <MedianIncreaseChart rows={mi.rows} height={300} />
       </ChartCard>
 
       <ChartCard
