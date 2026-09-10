@@ -58,6 +58,7 @@ const Q_TOP20 = soql({
 });
 
 export default function FeesRevenuePage() {
+  const ptt = data.permitTypeTrend;
   return (
     <>
       <p className="crumb">
@@ -149,6 +150,32 @@ export default function FeesRevenuePage() {
             { key: 'perPermitPace', name: '2026 (dashed = estimate)', color: PALETTE[1], dashed: true },
           ]}
           valueFormat="index"
+          height={320}
+        />
+      </ChartCard>
+
+      <ChartCard
+        title="But the typical construction permit is paying more"
+        desc={`The smaller-checks story is a mix effect, and it hides the opposite move underneath. The median simple permit (issued over the counter or subject to field inspection, no plan review) got ${fmtPct(Math.abs(ptt.simpleDropPct))} cheaper, ${fmtMoney(ptt.simpleFirst)} to ${fmtMoney(ptt.simpleLast)}. But the median construction permit, the kind that goes through real plan review, rose ${fmtPct(ptt.cnRisePct)}, ${fmtMoney(ptt.cnFirst)} to ${fmtMoney(ptt.cnLast)}, climbing almost every year. The typical builder is paying more; the overall average only fell because the giant tower projects thinned out.`}
+        csv={{
+          filename: 'per-permit-fee-by-type.csv',
+          data: toCsv(
+            ['year', 'construction_median', 'simple_median', 'all_median'],
+            ptt.years.map((y, i) => [y, ptt.construction[i], ptt.simple[i], ptt.all[i]]),
+          ),
+        }}
+        footnote={`Median fees paid per permit, permit number normalized so sub-permits do not split. Construction is the -CN record class; simple is every permit with no value-based, plan-review, intake, or hourly-review line, which is the over-the-counter and field-inspection work. Complete calendar years only, ${ptt.years[0]} to ${ptt.years[ptt.years.length - 1]}. ${METHOD}`}
+        source={{ id: 'k8z7-3feg' }}
+      >
+        <PaceTrend
+          data={ptt.years.map((y, i) => ({ y: String(y), construction: ptt.construction[i], simple: ptt.simple[i], all: ptt.all[i] }))}
+          xKey="y"
+          series={[
+            { key: 'construction', name: 'Construction permit (median)', color: PALETTE[1] },
+            { key: 'all', name: 'All permits (median)', color: '#9aa3ad' },
+            { key: 'simple', name: 'Simple / over-the-counter (median)', color: PALETTE[0] },
+          ]}
+          valueFormat="money"
           height={320}
         />
       </ChartCard>

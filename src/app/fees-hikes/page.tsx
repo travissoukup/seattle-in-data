@@ -6,7 +6,7 @@ import { DataTable } from '@/components/DataTable';
 import { DataFreshness } from '@/components/DataFreshness';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { fmtInt, fmtPct, toCsv } from '@/lib/format';
-import { PriceExplorer, StaircaseChart, type ExplorerLabel } from './PriceExplorer';
+import { FeeLadder, StaircaseChart, type ExplorerLabel } from './PriceExplorer';
 
 export const metadata = {
   title: `Seattle permit fees change once a year, ${data.nOutsideJan === 0 ? 'in January' : 'almost always in January'}`,
@@ -227,12 +227,12 @@ export default function FeesHikesPage() {
       </ChartCard>
 
       <ChartCard
-        title="Look up any big fee's price history"
-        desc={`The ${fmtInt(data.nTracked)} highest-revenue fees with a stable listed price, and what they cost each year.`}
-        footnote={`For each fee (description plus permit-type code) the listed price in a year is the modal invoiced amount, shown only when it covers at least half of that year's invoices (minimum 20). Two-letter permit types without a confirmed meaning are shown as their raw record-number code. The dataset reaches back to ${fullHistoryYear}; extending this explorer to the pre-2020 price history is a planned follow-up. ${SOURCE_NOTE}`}
+        title="The fee ladder: every fee's climb, and a zoom"
+        desc={`All ${fmtInt(data.nTracked)} highest-revenue fees at once, each indexed so its first year reads 100, so you can see the whole schedule step up together. Pick a fee to pull it out of the pack and read its exact prices. Most rise in lockstep every January; a handful were cut.`}
+        footnote={`For each fee (description plus permit-type code) the listed price in a year is the modal invoiced amount, shown only when it covers at least half of that year's invoices (minimum 20). Two-letter permit types without a confirmed meaning are shown as their raw record-number code. The dataset reaches back to ${fullHistoryYear}; extending the ladder to the pre-2020 price history is a planned follow-up. ${SOURCE_NOTE}`}
         source={{ id: FEES_DS, query: PRICE_HISTOGRAM_QUERY }}
       >
-        <PriceExplorer labels={data.explorer as ExplorerLabel[]} years={data.years} />
+        <FeeLadder labels={data.explorer as ExplorerLabel[]} years={data.years} />
       </ChartCard>
 
       <div className="caveat">

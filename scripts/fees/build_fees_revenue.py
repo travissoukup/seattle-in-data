@@ -233,6 +233,45 @@ cn_2025 = float(cn.loc[2025])
 cn_2025_is_record = bool(cn.loc[2025] == cn.loc[years_full].max())
 cn_2026_pace = float(cn.loc[2026] * ANNUALIZE)
 
+# ---- the smaller-checks illusion: split the typical permit by review path ----
+# The overall median hides opposite moves. Simple permits (issued over the
+# counter or subject to field inspection, no plan review) got cheaper, while
+# construction permits that go through real review got more expensive. Uses
+# paid dollars per permit, base id normalized so sub-permits collapse.
+LAST_FULL_YEAR = int(df["year"].max()) - 1
+seg = df[(df["year"] >= 2020) & (df["year"] <= LAST_FULL_YEAR)].copy()
+seg["base"] = seg["record_id"].str.replace(r"^(\d+-[A-Z]+).*$", r"\1", regex=True)
+reviewed_ids = set(
+    seg.loc[seg["description"].str.contains(
+        "Value Based Plan Review|Plan Review|Additional Hours|Building Permit: Intake",
+        case=False, na=False), "base"]
+)
+seg["reviewed"] = seg["base"].isin(reviewed_ids)
+seg["isCN"] = seg["record_id"].str.contains("-CN", na=False)
+per_permit = seg[seg["amount_paid"] > 0].groupby(["base", "year", "reviewed", "isCN"], as_index=False).amount_paid.sum()
+seg_years = list(range(2020, LAST_FULL_YEAR + 1))
+
+def _median_series(mask):
+    g = per_permit[mask].groupby("year").amount_paid.median()
+    return [round(float(g.get(y, 0))) for y in seg_years]
+
+construction = _median_series(per_permit["isCN"])
+simple = _median_series(~per_permit["reviewed"])
+allperm = _median_series(per_permit.index.notna())
+permit_type_trend = {
+    "years": seg_years,
+    "construction": construction,
+    "simple": simple,
+    "all": allperm,
+    "cnRisePct": round((construction[-1] / construction[0] - 1) * 100),
+    "simpleDropPct": round((simple[-1] / simple[0] - 1) * 100),
+    "cnFirst": construction[0], "cnLast": construction[-1],
+    "simpleFirst": simple[0], "simpleLast": simple[-1],
+}
+print(f"permit-type trend: CN median {construction[0]}->{construction[-1]} "
+      f"({permit_type_trend['cnRisePct']:+d}%), simple {simple[0]}->{simple[-1]} "
+      f"({permit_type_trend['simpleDropPct']:+d}%)")
+
 out = {
     "generatedAt": datetime.now(timezone.utc).isoformat(),
     "dataThrough": DATA_THROUGH,
@@ -341,6 +380,7 @@ for q in sorted(qb.index):
                      "issued": issued_q.get(q, 0)})
 out["quarters"] = quarters
 out["lastCompleteQuarter"] = quarters[-1]["q"]
+out["permitTypeTrend"] = permit_type_trend
 print("quarters:", len(quarters), "first:", quarters[0], "last:", quarters[-1])
 
 OUT.write_text(json.dumps(out, indent=1))
