@@ -388,6 +388,50 @@ def main() -> None:
         "phMedianProjectCost": r2(ph.estprojectcost.median()),
     }
 
+    # ---- fee mix over time: the top charge types by year -------------------
+    # Only complete-coverage years: fee capture ramps up through 2019 (2019
+    # billed $34M vs $81M in 2020), so a chart starting earlier would invent a
+    # climb. Anchor at 2020, stop at the last complete calendar year.
+    fy = pd.to_datetime(fees.date_invoiced).dt.year
+    last_full = int(fy.max()) - (1 if end.month < 12 or end.day < 31 else 0)
+    mix_years = list(range(2020, last_full + 1))
+    fmix = fees[fy.isin(mix_years)].copy()
+    fmix["yr"] = pd.to_datetime(fmix.date_invoiced).dt.year
+    by_desc_year = fmix.groupby(["description", "yr"]).amount_paid.sum().unstack(fill_value=0.0)
+    for y in mix_years:
+        if y not in by_desc_year.columns:
+            by_desc_year[y] = 0.0
+    by_desc_year = by_desc_year[mix_years]
+    top_desc = by_desc_year.sum(axis=1).sort_values(ascending=False).head(8).index.tolist()
+    mix_series = []
+    for i, desc in enumerate(top_desc):
+        row = by_desc_year.loc[desc]
+        nz = [y for y in mix_years if row[y] > 0]
+        mix_series.append({
+            "key": f"f{i}",
+            "name": desc,
+            "firstYear": int(min(nz)) if nz else mix_years[0],
+            "isNew": bool(nz and min(nz) > mix_years[0]),
+        })
+    mix_rows = []
+    for y in mix_years:
+        r = {"year": str(y)}
+        for i, desc in enumerate(top_desc):
+            r[f"f{i}"] = r2(float(by_desc_year.loc[desc, y]))
+        mix_rows.append(r)
+    # headline: the fee that gained the most share of the mix from first to last year
+    share = by_desc_year.div(by_desc_year.sum(axis=0), axis=1)
+    share_gain = (share[mix_years[-1]] - share[mix_years[0]]).sort_values(ascending=False)
+    mix_trend = {
+        "years": mix_years,
+        "rows": mix_rows,
+        "series": mix_series,
+        "distinctFeesFirst": int((by_desc_year[mix_years[0]] > 0).sum()),
+        "distinctFeesLast": int((by_desc_year[mix_years[-1]] > 0).sum()),
+        "topGainer": {"name": share_gain.index[0], "points": r2(float(share_gain.iloc[0] * 100))},
+        "topLoser": {"name": share_gain.index[-1], "points": r2(float(share_gain.iloc[-1] * 100))},
+    }
+
     out = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "windowStart": str(start.date()),
@@ -417,6 +461,7 @@ def main() -> None:
         "families": families,
         "byType": by_type,
         "estimator": estimator,
+        "mixTrend": mix_trend,
     }
     OUT.write_text(json.dumps(out) + "\n")
 

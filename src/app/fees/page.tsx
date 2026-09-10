@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import data from '@/lib/generated/fees.json';
 import { ChartCard } from '@/components/ChartCard';
-import { RankedBars } from '@/components/charts';
+import { RankedBars, TrendChart } from '@/components/charts';
 import { DataTable } from '@/components/DataTable';
 import { DataFreshness } from '@/components/DataFreshness';
 import { RelatedLinks } from '@/components/RelatedLinks';
@@ -42,6 +42,8 @@ export default function FeesPage() {
   const histRows = data.histogram.map((h) => ({ label: h.bucket, value: h.permitsPct }));
   const topBucket = data.histogram[data.histogram.length - 1];
   const famRows = data.families.map((f) => ({ label: f.family, value: f.paid }));
+  const mix = data.mixTrend;
+  const newFee = mix.series.find((s) => s.isNew);
   const famTop = data.families[0];
   const famHourly = data.families.find((f) => f.family === 'Hourly review time')!;
 
@@ -158,6 +160,28 @@ export default function FeesPage() {
           headers={['Family', 'What is in it']}
           rows={data.families.map((f) => [f.family, f.blurb])}
           wrapCols={[1]}
+        />
+      </ChartCard>
+
+      <ChartCard
+        title="How the fee mix shifted"
+        desc={`The eight biggest charge types, dollars collected each year. Total fees held roughly flat over these years, but the mix moved: the ${mix.topGainer.name} took ${mix.topGainer.points} more points of every fee dollar than in ${mix.years[0]}, the biggest gain of any charge, while ${mix.topLoser.name} gave up ${Math.abs(mix.topLoser.points)} points. The count of distinct charge types collected in a year grew from ${fmtInt(mix.distinctFeesFirst)} in ${mix.years[0]} to ${fmtInt(mix.distinctFeesLast)} in ${mix.years[mix.years.length - 1]}: new fees really did creep in. Watch the 5% Technology Fee line start at zero and climb after it appeared in ${newFee ? newFee.firstYear : 2023}.`}
+        csv={{
+          filename: 'fee-mix-by-type-yearly.csv',
+          data: toCsv(
+            ['year', ...mix.series.map((s) => s.name)],
+            mix.rows.map((r) => [r.year, ...mix.series.map((s) => (r as Record<string, number | string>)[s.key])] as (string | number)[]),
+          ),
+        }}
+        footnote={`Each line is one fee description, summed by year across all permit types. Complete calendar years only: fee capture ramps up through 2019, so the chart starts in ${mix.years[0]} to avoid inventing a climb, and stops at ${mix.years[mix.years.length - 1]}. A line that starts above zero mid-chart is a fee that did not exist, or was not billed, before then.`}
+        source={{ id: 'k8z7-3feg', query: `https://data.seattle.gov/resource/k8z7-3feg.json?$select=feedescription,date_extract_y(invoicedate)%20as%20yr,sum(feeamountpaid)&$group=feedescription,yr&$order=yr` }}
+      >
+        <TrendChart
+          data={mix.rows}
+          xKey="year"
+          series={mix.series.map((s) => ({ key: s.key, name: s.isNew ? `${s.name} (new in ${s.firstYear})` : s.name }))}
+          valueFormat="compact"
+          height={360}
         />
       </ChartCard>
 
