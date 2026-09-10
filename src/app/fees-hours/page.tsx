@@ -30,10 +30,11 @@ const monthLabel = (iso: string) => {
 
 const MONTHS_FULL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const endDay = `${MONTHS_FULL[Number(data.windowEnd.slice(5, 7)) - 1]} ${fmtInt(Number(data.windowEnd.slice(8, 10)))}, ${fmtYear(data.windowEnd.slice(0, 4))}`;
+const endDayNoYear = `${MONTHS_FULL[Number(data.windowEnd.slice(5, 7)) - 1]} ${fmtInt(Number(data.windowEnd.slice(8, 10)))}`;
 
-const PROVENANCE = `The data is an SDCI invoice line extract obtained by public records request, covering ${monthLabel(
+const PROVENANCE = `The source is the Permit Fees open dataset (${data.datasetId}), refreshed weekly; this page covers ${monthLabel(
   data.windowStart.slice(0, 7),
-)} through ${endDay}. It is not a Socrata dataset. Analysis code lives in scripts/fees in this site's public repo.`;
+)} through ${endDay}. SDCI published the dataset in September 2026 after this site requested the billing data, which we first analyzed via a public records request. Analysis code lives in scripts/fees in this site's public repo.`;
 
 export default function FeesHoursPage() {
   const y0 = fmtYear(data.rateCard[0].year);
@@ -54,19 +55,21 @@ export default function FeesHoursPage() {
       <div className="page-head">
         <p className="eyebrow">Permit Fees</p>
         <h1>
-          Billed review hours fell by almost half. Hourly rates rose up to {fmtInt(data.rateRise.luPct)} percent.
+          Billed review hours fell {fmtPct(data.totalDrop.dropPct)}. Hourly rates rose up to{' '}
+          {fmtInt(data.rateRise.luPct)} percent.
         </h1>
         <p>
-          Seattle meters part of its permit review by the clock. The invoice extract we obtained by public records
-          request shows how: {fmtInt(data.totals.lines)} hourly line items, {fmtMoneyCompact(data.totals.dollars)}{' '}
-          billed, {fmtInt(data.totals.hours)} implied hours of review work since {y0}. The amounts are so regular that
-          the fee schedule falls out of the data. {fmtPct(data.totals.onLatticePct)} of lines are exact multiples of a
-          quarter hour at a knowable rate. Hours and rates moved in opposite directions: the city billed{' '}
-          {fmt1(data.totalDrop.w2020)} metered hours a week in {y0} and {fmt1(data.totalDrop.w2026)} a week in the
-          first half of {y6}, down {fmtPct(data.totalDrop.dropPct)}, while the land use rate climbed from{' '}
-          {fmtMoney(data.rateCard[0].lu)} to {fmtMoney(data.rateCard[data.rateCard.length - 1].lu)} an hour. We also
-          went hunting for overbilling in this data, discipline by discipline and reviewer by reviewer. We did not find
-          it. The negative results are below, next to the two or three oddities that survived.
+          Seattle meters part of its permit review by the clock. The city&apos;s Permit Fees dataset, published after
+          this site requested the billing data, shows how: {fmtInt(data.totals.lines)} hourly line items,{' '}
+          {fmtMoneyCompact(data.totals.dollars)} billed, {fmtInt(data.totals.hours)} implied hours of review work since{' '}
+          {y0}. The amounts are so regular that the fee schedule falls out of the data.{' '}
+          {fmtPct(data.totals.onLatticePct)} of lines are exact multiples of a quarter hour at a knowable rate. Hours
+          and rates moved in opposite directions: the city billed {fmt1(data.totalDrop.wStart)} metered hours a week in{' '}
+          {y0} and {fmt1(data.totalDrop.wEnd)} a week in {y6} through {endDayNoYear}, down{' '}
+          {fmtPct(data.totalDrop.dropPct)}, while the land use rate climbed from {fmtMoney(data.rateCard[0].lu)} to{' '}
+          {fmtMoney(data.rateCard[data.rateCard.length - 1].lu)} an hour. We also went hunting for overbilling in this
+          data, discipline by discipline and reviewer by reviewer. We did not find it. The negative results are below,
+          next to the two or three oddities that survived.
         </p>
       </div>
 
@@ -93,7 +96,7 @@ export default function FeesHoursPage() {
 
       <ChartCard
         title="The rate card, rebuilt from the invoices"
-        desc={`No fee schedule came with the extract. None was needed. Within each rate family and year, almost every
+        desc={`The dataset carries no fee schedule. None was needed. Within each rate family and year, almost every
           amount is a multiple of one number: the hourly rate divided by four. Land use review went from
           ${fmtMoney(data.rateCard[0].lu)} to ${fmtMoney(data.rateCard[data.rateCard.length - 1].lu)} an hour,
           engineering review (drainage, geotech, mechanical, energy, zoning) from ${fmtMoney(data.rateCard[0].eng)} to
@@ -112,6 +115,7 @@ export default function FeesHoursPage() {
           earlier year's lattice, which is work billed late at the old price, and ${fmtInt(data.totals.offLines)} lines
           (${fmtMoneyCompact(data.totals.offDollars)}, ${fmtPct(data.totals.offSharePct)} of hourly dollars) fit no
           known rate. ${PROVENANCE}`}
+        source={{ id: data.datasetId, query: data.queries.rateCard }}
       >
         <DataTable
           headers={['Year', 'Land use / hr', 'Engineering / hr', 'SDOT / hr', 'Quarter step (land use)', 'Lines on that lattice']}
@@ -130,11 +134,11 @@ export default function FeesHoursPage() {
       <ChartCard
         title="Implied hours billed per week"
         desc={`Each point is a month, valued as average hours billed per week. Land use review collapsed: from
-          ${fmt1(data.luCollapse.w2020)} hours a week in ${y0} to ${fmt1(data.luCollapse.w2025)} in
-          ${fmtYear(data.rateCard[5].year)} and ${fmt1(data.luCollapse.w2026)} in early ${y6}, down
+          ${fmt1(data.luCollapse.wStart)} hours a week in ${y0} to ${fmt1(data.luCollapse.wLastFull)} in
+          ${fmtYear(data.luCollapse.lastFullYear)} and ${fmt1(data.luCollapse.wPartial)} so far in ${y6}, down
           ${fmtPct(data.luCollapse.dropPct)} while its rate rose ${fmtPct(data.rateRise.luPct)}. Drainage peaked at
           ${fmt1(data.avgWeeklyByYear['Drainage']['2022'])} hours a week in ${fmtYear(data.rateCard[2].year)}. Geotech
-          slid from ${fmt1(geo.avgWeekly2020)} to ${fmt1(geo.avgWeekly2026)}.`}
+          slid from ${fmt1(geo.avgWeeklyStart)} to ${fmt1(geo.avgWeeklyEnd)}.`}
         csv={{
           filename: 'fees-hours-per-week-by-discipline.csv',
           data: toCsv(
@@ -145,8 +149,9 @@ export default function FeesHoursPage() {
         footnote={`Metered lines only: line items named Additional Hours or Hourly, converted to hours at the rate their
           amount fits. Flat minimum charges are excluded. Hours are dated by invoice date, and batches distort single
           months (see the next chart). The SDOT hourly line first appears in ${monthLabel(sdotStart)}. ${y6} is partial:
-          the series ends ${monthLabel(data.monthly[data.monthly.length - 1].m)}, cut at the extract's last day, and the
-          final month is scaled by its covered days. ${PROVENANCE}`}
+          the series ends ${monthLabel(data.monthly[data.monthly.length - 1].m)}, cut at the dataset's last invoice day,
+          and the final month is scaled by its covered days. ${PROVENANCE}`}
+        source={{ id: data.datasetId, query: data.queries.monthly }}
       >
         <TrendChart
           data={data.monthly}
@@ -165,11 +170,16 @@ export default function FeesHoursPage() {
 
       <ChartCard
         title="The mega invoices"
-        desc={`${fmtInt(data.mega.count40)} single invoice lines imply 40 hours of work or more. The largest is
-          ${fmtH(data.mega.top[0].hours)} hours of land use review billed as one ${fmtMoney(data.mega.top[0].amt)} line.
-          The record behind it, ${data.mega.record.id}, is the extract's whale: ${fmt1(data.mega.record.hours)} hours
-          (${fmtMoneyCompact(data.mega.record.amt)}) across ${fmtInt(data.mega.record.lines)} hourly lines, including
-          ${fmtH(data.mega.day.hours)} hours of land use charges posted in a single day.`}
+        desc={`${fmtInt(data.mega.count40)} single invoice lines imply 40 hours of work or more. The largest implies
+          ${fmtH(data.mega.top[0].hours)} hours in one ${fmtMoney(data.mega.top[0].amt)} line
+          (${data.mega.top[0].desc}) on ${data.mega.top[0].id}, of which ${fmtMoney(data.mega.top[0].paid)} has been
+          paid. The heaviest single record, ${data.mega.record.id}, carries ${fmt1(data.mega.record.hours)} hours
+          (${fmtMoneyCompact(data.mega.record.amt)}, ${fmtMoneyCompact(data.mega.record.paid)} of it paid) across
+          ${fmtInt(data.mega.record.lines)} hourly lines, ${
+            data.mega.record.from === data.mega.record.to
+              ? `all posted on ${data.mega.record.from}`
+              : `posted between ${data.mega.record.from} and ${data.mega.record.to}`
+          }.`}
         csv={{
           filename: 'fees-mega-invoice-lines.csv',
           data: toCsv(
@@ -177,18 +187,20 @@ export default function FeesHoursPage() {
             data.mega.top.map((r) => [r.id, r.d, r.desc, r.hours, r.amt]),
           ),
         }}
-        footnote={`These are almost certainly batch true ups, not single days of work: the invoice date is when SDCI
-          posted the charge, not when the work happened. The system's fingerprints are all over the timestamps:
+        footnote={`These are system artifacts, not single days of work: the invoice date is when SDCI posted the
+          charge, not when the work happened, and the dataset carries no void flag, so a double posted line that was
+          never paid stays on the books. The system's fingerprints are all over the timestamps:
           ${fmtInt(data.mega.weekend18Lines)} hourly lines post on weekends in the six o'clock evening hour alone
           (${fmtInt(data.mega.weekend18Hours)} implied hours), and the single week of ${data.mega.batchWeek.week}
           carries ${fmtInt(data.mega.batchWeek.hours)} land use hours spread across
           ${fmtInt(data.mega.batchWeek.records)} records. ${PROVENANCE}`}
+        source={{ id: data.datasetId, query: data.queries.mega }}
       >
         <DataTable
           headers={['Record', 'Invoiced', 'Line item', 'Hours', 'Amount']}
           rows={data.mega.top.map((r) => [r.id, r.d, r.desc, fmtH(r.hours), fmtMoney(r.amt)])}
           wrapCols={[2]}
-          caption="The ten largest single hourly invoice lines in the extract."
+          caption={`The ten largest single hourly invoice lines in the dataset since ${y0}.`}
         />
       </ChartCard>
 
@@ -200,8 +212,9 @@ export default function FeesHoursPage() {
           Against a 40 hour week, geotech's ${fmtInt(data.capacity[2].floor2024)} named reviewers could log
           ${fmtInt(data.capacity[2].cap2024)} hours a week in ${fmtYear(data.capNotes.capYear)}; SDCI billed
           ${fmt1(data.capacity[2].avgWeekly2024)}, about ${fmt1(data.capacity[2].perReviewer2024)} hours per named
-          reviewer. Exactly ${fmtInt(data.capNotes.weeksOverCapTotal)} calendar week anywhere tops its capacity line:
-          the land use batch week charted above.`}
+          reviewer. Only ${fmtInt(data.capNotes.weeksOverCapTotal)} calendar weeks anywhere top a capacity line, led
+          by the land use batch week charted above, and every one of them has the line counts of an invoice batch, not
+          a week of work.`}
         csv={{
           filename: 'fees-hours-vs-staffing.csv',
           data: toCsv(
@@ -215,6 +228,7 @@ export default function FeesHoursPage() {
           floor: real teams are at least this size, which makes the capacity line conservative. SDOT is excluded, since
           that dataset carries almost no SDOT reviews. Billed hours are dated by invoice, so batch weeks can spike past
           capacity without anyone working those hours in that week. ${PROVENANCE}`}
+        source={{ id: data.datasetId, query: data.queries.hourlyLines }}
       >
         <RankedBars
           rows={capRows}
@@ -272,6 +286,7 @@ export default function FeesHoursPage() {
           identical record, line item, date and amount. The cadence test compares hours on each geotech invoice with
           business hours (eight per weekday) elapsed since the previous geotech invoice on the same record; same day
           follow ups top out at ${fmtH(geo.tells.sameDayMaxHours)} hours. ${PROVENANCE}`}
+        source={{ id: data.datasetId, query: data.queries.geoLines }}
       >
         <DataTable
           headers={['Test', 'Geotech', 'Drainage', 'Context']}
@@ -295,25 +310,30 @@ export default function FeesHoursPage() {
         )} and ${fmtMoneyCompact(
           Math.max(...geo.yearly.filter((r) => !r.partial).map((r) => r.minDollars + r.addlDollars)),
         )} a year while the review hours inside it fell from ${fmtInt(geo.yearly[1].hours)} (${fmtYear(geo.yearly[1].y)}) to ${fmtInt(
-          geo.yearly[5].hours,
-        )} (${fmtYear(geo.yearly[5].y)}), down ${fmtPct(
-          (1 - geo.yearly[5].hours / geo.yearly[1].hours) * 100,
-        )}. The hourly rate climbing from ${fmtMoney(geo.yearly[0].rate)} to ${fmtMoney(geo.yearly[6].rate)} filled the gap. Minimum
+          geo.yearly[geo.yearly.length - 2].hours,
+        )} (${fmtYear(geo.yearly[geo.yearly.length - 2].y)}), down ${fmtPct(
+          (1 - geo.yearly[geo.yearly.length - 2].hours / geo.yearly[1].hours) * 100,
+        )}. The hourly rate climbing from ${fmtMoney(geo.yearly[0].rate)} to ${fmtMoney(
+          geo.yearly[geo.yearly.length - 1].rate,
+        )} filled the gap. Minimum
           charges (the flat half hour every ECA parcel pays) jumped in ${fmtYear(geo.yearly[1].y)} and have stayed near ${fmtMoneyCompact(
-          geo.yearly[4].minDollars,
+          geo.yearly[geo.yearly.length - 2].minDollars,
         )} a year since.`}
         csv={{
           filename: 'fees-geotech-yearly.csv',
           data: toCsv(
             ['year', 'minimum_charge_dollars', 'metered_hours_dollars', 'review_hours', 'permits_charged', 'hourly_rate', 'partial_year'],
-            geo.yearly.map((r) => [r.y, r.minDollars, r.addlDollars, r.hours, r.permits, r.rate, r.partial ? 'through Jun 23' : '']),
+            geo.yearly.map((r) => [r.y, r.minDollars, r.addlDollars, r.hours, r.permits, r.rate, r.partial ? `through ${data.windowEnd}` : '']),
           ),
         }}
         footnote={`Geotech means every ECA GeoTech, Geo Soils, and geotech post issue line item: stacked bars split flat
           minimum charges from metered additional hours dollars; the line is implied review hours from the rate
           lattice (engineering rate, ${fmtMoney(geo.yearly[0].rate)} in ${fmtYear(geo.yearly[0].y)} to ${fmtMoney(
-          geo.yearly[6].rate,
-        )} in ${fmtYear(geo.yearly[6].y)}). 2026* runs through June 23 only. ${PROVENANCE}`}
+          geo.yearly[geo.yearly.length - 1].rate,
+        )} in ${fmtYear(geo.yearly[geo.yearly.length - 1].y)}). ${fmtYear(
+          geo.yearly[geo.yearly.length - 1].y,
+        )}* runs through ${endDayNoYear} only. ${PROVENANCE}`}
+        source={{ id: data.datasetId, query: data.queries.geoYearly }}
       >
         <GeotechChart rows={geo.yearly} />
       </ChartCard>
@@ -326,7 +346,7 @@ export default function FeesHoursPage() {
           reviewer weeks. None reaches 40 attributed hours in a calendar week, across any number of records. The
           busiest week anywhere is ${fmt1(rev.anyPeakWeek)} hours; geotech's peak is ${fmt1(rev.geoPeakWeek)}. Even
           counting every shared permit for every co-reviewer, only ${fmtInt(rev.over40WeeksUpperBound)} weeks nose over
-          the line, topping out at ${fmt1(rev.ubMaxHours)} hours, and both involve permits where several reviewers
+          the line, topping out at ${fmt1(rev.ubMaxHours)} hours, and each involves permits where several reviewers
           shared the discipline.`}
         csv={{
           filename: 'fees-reviewer-attributed-hours.csv',
@@ -345,6 +365,7 @@ export default function FeesHoursPage() {
           (${fmtInt(rev.window.beforeLines)} lines, ${fmtMoney(rev.window.beforeDollars)}) post before any same
           discipline reviewer was assigned, a median of ${fmtInt(rev.window.beforeMedianDaysEarly)} days early; worth a
           question, not a scandal. ${PROVENANCE}`}
+        source={{ id: data.datasetId, query: data.queries.hourlyLines }}
       >
         <DataTable
           headers={['Reviewer', 'Discipline', 'Attributed hours', 'Records', 'Peak week']}
@@ -359,11 +380,13 @@ export default function FeesHoursPage() {
         the {fmtInt(data.mega.batchWeek.hours)} hour week and the {fmtH(data.mega.top[0].hours)} hour line are. That
         cuts both ways: batches can fake a spike, and they can hide one. The reviewer floor comes from a completed
         permits dataset that covers a slice of the work ({fmtPct(rev.matchedDollarsPct)} of hourly dollars), so
-        per reviewer figures describe that slice, not whole careers. Amounts are the sum of paid and still owed on each
-        line; the extract shows no refunds or write offs. Technology fee surcharge lines are separate line items and
-        are not part of the hourly universe. {fmtYear(data.rateCard[6].year)} is partial, through {endDay}. And a fall
-        in billed hours is not by itself proof of less
-        review: work can shift to flat fee items, which this page does not count.
+        per reviewer figures describe that slice, not whole careers. Amounts are computed, not a balance snapshot: the
+        dataset carries no void flag, so each line&apos;s billed figure is paid plus the computed remainder, and{' '}
+        {fmtInt(data.totals.reissueDroppedLines)} unpaid lines ({fmtMoneyCompact(data.totals.reissueDroppedDollars)})
+        whose permit, line item and amount match a paid line are dropped as voided reissues before any hour is counted.
+        Technology fee surcharge lines are separate line items and are not part of the hourly universe.{' '}
+        {fmtYear(data.rateCard[data.rateCard.length - 1].year)} is partial, through {endDay}. And a fall in billed
+        hours is not by itself proof of less review: work can shift to flat fee items, which this page does not count.
       </div>
 
       <RelatedLinks slug="/fees-hours" />

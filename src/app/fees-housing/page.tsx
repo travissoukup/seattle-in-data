@@ -24,7 +24,25 @@ const monthDayYear = (iso: string) => {
 const lcFirst = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
 
 const WINDOW = `${monthYear(data.windowStart)} to ${monthDayYear(data.windowEnd)}`;
-const SRC = `Fee data comes from a public records request to the City of Seattle (SDCI invoice extract, ${WINDOW}); the analysis code is in scripts/fees/ in this site's public repo. Each permit's fees are all invoice lines on its record: dollars paid plus any unpaid balance as of the extract date.`;
+const SRC = `Fee data comes from the Permit Fees open dataset (k8z7-3feg), refreshed weekly; SDCI published it in September 2026 after this site asked for the billing data, which was first analyzed through a public records request. This page uses invoices from ${WINDOW}; the analysis code is in scripts/fees/ in this site's public repo. Each permit's fees are all invoice lines on its record: dollars paid plus computed unpaid amounts (billed minus paid, with apparent voided or reissued invoice lines removed, since the dataset carries no balance snapshot).`;
+
+/** SoQL query URL against the Permit Fees dataset. */
+const soql = (params: Record<string, string>) =>
+  'https://data.seattle.gov/resource/k8z7-3feg.json?' +
+  Object.entries(params)
+    .map(([k, v]) => `${encodeURIComponent('$' + k)}=${encodeURIComponent(v)}`)
+    .join('&');
+const feesPerPermit = (suffixWhere: string) =>
+  soql({
+    select: 'permitnum, sum(feeamount) as invoiced, sum(feeamountpaid) as paid',
+    where: `(${suffixWhere}) AND invoicedate >= '${data.windowStart}'`,
+    group: 'permitnum',
+    limit: '200000',
+  });
+const Q_CN = feesPerPermit(`permitnum like '%-CN'`);
+const Q_CN_PH = feesPerPermit(`permitnum like '%-CN' OR permitnum like '%-PH'`);
+const Q_DM = feesPerPermit(`permitnum like '%-DM'`);
+const Q_CN_PH_DM = feesPerPermit(`permitnum like '%-CN' OR permitnum like '%-PH' OR permitnum like '%-DM'`);
 
 const bandLo = data.curve.bands[0];
 const bandHi = data.curve.bands[data.curve.bands.length - 1];
@@ -96,6 +114,7 @@ export default function FeesHousingPage() {
           ),
         }}
         footnote={`${SRC} Covers CN (construction) permit records joined to the Building Permits dataset (76t5-zqzr) on the full permit number; the join matches essentially all of them. Project value is the applicant's own declared construction cost, so treat the bands as approximate. ${fmtPct(data.curve.valueSharePct)} of invoiced construction records declare a value; the rest are excluded.`}
+        source={{ id: 'k8z7-3feg', query: Q_CN }}
       >
         <RankedBars rows={curveRows} valueName="Median fee, % of project value" valueFormat="pct" height={340} />
       </ChartCard>
@@ -111,13 +130,14 @@ export default function FeesHousingPage() {
           ),
         }}
         footnote={`${SRC} Covers construction (CN) and phased (PH) permit records that added at least one housing unit, joined to the Building Permits dataset for unit counts. Fees here are only what was billed to the construction record itself; electrical, mechanical and land use review fees for the same project sit on separate records and are not included, so these are floors. Fees do not scale with unit count, which is the whole story: a tower spreads a similar review bill across hundreds of homes.`}
+        source={{ id: 'k8z7-3feg', query: Q_CN_PH }}
       >
         <RankedBars rows={tierRows} valueName="Median fee per new unit" valueFormat="money" height={320} />
       </ChartCard>
 
       <ChartCard
         title="Fees on buildings that never happened"
-        desc={`Permit review is billed whether or not the project survives. These construction and phased permits ended in Canceled or Withdrawn status, so the buildings never went up, but ${fmtPct(data.neverBuilt.paidSharePct)} of the fees billed to them were paid anyway. The withdrawn applications alone had ${fmtInt(data.neverBuilt.rows.find((r) => r.status === 'Withdrawn')?.units)} homes planned.`}
+        desc={`Permit review is billed whether or not the project survives. These construction and phased permits ended in Canceled or Withdrawn status, so the buildings never went up, but ${fmtMoneyCompact(data.neverBuilt.paid)} in fees was paid on them anyway (${fmtPct(data.neverBuilt.paidSharePct)} of what was billed). The withdrawn applications alone had ${fmtInt(data.neverBuilt.rows.find((r) => r.status === 'Withdrawn')?.units)} homes planned.`}
         csv={{
           filename: 'fees-on-never-built.csv',
           data: toCsv(
@@ -125,7 +145,8 @@ export default function FeesHousingPage() {
             data.neverBuilt.rows.map((r) => [r.status, r.n, r.invoiced, r.paid, r.units]),
           ),
         }}
-        footnote={`${SRC} Statuses come from the Building Permits dataset at snapshot time. This undercounts dead projects: applications that simply expired, or that are still nominally open, are not included. The median dead permit was billed ${fmtMoney(data.neverBuilt.medianFee)}; a handful of large phased projects account for much of the dollar total. Review work did happen on these permits; the fee bought staff time, not a building.`}
+        footnote={`${SRC} Statuses come from the Building Permits dataset at snapshot time. The invoiced column includes billed lines that were never paid, computed from the dataset; the city likely voided some of those when projects died, so the paid column is the solid number. This undercounts dead projects: applications that simply expired, or that are still nominally open, are not included. The median dead permit was billed ${fmtMoney(data.neverBuilt.medianFee)}; a handful of large phased projects account for much of the dollar total. Review work did happen on these permits; the fee bought staff time, not a building.`}
+        source={{ id: 'k8z7-3feg', query: Q_CN_PH }}
       >
         <DataTable
           headers={['Status', 'Permits', 'Fees invoiced', 'Fees paid', 'Homes planned']}
@@ -150,7 +171,7 @@ export default function FeesHousingPage() {
 
       <ChartCard
         title="Demolition fees: paid in full or not at all"
-        desc={`Demolition permits show the starkest nonpayment pattern in the extract. Of ${fmtInt(data.demo.matureN)} demolition permits first invoiced by ${data.demo.matureLastYear}, ${fmtInt(data.demo.fullPaidN)} paid every dollar and ${fmtInt(data.demo.zeroPaidN)} (${fmtPct(data.demo.zeroPaidPct)}) paid nothing at all. Only ${fmtInt(data.demo.partialN)} paid part of the bill. The unpaid balance is ${fmtMoney(data.demo.unpaid)}, ${fmtPct(data.demo.unpaidPct)} of what those permits were billed.`}
+        desc={`Demolition permits show the starkest nonpayment pattern in the fee data. Of ${fmtInt(data.demo.matureN)} demolition permits first invoiced by ${data.demo.matureLastYear}, ${fmtInt(data.demo.fullPaidN)} paid every dollar and ${fmtInt(data.demo.zeroPaidN)} (${fmtPct(data.demo.zeroPaidPct)}) paid nothing at all. Only ${fmtInt(data.demo.partialN)} paid part of the bill. The unpaid balance is ${fmtMoney(data.demo.unpaid)}, ${fmtPct(data.demo.unpaidPct)} of what those permits were billed.`}
         csv={{
           filename: 'demo-fee-payment.csv',
           data: toCsv(
@@ -162,7 +183,8 @@ export default function FeesHousingPage() {
             ],
           ),
         }}
-        footnote={`${SRC} Limited to DM (demolition) records whose first invoice landed by ${data.demo.matureLastYear}, so every permit here has had years to pay; newer permits are excluded because an open balance on a recent bill is normal. The all-or-nothing split suggests the unpaid group are mostly applications that stalled before issuance, since a demolition that actually proceeds has to clear its fees.`}
+        footnote={`${SRC} Limited to DM (demolition) records whose first invoice landed by ${data.demo.matureLastYear}, so every permit here has had years to pay; newer permits are excluded because an open balance on a recent bill is normal. The all-or-nothing split suggests the unpaid group are mostly applications that stalled before issuance, since a demolition that actually proceeds has to clear its fees. Unpaid here is computed from billed minus paid, with apparent reissued lines removed; it is not a balance the city reported.`}
+        source={{ id: 'k8z7-3feg', query: Q_DM }}
       >
         <RankedBars
           rows={[
@@ -187,6 +209,7 @@ export default function FeesHousingPage() {
           ),
         }}
         footnote={`${SRC} ZIP comes from the address on the joined Building Permits record. Fees per unit divides all construction, phased and demolition fees in the ZIP by net housing units added there, so it mixes unit-adding and non-unit work; it describes the ZIP's construction economy, not a price anyone was quoted.`}
+        source={{ id: 'k8z7-3feg', query: Q_CN_PH_DM }}
       >
         <DataTable
           headers={['ZIP', 'Neighborhoods', 'Fees invoiced', 'Permits', 'Units added', 'Fees per unit']}
@@ -205,12 +228,13 @@ export default function FeesHousingPage() {
 
       <div className="caveat">
         <strong>What this can and cannot say.</strong> This page covers the {fmtInt(data.joined.records)} construction,
-        phased and demolition permit records in the fee extract, {fmtMoneyCompact(data.joined.invoiced)} invoiced,
-        which is {fmtPct(data.joined.shareOfAllInvoicedPct)} of all fee dollars in the extract; electrical, mechanical
+        phased and demolition permit records in the fee data, {fmtMoneyCompact(data.joined.invoiced)} invoiced,
+        which is {fmtPct(data.joined.shareOfAllInvoicedPct)} of all fee dollars in the window; electrical, mechanical
         and land use fees live on separate records and separate pages. Declared project value is self-reported by the
-        applicant and is not audited here. The extract starts in {monthYear(data.windowStart)}, so permits whose fees
-        were all billed earlier do not appear. And fees are one input to housing cost among many; this page measures
-        what the city billed, not what a project ultimately cost.
+        applicant and is not audited here. The analysis window starts in {monthYear(data.windowStart)}, even though
+        the dataset reaches back to {monthYear(data.datasetStart)}, so permits whose fees were all billed before the
+        window do not appear. And fees are one input to housing cost among many; this page measures what the city
+        billed, not what a project ultimately cost.
       </div>
 
       <RelatedLinks slug="/fees-housing" />

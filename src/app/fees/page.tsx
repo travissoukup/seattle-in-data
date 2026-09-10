@@ -16,10 +16,25 @@ export const metadata = {
 const startYear = data.windowStart.slice(0, 4);
 const endYear = data.windowEnd.slice(0, 4);
 
+const fmtMonthYear = (iso: string) =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const fmtFullDate = (iso: string) =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+
+const endMonthYear = fmtMonthYear(data.windowEnd);
+const throughDate = fmtFullDate(data.windowEnd);
+const publishedMonth = fmtMonthYear(data.provenance.published);
+const datasetStartYear = data.provenance.datasetStart.slice(0, 4);
+const requestThroughMonth = fmtMonthYear(data.provenance.recordsRequestThrough);
+
+const RES = `https://data.seattle.gov/resource/${data.provenance.datasetId}.json`;
+const q = (params: Record<string, string>) => `${RES}?${new URLSearchParams(params).toString()}`;
+const WIN = `invoicedate >= '${data.windowStart}'`;
+
 const toCsv = (headers: string[], rows: (string | number)[][]) =>
   [headers.join(','), ...rows.map((r) => r.map((c) => (typeof c === 'string' && c.includes(',') ? `"${c}"` : c)).join(','))].join('\n');
 
-const RECORDS_NOTE = `Data comes from a public records request to the City of Seattle: an SDCI invoice extract of every permit fee line from January ${startYear} through June 23, ${endYear}. This is not a Socrata dataset. Analysis code lives in scripts/fees/ in this site's public repo.`;
+const SOURCE_NOTE = `Data comes from the Permit Fees open dataset (${data.provenance.datasetId}): every SDCI permit fee line billed since ${datasetStartYear}, refreshed weekly. SDCI published it in ${publishedMonth} after this site requested the data; the page was first built from a records-request extract running through ${requestThroughMonth}, and the two agree to the cent on fees paid. This page uses invoices from January ${startYear} through ${throughDate}. Analysis code lives in scripts/fees/ in this site's public repo.`;
 
 export default function FeesPage() {
   const d = data.dist;
@@ -55,14 +70,14 @@ export default function FeesPage() {
           The median Seattle permit costs {fmtMoney(d.median)}. The top 1% pay {fmtPct(d.top1SharePct)} of everything.
         </h1>
         <p>
-          Between {startYear} and mid {endYear}, Seattle collected {fmtMoneyCompact(data.totalPaid)} in permit fees
-          across {fmtInt(data.nPermits)} permits. Most bills are small: {fmtPct(d.under200Pct)} of permits paid under{' '}
-          {fmtMoney(200)} and {fmtPct(d.under500Pct)} paid under {fmtMoney(500)}. The money is somewhere else. The{' '}
-          {fmtInt(d.top1Count)} priciest permits, the top 1%, each paid {fmtMoney(d.top1Threshold)} or more and
-          together covered {fmtPct(d.top1SharePct)} of all fee dollars. The single largest bill on record is{' '}
-          {fmtMoney(d.max)} on one phased construction permit. This page comes from an invoice extract the city
-          released under a public records request: {fmtInt(data.nLines)} fee lines across {fmtInt(data.nDescriptions)}{' '}
-          distinct charges.
+          Between January {startYear} and {endMonthYear}, Seattle collected {fmtMoneyCompact(data.totalPaid)} in
+          permit fees across {fmtInt(data.nPermits)} permits. Most bills are small: {fmtPct(d.under200Pct)} of permits
+          paid under {fmtMoney(200)} and {fmtPct(d.under500Pct)} paid under {fmtMoney(500)}. The money is somewhere
+          else. The {fmtInt(d.top1Count)} priciest permits, the top 1%, each paid {fmtMoney(d.top1Threshold)} or more
+          and together covered {fmtPct(d.top1SharePct)} of all fee dollars. The single largest bill on record is{' '}
+          {fmtMoney(d.max)} on one phased construction permit. The numbers come from the city&apos;s Permit Fees open
+          dataset, which SDCI published in {publishedMonth} after this site requested the data:{' '}
+          {fmtInt(data.nLines)} fee lines across {fmtInt(data.nDescriptions)} distinct charges, refreshed weekly.
         </p>
       </div>
 
@@ -85,7 +100,7 @@ export default function FeesPage() {
           <div className="sub">the door into the top 1%</div>
         </div>
         <div className="stat-card">
-          <div className="label">Collected {startYear} to mid {endYear}</div>
+          <div className="label">Collected {startYear} to {endYear}</div>
           <div className="value">{fmtMoneyCompact(data.totalPaid)}</div>
           <div className="sub">{fmtInt(data.nPermits)} permits with fees paid</div>
         </div>
@@ -101,7 +116,17 @@ export default function FeesPage() {
             data.histogram.map((h) => [h.bucket, h.permitsPct, h.dollarsPct]),
           ),
         }}
-        footnote={`Each permit's total is the sum of fees actually paid on its record number, all years combined. Permits with nothing paid yet (${fmtInt(data.nPermitsAll - data.nPermits)} of ${fmtInt(data.nPermitsAll)}) are left out. ${RECORDS_NOTE}`}
+        footnote={`Each permit's total is the sum of fees actually paid on its record number, all years combined. Permits with nothing paid yet (${fmtInt(data.nPermitsAll - data.nPermits)} of ${fmtInt(data.nPermitsAll)}) are left out. ${SOURCE_NOTE}`}
+        source={{
+          id: data.provenance.datasetId,
+          query: q({
+            $select: 'permitnum, sum(feeamountpaid) as paid',
+            $where: WIN,
+            $group: 'permitnum',
+            $having: 'paid > 0',
+            $limit: '500000',
+          }),
+        }}
       >
         <RankedBars rows={histRows} valueName="Share of permits" valueFormat="pct" height={320} />
       </ChartCard>
@@ -116,7 +141,17 @@ export default function FeesPage() {
             data.families.map((f) => [f.family, f.paid, f.sharePct, f.kinds]),
           ),
         }}
-        footnote={`Families are assigned by keyword rules over the charge descriptions (the classifier is in scripts/fees/build_fees.py, so every assignment is checkable). The surcharges family includes the 5% technology fee, ${fmtMoneyCompact(data.techFeePaid)} since it began in 2023. ${RECORDS_NOTE}`}
+        footnote={`Families are assigned by keyword rules over the charge descriptions (the classifier is in scripts/fees/build_fees.py, so every assignment is checkable). The surcharges family includes the 5% technology fee, ${fmtMoneyCompact(data.techFeePaid)} since it began in 2023. ${SOURCE_NOTE}`}
+        source={{
+          id: data.provenance.datasetId,
+          query: q({
+            $select: 'feedescription, sum(feeamountpaid) as paid, count(*) as lines',
+            $where: WIN,
+            $group: 'feedescription',
+            $order: 'paid DESC',
+            $limit: '500',
+          }),
+        }}
       >
         <RankedBars rows={famRows} valueName="Dollars paid" valueFormat="money" height={340} />
         <DataTable
@@ -136,7 +171,17 @@ export default function FeesPage() {
             data.byType.map((t) => [t.name, t.suffix, t.n, t.p25, t.median, t.p75]),
           ),
         }}
-        footnote={`Permit type comes from the suffix on the record number (6912345-CN is a construction permit). Only permits with fees paid are counted. The middle columns are the 25th percentile, median, and 75th percentile of total fees paid per permit. ${RECORDS_NOTE}`}
+        footnote={`Permit type comes from the letter code on the record number (6912345-CN is a construction permit). Only permits with fees paid are counted, and record classes too rare to summarize are left out of the table. Classes like pre-application site visits, noise variances, tree removal reviews and early design guidance are new here: the open dataset carries record classes the original records-request extract lacked. The middle columns are the 25th percentile, median, and 75th percentile of total fees paid per permit. ${SOURCE_NOTE}`}
+        source={{
+          id: data.provenance.datasetId,
+          query: q({
+            $select: 'permitnum, sum(feeamountpaid) as paid',
+            $where: WIN,
+            $group: 'permitnum',
+            $having: 'paid > 0',
+            $limit: '500000',
+          }),
+        }}
       >
         <DataTable
           headers={['Permit type', 'Permits', 'Low (P25)', 'Median', 'High (P75)']}
@@ -147,20 +192,26 @@ export default function FeesPage() {
       <ChartCard
         title="Estimate your permit fees"
         desc={`Pick a permit type and, for construction permits, a project-value band. The numbers are medians and typical ranges from what ${fmtInt(data.nPermits)} real permits actually paid, not a fee-schedule calculation.`}
-        footnote={`Project value bands use the estimated project cost the applicant filed, joined from the city's building permits dataset (76t5-zqzr); ${fmtPct(data.estimator.cnMatchPct)} of construction permits matched. Other permit types have no filed project value, so they show one overall range. Phased construction permits are giant projects (median filed value ${fmtMoneyCompact(data.estimator.phMedianProjectCost)}), so treat that range as trivia, not an estimate. ${RECORDS_NOTE}`}
+        footnote={`Project value bands use the estimated project cost the applicant filed, joined from the city's building permits dataset (76t5-zqzr); ${fmtPct(data.estimator.cnMatchPct)} of construction permits matched. Other permit types have no filed project value, so they show one overall range. Phased construction permits are giant projects (median filed value ${fmtMoneyCompact(data.estimator.phMedianProjectCost)}), so treat that range as trivia, not an estimate. ${SOURCE_NOTE}`}
+        source={{ id: data.provenance.datasetId }}
       >
-        <FeeEstimator types={data.estimator.types} cnBands={data.estimator.cnBands} />
+        <FeeEstimator
+          types={data.estimator.types}
+          cnBands={data.estimator.cnBands}
+          windowLabel={`${startYear} to ${endMonthYear}`}
+        />
       </ChartCard>
 
       <div className="caveat">
         <strong>What this can and cannot tell you.</strong> These are fees the city actually collected on each permit
-        number, summed over the whole window, {startYear} through June {endYear}. A permit that is still being
-        reviewed will keep accruing charges, so recent permits read low. The extract shows balances owed only as a
-        snapshot ({fmtMoneyCompact(data.totalDue)} outstanding at extract time), not as a history, and it contains no
-        refunds. Fee rates also rose over these years, so a {startYear} bill and a {endYear} bill for the same work
-        are not the same number. None of this includes construction costs, design fees, or anything the city does not
-        bill. A typical construction permit paid {fmtMoney(cnType.median)} in fees; the building itself costs a lot
-        more.
+        number, summed over the whole window, January {startYear} through {throughDate}. A permit that is still being
+        reviewed will keep accruing charges, so recent permits read low. These figures count fees the city actually
+        collected; the separate question of what got billed and never paid, which the open dataset makes messy with
+        voided and rebilled lines, is worked through on the <a href="/fees-revenue">revenue page</a>. The data contains
+        no refunds. Fee rates also rose over these years, so a {startYear} bill and a {endYear} bill for the same work
+        are not the same
+        number. None of this includes construction costs, design fees, or anything the city does not bill. A typical
+        construction permit paid {fmtMoney(cnType.median)} in fees; the building itself costs a lot more.
       </div>
 
       <RelatedLinks slug="/fees" />

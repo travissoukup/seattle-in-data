@@ -16,8 +16,20 @@ export const metadata = {
 const cents = (v: number) =>
   v.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 
-const METHOD =
-  'Data from a public records request to the City of Seattle: an SDCI invoice extract covering January 1, 2020 through June 23, 2026. Analysis code is in scripts/fees/ in this site’s public repo.';
+/** ISO date (yyyy-mm-dd) to long form, computed from the JSON, never typed. */
+const fmtDate = (iso: string) =>
+  new Date(`${iso.slice(0, 10)}T12:00:00Z`).toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+
+const RES = 'https://data.seattle.gov/resource/k8z7-3feg.json';
+const q = (params: Record<string, string>) => `${RES}?${new URLSearchParams(params).toString()}`;
+const OVERHEAD_IN = `('5% Technology Fee','Administrative Fee','Administrative Post-Issuance Change')`;
+
+const METHOD = `Data from the Permit Fees open dataset (k8z7-3feg on data.seattle.gov), refreshed weekly. SDCI published it in September 2026 after this site asked for the billing data, which was first analyzed here from a June 2026 public records request. This page covers invoices from ${fmtDate(data.windowStart)} through ${fmtDate(data.windowEnd)}; analysis code is in scripts/fees/ in this site's public repo.`;
 
 const csvOf = (headers: string[], rows: (string | number)[][]) =>
   [headers.join(','), ...rows.map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(','))].join('\n');
@@ -27,6 +39,8 @@ export default function FeesSurchargesPage() {
   const first = data.overheadFirstFullYear;
   const last = data.overheadLastFullYear;
   const techYear0 = Number(data.techFirstDate.slice(0, 4));
+  const techYears =
+    (Date.parse(data.windowEnd) - Date.parse(data.techFirstDate)) / (365.25 * 86400000);
 
   const trendRows = data.overheadByYear.map((r) => ({
     y: r.y === 2026 ? '2026*' : String(r.y),
@@ -45,7 +59,7 @@ export default function FeesSurchargesPage() {
     [
       'Miscellaneous',
       fmtMoneyCompact(j.misc.paid),
-      `${fmtInt(j.misc.lines)} lines are labeled Miscellaneous or AR Miscellaneous, with no other explanation in the extract. The biggest single one is ${cents(j.misc.maxPaid)}, paid on phased permit ${j.misc.maxRecord} in ${j.misc.maxYear}.`,
+      `${fmtInt(j.misc.lines)} lines are labeled Miscellaneous or AR Miscellaneous, with no other explanation in the dataset. The biggest single one is ${cents(j.misc.maxPaid)}, paid on phased permit ${j.misc.maxRecord} in ${j.misc.maxYear}.`,
     ],
     [
       'The Commerical typo',
@@ -60,7 +74,7 @@ export default function FeesSurchargesPage() {
     [
       'Same-day repeats',
       fmtMoneyCompact(j.dups.extraPaid),
-      `${fmtInt(j.dups.extraLines)} paid lines repeat an identical charge on the same permit, same day, and same amount, on separate invoices. The biggest is a ${cents(j.dups.maxPaid)} ${j.dups.maxDesc} line billed twice to ${j.dups.maxRecord} in ${j.dups.maxYear}.`,
+      `${fmtInt(j.dups.extraLines)} paid lines repeat an identical charge on the same permit, same day, and same amount, on separate invoices. Unpaid twins of paid lines, which are voided or reissued invoices rather than double payments, are excluded: ${fmtInt(j.dups.voidedTwinLines)} of them. The biggest repeat is a ${cents(j.dups.maxPaid)} ${j.dups.maxDesc} line billed twice to ${j.dups.maxRecord} in ${j.dups.maxYear}.`,
     ],
     [
       'Bounced checks',
@@ -73,9 +87,9 @@ export default function FeesSurchargesPage() {
       `A penalty line for projects that took a green-building incentive and missed the standard first appears in ${j.gbp.firstYear}. ${fmtInt(j.gbp.lines)} lines so far, with ${fmtMoneyCompact(j.gbp.paid)} paid.`,
     ],
     [
-      'The EV line rename',
+      'The EV fee split',
       fmtInt(j.ev.succKinds),
-      `The "Vehicle Charging Stations" fee, billed ${fmtInt(j.ev.lines)} times since 2020, was last invoiced ${j.ev.lastDate}. In 2026 it came back split into ${fmtInt(j.ev.succKinds)} tiered "Car Chargers" lines by level and amperage, part of ${fmtInt(data.junk.new2026Descs)} fee descriptions new that year.`,
+      `The "Vehicle Charging Stations" fee has been billed ${fmtInt(j.ev.lines)} times since 2020, ${fmtInt(j.ev.lines2026)} of them in 2026, most recently on ${j.ev.lastDate}. In 2026 it was joined by ${fmtInt(j.ev.succKinds)} tiered "Car Chargers" lines by level and amperage, part of ${fmtInt(data.junk.new2026Descs)} fee descriptions new that year.`,
     ],
   ];
 
@@ -90,8 +104,8 @@ export default function FeesSurchargesPage() {
         <p className="eyebrow">Permit Fees</p>
         <h1>The most billed line in Seattle permitting is a fee on your other fees</h1>
         <p>
-          On {data.techFirstDate}, a {fmt1(data.ratioMedian)}% Technology Fee started riding along on SDCI invoices.
-          Three and a half years later it is the most invoiced line in the system: {fmtInt(data.techLines)} lines,
+          On {fmtDate(data.techFirstDate)}, a {fmt1(data.ratioMedian)}% Technology Fee started riding along on SDCI
+          invoices. {fmt1(techYears)} years later it is the most invoiced line in the system: {fmtInt(data.techLines)} lines,
           more than the {fmtInt(data.adminLines)} for the Administrative Fee in second place, adding up to{' '}
           {fmtMoneyCompact(data.techPaid)}. The typical line is tiny. The median is ${data.techMedianLine.toFixed(2)},
           and the smallest paid line is {cents(data.techMinPaid)}. Together with administrative fees, pure overhead
@@ -132,7 +146,16 @@ export default function FeesSurchargesPage() {
             data.overheadByYear.map((r) => [r.y, r.tech, r.admin, r.overhead]),
           ),
         }}
-        footnote={`${METHOD} Overhead counts lines labeled 5% Technology Fee, Administrative Fee, and Administrative Post-Issuance Change; the denominator is all dollars paid that year. 2026* covers January through June 23 only; shares are comparable across a partial year but the underlying dollars are not.`}
+        footnote={`${METHOD} Overhead counts lines labeled 5% Technology Fee, Administrative Fee, and Administrative Post-Issuance Change; the denominator is all dollars paid that year. 2026* covers January through ${fmtDate(data.windowEnd)} only; shares are comparable across a partial year but the underlying dollars are not.`}
+        source={{
+          id: 'k8z7-3feg',
+          query: q({
+            $select: 'date_extract_y(invoicedate) as year, feedescription, sum(feeamountpaid) as paid',
+            $where: `invoicedate >= '${data.windowStart}' AND feedescription in ${OVERHEAD_IN}`,
+            $group: 'year, feedescription',
+            $order: 'year',
+          }),
+        }}
       >
         <TrendChart
           data={trendRows}
@@ -167,6 +190,14 @@ export default function FeesSurchargesPage() {
           ),
         }}
         footnote={`${METHOD} An invoice here is every line sharing a permit number and an exact billing timestamp. The to-the-penny tests compare the Technology Fee line to 5% of the other lines, rounded to cents, with a one-cent tolerance. Invoices that miss the band are mostly partial payments and later adjustments, not a different rate.`}
+        source={{
+          id: 'k8z7-3feg',
+          query: q({
+            $select: 'permitnum, invoicenum, invoicedate, feedescription, feeamount, feeamountpaid',
+            $where: `feedescription = '5% Technology Fee'`,
+            $order: 'invoicedate',
+          }),
+        }}
       >
         <DataTable
           headers={['Test', 'Result']}
@@ -187,8 +218,8 @@ export default function FeesSurchargesPage() {
       </ChartCard>
 
       <ChartCard
-        title="Small permits pay the biggest overhead share"
-        desc={`Median share of a permit's total that went to overhead fees, by permit size, for the ${fmtInt(data.eraPermits)} permits first invoiced after the fee launched. The typical permit under $500 sends ${fmtPct(data.smallMedianShare)} of its money to overhead, and ${fmtInt(data.permitsOver20)} permits paid more than 20%. The ${data.burdenPeak.label.toLowerCase()} bucket is the worst, at ${fmtPct(data.burdenPeak.medianShare)}: big enough to owe the flat administrative fee, too small to dilute it.`}
+        title="The typical permit pays the same overhead share at every size"
+        desc={`Median share of a permit's total that went to overhead fees, by permit size, for the ${fmtInt(data.eraPermits)} permits first invoiced after the fee launched. Across every record class the open dataset carries, the medians come out nearly flat: the typical permit at almost every size sends about ${fmtPct(data.burdenPeak.medianShare)} to overhead, the Technology Fee's cut, because only ${fmtPct(data.eraAdminPct)} of these permits pay an administrative fee line at all. The burden lives in the tail instead: ${fmtInt(data.permitsOver20)} permits, ${fmtPct(data.eraOver20Pct)} of the group, paid more than 20%.`}
         csv={{
           filename: 'overhead-share-by-permit-size.csv',
           data: csvOf(
@@ -196,7 +227,15 @@ export default function FeesSurchargesPage() {
             data.burdenBuckets.map((b) => [b.label, b.n, b.medianShare]),
           ),
         }}
-        footnote={`${METHOD} Covers permits whose first invoice lands on or after ${data.techFirstDate} and that paid anything at all; the median permit in that group paid $${data.eraMedianPaid.toFixed(2)} total. Overhead is the Technology Fee plus administrative fee lines. Shares use dollars actually paid.`}
+        footnote={`${METHOD} Covers permits whose first invoice lands on or after ${fmtDate(data.techFirstDate)} and that paid anything at all; the median permit in that group paid $${data.eraMedianPaid.toFixed(2)} total. Overhead is the Technology Fee plus administrative fee lines. Shares use dollars actually paid.`}
+        source={{
+          id: 'k8z7-3feg',
+          query: q({
+            $select: 'permitnum, sum(feeamountpaid) as overhead_paid',
+            $where: `invoicedate >= '${data.techFirstDate}' AND feedescription in ${OVERHEAD_IN}`,
+            $group: 'permitnum',
+          }),
+        }}
       >
         <RankedBars rows={bucketRows} valueName="Median overhead share" valueFormat="pct" height={340} />
       </ChartCard>
@@ -212,6 +251,15 @@ export default function FeesSurchargesPage() {
           ),
         }}
         footnote={`${METHOD} Each bar is the most common Administrative Fee amount billed on electrical permits that year; at least ${fmtPct(Math.min(...data.adminStaircase.map((r) => r.modeShare)))} of that year's ${fmtInt(Math.min(...data.adminStaircase.map((r) => r.n)))}-plus lines sit at exactly that amount. 2026* is partial, but a flat fee does not need a full year.`}
+        source={{
+          id: 'k8z7-3feg',
+          query: q({
+            $select: 'date_extract_y(invoicedate) as year, feeamount, count(*) as lines',
+            $where: `feedescription = 'Administrative Fee' AND permitnum like '%-EL' AND invoicedate >= '${data.windowStart}'`,
+            $group: 'year, feeamount',
+            $order: 'year, lines DESC',
+          }),
+        }}
       >
         <BarsChart
           data={stairRows}
@@ -229,21 +277,32 @@ export default function FeesSurchargesPage() {
           filename: 'junk-drawer.csv',
           data: csvOf(['item', 'stat', 'note'], junkRows),
         }}
-        footnote={`${METHOD} Same-day repeats exclude Technology Fee lines, since one of those legitimately appears on every invoice and a permit can get several invoices in a day. Repeats are candidates for double billing, not proof; two identical jobs billed the same day would look the same.`}
+        footnote={`${METHOD} Same-day repeats count paid lines only, on separate invoices, and exclude Technology Fee lines, since one of those legitimately appears on every invoice and a permit can get several invoices in a day. Identical lines within a single invoice are collapsed first: the dataset bills per item, so a permit for four identical signs carries four identical charges on one invoice, and those are line items, not repeats. Unpaid twins of paid lines are treated as voided or reissued attempts, not double billing. Repeats are candidates for double billing, not proof; two identical jobs billed the same day would look the same.`}
+        source={{
+          id: 'k8z7-3feg',
+          query: q({
+            $select: 'feedescription, count(*) as lines, sum(feeamountpaid) as paid',
+            $where: `feedescription in ('State Surcharge Commerical','State Surcharge Commercial')`,
+            $group: 'feedescription',
+          }),
+        }}
       >
         <DataTable
           headers={['Item', 'The number', 'The story']}
           wrapCols={[2]}
           rows={junkRows.map((r) => [r[0], r[1], r[2]])}
-          caption="Odd lines from the invoice extract, in one stat and two sentences each."
+          caption="Odd lines from the billing data, in one stat and two sentences each."
         />
       </ChartCard>
 
       <div className="caveat">
-        <strong>What this extract can and cannot say.</strong> These are invoice lines from a public records request,
-        not an open dataset. Amounts due are a balance snapshot at extract time, not a payment history, so this page
-        counts dollars paid. The extract contains no refund lines, and a charge that was later reversed can look like
-        an unpaid one. And 2026 stops at June 23, so nothing here compares a partial 2026 to a full year.
+        <strong>What this data can and cannot say.</strong> These are invoice lines from the Permit Fees open dataset,
+        which carries no balance snapshot and no void flag. An amount due here is computed, billed minus paid, and
+        includes voided or reissued invoice lines that were never expected to be paid, so every dollar figure on this
+        page counts money actually paid. The dataset reaches back to {fmtDate(data.datasetFirstDate)}; this page keeps
+        its original analysis window, {fmtDate(data.windowStart)} onward, and uses the longer history only to check
+        which fee descriptions are genuinely new. And 2026 runs through {fmtDate(data.windowEnd)}, so nothing here
+        compares a partial 2026 to a full year.
       </div>
 
       <RelatedLinks slug="/fees-surcharges" />

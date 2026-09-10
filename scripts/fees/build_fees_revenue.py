@@ -1,16 +1,27 @@
 #!/usr/bin/env python3
 """Build src/lib/generated/fees-revenue.json for the /fees-revenue page.
 
-Source: .targets-data/permit_fees_all.csv, an SDCI invoice extract obtained by
-public records request (Jan 2020 through Jun 23, 2026). Every number on the
-page is computed here.
+Source: .targets-data/permit_fees_all.csv, rebuilt weekly from the Permit Fees
+open dataset (k8z7-3feg on data.seattle.gov) by scripts/fetch-permit-fees.mjs.
+SDCI published that dataset in September 2026 after this site requested the
+data; the same numbers were first analyzed via a June 2026 public records
+request. Every number on the page is computed here.
 
 Notes on the data:
-- amount_due is a balance snapshot as of the extract, not payment history.
+- Source is the Permit Fees open dataset (k8z7-3feg), which has no
+  balance snapshot and no void flag: amount_due is computed (fee amount minus
+  paid) and includes voided, reissued, and repeatedly rebilled invoice lines.
+  Three computed rules clean the frame up front (see the dedupe block below):
+  an error guard for fat-finger lines, a paid-twin reissue dedupe, and a
+  rebill collapse for the same never-paid fee billed across cycles. The page
+  labels the remainder as invoiced-and-unpaid rather than a balance owed.
+- The dataset reaches back to 2005; this page keeps its 2020-01-01 analysis
+  start, so the CSV is filtered to that window up front.
 - The 5% Technology Fee (from 2023-01-02) adds an extra line to most invoices,
   so line counts are not comparable across 2022/2023. All charts here count
   distinct permits or dollars, and the whale count excludes tech-fee lines.
-- 2026 is partial (through Jun 23). Trends annualize it and label it as pace.
+- The trailing year is partial. The window end, the annualize factor, and the
+  last complete quarter are all computed from the CSV's max invoice date.
 """
 
 import json
@@ -29,16 +40,69 @@ ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / ".targets-data" / "permit_fees_all.csv"
 OUT = ROOT / "src" / "lib" / "generated" / "fees-revenue.json"
 
-DATA_THROUGH = "2026-06-23"
-# Jun 23 is day 174 of a 365-day year.
-ANNUALIZE = 365 / 174
+ANALYSIS_START = pd.Timestamp("2020-01-01")
 
 df = pd.read_csv(SRC)
 df["dt"] = pd.to_datetime(df["date_invoiced"])
+
+# Window end and annualize factor are computed from the data, never typed.
+data_through_ts = df["dt"].max().normalize()
+DATA_THROUGH = data_through_ts.strftime("%Y-%m-%d")
+DATA_THROUGH_LABEL = f"{data_through_ts.strftime('%B')} {data_through_ts.day}, {data_through_ts.year}"
+ANNUALIZE = 365 / data_through_ts.dayofyear
+print(f"data through {DATA_THROUGH} (day {data_through_ts.dayofyear}, annualize x{ANNUALIZE:.3f})")
+
+# Largest single line ever actually paid, over the full 2005+ history. Used
+# below as the error guard threshold; computed, never typed.
+max_paid_line = float(df["amount_paid"].max())
+
+# The open dataset reaches back to 2005; this page analyzes 2020 onward.
+pre_window = int((df["dt"] < ANALYSIS_START).sum())
+df = df[df["dt"] >= ANALYSIS_START].copy()
+print(f"rows in window: {len(df):,} (dropped {pre_window:,} pre-2020 lines)")
+
 df["year"] = df["dt"].dt.year
 df["suffix"] = df["record_id"].str.extract(r"-([A-Z]+)$")
-# Billed = what was invoiced. amount_due is the unpaid remainder snapshot.
+# Billed = what was invoiced. amount_due is computed (fee minus paid).
 df["billed"] = df["amount_due"] + df["amount_paid"]
+
+# ---- void and error dedupe (applies to every stat on the page) -------------
+# The open dataset keeps voided and reissued invoice lines the records-request
+# extract omitted, all with paid = 0. Two computed rules drop them up front so
+# billed, whales, and unpaid all describe real invoices:
+# 1. Error guard: a fully unpaid line larger than the largest single line ever
+#    actually paid anywhere in the dataset (max_paid_line above) is a
+#    data-entry error. The dataset carries a handful of these, up to a
+#    thirty-nine billion dollar pre-submittal conference, always in never-paid
+#    duplicate pairs.
+# 2. Reissue dedupe: an unpaid line whose (permit, description, amount) also
+#    appears as a fully paid line on the same permit is a voided or superseded
+#    invoice attempt, not money owed. The LBA test case 3041198-LU drops its
+#    three abandoned Recording invoices this way.
+# 3. Rebill collapse: the same never-paid fee shows up again on later billing
+#    cycles (same permit, description, and amount, typically weeks apart, all
+#    fully unpaid). That is one debt billed repeatedly, so only the first
+#    occurrence is kept.
+paid_keys = set(map(tuple, df.loc[df["amount_paid"] > 0, ["record_id", "description", "amount_paid"]]
+                    .itertuples(index=False, name=None)))
+unpaid = df[(df["amount_due"] > 0) & (df["amount_paid"] == 0)]
+is_err = unpaid["amount_due"] > max_paid_line
+is_reissue = unpaid.apply(
+    lambda r: (r["record_id"], r["description"], r["amount_due"]) in paid_keys, axis=1)
+dropped_err_dollars = float(unpaid.loc[is_err, "amount_due"].sum())
+dropped_reissue_dollars = float(unpaid.loc[is_reissue & ~is_err, "amount_due"].sum())
+df = df.drop(index=unpaid.index[is_err | is_reissue])
+print(f"error guard (unpaid line > ${max_paid_line:,.2f}) dropped "
+      f"{int(is_err.sum())} lines, ${dropped_err_dollars:,.0f}")
+print(f"reissue dedupe dropped {int((is_reissue & ~is_err).sum())} lines, "
+      f"${dropped_reissue_dollars:,.0f} of suspect unpaid lines")
+
+unpaid = df[(df["amount_due"] > 0) & (df["amount_paid"] == 0)].sort_values("dt")
+is_rebill = unpaid.duplicated(["record_id", "description", "amount_due"], keep="first")
+dropped_rebill_dollars = float(unpaid.loc[is_rebill.values, "amount_due"].sum())
+df = df.drop(index=unpaid.index[is_rebill.values])
+print(f"rebill collapse dropped {int(is_rebill.sum())} lines, "
+      f"${dropped_rebill_dollars:,.0f} of repeated never-paid billing")
 
 years_full = list(range(2020, 2026))
 
@@ -140,9 +204,11 @@ for _, r in top20.iterrows():
 top20_all_ph = bool((top20["suffix"] == "PH").all())
 
 # ---- uncollected -----------------------------------------------------------
+# The frame was already cleaned of voided and error lines up top, so unpaid
+# here means computed-and-deduped, never a balance snapshot.
 un = df[df["amount_due"] > 0]
 due_total = float(un["amount_due"].sum())
-old = un[un["dt"] < pd.Timestamp("2025-06-23")]
+old = un[un["dt"] < data_through_ts - pd.DateOffset(years=1)]
 old_share = float(old["amount_due"].sum() / due_total)
 
 leak = []
@@ -170,11 +236,16 @@ cn_2026_pace = float(cn.loc[2026] * ANNUALIZE)
 out = {
     "generatedAt": datetime.now(timezone.utc).isoformat(),
     "dataThrough": DATA_THROUGH,
+    "dataThroughLabel": DATA_THROUGH_LABEL,
     "annualizeFactor": round(ANNUALIZE, 3),
     "lines": int(len(df)),
     "totalBilled": round(float(df["billed"].sum())),
     "totalPaid": round(float(df["amount_paid"].sum())),
     "totalDue": round(due_total),
+    "reissueDropped": round(dropped_reissue_dollars),
+    "errorDropped": round(dropped_err_dollars),
+    "rebillDropped": round(dropped_rebill_dollars),
+    "maxPaidLine": round(max_paid_line, 2),
     "totalPermits": int(df["record_id"].nunique()),
     "billedTrend": billed_trend,
     "billed2020": round(float(by_year.loc[2020, "billed"])),
@@ -259,14 +330,17 @@ for m, n in issued_m.items():
     q = month_to_q(m)
     issued_q[q] = issued_q.get(q, 0) + n
 
-# Complete quarters only: fees end 2026-06-23 (Q2 short a week), so stop at 2026Q1.
+# Complete quarters only, relative to the data-through date: keep a quarter
+# when its last day is on or before the max invoice date.
 quarters = []
 for q in sorted(qb.index):
-    if q >= "2026Q2":
+    q_end = pd.Period(q, freq="Q").end_time.normalize()
+    if q_end > data_through_ts:
         continue
     quarters.append({"q": q, "billed": round(float(qb[q])),
                      "issued": issued_q.get(q, 0)})
 out["quarters"] = quarters
+out["lastCompleteQuarter"] = quarters[-1]["q"]
 print("quarters:", len(quarters), "first:", quarters[0], "last:", quarters[-1])
 
 OUT.write_text(json.dumps(out, indent=1))

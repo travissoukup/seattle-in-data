@@ -1,16 +1,37 @@
 # Builds src/lib/generated/fees-housing.json for the /fees-housing page.
 #
 # Inputs:
-#   .targets-data/permit_fees_all.csv   SDCI invoice extract from a public
-#                                       records request, Jan 2020 to Jun 23 2026
+#   .targets-data/permit_fees_all.csv   Permit Fees open dataset (k8z7-3feg),
+#                                       rebuilt by scripts/fetch-permit-fees.mjs.
+#                                       Reaches back to 2005; refreshed weekly.
 #   .targets-data/permits_76t5_join.csv Full Building Permits dataset
-#                                       (76t5-zqzr), fetched paged via curl
+#                                       (76t5-zqzr); this script re-fetches it
+#                                       paged whenever it is older than the
+#                                       fees CSV, keeping the same columns.
 #   src/lib/generated/zip-meta.json     Neighborhood labels per ZIP (read only)
 #
-# Method: sum invoices per record_id (invoiced = amount_paid + amount_due,
-# where amount_due is the unpaid balance as of the extract date). Join CN, PH
-# and DM records to Building Permits on the full record id; the join matches
-# 100% of those records. Four analyses:
+# The analysis window starts 2020-01-01 (the page's convention from the
+# original records-request extract) and ends at the latest invoice date in
+# the CSV, computed here, never typed.
+#
+# Semantics note: k8z7-3feg has no balance snapshot and no void flag, so
+# amount_due is computed (fee amount minus paid) and includes voided or
+# reissued invoice lines. Before aggregating we drop unpaid lines that look
+# like exact reissues (same permit, same fee description, same amount, where
+# a paid twin exists on the same permit), the same dedupe
+# build_fees_revenue.py uses. We also drop unpaid lines larger than the
+# largest single line ever actually paid in the dataset (a computed
+# threshold): the dataset carries a handful of never-paid duplicate-pair
+# lines up to tens of billions of dollars (e.g. two $39.46B "Pre Submittal
+# Conference" lines on 6878457-PH) that are plainly entry errors the old
+# records-request extract never surfaced. Remaining "due" is
+# invoiced-and-unpaid as computed from the dataset, not a balance the city
+# snapshotted.
+#
+# Method: sum invoices per record_id (invoiced = amount_paid + amount_due
+# after the reissue dedupe). Join CN, PH and DM records to Building Permits
+# on the full record id; the join matches essentially all of them. Four
+# analyses:
 #   1. Median fee as % of declared project value, by value band (CN permits).
 #   2. Fees per net new housing unit, by project size and class (CN+PH only;
 #      DM records sometimes carry housingunitsadded, so they are excluded).
@@ -22,8 +43,12 @@
 
 import json
 import os
+import ssl
+import urllib.parse
+import urllib.request
 from datetime import datetime, timezone
 
+import certifi
 import numpy as np
 import pandas as pd
 
@@ -31,16 +56,101 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 DATA = os.path.join(ROOT, ".targets-data")
 OUT = os.path.join(ROOT, "src", "lib", "generated", "fees-housing.json")
 
-DM_MATURE_LAST_YEAR = 2023  # demo permits first invoiced by this year count as mature
+FEES_CSV = os.path.join(DATA, "permit_fees_all.csv")
+JOIN_CSV = os.path.join(DATA, "permits_76t5_join.csv")
+
+ANALYSIS_START = "2020-01-01"
+# Demo permits whose first invoice landed this many years before the window
+# end count as mature (they have had years to pay).
+DM_MATURE_YEARS = 3
+
+JOIN_COLS = [
+    "permitnum", "permitclass", "permitclassmapped", "permittypemapped",
+    "permittypedesc", "statuscurrent", "estprojectcost", "housingunitsadded",
+    "housingunitsremoved", "originalzip", "applieddate", "issueddate",
+    "completeddate",
+]
 
 r2 = lambda x: round(float(x), 2)
 
 
+def refresh_join_cache():
+    """Re-fetch permits_76t5_join.csv when it is older than the fees CSV."""
+    if os.path.exists(JOIN_CSV) and os.path.getmtime(JOIN_CSV) >= os.path.getmtime(FEES_CSV):
+        return
+    print("permits_76t5_join.csv older than fees CSV; re-fetching 76t5-zqzr...")
+    ctx = ssl.create_default_context(cafile=certifi.where())
+    frames = []
+    offset, page = 0, 50000
+    while True:
+        q = urllib.parse.urlencode({
+            "$select": ",".join(JOIN_COLS),
+            "$order": ":id",
+            "$limit": str(page),
+            "$offset": str(offset),
+        })
+        with urllib.request.urlopen(
+            f"https://data.seattle.gov/resource/76t5-zqzr.json?{q}", timeout=120, context=ctx
+        ) as r:
+            batch = json.load(r)
+        if not batch:
+            break
+        frames.append(pd.DataFrame(batch))
+        offset += page
+        if len(batch) < page:
+            break
+    perm = pd.concat(frames, ignore_index=True)
+    for c in JOIN_COLS:
+        if c not in perm.columns:
+            perm[c] = pd.NA
+    perm = perm[JOIN_COLS]
+    tmp = JOIN_CSV + ".tmp"
+    perm.to_csv(tmp, index=False, quoting=1)
+    os.replace(tmp, JOIN_CSV)
+    print(f"  refreshed: {len(perm)} permits")
+
+
 def main():
-    fees = pd.read_csv(os.path.join(DATA, "permit_fees_all.csv"))
+    fees = pd.read_csv(FEES_CSV)
     for c in ("amount_due", "amount_paid"):
         fees[c] = pd.to_numeric(fees[c], errors="coerce").fillna(0)
-    fees["year"] = fees["date_invoiced"].str[:4].astype(int)
+    fees["date"] = fees["date_invoiced"].str[:10]
+    dataset_start = str(fees["date"].min())
+    window_end = str(fees["date"].max())
+    window_end_year = int(window_end[:4])
+    dm_mature_last_year = window_end_year - DM_MATURE_YEARS
+
+    # Outlier guard: no unpaid line can plausibly exceed the largest fee the
+    # city ever actually collected on a single line. The lines this drops are
+    # never-paid duplicate pairs reaching tens of billions of dollars.
+    max_paid_line = float(fees["amount_paid"].max())
+    absurd = (fees["amount_paid"] == 0) & (fees["amount_due"] > max_paid_line)
+    print(f"outlier guard (unpaid line > ${max_paid_line:,.0f} max-ever-paid): "
+          f"dropped {int(absurd.sum())} lines, ${fees.loc[absurd, 'amount_due'].sum():,.0f}")
+    fees = fees[~absurd]
+
+    fees = fees[fees["date"] >= ANALYSIS_START].copy()
+    fees["year"] = fees["date"].str[:4].astype(int)
+
+    # Reissue dedupe (same semantics as build_fees_revenue.py): an unpaid
+    # line whose (permit, description, amount) also appears as a paid line on
+    # the same permit is a voided or superseded invoice attempt, not money
+    # owed. Vectorized via an index join on the key triple.
+    paid_keys = pd.MultiIndex.from_frame(
+        fees.loc[fees["amount_paid"] > 0, ["record_id", "description"]].assign(
+            amt=fees.loc[fees["amount_paid"] > 0, "amount_paid"]
+        )
+    )
+    unpaid_mask = (fees["amount_due"] > 0) & (fees["amount_paid"] == 0)
+    unpaid_keys = pd.MultiIndex.from_frame(
+        fees.loc[unpaid_mask, ["record_id", "description"]].assign(
+            amt=fees.loc[unpaid_mask, "amount_due"]
+        )
+    )
+    reissue_idx = fees.index[unpaid_mask][unpaid_keys.isin(paid_keys)]
+    dropped = float(fees.loc[reissue_idx, "amount_due"].sum())
+    fees = fees.drop(index=reissue_idx)
+    print(f"reissue dedupe dropped {len(reissue_idx)} lines, ${dropped:,.0f} of suspect unpaid amounts")
 
     per = (
         fees.groupby("record_id")
@@ -51,7 +161,9 @@ def main():
     per["suffix"] = per["record_id"].str.extract(r"-([A-Z]+)$")
     all_invoiced = float(per["invoiced"].sum())
 
-    perm = pd.read_csv(os.path.join(DATA, "permits_76t5_join.csv"))
+    refresh_join_cache()
+    perm = pd.read_csv(JOIN_CSV, low_memory=False)
+    permits_fetched = datetime.fromtimestamp(os.path.getmtime(JOIN_CSV), tz=timezone.utc).isoformat()
     m = per[per["suffix"].isin(["CN", "PH", "DM"])].merge(
         perm, left_on="record_id", right_on="permitnum", how="left", indicator=True
     )
@@ -148,11 +260,11 @@ def main():
     }
 
     dm = m[m["suffix"] == "DM"]
-    dmm = dm[(dm["first_year"] <= DM_MATURE_LAST_YEAR) & (dm["invoiced"] > 0)]
+    dmm = dm[(dm["first_year"] <= dm_mature_last_year) & (dm["invoiced"] > 0)]
     zero = dmm["paid"] == 0
     full = dmm["due"] <= 0.005
     demo = {
-        "matureLastYear": DM_MATURE_LAST_YEAR,
+        "matureLastYear": dm_mature_last_year,
         "matureN": int(len(dmm)),
         "zeroPaidN": int(zero.sum()),
         "zeroPaidPct": r2(zero.mean() * 100),
@@ -192,8 +304,11 @@ def main():
     joined_invoiced = float(m["invoiced"].sum())
     out = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
-        "windowStart": "2020-01-01",
-        "windowEnd": "2026-06-23",
+        "windowStart": ANALYSIS_START,
+        "windowEnd": window_end,
+        "datasetStart": dataset_start,
+        "permitsFetchedAt": permits_fetched,
+        "reissueDropped": r2(dropped),
         "joined": {
             "records": int(len(m)),
             "invoiced": r2(joined_invoiced),
@@ -229,6 +344,7 @@ def main():
     kb = os.path.getsize(OUT) / 1024
 
     print(f"wrote {OUT} ({kb:.1f} KB)")
+    print(f"window {ANALYSIS_START} to {window_end} (dataset back to {dataset_start})")
     print(f"join rate CN/PH/DM: {join_rate:.4f}, records {len(m)}")
     print(f"joined invoiced ${joined_invoiced/1e6:.1f}M = {out['joined']['shareOfAllInvoicedPct']}% of all invoiced")
     print(f"curve: {lo_pct}% under $50K vs {hi_pct}% over $10M, ratio {out['curve']['ratio']}x, n={len(cn)}")
@@ -236,8 +352,8 @@ def main():
           f"MF 100+ median ${mf_big['medianPerUnit']}, citywide agg ${out['perUnit']['aggPerUnit']}")
     print(f"never built: {never_built['n']} permits, ${never_built['invoiced']/1e6:.2f}M invoiced, "
           f"${never_built['paid']/1e6:.2f}M paid, {never_built['unitsPlanned']} units planned")
-    print(f"demo mature: {demo['matureN']} permits, {demo['zeroPaidPct']}% paid nothing, "
-          f"{demo['fullPaidN']} paid in full, {demo['partialN']} partial")
+    print(f"demo mature (first invoiced by {dm_mature_last_year}): {demo['matureN']} permits, "
+          f"{demo['zeroPaidPct']}% paid nothing, {demo['fullPaidN']} paid in full, {demo['partialN']} partial")
     print(f"zips: {len(zips)} shown of {out['zipCount']}, top {zips[0]['zip']} ${zips[0]['fees']/1e6:.1f}M")
 
 

@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
 """Build src/lib/generated/fees-hours.json for the /fees-hours page.
 
-Input 1: .targets-data/permit_fees_all.csv, an SDCI invoice-line extract obtained
-by public records request (Jan 2020 through Jun 23, 2026).
+Input 1: .targets-data/permit_fees_all.csv, rebuilt weekly from the Permit Fees
+open dataset (k8z7-3feg on data.seattle.gov) by scripts/fetch-permit-fees.mjs.
+SDCI published that dataset in September 2026 after this site requested the
+data; the site first analyzed the same billing lines via a June 2026 public
+records request. The dataset has no void flag, so amount_due is computed
+(fee amount minus paid) and includes voided or reissued invoice lines; before
+counting hours we drop unpaid lines whose (permit, line item, amount) also
+appears as a paid line on the same permit (reissue dedupe, same pattern as
+build_fees_revenue.py). The analysis window starts 2020-01-01 (the dataset
+reaches back to 2005, but this page's baselines are 2020-era) and ends at the
+latest invoice date in the file.
 Input 2: Seattle's plan-review dataset tqk8-y2z5 (cos-data.seattle.gov), which
 names the assigned reviewer per review type on ~6,200 completed permits. It is
 downloaded to .targets-data/plan_review_tqk8.csv on first run.
@@ -21,6 +30,7 @@ Reviewer names never enter the JSON; reviewers are ranked and labeled R1, R2, ..
 """
 import json
 import os
+import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
@@ -31,7 +41,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 FEES_CSV = os.path.join(ROOT, '.targets-data', 'permit_fees_all.csv')
 PR_CSV = os.path.join(ROOT, '.targets-data', 'plan_review_tqk8.csv')
 OUT = os.path.join(ROOT, 'src', 'lib', 'generated', 'fees-hours.json')
-DATA_END = pd.Timestamp('2026-06-23')
+DATASET_ID = 'k8z7-3feg'
+WINDOW_START = pd.Timestamp('2020-01-01')
 
 # Hourly rate card, reverse-engineered from the invoice amounts themselves:
 # for each family and year, the amounts sit on a lattice of multiples of rate/4
@@ -45,6 +56,14 @@ RATES = {
 # done earlier (amounts on 386/324 lattices for land use, 222/216 for engineering,
 # 260 for SDOT).
 LEGACY = {'LU': [386, 324], 'ENG': [222, 216], 'SDOT': [260]}
+
+
+def rate_lookup(fam, year):
+    """Rate for a family-year; years past the known card hold the latest rate."""
+    card = RATES[fam]
+    if year in card:
+        return card[year]
+    return card[max(card)] if year > max(card) else 0
 
 FAMILY = {
     'Land Use Review - Additional Hours': ('LU', 'Land use'),
@@ -78,6 +97,16 @@ FAMILY = {
     'Noise Survey Review, Inspection, Monitor - Hourly': ('ENG', 'Other hourly'),
     'SDOT Hourly Review and Inspection': ('SDOT', 'SDOT'),
     'SDOT Hourly Review and Inspection - Overtime': ('SDOT', 'SDOT'),
+    # Hourly line items that only appear on the record classes the open dataset
+    # added (no-suffix, EX, NV, EG, AN, SB); absent from the records-request
+    # extract. Family assignment verified by lattice fit at build time.
+    'Shop Drawing Review - Additional Hours': ('ENG', 'Other hourly'),
+    'Noise Variance - Additional Hours': ('ENG', 'Other hourly'),
+    'Site Review Pre Issue - Additional Hours': ('ENG', 'Other hourly'),
+    'Hourly Review Parks': ('ENG', 'Other hourly'),
+    'Grading Season Extension Review - Additional Hours': ('ENG', 'Other hourly'),
+    'Environmental Health Review - Additional Hours': ('ENG', 'Other hourly'),
+    'Side Sewer Inspection - Additional Hours': ('ENG', 'Other hourly'),
 }
 
 # Minimum-charge line items per discipline (flat first charges that also sit on
@@ -104,7 +133,10 @@ REVIEWTYPES = {
 }
 
 WEEKS_FULL_YEAR = 52.18
-WEEKS_2026 = (DATA_END - pd.Timestamp('2026-01-01')).days / 7  # partial year
+
+
+def soql(params):
+    return f'https://data.seattle.gov/resource/{DATASET_ID}.json?' + urllib.parse.urlencode(params)
 
 
 def fetch_plan_review():
@@ -128,9 +160,39 @@ def r2(x):
 def main():
     fetch_plan_review()
     df = pd.read_csv(FEES_CSV)
-    df['billed'] = df.amount_due + df.amount_paid
     df['dt'] = pd.to_datetime(df.date_invoiced)
+
+    # Dynamic window: end at the latest invoice in the file, never a typed date.
+    data_end = df.dt.max().normalize()
+    end_year = int(data_end.year)
+    weeks_partial = max((data_end - pd.Timestamp(f'{end_year}-01-01')).days / 7, 1e-9)
+    df = df[df.dt >= WINDOW_START].copy()
+    print(f'window {WINDOW_START.date()} .. {data_end.date()} ({len(df)} lines in window)')
+
+    # Reissue dedupe (see build_fees_revenue.py): the open dataset has no void
+    # flag, so an unpaid line whose (permit, line item, amount) also appears as
+    # a paid line on the same permit is treated as a voided attempt and dropped
+    # before hours are counted.
+    paid_keys = set(map(tuple, df.loc[df.amount_paid > 0, ['record_id', 'description', 'amount_paid']]
+                        .itertuples(index=False, name=None)))
+    unpaid_mask = (df.amount_due > 0) & (df.amount_paid == 0)
+    reissue = df.loc[unpaid_mask].apply(
+        lambda r: (r['record_id'], r['description'], r['amount_due']) in paid_keys, axis=1)
+    reissue_dropped = float(df.loc[unpaid_mask][reissue.values]['amount_due'].sum()) if len(reissue) else 0.0
+    reissue_lines = int(reissue.sum()) if len(reissue) else 0
+    if reissue_lines:
+        df = df.drop(df.loc[unpaid_mask].index[reissue.values])
+    print(f'reissue dedupe dropped {reissue_lines} unpaid lines (${reissue_dropped:,.0f})')
+
+    df['billed'] = df.amount_due + df.amount_paid
     df['year'] = df.dt.dt.year
+
+    # Warn on hourly-style line items the FAMILY map does not know yet, so a
+    # weekly refresh that introduces one is visible in the build log.
+    hourlyish = df.description.str.contains('Additional Hours|Hourly', case=False, na=False)
+    unmapped = sorted(set(df.loc[hourlyish, 'description']) - set(FAMILY))
+    if unmapped:
+        print('WARN unmapped hourly-style descriptions:', unmapped)
 
     h = df[df.description.isin(FAMILY) & (df.billed > 0)].copy()
     h['family'] = h.description.map(lambda d: FAMILY[d][0])
@@ -142,7 +204,10 @@ def main():
     fit = np.array(['off'] * len(h), dtype=object)
     rate_used = np.zeros(len(h))
     for tag, yoff in [('current', 0), ('prior', -1), ('next', 1)]:
-        rate = np.array([RATES[f].get(y + yoff, 0) for f, y in zip(h.family, h.year)])
+        if yoff == 0:
+            rate = np.array([rate_lookup(f, y) for f, y in zip(h.family, h.year)])
+        else:
+            rate = np.array([RATES[f].get(y + yoff, 0) for f, y in zip(h.family, h.year)])
         q = rate * 25
         ok = (q > 0) & (fit == 'off') & (cents % np.where(q == 0, 1, q) == 0)
         hours[ok] = cents[ok] / (rate[ok] * 100.0)
@@ -155,7 +220,7 @@ def main():
             rate_used[ok] = lr
             fit[ok] = 'legacy'
     off = fit == 'off'
-    rate0 = np.array([RATES[f][y] for f, y in zip(h.family, h.year)])
+    rate0 = np.array([rate_lookup(f, y) for f, y in zip(h.family, h.year)])
     hours[off] = cents[off] / (rate0[off] * 100.0)  # approximation, flagged
     rate_used[off] = rate0[off]
     h['hours'] = hours
@@ -179,24 +244,26 @@ def main():
         'allLines': int(len(df)),
         'allDollarsPaid': r2(df.amount_paid.sum()),
         'hourlyShareOfPaidPct': r1(100 * h.amount_paid.sum() / df.amount_paid.sum()),
+        'reissueDroppedLines': reissue_lines,
+        'reissueDroppedDollars': r2(reissue_dropped),
     }
 
     # Rate card with lattice evidence: lines landing exactly on that year's lattice.
     rate_card = []
-    for y in range(2020, 2027):
+    for y in range(2020, end_year + 1):
         n_on = int(((h.year == y) & (h.fit == 'current')).sum())
         n_all = int((h.year == y).sum())
-        rate_card.append({'year': y, 'lu': RATES['LU'][y], 'eng': RATES['ENG'][y], 'sdot': RATES['SDOT'][y],
-                          'quarterLu': r2(RATES['LU'][y] / 4), 'nOn': n_on, 'pctOn': r1(100 * n_on / max(n_all, 1))})
+        rate_card.append({'year': y, 'lu': rate_lookup('LU', y), 'eng': rate_lookup('ENG', y), 'sdot': rate_lookup('SDOT', y),
+                          'quarterLu': r2(rate_lookup('LU', y) / 4), 'nOn': n_on, 'pctOn': r1(100 * n_on / max(n_all, 1))})
     rate_rise = {
-        'luPct': r1(100 * (RATES['LU'][2026] / RATES['LU'][2020] - 1)),
-        'engPct': r1(100 * (RATES['ENG'][2026] / RATES['ENG'][2020] - 1)),
-        'sdotPct': r1(100 * (RATES['SDOT'][2026] / RATES['SDOT'][2020] - 1)),
+        'luPct': r1(100 * (rate_lookup('LU', end_year) / RATES['LU'][2020] - 1)),
+        'engPct': r1(100 * (rate_lookup('ENG', end_year) / RATES['ENG'][2020] - 1)),
+        'sdotPct': r1(100 * (rate_lookup('SDOT', end_year) / RATES['SDOT'][2020] - 1)),
     }
 
     # Weekly hours per discipline; yearly average weekly level.
-    weeks_per_year = {y: WEEKS_FULL_YEAR for y in range(2020, 2026)}
-    weeks_per_year[2026] = WEEKS_2026
+    weeks_per_year = {y: WEEKS_FULL_YEAR for y in range(2020, end_year)}
+    weeks_per_year[end_year] = weeks_partial
     ytab = h.groupby(['discipline', 'year']).hours.sum().unstack(0).fillna(0)
     avg_weekly = ytab.div(pd.Series(weeks_per_year), axis=0)
     tot_weekly = {int(y): r1(v) for y, v in (ytab.sum(axis=1) / pd.Series(weeks_per_year)).items()}
@@ -208,23 +275,25 @@ def main():
     mm = hm.groupby(['month', 'g']).hours.sum().unstack(fill_value=0)
     monthly = []
     for m, row in mm.iterrows():
-        month_end = min(m.to_timestamp(how='end').normalize(), DATA_END)
+        month_end = min(m.to_timestamp(how='end').normalize(), data_end)
         days = (month_end - m.to_timestamp(how='start')).days + 1
         rec = {'m': str(m)}
         for k in ['lu', 'drain', 'geo', 'sdot', 'other']:
             rec[k] = r1(row.get(k, 0) / (days / 7))
         monthly.append(rec)
 
-    lu_collapse = {'w2020': r1(avg_weekly.loc[2020, 'Land use']), 'w2023': r1(avg_weekly.loc[2023, 'Land use']),
-                   'w2025': r1(avg_weekly.loc[2025, 'Land use']), 'w2026': r1(avg_weekly.loc[2026, 'Land use']),
-                   'dropPct': r1(100 * (1 - avg_weekly.loc[2026, 'Land use'] / avg_weekly.loc[2020, 'Land use']))}
-    total_drop = {'w2020': tot_weekly[2020], 'w2026': tot_weekly[2026],
-                  'dropPct': r1(100 * (1 - tot_weekly[2026] / tot_weekly[2020]))}
+    last_full = end_year - 1
+    lu_collapse = {'wStart': r1(avg_weekly.loc[2020, 'Land use']),
+                   'wLastFull': r1(avg_weekly.loc[last_full, 'Land use']), 'lastFullYear': last_full,
+                   'wPartial': r1(avg_weekly.loc[end_year, 'Land use']),
+                   'dropPct': r1(100 * (1 - avg_weekly.loc[end_year, 'Land use'] / avg_weekly.loc[2020, 'Land use']))}
+    total_drop = {'wStart': tot_weekly[2020], 'wEnd': tot_weekly[end_year],
+                  'dropPct': r1(100 * (1 - tot_weekly[end_year] / tot_weekly[2020]))}
 
     # Mega invoices: single lines of 40+ implied hours.
     mega = h[h.hours >= 40].sort_values('hours', ascending=False)
     mega_top = [{'id': r.record_id, 'd': r.dt.strftime('%Y-%m-%d'), 'desc': r.description,
-                 'hours': r2(r.hours), 'amt': r2(r.billed)} for r in mega.head(10).itertuples()]
+                 'hours': r2(r.hours), 'amt': r2(r.billed), 'paid': r2(r.amount_paid)} for r in mega.head(10).itertuples()]
     # biggest single record+day for one discipline
     hd = h.copy()
     hd['date'] = hd.dt.dt.date
@@ -241,7 +310,8 @@ def main():
         'day': {'id': top_day.record_id, 'date': str(top_day.date), 'hours': r2(top_day.hours),
                 'lines': int(top_day.lines), 'amt': r2(top_day.amt), 'disc': top_day.discipline},
         'record': {'id': top_day.record_id, 'hours': r1(rec.hours.sum()), 'amt': r2(rec.billed.sum()),
-                   'lines': int(len(rec)), 'from': rec.dt.min().strftime('%Y-%m-%d'), 'to': rec.dt.max().strftime('%Y-%m-%d')},
+                   'paid': r2(rec.amount_paid.sum()), 'lines': int(len(rec)),
+                   'from': rec.dt.min().strftime('%Y-%m-%d'), 'to': rec.dt.max().strftime('%Y-%m-%d')},
         'weekend18Lines': int(len(weekend18)),
         'weekend18Hours': r1(weekend18.hours.sum()),
         'weekendHoursPct': r1(100 * h[h.dt.dt.dayofweek >= 5].hours.sum() / h.hours.sum()),
@@ -262,7 +332,7 @@ def main():
         row = {}
         for y in range(2020, 2025):
             y0, y1 = pd.Timestamp(f'{y}-01-01'), pd.Timestamp(f'{y}-12-31')
-            m = (sub.reviewerassigndate <= y1) & (sub.reviewerfinishdate.fillna(pd.Timestamp('2026-12-31')) >= y0)
+            m = (sub.reviewerassigndate <= y1) & (sub.reviewerfinishdate.fillna(pd.Timestamp('2099-12-31')) >= y0)
             row[y] = int(sub[m].reviewer.nunique())
         floors[disc] = row
 
@@ -323,7 +393,7 @@ def main():
     # hours, distinct permits touched, and implied hours (lattice-fit).
     geo_min_df = df[df.description.isin(MIN_DESCS['Geotech'])]
     geo_yearly = []
-    for y in range(2020, 2027):
+    for y in range(2020, end_year + 1):
         gm = geo_min_df[geo_min_df.year == y]
         ga = geo[geo.year == y]
         permits = pd.concat([gm.record_id, ga.record_id]).nunique()
@@ -333,15 +403,15 @@ def main():
             'addlDollars': r2(ga.billed.sum()),
             'hours': r1(ga.hours.sum()),
             'permits': int(permits),
-            'rate': RATES['ENG'][y],
-            'partial': y == 2026,
+            'rate': rate_lookup('ENG', y),
+            'partial': y == end_year,
         })
 
     geo_out = {
         'yearly': geo_yearly,
         'dollars': r2(geo.billed.sum()), 'hours': r1(geo.hours.sum()), 'lines': int(len(geo)),
         'weeklyMedian': r1(geo_wk.median()), 'weeklyP90': r1(geo_wk.quantile(0.9)), 'weeklyMax': r1(geo_wk.max()),
-        'avgWeekly2026': r1(avg_weekly.loc[2026, 'Geotech']), 'avgWeekly2020': r1(avg_weekly.loc[2020, 'Geotech']),
+        'avgWeeklyEnd': r1(avg_weekly.loc[end_year, 'Geotech']), 'avgWeeklyStart': r1(avg_weekly.loc[2020, 'Geotech']),
         'spike': {'week': spike_week.strftime('%Y-%m-%d'), 'hours': r1(geo_wk.max()),
                   'lines': int(len(spike_lines)), 'records': int(spike_lines.record_id.nunique()),
                   'topRecordHours': r1(top_rec_spike)},
@@ -403,9 +473,41 @@ def main():
         },
     }
 
+    # Exact-query links for the page's ChartCards: SoQL against the live
+    # dataset that reproduces (or lists the raw lines behind) each aggregate.
+    def in_list(descs):
+        return 'feedescription in(' + ','.join("'" + d + "'" for d in descs) + ')'
+
+    since = f"invoicedate >= '{WINDOW_START.date()}'"
+    hourly_where = in_list(sorted(FAMILY)) + ' AND feeamount > 0 AND ' + since
+    geo_hourly = sorted(d for d, (fam, disc) in FAMILY.items() if disc == 'Geotech')
+    geo_all = sorted(set(geo_hourly) | set(MIN_DESCS['Geotech']))
+    queries = {
+        'rateCard': soql({
+            '$select': 'date_extract_y(invoicedate) AS year,feeamount,count(*) AS lines',
+            '$where': hourly_where, '$group': 'year,feeamount', '$order': 'year,lines DESC', '$limit': 50000}),
+        'monthly': soql({
+            '$select': 'date_trunc_ym(invoicedate) AS month,feedescription,sum(feeamount) AS dollars,count(*) AS lines',
+            '$where': hourly_where, '$group': 'month,feedescription', '$order': 'month', '$limit': 50000}),
+        'mega': soql({
+            '$select': 'permitnum,invoicedate,feedescription,feeamount,feeamountpaid,invoicenum',
+            '$where': hourly_where, '$order': 'feeamount DESC', '$limit': 10}),
+        'hourlyLines': soql({
+            '$select': 'permitnum,invoicedate,feedescription,feeamount,feeamountpaid,invoicenum',
+            '$where': hourly_where, '$order': 'invoicedate', '$limit': 200000}),
+        'geoYearly': soql({
+            '$select': 'date_extract_y(invoicedate) AS year,feedescription,sum(feeamount) AS dollars,count(*) AS lines',
+            '$where': in_list(geo_all) + ' AND ' + since, '$group': 'year,feedescription', '$order': 'year', '$limit': 50000}),
+        'geoLines': soql({
+            '$select': 'permitnum,invoicedate,feedescription,feeamount,feeamountpaid,invoicenum',
+            '$where': in_list(geo_hourly) + ' AND feeamount > 0 AND ' + since,
+            '$order': 'invoicedate', '$limit': 50000}),
+    }
+
     out = {
         'generatedAt': datetime.now(timezone.utc).isoformat(),
-        'windowStart': '2020-01-01', 'windowEnd': '2026-06-23',
+        'windowStart': str(WINDOW_START.date()), 'windowEnd': str(data_end.date()),
+        'datasetId': DATASET_ID, 'queries': queries,
         'totals': totals, 'rateCard': rate_card, 'rateRise': rate_rise,
         'monthly': monthly, 'luCollapse': lu_collapse, 'totalDrop': total_drop,
         'avgWeeklyByYear': {d: {int(y): r1(v) for y, v in avg_weekly[d].items()} for d in avg_weekly.columns},

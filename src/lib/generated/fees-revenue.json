@@ -1,54 +1,59 @@
 {
- "generatedAt": "2026-08-29T03:56:44.478632+00:00",
- "dataThrough": "2026-06-23",
- "annualizeFactor": 2.098,
- "lines": 1416573,
- "totalBilled": 432968202,
- "totalPaid": 420378634,
- "totalDue": 12589568,
- "totalPermits": 339333,
+ "generatedAt": "2026-09-10T17:26:52.761457+00:00",
+ "dataThrough": "2026-09-08",
+ "dataThroughLabel": "September 8, 2026",
+ "annualizeFactor": 1.454,
+ "lines": 1663996,
+ "totalBilled": 538096169,
+ "totalPaid": 467865458,
+ "totalDue": 70230711,
+ "reissueDropped": 8057915,
+ "errorDropped": 113842599292,
+ "rebillDropped": 53044466,
+ "maxPaidLine": 550899.75,
+ "totalPermits": 419892,
  "billedTrend": [
   {
    "y": "2020",
-   "billed": 76333240,
+   "billed": 95527793,
    "pace": null
   },
   {
    "y": "2021",
-   "billed": 68317814,
+   "billed": 83124769,
    "pace": null
   },
   {
    "y": "2022",
-   "billed": 65332384,
+   "billed": 80735580,
    "pace": null
   },
   {
    "y": "2023",
-   "billed": 67520133,
+   "billed": 78781440,
    "pace": null
   },
   {
    "y": "2024",
-   "billed": 57551563,
+   "billed": 69351176,
    "pace": null
   },
   {
    "y": "2025",
-   "billed": 63209785,
-   "pace": 63209785
+   "billed": 74480772,
+   "pace": 74480772
   },
   {
    "y": "2026",
    "billed": null,
-   "pace": 72797119
+   "pace": 81571885
   }
  ],
- "billed2020": 76333240,
- "billed2024": 57551563,
- "billed2025": 63209785,
- "billed2026Actual": 34703284,
- "billed2026Pace": 72797119,
+ "billed2020": 95527793,
+ "billed2024": 69351176,
+ "billed2025": 74480772,
+ "billed2026Actual": 56094639,
+ "billed2026Pace": 81571885,
  "core": [
   {
    "y": "2020",
@@ -59,97 +64,103 @@
   },
   {
    "y": "2021",
-   "permitsIdx": 113.8,
-   "perPermitIdx": 78.6,
+   "permitsIdx": 112.9,
+   "perPermitIdx": 77.1,
    "permitsPace": null,
    "perPermitPace": null
   },
   {
    "y": "2022",
-   "permitsIdx": 125.6,
-   "perPermitIdx": 68.1,
+   "permitsIdx": 119.7,
+   "perPermitIdx": 70.6,
    "permitsPace": null,
    "perPermitPace": null
   },
   {
    "y": "2023",
-   "permitsIdx": 123.0,
-   "perPermitIdx": 71.9,
+   "permitsIdx": 116.4,
+   "perPermitIdx": 70.8,
    "permitsPace": null,
    "perPermitPace": null
   },
   {
    "y": "2024",
-   "permitsIdx": 117.2,
-   "perPermitIdx": 64.3,
+   "permitsIdx": 112.2,
+   "perPermitIdx": 64.7,
    "permitsPace": null,
    "perPermitPace": null
   },
   {
    "y": "2025",
-   "permitsIdx": 118.9,
-   "perPermitIdx": 69.6,
-   "permitsPace": 118.9,
-   "perPermitPace": 69.6
+   "permitsIdx": 113.2,
+   "perPermitIdx": 68.9,
+   "permitsPace": 113.2,
+   "perPermitPace": 68.9
   },
   {
    "y": "2026",
    "permitsIdx": null,
    "perPermitIdx": null,
-   "permitsPace": 128.7,
-   "perPermitPace": 74.1
+   "permitsPace": 121.3,
+   "perPermitPace": 70.4
   }
  ],
- "permits2020": 48220,
- "permits2026Pace": 62081,
- "perPermit2020": 1583,
- "perPermit2026": 1173,
- "perPermitDropPct": 25.9,
- "permitsUpPct": 28.7,
+ "permits2020": 59954,
+ "permits2026Pace": 72695,
+ "perPermit2020": 1593,
+ "perPermit2026": 1122,
+ "perPermitDropPct": 29.6,
+ "permitsUpPct": 21.3,
  "whales": [
   {
    "y": "2020",
-   "n": 66
+   "n": 89
   },
   {
    "y": "2021",
-   "n": 39
+   "n": 52
   },
   {
    "y": "2022",
-   "n": 37
+   "n": 59
   },
   {
    "y": "2023",
-   "n": 45
+   "n": 57
   },
   {
    "y": "2024",
-   "n": 19
+   "n": 28
   },
   {
    "y": "2025",
-   "n": 18
+   "n": 28
   },
   {
    "y": "2026*",
-   "n": 6
+   "n": 13
   }
  ],
- "whales2020": 66,
- "whales2025": 18,
- "whales2026Actual": 6,
- "whaleTotal": 36880525,
- "whaleSharePct": 8.5,
- "phPermits": 274,
- "phBilled": 53209694,
- "phSharePct": 12.3,
+ "whales2020": 89,
+ "whales2025": 28,
+ "whales2026Actual": 13,
+ "whaleTotal": 54078938,
+ "whaleSharePct": 10.1,
+ "phPermits": 285,
+ "phBilled": 61682770,
+ "phSharePct": 11.5,
  "top20": [
   {
    "id": "6706025-PH",
-   "billed": 1566500,
+   "billed": 1575102,
    "address": "2350 6th Ave",
    "project": "Construction of a residential and retail building with two towers and below grade parking and occupy per plan"
+  },
+  {
+   "id": "6798148-PH",
+   "billed": 1355227,
+   "address": "1550 N 115th St",
+   "project": "Construction of an institutional building (Behavioral Health Teaching Facility) and occupy per plan. Mechan..."
   },
   {
    "id": "6973996-PH",
@@ -158,16 +169,40 @@
    "project": "Construct mixed-use residential/retail high rise building with below-grade parking occupy per plan."
   },
   {
+   "id": "6905992-PH",
+   "billed": 1129570,
+   "address": "121 Boren Ave N",
+   "project": "Construction of residential/retail high rise building occupy per plan."
+  },
+  {
+   "id": "7104610-CN",
+   "billed": 1008667,
+   "address": "2009 Rainier Ave S",
+   "project": "Establish use as apartments per land use code. Construct new mixed-use apartment building with parking belo..."
+  },
+  {
    "id": "6957110-PH",
-   "billed": 963333,
+   "billed": 963334,
    "address": "3020 NE 45th St",
    "project": "Construct residential/commercial building with three residential towers above podium and below grade parkin..."
   },
   {
+   "id": "6753306-PH",
+   "billed": 877756,
+   "address": "601 4th Ave",
+   "project": "Construction of a residential and retail building with below grade parking per plan"
+  },
+  {
    "id": "6911575-PH",
-   "billed": 874945,
+   "billed": 875356,
    "address": "2405 7th Ave",
    "project": "Construction of residential/retail high rise w/below grade parking and occupy per plan. Mechanical is inclu..."
+  },
+  {
+   "id": "7004580-CN",
+   "billed": 855250,
+   "address": "2031 3rd Ave",
+   "project": "(Change of use from office to apartments (multifamily residential) per the land use code. Construct alterat..."
   },
   {
    "id": "6713441-PH",
@@ -176,8 +211,20 @@
    "project": "Construction of podium and east office and retail tower and occupy per plan (Construction of two office and..."
   },
   {
+   "id": "6883899-PH",
+   "billed": 823457,
+   "address": "8815 Seward Park Ave S",
+   "project": "Construction of Institutional building (replacement of Rainier Beach High School) and occupy per plan. Mech..."
+  },
+  {
+   "id": "6718826-PH",
+   "billed": 812008,
+   "address": "2208 4th Ave",
+   "project": "Construct a mixed-use high rise with residential over lower floor commercial and below grade parking occupy..."
+  },
+  {
    "id": "6998504-PH",
-   "billed": 808629,
+   "billed": 811422,
    "address": "1101 Thomas St",
    "project": "Construct multi-family high-rise (west) towers and base structure occupy per plan."
   },
@@ -189,254 +236,218 @@
   },
   {
    "id": "6696905-PH",
-   "billed": 737770,
+   "billed": 738788,
    "address": "2301 7th Ave",
    "project": "Construct underground and base structure and north residential high-rise tower occupy per plan. (Phased per..."
   },
   {
+   "id": "6878457-PH",
+   "billed": 733587,
+   "address": "801 Blanchard St",
+   "project": "Construct high-rise mixed-use residential building with below-grade parking occupy per plan."
+  },
+  {
    "id": "6971406-PH",
-   "billed": 714673,
+   "billed": 728089,
    "address": "900 University St",
    "project": "Construct high rise residential building addition (west tower) occupy per plan. Mechanical included."
   },
   {
-   "id": "6753306-PH",
-   "billed": 707643,
-   "address": "601 4th Ave",
-   "project": "Construction of a residential and retail building with below grade parking per plan"
+   "id": "6722466-PH",
+   "billed": 695405,
+   "address": "4220 12th Ave NE",
+   "project": "Phased construction of two residential and retail towers with common below grade parking and occupy per plan"
   },
   {
-   "id": "6905992-PH",
-   "billed": 648010,
-   "address": "121 Boren Ave N",
-   "project": "Construction of residential/retail high rise building occupy per plan."
+   "id": "6742763-PH",
+   "billed": 685510,
+   "address": "800 Alaskan Way",
+   "project": "Construct a mixed-use residential and office high-rise building with below-grade parking occupy per plan (e..."
   },
   {
-   "id": "6793004-PH",
-   "billed": 640416,
-   "address": "750 Mercer St",
-   "project": "Construction of the west office high rise tower and shared podium with below grade parking and occupy per p..."
-  },
-  {
-   "id": "6769232-PH",
-   "billed": 556027,
-   "address": "803 S Washington St",
-   "project": "Construction of residential and retail building with two towers and below grade parking and occupy per plan..."
-  },
-  {
-   "id": "6779396-PH",
-   "billed": 550096,
-   "address": "824 Howell St",
-   "project": "Construct a residential/hotel/restaurant/retail building occupy per plan."
-  },
-  {
-   "id": "6775483-PH",
-   "billed": 546481,
-   "address": "1931 2nd Ave",
-   "project": "Construction of a residential/hotel/retail building and occupy per plan. Mechanical is included."
-  },
-  {
-   "id": "6939048-PH",
-   "billed": 542988,
-   "address": "4522 Roosevelt Way NE",
-   "project": "Construction of a residential/retail building with 2 high-rise towers and below grade parking occupy per plan."
-  },
-  {
-   "id": "6806487-PH",
-   "billed": 541723,
-   "address": "1370 Stewart St",
-   "project": "Construct mixed-use residential high-rise building with below-grade parking occupy per plan."
-  },
-  {
-   "id": "6720938-PH",
-   "billed": 529513,
-   "address": "1000 6th Ave S",
-   "project": "Phased project for construction of office and retail towers on common base structure with below grade parki..."
-  },
-  {
-   "id": "6870521-PH",
-   "billed": 515438,
-   "address": "1916 Boren Ave",
-   "project": "Construct mixed-use high-rise office building with below-grade parking occupy per plan. Mechanical included..."
-  },
-  {
-   "id": "6963785-PH",
-   "billed": 515198,
-   "address": "1305 Stewart St",
-   "project": "Construction of an office/research and development laboratory/retail building with below grade parking occu..."
+   "id": "6720157-CN",
+   "billed": 665476,
+   "address": "2100 Queen Anne Ave N",
+   "project": "Construct a mixed-use building occupy per plans"
   }
  ],
- "top20AllPh": true,
- "top1Billed": 1566500,
+ "top20AllPh": false,
+ "top1Billed": 1575102,
  "top1Address": "2350 6th Ave",
- "oldSharePct": 60.0,
+ "oldSharePct": 84.1,
  "leak": [
   {
    "y": "2020",
-   "pct": 0.89
+   "pct": 14.91
   },
   {
    "y": "2021",
-   "pct": 1.57
+   "pct": 12.73
   },
   {
    "y": "2022",
-   "pct": 1.63
+   "pct": 13.9
   },
   {
    "y": "2023",
-   "pct": 2.94
+   "pct": 10.56
   },
   {
    "y": "2024",
-   "pct": 2.59
+   "pct": 12.45
   },
   {
    "y": "2025",
-   "pct": 4.13
+   "pct": 12.65
   },
   {
    "y": "2026*",
-   "pct": 10.62
+   "pct": 13.92
   }
  ],
- "leakMatureMin": 0.89,
- "leakMatureMax": 2.94,
- "leak2026": 10.62,
- "dmMatureUnpaidPct": 14.4,
- "dmFullyUnpaidPct": 15.2,
+ "leakMatureMin": 10.56,
+ "leakMatureMax": 14.91,
+ "leak2026": 13.92,
+ "dmMatureUnpaidPct": 19.1,
+ "dmFullyUnpaidPct": 18.1,
  "dmPartialPct": 0.03,
- "nsUnpaidPct": 39.0,
- "nsBilled": 294365,
- "nsLines": 2434,
- "cn2025": 36140727,
- "cn2025IsRecord": true,
- "cn2026Pace": 44362486,
+ "nsUnpaidPct": 45.5,
+ "nsBilled": 334397,
+ "nsLines": 2760,
+ "cn2025": 39961338,
+ "cn2025IsRecord": false,
+ "cn2026Pace": 45699863,
  "quarters": [
   {
    "q": "2020Q1",
-   "billed": 20011299,
+   "billed": 26131456,
    "issued": 11276
   },
   {
    "q": "2020Q2",
-   "billed": 18382869,
+   "billed": 22505302,
    "issued": 8514
   },
   {
    "q": "2020Q3",
-   "billed": 16800925,
+   "billed": 21006567,
    "issued": 11517
   },
   {
    "q": "2020Q4",
-   "billed": 21138146,
+   "billed": 25884468,
    "issued": 11221
   },
   {
    "q": "2021Q1",
-   "billed": 23004435,
+   "billed": 28098744,
    "issued": 11473
   },
   {
    "q": "2021Q2",
-   "billed": 14990537,
+   "billed": 18377853,
    "issued": 12455
   },
   {
    "q": "2021Q3",
-   "billed": 16162453,
+   "billed": 19570994,
    "issued": 12519
   },
   {
    "q": "2021Q4",
-   "billed": 14160389,
+   "billed": 17077178,
    "issued": 11790
   },
   {
    "q": "2022Q1",
-   "billed": 14787217,
+   "billed": 18470456,
    "issued": 13383
   },
   {
    "q": "2022Q2",
-   "billed": 17264941,
+   "billed": 20484215,
    "issued": 14590
   },
   {
    "q": "2022Q3",
-   "billed": 17529069,
+   "billed": 21512676,
    "issued": 13974
   },
   {
    "q": "2022Q4",
-   "billed": 15751156,
+   "billed": 20268233,
    "issued": 12551
   },
   {
    "q": "2023Q1",
-   "billed": 18021617,
+   "billed": 21128016,
    "issued": 13548
   },
   {
    "q": "2023Q2",
-   "billed": 18565230,
+   "billed": 21039966,
    "issued": 14681
   },
   {
    "q": "2023Q3",
-   "billed": 15900099,
+   "billed": 18864918,
    "issued": 13457
   },
   {
    "q": "2023Q4",
-   "billed": 15033187,
+   "billed": 17748540,
    "issued": 12157
   },
   {
    "q": "2024Q1",
-   "billed": 14333518,
+   "billed": 17750054,
    "issued": 12539
   },
   {
    "q": "2024Q2",
-   "billed": 13477358,
+   "billed": 16150347,
    "issued": 13712
   },
   {
    "q": "2024Q3",
-   "billed": 15435050,
+   "billed": 18460898,
    "issued": 12795
   },
   {
    "q": "2024Q4",
-   "billed": 14305637,
+   "billed": 16989877,
    "issued": 12351
   },
   {
    "q": "2025Q1",
-   "billed": 14625713,
+   "billed": 16857110,
    "issued": 12628
   },
   {
    "q": "2025Q2",
-   "billed": 15621722,
+   "billed": 19003704,
    "issued": 13566
   },
   {
    "q": "2025Q3",
-   "billed": 17676711,
+   "billed": 20322433,
    "issued": 13091
   },
   {
    "q": "2025Q4",
-   "billed": 15285639,
+   "billed": 18297526,
    "issued": 12547
   },
   {
    "q": "2026Q1",
-   "billed": 17737743,
+   "billed": 20330382,
    "issued": 11959
+  },
+  {
+   "q": "2026Q2",
+   "billed": 20757235,
+   "issued": 13623
   }
- ]
+ ],
+ "lastCompleteQuarter": "2026Q2"
 }

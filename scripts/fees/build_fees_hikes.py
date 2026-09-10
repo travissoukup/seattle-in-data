@@ -1,17 +1,27 @@
 #!/usr/bin/env python3
 """Build src/lib/generated/fees-hikes.json for the /fees-hikes page.
 
-Source: .targets-data/permit_fees_all.csv, an SDCI invoice extract obtained by
-public records request (Jan 2020 through Jun 23 2026).
+Source: .targets-data/permit_fees_all.csv, rebuilt weekly from the Permit Fees
+open dataset (k8z7-3feg on data.seattle.gov) by scripts/fetch-permit-fees.mjs.
+SDCI published the dataset in September 2026 after this site requested the
+underlying billing data; the page was first built from a June 2026 public
+records request extract, and the two match to the cent on paid amounts.
 
 Method notes:
+- Analysis window starts 2020-01-01 and ends at the latest invoice date in the
+  CSV. The dataset reaches back to 2005; extending the price explorer to the
+  pre-2020 history is a follow-up, deliberately not done in this pass.
 - "Price" of a fee label = the modal (most common) invoiced amount for that
   description + permit-type suffix in a calendar year. Hourly fees have no
   stable modal price and are excluded from modal tracking; the land use hourly
   rate is instead derived from the quarter-hour lattice and the 10-hour minimum.
 - Amount basis: amount_paid when paid, else amount_due (so unpaid invoices
-  still carry their listed price). The 5% Technology Fee rows are excluded
-  everywhere (line-count and modal noise, not a price of anything).
+  still carry their listed price). In the open dataset amount_due is computed
+  (feeamount minus feeamountpaid) and includes voided/reissued lines, but a
+  voided line still shows the fee's listed price, and this page computes no
+  dollar totals of money owed, so no reissue dedupe is needed here.
+  The 5% Technology Fee rows are excluded everywhere (line-count and modal
+  noise, not a price of anything).
 """
 import json
 import datetime
@@ -28,19 +38,27 @@ OUT = ROOT / 'src' / 'lib' / 'generated' / 'fees-hikes.json'
 SUFFIX_NAMES = {
     'EL': 'Electrical', 'CN': 'Construction', 'PH': 'Phased', 'RF': 'Refrigeration',
     'FR': 'Fire', 'LU': 'Land use', 'ME': 'Mechanical', 'DM': 'Demolition',
+    'OTHER': 'No suffix',
 }
 
-YEARS = list(range(2020, 2027))
+WINDOW_START = '2020-01-01'
 
 df = pd.read_csv(CSV)
 df['dt'] = pd.to_datetime(df['date_invoiced'])
+full_history_start = df['dt'].min()
+df = df[df['dt'] >= WINDOW_START].copy()
 df['year'] = df['dt'].dt.year
 df['suffix'] = df['record_id'].str.extract(r'-([A-Z]+)$')[0].fillna('OTHER')
 df['amt'] = df['amount_paid'].where(df['amount_paid'] > 0, df['amount_due'])
 df = df[(df['amt'] > 0) & (df['description'] != '5% Technology Fee')].copy()
 df['amt'] = df['amt'].round(2)
 
-print(f'rows used: {len(df):,}; span {df.dt.min()} .. {df.dt.max()}')
+DATA_END = df['dt'].max()
+END_YEAR = int(DATA_END.year)
+YEARS = list(range(2020, END_YEAR + 1))
+
+print(f'rows used: {len(df):,}; span {df.dt.min()} .. {df.dt.max()} '
+      f'(full history from {full_history_start.date()}); years {YEARS[0]}-{YEARS[-1]}')
 
 # ---------------------------------------------------------------- base unit
 # The SDCI hourly-fee base unit. Verified against two independent 2-unit
@@ -71,68 +89,84 @@ staircase = [
     }
     for y in YEARS
 ]
-unitRise = round((unit_by_year[2026] / unit_by_year[2022] - 1) * 100, 1)
-print('unit rise 2022->2026: %.1f%%' % unitRise)
+unitRise = round((unit_by_year[YEARS[-1]] / unit_by_year[2022] - 1) * 100, 1)
+print('unit rise 2022->%d: %.1f%%' % (YEARS[-1], unitRise))
 
 # ------------------------------------------------------- land use hourly rate
 # Derived from the LU-permit "Land Use Review - Minimum": modal invoice is
-# exactly 10x the hourly rate every year 2020-2025. Cross-checked against the
-# quarter-hour lattice of "Land Use Review - Additional Hours".
+# exactly 10x the hourly rate. Cross-checked against the quarter-hour lattice
+# of "Land Use Review - Additional Hours". From 2026 small sub-hour tiers can
+# outnumber the classic minimum, so past the first year the 10-hour charge is
+# the modal amount among invoices above 8x the prior year's rate.
 lu_rate = {}
 lu_min_detail = []
 lu_min = df[(df.description == 'Land Use Review - Minimum') & (df.suffix == 'LU')]
 for y in YEARS:
     s = lu_min[lu_min.year == y]['amt']
     vc = s.value_counts()
-    ten_hour = float(s.mode().iloc[0]) if y < 2026 else 5510.0
+    if y == YEARS[0]:
+        ten_hour = float(s.mode().iloc[0])
+    else:
+        big = s[s > lu_rate[y - 1] * 8]
+        ten_hour = float(big.mode().iloc[0])
     rate = round(ten_hour / 10, 2)
     lu_rate[y] = rate
     tiers = {round(v / rate, 2): int(c) for v, c in vc.head(6).items()}
     lu_min_detail.append({'y': y, 'rate': rate, 'n': int(len(s)), 'tiers': tiers})
     print(y, 'rate', rate, 'n', len(s), 'tiers(hours:count)', tiers)
 
-# lattice check for the hourly label
-lu_hr = df[(df.description == 'Land Use Review - Additional Hours') & (df.suffix == 'LU')]
+# lattice check for the hourly label, on paid amounts only: the open dataset's
+# computed amount_due includes voided/reissued lines that sit off-lattice, so
+# the exact-semantics subset is what gets checked.
+lu_hr = df[(df.description == 'Land Use Review - Additional Hours') & (df.suffix == 'LU')
+           & (df.amount_paid > 0)]
 for y in YEARS:
     s = lu_hr[lu_hr.year == y]['amt'] / lu_rate[y]
     q = (s * 4).round(4)
     on = float((q == q.round(0)).mean())
     assert on > 0.9, f'{y}: lattice check failed ({on:.2f})'
-print('quarter-hour lattice holds (>90% of hourly invoices) every year')
+print('quarter-hour lattice holds (>90% of paid hourly invoices) every year')
 
-# 2026 tier facts. The new small charges land on construction/demolition
+# Final-year tier facts. The new small charges land on construction/demolition
 # records, not on LU-suffix permits, so count across all suffixes.
+one_hour = round(lu_rate[END_YEAR], 2)
+half_hour = round(one_hour / 2, 2)
+two_hour = round(one_hour * 2, 2)
+ten_hour_last = round(one_hour * 10, 2)
 all_min = df[df.description == 'Land Use Review - Minimum']
-s26 = all_min[all_min.year == 2026]['amt']
-vc26 = s26.value_counts()
-by_suf_26 = all_min[(all_min.year == 2026) & (all_min.amt == 551.0)]['suffix'].value_counts()
-print('2026 one-hour (551) charges by permit type:', dict(by_suf_26))
+s_last = all_min[all_min.year == END_YEAR]['amt']
+vc_last = s_last.value_counts()
+by_suf_last = all_min[(all_min.year == END_YEAR) & (all_min.amt == one_hour)]['suffix'].value_counts()
+print(f'{END_YEAR} one-hour ({one_hour}) charges by permit type:', dict(by_suf_last))
 luMin = {
     'rows': [
         {'y': d['y'], 'rate': d['rate'], 'minimum': round(d['rate'] * 10, 2),
          'nMin': d['tiers'].get(10.0, 0), 'nHalf': d['tiers'].get(5.0, 0), 'n': d['n']}
         for d in lu_min_detail
     ],
-    'n26OneHour': int(vc26.get(551.0, 0)),
-    'n26HalfHour': int(vc26.get(275.5, 0)),
-    'n26TenHour': int(vc26.get(5510.0, 0)),
-    'n26TwoHour': int(vc26.get(1102.0, 0)),
-    'n26': int(len(s26)),
-    'n26OneHourCN': int(by_suf_26.get('CN', 0)),
-    'n26OneHourDM': int(by_suf_26.get('DM', 0)),
-    'oneHourPrice': 551.0,
-    'tenHourPrice2026': 5510.0,
-    'tenHourPrice2025': 4670.0,
-    'designReviewMin2020': 7880.0,  # = 20 x 394, the source of the 10-vs-20 confusion
-    'rate2025': lu_rate[2025], 'rate2026': lu_rate[2026], 'rate2020': lu_rate[2020],
-    'ratePct': round((lu_rate[2026] / lu_rate[2020] - 1) * 100, 1),
+    'nLastOneHour': int(vc_last.get(one_hour, 0)),
+    'nLastHalfHour': int(vc_last.get(half_hour, 0)),
+    'nLastTenHour': int(vc_last.get(ten_hour_last, 0)),
+    'nLastTwoHour': int(vc_last.get(two_hour, 0)),
+    'nLast': int(len(s_last)),
+    'nLastOneHourCN': int(by_suf_last.get('CN', 0)),
+    'nLastOneHourDM': int(by_suf_last.get('DM', 0)),
+    'oneHourPrice': one_hour,
+    'tenHourPriceLast': ten_hour_last,
+    'tenHourPricePrev': round(lu_rate[END_YEAR - 1] * 10, 2),
+    'prevYear': END_YEAR - 1,
+    'rate2020': lu_rate[2020], 'ratePrev': lu_rate[END_YEAR - 1], 'rateLast': lu_rate[END_YEAR],
+    'ratePct': round((lu_rate[END_YEAR] / lu_rate[2020] - 1) * 100, 1),
 }
-# verify design review minimum = 20 hours in 2020
+# verify design review minimum = 20 hours in 2020 (the source of the 10-vs-20
+# confusion), and carry the computed value to the page.
 dr, _, drshare = modal('Design Review - Minimum', 'LU', 2020)
-assert dr == 7880.0 and abs(dr / lu_rate[2020] - 20) < 0.01, dr
+assert abs(dr / lu_rate[2020] - 20) < 0.01, dr
+luMin['designReviewMin2020'] = dr
 print('Design Review - Minimum 2020 modal:', dr, '= 20 x', lu_rate[2020])
-print('2026 LU minimum: 1h n=%d, 10h n=%d, 0.5h n=%d, 2h n=%d of %d' % (
-    luMin['n26OneHour'], luMin['n26TenHour'], luMin['n26HalfHour'], luMin['n26TwoHour'], luMin['n26']))
+print('%d LU minimum: 1h n=%d, 10h n=%d, 0.5h n=%d, 2h n=%d of %d' % (
+    END_YEAR, luMin['nLastOneHour'], luMin['nLastTenHour'], luMin['nLastHalfHour'],
+    luMin['nLastTwoHour'], luMin['nLast']))
 
 # ------------------------------------------------------------ tracked labels
 # Universe: description+suffix pairs, ranked by total revenue. A label-year has
@@ -156,7 +190,7 @@ for (desc, suf), revenue in rev.head(150).items():
             prices[y] = {'p': m, 'n': int(len(s)), 'share': round(share, 2)}
     if len(prices) < 5:
         continue
-    if not ({2020, 2021} & set(prices)) or not ({2025, 2026} & set(prices)):
+    if not ({2020, 2021} & set(prices)) or not (set(YEARS[-2:]) & set(prices)):
         continue
     first_y = min(prices); last_y = max(prices)
     tracked.append({
@@ -174,8 +208,8 @@ tracked.sort(key=lambda t: -t['revenue'])
 tracked = tracked[:50]
 print(f'\ntracked labels: {len(tracked)}')
 
-# risers / cutters, requiring a 2020-or-2021 start and 2025-or-2026 end
-movers = [t for t in tracked if t['firstY'] <= 2021 and t['lastY'] >= 2025]
+# risers / cutters, requiring a 2020-or-2021 start and an end in the last two years
+movers = [t for t in tracked if t['firstY'] <= 2021 and t['lastY'] >= YEARS[-2]]
 risers = sorted([t for t in movers if t['pct'] > 0], key=lambda t: -t['pct'])[:8]
 cuts = sorted([t for t in movers if t['pct'] < 0], key=lambda t: t['pct'])[:8]
 print('\nTop risers:')
@@ -205,7 +239,9 @@ print('RF Basic Fee trough:', rfBasic)
 # construction-suffix modal is identical every year (282/305/400), it just has
 # more multi-unit invoices, so its modal share dips below the tracking bar.
 sfd = [t for t in tracked if t['label'] == 'SFD Plan Review' and t['suffix'] == 'FS'][0]
-for y in [2020, 2023, 2024, 2025, 2026]:
+for y in sorted({2020, 2023, 2024, 2025, END_YEAR}):
+    if str(y) not in sfd['prices']:
+        continue
     cn_m, _, _ = modal('SFD Plan Review', 'CN', y)
     assert cn_m == sfd['prices'][str(y)], f'CN/FS SFD price mismatch in {y}'
 sfdStep = round((sfd['prices']['2025'] / sfd['prices']['2024'] - 1) * 100, 1)
@@ -226,7 +262,8 @@ for t in tracked:
         first = sub['dt'].min()
         doy = int(first.dayofyear)
         changes.append({'label': t['label'], 'suffix': t['suffix'], 'y': b,
-                        'up': t['prices'][str(b)] > t['prices'][str(a)], 'doy': doy})
+                        'up': t['prices'][str(b)] > t['prices'][str(a)], 'doy': doy,
+                        'first': str(first.date())})
         if doy <= 3:
             jan13 += 1
 nChanges = len(changes)
@@ -243,6 +280,34 @@ for y in YEARS[1:]:
     perYear.append({'y': y, 'raised': ups, 'cut': downs, 'tracked': both})
     print(y, 'raised', ups, 'cut', downs, 'of', both, 'tracked pairs')
 
+# ------------------------------------------- mid-year check on the final year
+# All price changes should land in January. With the window now running past
+# June, compare each tracked label's modal price in Feb-Jun of the final year
+# against Jul-onward. Any label whose stable modal differs across the split
+# changed price mid-year, which would be a story.
+mid_split = pd.Timestamp(f'{END_YEAR}-07-01')
+feb_start = pd.Timestamp(f'{END_YEAR}-02-01')
+midChanged = []
+midChecked = 0
+for t in tracked:
+    sub = df[(df.description == t['label']) & (df.suffix == t['suffix']) & (df.year == END_YEAR)]
+    early = sub[(sub.dt >= feb_start) & (sub.dt < mid_split)]['amt']
+    late = sub[sub.dt >= mid_split]['amt']
+    if len(early) < 20 or len(late) < 20:
+        continue
+    me = float(early.mode().iloc[0])
+    ml = float(late.mode().iloc[0])
+    if (early == me).mean() < 0.5 or (late == ml).mean() < 0.5:
+        continue
+    midChecked += 1
+    if me != ml:
+        midChanged.append({'label': t['label'], 'suffix': t['suffix'],
+                           'early': me, 'late': ml})
+print(f'\nmid-{END_YEAR} check: {midChecked} tracked labels with a stable modal on '
+      f'both sides of Jul 1; {len(midChanged)} changed mid-year')
+for c in midChanged:
+    print('  MID-YEAR CHANGE:', c)
+
 # ------------------------------------------------------------------- explorer
 explorer = [
     {'label': t['label'], 'type': t['type'], 'suffix': t['suffix'],
@@ -254,10 +319,13 @@ explorer = [
 out = {
     'generatedAt': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
     'dataStart': str(df.dt.min().date()), 'dataEnd': str(df.dt.max().date()),
+    'fullHistoryStart': str(full_history_start.date()),
     'rowsUsed': int(len(df)),
     'years': YEARS,
+    'midYear': {'y': END_YEAR, 'checked': midChecked, 'changed': len(midChanged),
+                'examples': midChanged[:5]},
     'staircase': staircase,
-    'unit2020': unit_by_year[2020], 'unit2026': unit_by_year[2026],
+    'unit2020': unit_by_year[2020], 'unitLast': unit_by_year[YEARS[-1]],
     'unitRisePct': unitRise,
     'unitHikes': [s for s in staircase if s['pct'] and s['pct'] > 0],
     'luMin': luMin,
@@ -265,11 +333,13 @@ out = {
     'frAppliance': frAppliance, 'rfBasic': rfBasic,
     'sfd': {'p2020': sfd['prices']['2020'], 'p2024': sfd['prices']['2024'],
             'p2025': sfd['prices']['2025'], 'pct': sfd['pct'], 'stepPct': sfdStep},
-    'luRate': {'r2020': lu_rate[2020], 'r2025': lu_rate[2025], 'r2026': lu_rate[2026],
-               'pct': round((lu_rate[2026] / lu_rate[2020] - 1) * 100, 1)},
+    'luRate': {'r2020': lu_rate[2020], 'rPrev': lu_rate[END_YEAR - 1], 'rLast': lu_rate[END_YEAR],
+               'pct': round((lu_rate[END_YEAR] / lu_rate[2020] - 1) * 100, 1)},
     'nTracked': len(tracked),
     'nChanges': nChanges, 'nJan13': jan13,
     'nOutsideJan': sum(1 for c in changes if c['doy'] > 31),
+    'outsideJan': [{'label': c['label'], 'suffix': c['suffix'], 'y': c['y'],
+                    'first': c['first']} for c in changes if c['doy'] > 31],
     'pctJan13': round(jan13 / nChanges * 100, 1),
     'perYear': perYear,
     'explorer': explorer,

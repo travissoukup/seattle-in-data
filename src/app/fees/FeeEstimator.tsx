@@ -23,14 +23,16 @@ interface TypeRow {
 interface Props {
   types: TypeRow[];
   cnBands: Band[];
+  /** Human label for the analysis window, e.g. "2020 to September 2026". */
+  windowLabel: string;
 }
 
 /**
  * Pick a permit type (and, for construction permits, a project-value band) and
  * see the median and typical range of total fees actually paid, straight from
- * the invoice extract. All numbers are precomputed server-side.
+ * the Permit Fees open dataset. All numbers are precomputed server-side.
  */
-export function FeeEstimator({ types, cnBands }: Props) {
+export function FeeEstimator({ types, cnBands, windowLabel }: Props) {
   const [suffix, setSuffix] = useState('CN');
   const [band, setBand] = useState('any');
 
@@ -88,7 +90,7 @@ export function FeeEstimator({ types, cnBands }: Props) {
           <div className="label">Permits behind this estimate</div>
           <div className="value">{fmtInt(row.n)}</div>
           <div className="sub">
-            {bandRow ? `construction permits valued ${bandRow.band}` : `${type.name.toLowerCase()} permits, 2020 to mid 2026`}
+            {bandRow ? `construction permits valued ${bandRow.band}` : `${type.name.toLowerCase()} permits, ${windowLabel}`}
           </div>
         </div>
       </div>

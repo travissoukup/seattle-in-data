@@ -24,6 +24,18 @@ jobs:
           SOCRATA_APP_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
         run: node scripts/refresh-all.mjs
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild permit-fee pages from the Permit Fees dataset
+        run: |
+          pip install --quiet pandas certifi numpy
+          for f in scripts/fees/build_*.py; do
+            echo "== $f"
+            python3 "$f"
+          done
+
       - name: Commit refreshed data
         id: commit
         run: |

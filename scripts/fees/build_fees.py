@@ -1,26 +1,38 @@
 #!/usr/bin/env python3
 """Build fees.json for the /fees page (what a Seattle permit actually costs).
 
-Input: .targets-data/permit_fees_all.csv, an SDCI invoice extract obtained by
-public records request (Jan 2020 through Jun 23 2026). Also joins estimated
-project cost from Socrata dataset 76t5-zqzr, cached at
+Input: .targets-data/permit_fees_all.csv, rebuilt weekly from the Permit Fees
+open dataset (k8z7-3feg on data.seattle.gov) by scripts/fetch-permit-fees.mjs.
+SDCI published that dataset in September 2026 after this site requested the
+data; the page was first built from a June 2026 public records request extract,
+and the two agree to the cent on fees paid. The dataset reaches back to 2005;
+this page keeps its 2020-01-01 analysis start. Also joins estimated project
+cost from Socrata dataset 76t5-zqzr, cached at
 .targets-data/permit_costs_76t5.csv (refresh with the curl in the comment below).
 
   curl -s "https://data.seattle.gov/resource/76t5-zqzr.csv?\
 $select=permitnum,permitclass,permitclassmapped,permittypedesc,estprojectcost&$limit=300000" \
     -o .targets-data/permit_costs_76t5.csv
 
-Notes on the extract:
-- amount_paid is dollars actually collected; amount_due is a balance snapshot
-  at extract time, not a history. The permit totals here use amount_paid.
+Notes on the data:
+- amount_paid is dollars actually collected; the permit totals here use it.
+- amount_due is COMPUTED (feeamount minus feeamountpaid) and includes voided
+  or reissued invoice lines, so the due total here first drops unpaid lines
+  whose (permit, description, amount) also appears as a paid line on the same
+  permit (the reissue dedupe from build_fees_revenue.py).
 - The 5% Technology Fee (from 2023-01-02) doubled line counts in 2023, so any
   per-line-item counting here excludes it. Dollar totals keep it.
 """
 import json
+import os
 import re
+import ssl
+import urllib.parse
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+import certifi
 import numpy as np
 import pandas as pd
 
@@ -28,6 +40,39 @@ ROOT = Path(__file__).resolve().parents[2]
 FEES_CSV = ROOT / ".targets-data" / "permit_fees_all.csv"
 COSTS_CSV = ROOT / ".targets-data" / "permit_costs_76t5.csv"
 OUT = ROOT / "src" / "lib" / "generated" / "fees.json"
+COST_COLS = ["permitnum", "permitclass", "permitclassmapped", "permittypedesc", "estprojectcost"]
+
+
+def refresh_costs_cache():
+    """Fetch the Building Permits project-cost cache if missing or stale, so a
+    clean checkout (or the weekly CI runner, where .targets-data is gitignored)
+    can build without a pre-seeded file."""
+    if COSTS_CSV.exists() and os.path.getmtime(COSTS_CSV) >= os.path.getmtime(FEES_CSV):
+        return
+    print("permit_costs_76t5.csv missing or stale; fetching 76t5-zqzr...")
+    ctx = ssl.create_default_context(cafile=certifi.where())
+    frames, offset, page = [], 0, 50000
+    while True:
+        q = urllib.parse.urlencode({"$select": ",".join(COST_COLS), "$order": ":id",
+                                    "$limit": str(page), "$offset": str(offset)})
+        with urllib.request.urlopen(
+            f"https://data.seattle.gov/resource/76t5-zqzr.json?{q}", timeout=120, context=ctx
+        ) as r:
+            batch = json.load(r)
+        if not batch:
+            break
+        frames.append(pd.DataFrame(batch))
+        offset += page
+        if len(batch) < page:
+            break
+    perm = pd.concat(frames, ignore_index=True)
+    for c in COST_COLS:
+        if c not in perm.columns:
+            perm[c] = pd.NA
+    tmp = str(COSTS_CSV) + ".tmp"
+    perm[COST_COLS].to_csv(tmp, index=False, quoting=1)
+    os.replace(tmp, COSTS_CSV)
+    print(f"  refreshed: {len(perm)} permits")
 
 SUFFIX_NAMES = {
     "EL": "Electrical",
@@ -46,7 +91,25 @@ SUFFIX_NAMES = {
     "BK": "Blanket (tenant build-out)",
     "GR": "Grading",
     "CC": "Curb cut",
+    # Record classes present in the open dataset but absent from the original
+    # records-request extract (named from their dominant fee descriptions).
+    "EX": "Exemption review (shoreline, ECA)",
+    "NV": "Noise variance",
+    "EG": "Early design guidance",
+    "AN": "Zoning and research letters",
+    "BB": "Billboard registration",           # EQP-BB-00236
+    "PA": "Pre-application site visit",       # 004985-25PA
+    "TA": "Tree removal review",              # 000831-24TA
+    "DPD": "Legacy DPD record",               # 21DPD-003930
+    "PS": "Pre-submittal conference",         # 000076-26PS
+    "PR": "Code publications",                # 000032-21PR
 }
+
+ANALYSIS_START = "2020-01-01"
+MIN_TYPE_N = 100  # by-type table: skip record classes rarer than this
+# Unpaid lines above this are keying errors (the worst is a $39B pre-sub
+# conference); the largest single line ever actually paid is about $551K.
+DUE_ERROR_CAP = 10_000_000
 
 
 def classify(desc: str) -> str:
@@ -154,18 +217,43 @@ def r2(x) -> float:
 
 def main() -> None:
     fees = pd.read_csv(FEES_CSV)
-    assert len(fees) == 1_416_573, len(fees)
-    # A few conveyance records look like 6730679-CY-001; take the letter code.
-    fees["suffix"] = fees.record_id.str.extract(r"-([A-Z]+)(?:-\d+)?$")
-    assert fees.suffix.notna().all()
+    assert len(fees) >= 1_500_000, len(fees)  # open dataset, not the extract
+    assert (fees.source_file == "k8z7-3feg").all(), fees.source_file.unique()
+
+    dates = pd.to_datetime(fees.date_invoiced)
+    dataset_start = str(dates.min().date())
+    fees = fees[dates >= ANALYSIS_START].copy()
+    # The trailing letter code names the record class. Handles 6912345-CN,
+    # 6730679-CY-001, 6702164-CN-008-001, EQP-BB-00236, 004985-25PA and
+    # 21DPD-003930 alike.
+    fees["suffix"] = fees.record_id.str.extract(r"([A-Z]+)(?:-\d+)*$")
+    assert fees.suffix.notna().all(), fees.loc[fees.suffix.isna(), "record_id"].head()
 
     dates = pd.to_datetime(fees.date_invoiced)
     start, end = dates.min(), dates.max()
 
     total_paid = float(fees.amount_paid.sum())
-    total_due = float(fees.amount_due.sum())
     n_lines = int(len(fees))
     n_descriptions = int(fees.description.nunique())
+
+    # ---- computed unpaid balance: error cap, then the reissue dedupe ----
+    # amount_due is computed (billed minus paid), so it includes keying errors
+    # and voided attempts the old balance snapshot zeroed out. Drop unpaid
+    # lines over DUE_ERROR_CAP, then drop unpaid lines whose (permit,
+    # description, amount) also appears as a paid line on the same permit,
+    # which marks a voided or superseded invoice attempt.
+    n_due_errors = int(((fees.amount_due >= DUE_ERROR_CAP) & (fees.amount_paid == 0)).sum())
+    paid_keys = set(
+        map(tuple, fees.loc[fees.amount_paid > 0, ["record_id", "description", "amount_paid"]]
+            .itertuples(index=False, name=None))
+    )
+    unpaid = fees.loc[(fees.amount_due > 0) & (fees.amount_due < DUE_ERROR_CAP) & (fees.amount_paid == 0)]
+    reissue = unpaid.apply(
+        lambda r: (r["record_id"], r["description"], r["amount_due"]) in paid_keys, axis=1
+    )
+    reissue_dropped = float(unpaid.loc[reissue.values, "amount_due"].sum()) if len(unpaid) else 0.0
+    partial = fees.loc[(fees.amount_due > 0) & (fees.amount_due < DUE_ERROR_CAP) & (fees.amount_paid > 0)]
+    total_due = float(unpaid.amount_due.sum()) - reissue_dropped + float(partial.amount_due.sum())
 
     # ---- permit-level totals (amount actually paid per record_id) ----
     per = fees.groupby(["record_id", "suffix"], as_index=False).amount_paid.sum()
@@ -236,10 +324,13 @@ def main() -> None:
         p75=lambda x: x.quantile(0.75),
         total="sum",
     )
+    skipped_types = [
+        (sfx, int(row.n)) for sfx, row in by_type_raw.iterrows() if row.n < MIN_TYPE_N
+    ]
     by_type = [
         {
             "suffix": sfx,
-            "name": SUFFIX_NAMES[sfx],
+            "name": SUFFIX_NAMES.get(sfx, sfx),
             "n": int(row.n),
             "p25": r2(row.p25),
             "median": r2(row.med),
@@ -247,12 +338,18 @@ def main() -> None:
             "total": r2(row.total),
         }
         for sfx, row in by_type_raw.sort_values("med", ascending=False).iterrows()
+        if row.n >= MIN_TYPE_N
     ]
 
     # ---- estimator: CN by project-value band, everything else overall ----
+    # The open dataset numbers some permits with sub-segments (6702164-CN-008-001)
+    # while Building Permits keys on the base number (6702164-CN), so join on the
+    # normalized base id. Without this the CN match rate falls to ~68%.
+    refresh_costs_cache()
     costs = pd.read_csv(COSTS_CSV)
+    per["join_id"] = per["record_id"].str.replace(r"^(\d+-[A-Z]+).*$", r"\1", regex=True)
     m = per.merge(
-        costs[["permitnum", "estprojectcost"]], left_on="record_id", right_on="permitnum", how="left"
+        costs[["permitnum", "estprojectcost"]], left_on="join_id", right_on="permitnum", how="left"
     )
     cn = m[(m.suffix == "CN") & m.estprojectcost.notna()].copy()
     cn_match_pct = r2(len(cn) / (per.suffix == "CN").sum() * 100)
@@ -295,12 +392,23 @@ def main() -> None:
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "windowStart": str(start.date()),
         "windowEnd": str(end.date()),
+        # Provenance: the dataset SDCI published on 2026-09-10 after this site
+        # requested the data; the page was first built from a records request
+        # extract that ran through 2026-06-23. Dates emitted here so the page
+        # never hand-types a numeral.
+        "provenance": {
+            "datasetId": "k8z7-3feg",
+            "datasetStart": dataset_start,
+            "published": "2026-09-10",
+            "recordsRequestThrough": "2026-06-23",
+        },
         "nLines": n_lines,
         "nDescriptions": n_descriptions,
         "nPermitsAll": n_permits_all,
         "nPermits": n_permits,
         "totalPaid": r2(total_paid),
         "totalDue": r2(total_due),
+        "reissueDropped": r2(reissue_dropped),
         "techFeePaid": r2(tech_fee_paid),
         "hourlyPaid": r2(hourly_paid),
         "valuePaid": r2(value_paid),
@@ -314,9 +422,12 @@ def main() -> None:
 
     kb = OUT.stat().st_size / 1024
     print(f"wrote {OUT} ({kb:.1f} KB)")
-    print(f"window {start} .. {end}")
+    print(f"window {start} .. {end}  (dataset reaches back to {dataset_start})")
     print(f"lines {n_lines:,}  descriptions {n_descriptions}  permits paid>0 {n_permits:,} of {n_permits_all:,}")
-    print(f"paid ${total_paid:,.0f}  due snapshot ${total_due:,.0f}  tech fee ${tech_fee_paid:,.0f}")
+    print(f"paid ${total_paid:,.0f}  computed due ${total_due:,.0f}  tech fee ${tech_fee_paid:,.0f}")
+    print(f"due cleanup: {n_due_errors} keying-error lines capped, reissue dedupe dropped ${reissue_dropped:,.0f}")
+    if skipped_types:
+        print(f"by-type table skipped rare classes: {skipped_types}")
     print("dist", dist)
     print("families:")
     for f in families:

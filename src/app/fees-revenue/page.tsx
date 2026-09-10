@@ -16,7 +16,46 @@ export const metadata = {
 
 const GRAY = '#9aa3ad';
 
-const METHOD = `Data comes from a public records request to the City of Seattle (SDCI invoice extract, January 2020 to June 23, 2026). Analysis code is in scripts/fees/ in this site's public repo.`;
+const METHOD = `Data comes from the Permit Fees open dataset (k8z7-3feg on data.seattle.gov), refreshed weekly and covering January 2020 through ${data.dataThroughLabel} here. SDCI published the dataset in September 2026 after this site requested the data, which was first analyzed via a June 2026 public records request. Analysis code is in scripts/fees/ in this site's public repo.`;
+
+const CLEANING = `The dataset keeps voided, reissued, and repeatedly rebilled invoice lines, so three computed rules drop them before any number on this page: never-paid lines larger than the largest single line ever actually paid (${fmtMoney(data.maxPaidLine)}), never-paid lines with an exact paid twin on the same permit, and repeat billings of the same never-paid fee. The linked queries return the raw aggregates before that cleaning.`;
+
+const DATASET = 'https://data.seattle.gov/resource/k8z7-3feg.json';
+const soql = (params: Record<string, string>) => `${DATASET}?${new URLSearchParams(params).toString()}`;
+const GUARD = `(feeamountpaid > 0 OR feeamount <= ${data.maxPaidLine})`;
+const SINCE_2020 = `invoicedate >= '2020-01-01'`;
+
+const Q_YEARLY = soql({
+  $select: 'date_extract_y(invoicedate) AS year, sum(feeamount) AS billed, sum(feeamountpaid) AS paid',
+  $where: `${SINCE_2020} AND ${GUARD}`,
+  $group: 'year',
+  $order: 'year',
+});
+const Q_PERMITS = soql({
+  $select: 'date_extract_y(invoicedate) AS year, count(distinct permitnum) AS permits, sum(feeamount) AS billed',
+  $where: `${SINCE_2020} AND ${GUARD}`,
+  $group: 'year',
+  $order: 'year',
+});
+const Q_MONTHLY = soql({
+  $select: 'date_trunc_ym(invoicedate) AS month, sum(feeamount) AS billed',
+  $where: `${SINCE_2020} AND ${GUARD}`,
+  $group: 'month',
+  $order: 'month',
+});
+const Q_WHALES = soql({
+  $select: 'date_extract_y(invoicedate) AS year, count(*) AS n',
+  $where: `${SINCE_2020} AND feeamount >= 100000 AND ${GUARD} AND upper(feedescription) NOT LIKE '%TECHNOLOGY FEE%'`,
+  $group: 'year',
+  $order: 'year',
+});
+const Q_TOP20 = soql({
+  $select: 'permitnum, sum(feeamount) AS billed',
+  $where: `${SINCE_2020} AND ${GUARD}`,
+  $group: 'permitnum',
+  $order: 'billed DESC',
+  $limit: '20',
+});
 
 export default function FeesRevenuePage() {
   return (
@@ -57,14 +96,14 @@ export default function FeesRevenuePage() {
           <div className="value">{fmtMoney(data.perPermit2020)}</div>
         </div>
         <div className="stat-card">
-          <div className="label">Unpaid balance</div>
+          <div className="label">Invoiced, never paid</div>
           <div className="value">{fmtMoneyCompact(data.totalDue)}</div>
         </div>
       </div>
 
       <ChartCard
         title="What SDCI billed each year"
-        desc={`Total fees invoiced by year. ${fmtMoneyCompact(data.billed2020)} in 2020, a trough of ${fmtMoneyCompact(data.billed2024)} in 2024, then a climb. The dashed segment is 2026 annualized: ${fmtMoneyCompact(data.billed2026Actual)} billed through June 23 works out to a ${fmtMoneyCompact(data.billed2026Pace)} pace.`}
+        desc={`Total fees invoiced by year. ${fmtMoneyCompact(data.billed2020)} in 2020, a trough of ${fmtMoneyCompact(data.billed2024)} in 2024, then a climb. The dashed segment is 2026 annualized: ${fmtMoneyCompact(data.billed2026Actual)} billed through ${data.dataThroughLabel} works out to a ${fmtMoneyCompact(data.billed2026Pace)} pace.`}
         csv={{
           filename: 'fees-billed-by-year.csv',
           data: toCsv(
@@ -72,7 +111,8 @@ export default function FeesRevenuePage() {
             data.billedTrend.map((r) => [r.y, r.billed, r.pace]),
           ),
         }}
-        footnote={`${METHOD} Billed = amount paid plus the unpaid balance on each invoice line. 2026 covers January 1 to June 23 and is shown annualized (multiplied by ${data.annualizeFactor}) as a dashed estimate, never mixed into the solid line.`}
+        footnote={`${METHOD} Billed = amount paid plus the computed unpaid remainder on each invoice line. ${CLEANING} 2026 covers January 1 to ${data.dataThroughLabel} and is shown annualized (multiplied by ${data.annualizeFactor}) as a dashed estimate, never mixed into the solid line.`}
+        source={{ id: 'k8z7-3feg', query: Q_YEARLY }}
       >
         <PaceTrend
           data={data.billedTrend}
@@ -97,6 +137,7 @@ export default function FeesRevenuePage() {
           ),
         }}
         footnote={`${METHOD} Permits are counted as distinct permit numbers invoiced in each year, so the 5% Technology Fee line added to most invoices from 2023 does not inflate the count. Dashed 2026 segments are estimates: the permit count is annualized, and billed per permit is the partial-year ratio, which needs no annualizing.`}
+        source={{ id: 'k8z7-3feg', query: Q_PERMITS }}
       >
         <PaceTrend
           data={data.core}
@@ -119,7 +160,8 @@ export default function FeesRevenuePage() {
           filename: 'fees-vs-issued-quarterly.csv',
           data: toCsv(['quarter', 'fees_billed', 'permits_issued'], data.quarters.map((q) => [q.q, q.billed, q.issued])),
         }}
-        footnote={`${METHOD} Issued counts span all four permit systems the fees cover: building (76t5-zqzr), electrical (c4tj-daue), trade (c87v-5hwh), and land use (ht3q-kdvx), by issue date. Fees are billed by invoice date, and invoices land throughout a permit's life, including on applications never issued, so the two series describe the same world but not the same permits in the same quarter. 2026Q2 is dropped because the extract ends June 23.`}
+        footnote={`${METHOD} Issued counts span all four permit systems the fees cover: building (76t5-zqzr), electrical (c4tj-daue), trade (c87v-5hwh), and land use (ht3q-kdvx), by issue date. Fees are billed by invoice date, and invoices land throughout a permit's life, including on applications never issued, so the two series describe the same world but not the same permits in the same quarter. Only quarters the data fully covers are shown, so the series ends at ${data.lastCompleteQuarter} with data through ${data.dataThroughLabel}. The linked query returns billed dollars by month; the chart rolls them up to quarters.`}
+        source={{ id: 'k8z7-3feg', query: Q_MONTHLY }}
       >
         <QuarterlyChart rows={data.quarters} />
       </ChartCard>
@@ -131,7 +173,8 @@ export default function FeesRevenuePage() {
           filename: 'invoices-over-100k-by-year.csv',
           data: toCsv(['year', 'invoices_100k_plus'], data.whales.map((r) => [r.y, r.n])),
         }}
-        footnote={`${METHOD} Counts invoice lines where the billed amount (paid plus balance) is at least ${fmtMoney(100000)}. Technology Fee lines are excluded so post-2023 counts stay comparable. 2026* is partial, through June 23, and is not annualized here.`}
+        footnote={`${METHOD} Counts invoice lines where the billed amount (paid plus the computed unpaid remainder) is at least ${fmtMoney(100000)}, after the voided-line cleaning described above. Technology Fee lines are excluded so post-2023 counts stay comparable. 2026* is partial, through ${data.dataThroughLabel}, and is not annualized here.`}
+        source={{ id: 'k8z7-3feg', query: Q_WHALES }}
       >
         <BarsChart
           data={data.whales}
@@ -144,7 +187,7 @@ export default function FeesRevenuePage() {
 
       <ChartCard
         title="The 20 biggest fee payers"
-        desc={`${data.top20AllPh ? 'Every one of the top 20' : 'Most of the top 20'} permits by total fees billed is a phased (PH) permit, the structure used for towers that get reviewed and built in stages. Just ${fmtInt(data.phPermits)} phased permits carry ${fmtMoneyCompact(data.phBilled)} in fees, ${fmtPct(data.phSharePct)} of all dollars billed. The biggest, the two-tower project at ${data.top1Address}, was billed ${fmtMoneyCompact(data.top1Billed)} on its own.`}
+        desc={`${data.top20AllPh ? 'Every one of the top 20' : 'Most of the top 20'} permits by total fees billed is a phased (PH) permit, the structure used for towers that get reviewed and built in stages. Just ${fmtInt(data.phPermits)} phased permits carry ${fmtMoneyCompact(data.phBilled)} in fees, ${fmtPct(data.phSharePct)} of all dollars billed. The biggest, at ${data.top1Address}, was billed ${fmtMoneyCompact(data.top1Billed)} on its own.`}
         csv={{
           filename: 'top-20-permits-by-fees.csv',
           data: toCsv(
@@ -152,7 +195,8 @@ export default function FeesRevenuePage() {
             data.top20.map((r) => [r.id, r.address, r.project, r.billed]),
           ),
         }}
-        footnote={`${METHOD} Fees are summed per permit number across all its invoice lines, 2020 to June 23, 2026. Addresses and project descriptions come from joining the permit number to the city's building permits dataset (76t5-zqzr).`}
+        footnote={`${METHOD} Fees are summed per permit number across all its invoice lines, January 2020 to ${data.dataThroughLabel}, after the voided-line cleaning described above. Addresses and project descriptions come from joining the permit number to the city's building permits dataset (76t5-zqzr).`}
+        source={{ id: 'k8z7-3feg', query: Q_TOP20 }}
       >
         <DataTable
           headers={['Permit', 'Address', 'Project', 'Fees billed']}
@@ -163,12 +207,13 @@ export default function FeesRevenuePage() {
 
       <ChartCard
         title={`The ${fmtMoneyCompact(data.totalDue)} nobody paid`}
-        desc={`Share of each year's billed dollars still unpaid at extract time. In mature years the leakage runs ${fmtPct(data.leakMatureMin)} to ${fmtPct(data.leakMatureMax)}. Recent years look worse mostly because their invoices are still fresh. Even so, ${fmtPct(data.oldSharePct)} of the unpaid balance is on invoices more than a year old.`}
+        desc={`Share of each year's billed dollars showing no payment: computed from fee amount minus amount paid, with voided and rebilled lines removed, not a balance snapshot. In the mature years 2020 to 2024 it runs ${fmtPct(data.leakMatureMin)} to ${fmtPct(data.leakMatureMax)}, and ${fmtPct(data.oldSharePct)} of the unpaid total sits on invoices more than a year old.`}
         csv={{
           filename: 'unpaid-share-by-year.csv',
           data: toCsv(['year', 'unpaid_pct_of_billed'], data.leak.map((r) => [r.y, r.pct])),
         }}
-        footnote={`${METHOD} The unpaid balance is a snapshot as of the extract date, so recent years (2025, and especially the partial 2026*) include invoices that will still be paid. The extract records no refunds, so unpaid shares are a floor on eventual collection, not a final write-off rate.`}
+        footnote={`${METHOD} The dataset has no balance snapshot, so unpaid here is computed: fee amount minus amount paid on each line, after the reissue dedupe and rebill collapse described above. It still counts fees that were later waived, reduced, or written off in ways the data does not record, so read it as invoiced-and-never-paid, not money currently owed or a final write-off rate. Recent invoices (especially in the partial 2026*) will also still be paid.`}
+        source={{ id: 'k8z7-3feg', query: Q_YEARLY }}
       >
         <BarsChart
           data={data.leak}
@@ -180,17 +225,17 @@ export default function FeesRevenuePage() {
       </ChartCard>
 
       <div className="caveat">
-        <strong>Where the leakage concentrates.</strong> Demolition (DM) fees are the standout: {fmtPct(data.dmMatureUnpaidPct)}{' '}
-        of demo dollars billed in the mature years 2020 to 2024 remain unpaid, against {fmtPct(data.leakMatureMin)} to{' '}
+        <strong>Where the leakage concentrates.</strong> Demolition (DM) fees stand out: {fmtPct(data.dmMatureUnpaidPct)}{' '}
+        of demo dollars billed in the mature years 2020 to 2024 show no payment, against {fmtPct(data.leakMatureMin)} to{' '}
         {fmtPct(data.leakMatureMax)} for fees overall. And demo invoices go unpaid all or nothing:{' '}
         {fmtPct(data.dmFullyUnpaidPct)} of them are fully unpaid while only {data.dmPartialPct}% are partially paid.
-        The single worst-collected fee is the inspection no-show charge: {fmtPct(data.nsUnpaidPct)} of the{' '}
+        Among the worst-collected charges is the inspection no-show fee: {fmtPct(data.nsUnpaidPct)} of the{' '}
         {fmtMoneyCompact(data.nsBilled)} billed across {fmtInt(data.nsLines)} no-show invoices was never paid.
       </div>
 
       <div className="caveat">
         <strong>Construction itself is fine. The mix changed.</strong> Ordinary construction (CN) permits billed{' '}
-        {fmtMoneyCompact(data.cn2025)} in 2025, {data.cn2025IsRecord ? 'their best year in this extract' : 'near their best year in this extract'},
+        {fmtMoneyCompact(data.cn2025)} in 2025, {data.cn2025IsRecord ? 'their best year since 2020' : 'near their best year since 2020'},
         and 2026 is pacing to {fmtMoneyCompact(data.cn2026Pace)}. The revenue decline lives almost entirely in the big-project
         tier: phased tower permits and other six-figure invoices that arrived steadily in 2020 and mostly stopped. Whether that
         gap closes depends on a handful of projects a year, not on thousands of kitchen remodels.
