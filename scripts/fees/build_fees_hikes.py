@@ -60,10 +60,14 @@ YEARS = list(range(2020, END_YEAR + 1))
 print(f'rows used: {len(df):,}; span {df.dt.min()} .. {df.dt.max()} '
       f'(full history from {full_history_start.date()}); years {YEARS[0]}-{YEARS[-1]}')
 
-# ---------------------------------------------------------------- base unit
-# The SDCI hourly-fee base unit. Verified against two independent 2-unit
-# tracers (Drainage Review - Minimum on CN, Geotech Review Post Issue -
-# Minimum on CN): modal amount is exactly 2x the unit in every year.
+# ---------------------------------------------------------------- base fee
+# The SDCI base fee, defined in SMC 22.900B.010.A ("The SDCI base fee shall be
+# charged as specified in this Subtitle IX and shall be $292" for 2026). Many
+# minimum fees are exactly one base fee, so we track it through two such
+# minimums (Drainage Review - Minimum and Geotech Review Post Issue - Minimum,
+# each = 1 base fee), which agree in every year. Note: an earlier version
+# divided these by two and mislabeled the result a "base unit"; the modal of
+# these minimums IS the base fee, matching the subtitle's $292 exactly.
 def modal(desc, suf, y):
     s = df[(df.description == desc) & (df.suffix == suf) & (df.year == y)]['amt']
     if len(s) == 0:
@@ -77,9 +81,9 @@ for y in YEARS:
     b, nb, sb = modal('Geotech Review Post Issue - Minimum', 'CN', y)
     assert a == b, f'{y}: tracers disagree {a} vs {b}'
     assert sa >= 0.6 and sb >= 0.6, f'{y}: tracer modal not dominant'
-    unit_by_year[y] = round(a / 2, 2)
-print('base unit by year:', unit_by_year)
-assert unit_by_year[2020] == 115.5 and unit_by_year[2026] == 146.0
+    unit_by_year[y] = round(a, 2)
+print('base fee by year:', unit_by_year)
+assert unit_by_year[2020] == 231.0 and unit_by_year[2026] == 292.0  # SMC 22.900B.010
 
 staircase = [
     {
@@ -90,7 +94,7 @@ staircase = [
     for y in YEARS
 ]
 unitRise = round((unit_by_year[YEARS[-1]] / unit_by_year[2022] - 1) * 100, 1)
-print('unit rise 2022->%d: %.1f%%' % (YEARS[-1], unitRise))
+print('base fee rise 2022->%d: %.1f%%' % (YEARS[-1], unitRise))
 
 # ------------------------------------------------------- land use hourly rate
 # Derived from the LU-permit "Land Use Review - Minimum": modal invoice is

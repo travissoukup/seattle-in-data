@@ -10,7 +10,7 @@ import { PriceExplorer, StaircaseChart, type ExplorerLabel } from './PriceExplor
 
 export const metadata = {
   title: `Seattle permit fees change once a year, ${data.nOutsideJan === 0 ? 'in January' : 'almost always in January'}`,
-  description: `${data.nOutsideJan === 0 ? 'Every price change' : `All but ${fmtInt(data.nOutsideJan)} of the ${fmtInt(data.nChanges)} price changes`} on Seattle's ${fmtInt(data.nTracked)} highest-revenue permit fees since 2020 landed in January. The base fee unit froze at $${data.unit2020.toFixed(2)} for ${data.unitHikes[0].y - data.years[0]} years, then rose ${data.unitHikes.length} Januaries straight to $${fmtInt(data.unitLast)}.`,
+  description: `${data.nOutsideJan === 0 ? 'Every price change' : `All but ${fmtInt(data.nOutsideJan)} of the ${fmtInt(data.nChanges)} price changes`} on Seattle's ${fmtInt(data.nTracked)} highest-revenue permit fees since 2020 landed in January. The SDCI base fee (SMC 22.900B.010) froze at $${fmtInt(data.unit2020)} for ${data.unitHikes[0].y - data.years[0]} years, then rose ${data.unitHikes.length} Januaries straight to $${fmtInt(data.unitLast)}.`,
 };
 
 /** Exact-cents money for schedule prices like $115.50. */
@@ -112,11 +112,11 @@ export default function FeesHikesPage() {
 
       <div className="stat-grid">
         <div className="stat-card">
-          <div className="label">Base fee unit, {yLast}</div>
+          <div className="label">SDCI base fee, {yLast}</div>
           <div className="value">{fmtPrice(data.unitLast)}</div>
         </div>
         <div className="stat-card">
-          <div className="label">Unit rise since {firstHikeYear - 1}</div>
+          <div className="label">Base fee rise since {firstHikeYear - 1}</div>
           <div className="value">+{fmtPct(data.unitRisePct)}</div>
         </div>
         <div className="stat-card">
@@ -130,13 +130,13 @@ export default function FeesHikesPage() {
       </div>
 
       <ChartCard
-        title="The base fee unit staircase"
-        desc={`Most SDCI review fees are priced in multiples of one base unit. It sat at ${fmtPrice(data.unit2020)} for ${fmtInt(firstHikeYear - y0)} years, then climbed every January: ${data.unitHikes.map((h) => `+${h.pct}% in ${h.y}`).join(', ')}. That is +${fmtPct(data.unitRisePct)} in ${fmtInt(data.unitHikes.length)} steps.`}
+        title="The base fee staircase"
+        desc={`The city sets one SDCI base fee (SMC 22.900B.010), and most review fees are multiples of it: many minimums are exactly one base fee, missed-appointment and some flat fees are half. It sat at ${fmtPrice(data.unit2020)} for ${fmtInt(firstHikeYear - y0)} years, then climbed every January: ${data.unitHikes.map((h) => `+${h.pct}% in ${h.y}`).join(', ')}. That is +${fmtPct(data.unitRisePct)} in ${fmtInt(data.unitHikes.length)} steps, reaching the ${fmtPrice(data.unitLast)} the 2026 fee subtitle lists.`}
         csv={{
-          filename: 'base-fee-unit-by-year.csv',
-          data: toCsv(['year', 'base_unit', 'pct_change'], data.staircase.map((s) => [s.y, s.unit, s.pct ?? ''])),
+          filename: 'sdci-base-fee-by-year.csv',
+          data: toCsv(['year', 'base_fee', 'pct_change'], data.staircase.map((s) => [s.y, s.unit, s.pct ?? ''])),
         }}
-        footnote={`The unit is derived from two independent tracer fees (Drainage Review Minimum and Geotech Review Post Issue Minimum on construction permits), both invoiced at exactly 2 units in every year; they agree in all ${fmtInt(data.years.length)} years. ${SOURCE_NOTE}`}
+        footnote={`The base fee is read from two fees that the schedule sets at exactly one base fee (Drainage Review Minimum and Geotech Review Post Issue Minimum on construction permits); they agree in all ${fmtInt(data.years.length)} years and match the $${fmtInt(data.unitLast)} the 2026 fee subtitle states for SMC 22.900B.010. ${SOURCE_NOTE}`}
         source={{
           id: FEES_DS,
           query: soql({
