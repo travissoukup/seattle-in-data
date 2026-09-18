@@ -187,7 +187,7 @@ export default function FeesHikesPage() {
       </ChartCard>
 
       <ChartCard
-        title="Biggest risers, and the cuts nobody talks about"
+        title="Largest fee increases and decreases since 2020"
         desc={`Net change from ${y0} to ${yLast} for the tracked fees that moved most. Single-family plan review is up ${fmtPct(data.sfd.pct)}, with a +${fmtPct(data.sfd.stepPct)} jump in one step (${fmtPrice(data.sfd.p2024)} to ${fmtPrice(data.sfd.p2025)} in 2025). Meanwhile fire and refrigeration unit fees fell hard early: the fire Appliance fee bottomed out ${fmtPct(data.frAppliance.pct)} below its ${y0} price by ${data.frAppliance.lowY} (${fmtPrice(data.frAppliance.first)} to ${fmtPrice(data.frAppliance.low)}), and the refrigeration Basic Fee hit ${fmtPct(data.rfBasic.pct)} (${fmtPrice(data.rfBasic.first)} to ${fmtPrice(data.rfBasic.low)}) by ${data.rfBasic.lowY} before creeping back.`}
         csv={{
           filename: 'fee-risers-and-cuts.csv',

@@ -182,7 +182,7 @@ export default function ParkingPage() {
       </ChartCard>
 
       <ChartCard
-        title="Downtown recovered. The neighborhoods kept sliding."
+        title="Downtown occupancy recovered while other areas kept falling"
         desc={`Average paid-occupancy rate by year for five areas. The downtown core (Commercial Core, Pioneer Square) climbed back, while neighborhood business districts like Ballard, Capitol Hill, and Uptown stayed low through ${latestYear}. The pandemic-trough years 2020 and 2021 are not shown.`}
         footnote={
           <>
@@ -202,8 +202,8 @@ export default function ParkingPage() {
       </ChartCard>
 
       <ChartCard
-        title="Ballard is not down because the commuters left. It is down all day."
-        desc={`Occupancy by hour of day, ${baseYear} against ${latestYear}, for Ballard and the Commercial Core. Ballard is down at every metered hour, and by ${Math.round(ballardDrop?.min ?? 0)} to ${Math.round(ballardDrop?.max ?? 0)} percent from 11am through the day's end: its 7pm peak fell from ${pct(ballardEveBase ?? 0)} to ${pct(ballardEveLatest ?? 0)}. A vanished office crowd would dent mornings and leave dinner alone. This decline is flat across the day, which points at habits, prices, or trips that never resumed. The Commercial Core moved the other way: its meters are ${Math.round(coreMorning ?? 0)} percent busier at 8am than they were in ${baseYear}.`}
+        title="Ballard occupancy fell at every metered hour"
+        desc={`Occupancy by hour of day, ${baseYear} against ${latestYear}, for Ballard and the Commercial Core. Ballard is down at every metered hour, and by ${Math.round(ballardDrop?.min ?? 0)} to ${Math.round(ballardDrop?.max ?? 0)} percent from 11am through the day's end: its 7pm peak fell from ${pct(ballardEveBase ?? 0)} to ${pct(ballardEveLatest ?? 0)}. The decline is roughly flat across the day rather than concentrated in commute hours. The Commercial Core moved the other way: its meters are ${Math.round(coreMorning ?? 0)} percent busier at 8am than they were in ${baseYear}.`}
         csv={{ filename: 'seattle-parking-hourly.csv', data: hourlyCsv }}
         footnote={
           <>

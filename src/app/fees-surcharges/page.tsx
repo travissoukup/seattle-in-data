@@ -170,8 +170,8 @@ export default function FeesSurchargesPage() {
       </ChartCard>
 
       <ChartCard
-        title="Five percent of what, exactly"
-        desc={`The math checks out, mostly. Grouping lines into invoices by permit and timestamp, ${fmtInt(data.invoicesWithTech)} invoices since ${techYear0} carry a Technology Fee line. The median ratio to the rest of the invoice is exactly ${fmt1(data.ratioMedian)}%, ${fmtPct(data.pctInBand)} sit between 4.5% and 5.5%, and ${fmtPct(data.pctExactFive)} match 5% to the penny. The fee subtitle (SMC 22.900A.100) applies it to SDCI's own review and permit fees, chapters 22.900B, C, D, E, F and H, so it is not charged on the state building code surcharge, on penalties, or on fees the department collects for other agencies like SDOT and the Fire Department.`}
+        title="What the 5% technology fee is calculated on"
+        desc={`Grouping lines into invoices by permit and timestamp, ${fmtInt(data.invoicesWithTech)} invoices since ${techYear0} carry a Technology Fee line. The median ratio to the rest of the invoice is exactly ${fmt1(data.ratioMedian)}%, ${fmtPct(data.pctInBand)} sit between 4.5% and 5.5%, and ${fmtPct(data.pctExactFive)} match 5% to the penny. The fee subtitle (SMC 22.900A.100) applies it to SDCI's own review and permit fees, chapters 22.900B, C, D, E, F and H, so it is not charged on the state building code surcharge, on penalties, or on fees the department collects for other agencies like SDOT and the Fire Department.`}
         csv={{
           filename: 'tech-fee-ratio-tests.csv',
           data: csvOf(

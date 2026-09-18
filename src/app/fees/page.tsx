@@ -109,7 +109,7 @@ export default function FeesPage() {
       </div>
 
       <ChartCard
-        title="Most permits are cheap. The dollars are not."
+        title="Fee dollars are concentrated in a small share of permits"
         desc={`Share of permits by total fees paid. The small slice over ${fmtMoneyCompact(20000)}, just ${fmtPct(topBucket.permitsPct)} of permits, carried ${fmtPct(topBucket.dollarsPct)} of all fee dollars.`}
         csv={{
           filename: 'fee-distribution.csv',

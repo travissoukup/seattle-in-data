@@ -98,8 +98,8 @@ export default function RentalsPage() {
       </div>
 
       <ChartCard
-        title="Most properties are small. Most units are not."
-        desc={`The same registry, split two ways. The top bar splits the ${fmtInt(data.totalProps)} properties by size; the bottom bar splits the ${fmtInt(data.totalUnits)} units. Single homes dominate the first and nearly vanish in the second.`}
+        title="Registered properties by size, and units by size"
+        desc={`The same registry, split two ways. The top bar splits the ${fmtInt(data.totalProps)} properties by size; the bottom bar splits the ${fmtInt(data.totalUnits)} units. Single homes dominate the property count and make up a small share of the unit count.`}
         csv={{
           filename: 'rental-size-buckets.csv',
           data: toCsv(

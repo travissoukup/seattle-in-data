@@ -189,7 +189,7 @@ export default function LibraryPage() {
       ) : null}
 
       <ChartCard
-        title="A media library, not just a book library"
+        title="Checkouts by material type since 2005"
         desc="Total checkouts since 2005 by material type. Books lead, but the library moves enormous volumes of DVDs, CDs, e-books, and audiobooks, and it also lends Wi-Fi hotspots and laptops (not shown here)."
         csv={{ filename: 'seattle-library-material-types.csv', data: matCsv }}
         footnote="Checkouts summed across all years; case variants merged."

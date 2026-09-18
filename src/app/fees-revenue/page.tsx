@@ -10,7 +10,7 @@ import { PaceTrend } from './PaceTrend';
 import { QuarterlyChart } from './QuarterlyChart';
 
 export const metadata = {
-  title: 'More permits, smaller checks',
+  title: 'Permit volume up, fee per permit down',
   description: `Seattle permit fee billing fell from ${fmtMoneyCompact(data.billed2020)} in 2020 to ${fmtMoneyCompact(data.billed2024)} in 2024 while permits invoiced rose. The average check shrank ${fmtPct(data.perPermitDropPct)}, and a handful of phased high-rise permits explain the swing.`,
 };
 
@@ -68,7 +68,7 @@ export default function FeesRevenuePage() {
 
       <div className="page-head">
         <p className="eyebrow">Permit Fees</p>
-        <h1>More permits, smaller checks: SDCI bills {fmtPct(data.perPermitDropPct)} less per permit than in 2020</h1>
+        <h1>SDCI bills {fmtPct(data.perPermitDropPct)} less per permit than in 2020, across more permits</h1>
         <p>
           Since January 2020, Seattle&apos;s permitting arm has billed {fmtMoneyCompact(data.totalBilled)} in fees
           across {fmtInt(data.totalPermits)} permits and collected {fmtMoneyCompact(data.totalPaid)} of it. The
@@ -128,7 +128,7 @@ export default function FeesRevenuePage() {
       </ChartCard>
 
       <ChartCard
-        title="More permits, smaller checks"
+        title="Permits invoiced and fee per permit, indexed to 2020"
         desc={`Both lines indexed to 2020 = 100. Permits invoiced per year climbed from ${fmtInt(data.permits2020)} to a ${fmtInt(data.permits2026Pace)} pace, up ${fmtPct(data.permitsUpPct)}. The fee billed per permit went the other way, from ${fmtMoney(data.perPermit2020)} to ${fmtMoney(data.perPermit2026)}, down ${fmtPct(data.perPermitDropPct)}.`}
         csv={{
           filename: 'permits-vs-per-permit-indexed.csv',

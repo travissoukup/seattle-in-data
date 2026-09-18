@@ -108,7 +108,7 @@ export default function BikesPage() {
       <div className="caveat" style={{ borderLeftColor: PALETTE[0] }}>
         <strong>What this shows, and what it does not.</strong> This is one counter at one spot, the Fremont Bridge. It
         is not a count of all biking in Seattle. Riders who cross other bridges or take other routes never show up here.
-        A few hours over the years have gaps or counter glitches too, so treat the long trend as the real story, not any
+        A few hours over the years have gaps or counter glitches too, so the long-run trend is more reliable than any
         single hour.
       </div>
 

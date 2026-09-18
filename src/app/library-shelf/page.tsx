@@ -154,8 +154,8 @@ export default function LibraryShelfPage() {
       </ChartCard>
 
       <ChartCard
-        title="Books still rule the shelves"
-        desc="Every item in the latest count, sorted into plain formats. Books are most of it."
+        title="Collection by format"
+        desc="Every item in the latest count, grouped by format."
         csv={{ filename: 'library-by-format.csv', data: toCsv(['format', 'items'], data.byFormat.map((f) => [f.key, f.n])) }}
         footnote="Formats are rolled up from the library's own item-type codes. Counts sum copies, not just listings."
         source={{

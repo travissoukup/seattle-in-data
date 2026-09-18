@@ -170,7 +170,7 @@ export default function FeesHousingPage() {
       </ChartCard>
 
       <ChartCard
-        title="Demolition fees: paid in full or not at all"
+        title="Demolition permit fees, by share of the invoice paid"
         desc={`Demolition permits show the starkest nonpayment pattern in the fee data. Of ${fmtInt(data.demo.matureN)} demolition permits first invoiced by ${data.demo.matureLastYear}, ${fmtInt(data.demo.fullPaidN)} paid every dollar and ${fmtInt(data.demo.zeroPaidN)} (${fmtPct(data.demo.zeroPaidPct)}) paid nothing at all. Only ${fmtInt(data.demo.partialN)} paid part of the bill. The unpaid balance is ${fmtMoney(data.demo.unpaid)}, ${fmtPct(data.demo.unpaidPct)} of what those permits were billed.`}
         csv={{
           filename: 'demo-fee-payment.csv',

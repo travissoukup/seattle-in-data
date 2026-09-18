@@ -100,8 +100,8 @@ export default function PetsPage() {
       </div>
 
       <ChartCard
-        title="Cat country is downtown"
-        desc={`Cat share of licensed pets by ZIP. The most cat-heavy ZIPs are the apartment-dense core (${HOOD[catHi?.zip ?? ''] ?? ''}, Belltown, Eastlake); the least cat-heavy are single-family edges like ${HOOD[catLo?.zip ?? ''] ?? ''} and West Seattle. Cats live where the apartments are, which makes this a housing-density map told through pets.`}
+        title="Cat share of licensed pets by ZIP"
+        desc={`Cat share of licensed pets by ZIP. The most cat-heavy ZIPs are the apartment-dense core (${HOOD[catHi?.zip ?? ''] ?? ''}, Belltown, Eastlake); the least cat-heavy are single-family edges like ${HOOD[catLo?.zip ?? ''] ?? ''} and West Seattle. Cat share tracks apartment density more closely than any other factor in the data.`}
         csv={{ filename: 'seattle-cat-share-by-zip.csv', data: catCsv }}
         footnote={`Cats as a share of all licensed pets, for Seattle ZIPs with at least ${fmtInt(pets.catZipMin)} licensed pets. ZIP is the owner's mailing ZIP.`}
         source={{
@@ -162,7 +162,7 @@ export default function PetsPage() {
       </ChartCard>
 
       <ChartCard
-        title="Frenchies vs pit bulls: a breed map of class"
+        title="French bulldogs and pit bulls per 100 dogs, by ZIP"
         desc="French Bulldogs and pit bulls per 100 licensed dogs, by neighborhood. The two breeds sort almost perfectly by geography: Frenchies in the wealthier north and central ZIPs, pit bulls in the south and southeast. A dog-breed map turns out to be a quiet map of money."
         csv={{ filename: 'seattle-pet-breeds-by-zip.csv', data: zipCsv }}
         footnote="Per-100-dogs rates for ZIPs with at least 150 licensed dogs. French Bulldogs are the exact breed 'Bulldog, French'; pit bulls are any breed containing 'Pit Bull'. ZIP is the owner's, so this maps where owners live, and small downtown ZIPs with few dogs are noisy."
