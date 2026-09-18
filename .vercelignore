@@ -1,0 +1,16 @@
+# Local data pipeline inputs. The ETL scripts run on a workstation and commit
+# their output to public/property; the raw county extracts never deploy.
+.targets-data
+.geo-tmp
+
+# Build and dependency artefacts Vercel regenerates itself.
+.next
+node_modules
+tsconfig.tsbuildinfo
+
+# Local tooling
+.git
+.claude
+.venv
+__pycache__
+*.pyc

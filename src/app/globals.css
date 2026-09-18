@@ -1,3 +1,4 @@
+@import 'maplibre-gl/dist/maplibre-gl.css';
 :root {
   /* Neutral, data-forward palette. Chart accents are Okabe-Ito (colorblind-safe). */
   --bg: #f6f7f9;

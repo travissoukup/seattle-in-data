@@ -5,11 +5,13 @@ import { FeeEstimator } from './FeeEstimator';
 import { FeesPaidHere } from './FeesPaidHere';
 import { ZoningStandards } from './ZoningStandards';
 import { TotalProjectCost } from './TotalProjectCost';
+import { ParcelViewer3D } from './ParcelViewer3D';
 
 const SOCRATA = 'https://data.seattle.gov/resource';
 const GIS = 'https://services.arcgis.com/ZOyb2t4B0UYuYNYH/arcgis/rest/services';
 
 export interface DeepDiveDetail {
+  pin: string;
   addr: string;
   lat: number;
   lng: number;
@@ -50,6 +52,7 @@ const fmtK = (v: number | null) => (v == null ? '—' : v >= 1e6 ? `$${(v / 1e6)
 const fmtNum = (v: number | null) => (v == null ? '—' : v.toLocaleString('en-US'));
 
 const TABS = [
+  { key: '3d', label: '3D view' },
   { key: 'zoning', label: 'Zoning & standards' },
   { key: 'build', label: 'What you can build' },
   { key: 'permits', label: 'Permit history' },
@@ -60,7 +63,7 @@ const TABS = [
 type TabKey = (typeof TABS)[number]['key'];
 
 export function DeepDive({ detail, ecaLikely }: { detail: DeepDiveDetail; ecaLikely: boolean }) {
-  const [tab, setTab] = useState<TabKey>('zoning');
+  const [tab, setTab] = useState<TabKey>('3d');
   const [feeTotal, setFeeTotal] = useState(0);
   const [permits, setPermits] = useState<AnyPermit[] | null>(null);
   const [zoning, setZoning] = useState<LiveZoning | null>(null);
@@ -149,6 +152,7 @@ export function DeepDive({ detail, ecaLikely }: { detail: DeepDiveDetail; ecaLik
         ))}
       </div>
 
+      {tab === '3d' ? <ParcelViewer3D detail={detail} ecaLikely={ecaLikely} /> : null}
       {tab === 'zoning' ? <ZoningTab detail={detail} zoning={zoning} ecaLikely={ecaLikely} /> : null}
       {tab === 'build' ? <ZoningStandards detail={detail} ecaLikely={ecaLikely} liveZone={(zoning?.zoning || '').trim()} /> : null}
       {tab === 'permits' ? <PermitsTab permits={permits} declared={declared} /> : null}
