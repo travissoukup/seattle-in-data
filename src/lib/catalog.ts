@@ -77,7 +77,7 @@ export const CATEGORIES: Category[] = [
         datasets: ['Permit Fees (k8z7-3feg)'],
       },
       {
-        title: 'More permits, smaller checks',
+        title: 'Permit volume up, fee per permit down',
         blurb:
           'Seattle bills fees on more permits than it did in 2020, but the average check shrank by a quarter. The drop is a handful of missing tower projects, not the thousands of small jobs, and $12.6M of it was never paid at all.',
         status: 'investigation',
@@ -110,6 +110,20 @@ export const CATEGORIES: Category[] = [
     intro:
       'Want to add a deck, build a house, or open a shop? You need a permit, and the city tracks every one. These pages show where building has been happening lately, how long permits take to get approved, and what happens when someone breaks the rules. If you have ever wondered why a project down the block is dragging on, start here.',
     entries: [
+      {
+        title: 'Build a property tax appeal, free',
+        blurb: 'Type your address and get a complete appeal packet: the three strongest comparable sales from the assessor\'s own records, a defensible opinion of value, the grounds that actually apply to your property, your parcel-specific filing deadline, and the exemptions you may qualify for instead. It will also tell you plainly when you do not have a case.',
+        status: 'live',
+        href: '/appeal',
+        datasets: ['King County Assessor', 'King County Review History', 'Code Complaints and Violations (ez4a-iug7)'],
+      },
+      {
+        title: 'Look up any property',
+        blurb: 'Type a Seattle address and get the whole public-records picture: the building and lot, assessed value and sales, what the zoning would let you build (units, floor area, ADUs), every permit ever filed, open code cases, environmentally critical areas, and deep links to the county and city records. Built for buyers, investors, and owners.',
+        status: 'live',
+        href: '/property',
+        datasets: ['King County Assessor', 'Building Permits (76t5-zqzr)', 'Land Use Permits (ht3q-kdvx)', 'Code Complaints and Violations (ez4a-iug7)'],
+      },
       {
         title: 'Where Seattle is building',
         blurb: 'Seattle permits far fewer new homes than it did at the 2021 peak, even as declared construction dollars set records. Charts of the housing pipeline, plus a map of recent permits and a ZIP-by-ZIP comparison.',
